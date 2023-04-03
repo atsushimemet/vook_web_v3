@@ -1,0 +1,31 @@
+<footer class="footer">
+  <div class="container">
+    <nav>
+      <div class="footer-sns-icons">
+        <div class="footer-sns-icon twitter-icon">
+          <%= link_to 'https://twitter.com/vintagelevislis', target: :_blank, rel: 'noopener' do %>
+            <i class="fa-brands fa-square-twitter fa-2x"></i>
+          <% end %>
+        </div>
+        <div class="footer-sns-icon instagram-icon">
+          <%= link_to image_tag('icon-instagram', alt: 'icon-instagram'),
+                      'https://www.instagram.com/vook.vintagebook/', target: :_blank, rel: 'noopener' %>
+        </div>
+        <div class="footer-sns-icon tiktok-icon">
+          <%= link_to image_tag('icon-tiktok', alt: 'icon-instagram'), 'https://www.tiktok.com/@vook.vintagebook/',
+                      target: :_blank, rel: 'noopener' %>
+        </div>
+      </div>
+      <div class="footer-item">
+        <span>
+          <%= link_to '利用規約', '#' %>
+        </span>
+        <span>/</span>
+        <span>
+          <%= link_to 'プライバシーポリシー', '#' %>
+        </span>
+        <p class="copy-right">&copy;Vook 2023</p>
+      </div>
+    </nav>
+  </div>
+</footer>

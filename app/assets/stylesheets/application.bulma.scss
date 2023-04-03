@@ -37,9 +37,8 @@ $section-padding: 20px;
 $tabs-link-color: #808080;
 $button-border-width: 1px;
 $modal-card-body-padding: 50px;
-$footer-background-color: $beige-light;
-$footer-padding: 30px;
 
+@import "parts/footer";
 @import "parts/header";
 // $body-background-color: $beige-lighter;
 // $control-border-width: 2px;
