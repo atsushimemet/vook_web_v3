@@ -38,12 +38,8 @@ $tabs-link-color: #808080;
 $button-border-width: 1px;
 $modal-card-body-padding: 50px;
 
-@import "parts/footer";
-@import "parts/header";
-// $body-background-color: $beige-lighter;
-// $control-border-width: 2px;
-// $input-border-color: transparent;
-// $input-shadow: none;
+@import "footer";
+@import "header";
 
 // Import only what you need from Bulma
 @import "bulma/sass/utilities/_all.sass";
@@ -55,3 +51,5 @@ $modal-card-body-padding: 50px;
 @import "bulma/sass/components/navbar.sass";
 @import "bulma/sass/layout/hero.sass";
 @import "bulma/sass/layout/section.sass";
+
+@import 'bulma/bulma';
