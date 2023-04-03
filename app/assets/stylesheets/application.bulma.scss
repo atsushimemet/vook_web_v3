@@ -1,39 +1,58 @@
-// @charset "utf-8";
+@charset "utf-8";
 
 // Import a Google Font
-// @import url('https://fonts.googleapis.com/css?family=Nunito:400,700');
+// @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200&display=swap');
 
 // Set your brand colors
-// $purple: #8A4D76;
-// $pink: #FA7C91;
-// $brown: #757763;
-// $beige-light: #D0D1CD;
-// $beige-lighter: #EFF0EB;
+$orange: #ED6C00;
+$white: #fff;
+$black: #444444;
+$beige-light: #F7F7F7;
+$beige-lighter: #EFEFEF;
+$gray: #777777;
 
 // Update Bulma's global variables
-// $family-sans-serif: "Nunito", sans-serif;
-// $grey-dark: $brown;
-// $grey-light: $beige-light;
-// $primary: $purple;
-// $link: $pink;
-// $widescreen-enabled: false;
-// $fullhd-enabled: false;
+$family-sans-serif: 'Helvetica Neue', Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
+$grey-dark: $black;
+$primary: $black;
+$link: $black;
+$info: $orange;
+$danger: $orange;
+
+body {
+  display: flex;
+  flex-flow: column;
+  min-height: 100vh;
+}
+main {
+  flex: 1;
+}
 
 // Update some of Bulma's component variables
+$container-max-width: 830px;
+$body-background-color: $white;
+$control-border-width: 2px;
+$input-shadow: none;
+$section-padding: 20px;
+$tabs-link-color: #808080;
+$button-border-width: 1px;
+$modal-card-body-padding: 50px;
+$footer-background-color: $beige-light;
+$footer-padding: 30px;
+
+@import "parts/header";
 // $body-background-color: $beige-lighter;
 // $control-border-width: 2px;
 // $input-border-color: transparent;
 // $input-shadow: none;
 
 // Import only what you need from Bulma
-// @import "bulma/sass/utilities/_all.sass";
-// @import "bulma/sass/base/_all.sass";
-// @import "bulma/sass/elements/button.sass";
-// @import "bulma/sass/elements/container.sass";
-// @import "bulma/sass/elements/title.sass";
-// @import "bulma/sass/form/_all.sass";
-// @import "bulma/sass/components/navbar.sass";
-// @import "bulma/sass/layout/hero.sass";
-// @import "bulma/sass/layout/section.sass";
-
-@import 'bulma/bulma';
+@import "bulma/sass/utilities/_all.sass";
+@import "bulma/sass/base/_all.sass";
+@import "bulma/sass/elements/button.sass";
+@import "bulma/sass/elements/container.sass";
+@import "bulma/sass/elements/title.sass";
+@import "bulma/sass/form/_all.sass";
+@import "bulma/sass/components/navbar.sass";
+@import "bulma/sass/layout/hero.sass";
+@import "bulma/sass/layout/section.sass";
