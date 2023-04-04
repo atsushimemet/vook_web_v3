@@ -1,0 +1,51 @@
+.tab-list {
+  &.is-active a {
+    border-top: $black solid 2px !important;
+    animation: fadeIn 0.7s ease 0s 1 normal;
+  }
+
+  a {
+    font-size: 18px;
+
+    &:hover {
+      color: $primary;
+    }
+  }
+}
+
+.tab-content {
+  display: none;
+  &.is-active {
+    display: block;
+    animation: fadeIn 0.7s ease 0s 1 normal;
+  }
+}
+
+@keyframes fadeIn  {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.knowladge-tab-item {
+  border: solid 1px gray;
+  border-radius: 10px;
+  margin: 4px;
+  color: gray;
+  height: 90px;
+  width: 120px;
+  p {
+    margin-top: 4px;
+    font-size: small;
+  }
+}
+
+// モバイルで使うときにCSSの当て方
+// @include mobile {
+//   .knowledge-section {
+//     padding: 10px 20px 20px;
+//   }
+// }

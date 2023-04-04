@@ -1,0 +1,40 @@
+.knowledge-list {
+  padding: 30px;
+  border: 1px solid #e5e5e5;
+}
+
+.knowledge-section {
+  margin: 20px 40px;
+}
+
+.magazine-section {
+  margin: 20px 40px;
+  .card {
+    margin: 10px;
+  }
+  .magazine-content {
+    padding: 20px;
+  }
+  .magazine-title {
+    font-size: 20px;
+    font-weight: 600;
+  }
+}
+
+.item-search-section {
+  margin: 20px 40px;
+}
+
+.item-search-cover img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  background: gray;
+  filter: grayscale(100%);
+  opacity: .6;
+  background-attachment: fixed;
+}
+
+.community-section {
+  margin: 20px 40px;
+}
