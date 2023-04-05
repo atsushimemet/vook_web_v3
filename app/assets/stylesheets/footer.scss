@@ -1,0 +1,35 @@
+$footer-background-color: $white;
+$footer-padding: 20px;
+
+.footer {
+  border-top: solid 2px $gray;
+}
+
+.footer-item {
+  margin: 8px;
+  text-align: center;
+}
+
+.copy-right {
+  font-size: 14px;
+  font-weight: bold;
+  margin: 10px;
+}
+
+.footer-sns-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .footer-sns-icon {
+    padding: 2px 8px;
+  }
+  img {
+    vertical-align: middle;
+    height: 28px;
+  }
+  .twitter-icon i {
+    color: #55acee;
+    font-size: 32px;
+  }
+}
