@@ -51,5 +51,6 @@ test:
 production:
   <<: *default
   database: vook_web_v3_production
-  username: vook_web_v3
-  password: <%= ENV["VOOK_WEB_V3_DATABASE_PASSWORD"] %>
+  host: <%= ENV['DATABASE_DEV_HOST'] %>
+  username: <%= ENV['DATABASE_DEV_USER'] %>
+  password: <%= ENV['DATABASE_DEV_PASSWORD'] %>
