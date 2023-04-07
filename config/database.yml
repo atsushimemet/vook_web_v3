@@ -15,7 +15,6 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: <%= ENV["DATABASE_USER"] %>
   password: <%= ENV["DATABASE_PASS"] %>
-  socket: /tmp/mysql.sock
 
 development:
   <<: *default
@@ -49,8 +48,13 @@ test:
 # for a full overview on how database connection configuration can be specified.
 #
 production:
-  <<: *default
   database: vook_web_v3_production
-  host: <%= ENV['DATABASE_DEV_HOST'] %>
-  username: <%= ENV['DATABASE_DEV_USER'] %>
-  password: <%= ENV['DATABASE_DEV_PASSWORD'] %>
+  adapter: mysql2
+  encoding: utf8mb4
+  charset: utf8mb4
+  collation: utf8mb4_general_ci
+  host: <%= Rails.application.credentials.db[:endpoint] %>
+  username: <%= Rails.application.credentials.db[:user_name] %>
+  password: <%= Rails.application.credentials.db[:password] %>
+  pool: 20
+  timeout: 1000
