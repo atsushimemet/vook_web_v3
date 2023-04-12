@@ -43,6 +43,6 @@ class MagazinesController < ApplicationController
   end
 
   def magazine_params
-    params.require(:magazine).permit(:title, :body, :summary, :publish_at)
+    params.require(:magazine).permit(:title, :body, :summary, :publish_at, :thumbnail)
   end
 end

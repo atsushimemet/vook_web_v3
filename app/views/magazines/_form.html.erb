@@ -10,6 +10,13 @@
     </div>
   <% end %>
 
+  <div class='field'>
+    <%= form.label :thumbnail, 'サムネイル' %>
+    <div class='control'>
+      <%= form.file_field :thumbnail %>
+    </div>
+  </div>
+
   <div class="field">
     <%= form.label :title, 'タイトル', class: 'label' %>
     <div class="control">

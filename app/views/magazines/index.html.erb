@@ -2,6 +2,12 @@
 
 <div>
   <% @magazines.each do |magazine| %>
+    <% if magazine.thumbnail.attached? %>
+      <div>
+        <%= image_tag magazine.thumbnail %>
+      </div>
+    <% end %>
+
     <%= magazine.title %>
     <%= magazine.publish_at %>
     <p>

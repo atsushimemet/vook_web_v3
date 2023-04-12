@@ -1,3 +1,9 @@
+<% if @magazine.thumbnail.attached? %>
+  <div>
+    <%= image_tag @magazine.thumbnail %>
+  </div>
+<% end %>
+
 <div>
   <%= @magazine.title %>
   <%= @magazine.body %>
