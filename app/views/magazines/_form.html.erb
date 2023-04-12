@@ -1,0 +1,44 @@
+<%= form_with(model: magazine, local: true) do |form| %>
+  <% if magazine.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(magazine.errors.count, 'error') %> prohibited this magazine from being saved:</h2>
+      <ul>
+        <% magazine.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title, 'タイトル', class: 'label' %>
+    <div class="control">
+      <%= form.text_field :title %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= form.label :publish_at, '更新日', class: 'label' %>
+    <div class="control">
+      <%= form.date_field :publish_at %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= form.label :body, '記事の内容', class: 'label' %>
+    <div class="control">
+      <%= form.text_area :body %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= form.label :summary, 'まとめ', class: 'label' %>
+    <div class="control">
+      <%= form.text_field :summary %>
+    </div>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

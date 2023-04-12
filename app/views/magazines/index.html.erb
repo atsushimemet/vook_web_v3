@@ -1,0 +1,13 @@
+<h1>Magazines</h1>
+
+<div>
+  <% @magazines.each do |magazine| %>
+    <%= magazine.title %>
+    <%= magazine.publish_at %>
+    <p>
+      <%= link_to 'Show', magazine %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to 'New magazine', new_magazine_path %>
