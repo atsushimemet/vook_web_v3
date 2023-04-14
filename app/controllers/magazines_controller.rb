@@ -2,7 +2,7 @@ class MagazinesController < ApplicationController
   before_action :set_magazine, only: %i[show edit update destroy]
 
   def index
-    @magazines = Magazine.all
+    @new_magazines = Magazine.all.order(publish_at: :desc)
   end
 
   def show; end

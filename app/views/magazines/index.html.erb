@@ -4,31 +4,28 @@
       <h1 class="title">1.Vook Magazine</h1>
     </div>
   </div>
-  <%# タブ date/ranking %>
   <section class="magazine-section">
-    <div class="columns is-mobile is-multiline">
-      <% @magazines.each do |magazine| %>
-        <div class='column is-one-quarter-tablet is-half-mobile'>
-          <div class='card'>
-            <%= link_to magazine do %>
-              <span class="magazine-date">
-                <%= l magazine.publish_at, format: :date %>
-              </span>
-              <div class='card-image'>
-                <figure class="image is-4by3">
-                  <%= image_tag magazine.thumbnail %>
-                </figure>
-              </div>
-              <div class='card-content'>
-                <h3 class="card-header-title">
-                  <%= magazine.title %>
-                </h3>
-              </div>
-            <% end %>
-          </div>
-        </div>
-      <% end %>
+    <div class="tabs is-centered is-boxed is-fullwidth is-large">
+      <ul>
+        <li class="tab-list is-active">
+          <a>DATE</a>
+        </li>
+        <li class="tab-list">
+          <a>RANKING</a>
+        </li>
+      </ul>
     </div>
-    <%= link_to 'New Magazine', new_magazine_path, class: 'button' %>
+    <div class="magazine-tab-container">
+      <div class="tab-content is-active">
+        <%= render 'magazines/card_list', magazines: @new_magazines %>
+      </div>
+      <div class="tab-content">
+        <%# @popular_magazinesができるまで@new_magazinesにしておく %>
+        <%= render 'magazines/card_list', magazines: @new_magazines %>
+      </div>
+    </div>
+    <div class='has-text-right mt-4'>
+      <%= link_to 'New Magazine', new_magazine_path, class: 'button is-dark' %>
+    </div>
   </section>
 </section>
