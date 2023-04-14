@@ -97,43 +97,31 @@
     </div>
   </div>
   <section class="magazine-section">
-    <div class="columns is-variable is-1 is-multiline">
-      <a href="#" class="card column">
-        <div class="card-image">
-          <img src="https://cdn.pixabay.com/photo/2016/11/18/15/21/denim-1835313_1280.jpg" alt="" class=" w-100">
+    <div class="columns is-mobile is-multiline">
+      <% @magazines.each do |magazine| %>
+        <div class='column is-one-quarter-tablet is-half-mobile'>
+          <div class='card'>
+            <%= link_to magazine do %>
+              <span class="magazine-date">
+                <%= l magazine.publish_at, format: :date %>
+              </span>
+              <div class='card-image'>
+                <figure class="image is-4by3">
+                  <%= image_tag magazine.thumbnail %>
+                </figure>
+              </div>
+              <div class='card-content'>
+                <h3 class="card-header-title">
+                  <%= magazine.title %>
+                </h3>
+              </div>
+            <% end %>
+          </div>
         </div>
-        <div class="magazine-content">
-          <h3 class="magazine-title">Get inspired</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit, ducimus.</p>
-        </div>
-      </a>
-      <a href="#" class="card column">
-        <div class="card-image">
-          <img src="https://images.unsplash.com/photo-1479888230021-c24f136d849f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2370&q=80" alt="" class=" w-100">
-        </div>
-        <div class="magazine-content">
-          <h3 class="magazine-title">Give Donation</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit, ducimus.</p>
-        </div>
-      </a>
-      <a href="#" class="card column">
-        <div class="card-image">
-          <img src="https://cdn.pixabay.com/photo/2010/12/13/09/51/jeans-1751_1280.jpg" alt="" class=" w-100">
-        </div>
-        <div class="magazine-content">
-          <h3 class="magazine-title">Become a Volunteer</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit, ducimus.</p>
-        </div>
-      </a>
-      <a href="#" class="card column">
-        <div class="card-image">
-          <img src="https://images.unsplash.com/photo-1605927479520-1058b7015a2f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2370&q=80" alt="" class=" w-100">
-        </div>
-        <div class="magazine-content">
-          <h3 class="magazine-title">Help The children</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit, ducimus.</p>
-        </div>
-      </a>
+      <% end %>
+    </div>
+    <div class='has-text-right'>
+      <%= link_to 'Magazineをもっと読む', magazines_path %>
     </div>
   </section>
 </section>
