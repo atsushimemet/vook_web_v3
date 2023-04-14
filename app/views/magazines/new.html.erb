@@ -1,7 +1,6 @@
-<h1>記事作成</h1>
+<section class='magazine-section'>
+  <h1 class='title'>Magazine作成</h1>
+  <%= render 'form', magazine: @magazine %>
 
-<%= render 'form', magazine: @magazine %>
-
-<div>
-  <%= link_to 'Back to magazines', magazines_path %>
-</div>
+  <%= link_to 'Magazine一覧に戻る', magazines_path %>
+</section>

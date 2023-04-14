@@ -1,8 +1,6 @@
-<h1>記事編集</h1>
-
-<%= render 'form', magazine: @magazine %>
-
-<div>
-  <%= link_to 'Show this magazine', @magazine %> |
-  <%= link_to 'Back to magazines', magazines_path %>
-</div>
+<section class='magazine-section'>
+  <h1 class='title'>Magazine編集</h1>
+  <%= render 'form', magazine: @magazine %>
+  <%= link_to '記事に戻る', @magazine %> |
+  <%= link_to 'Magazine一覧に戻る', magazines_path %>
+</section>

@@ -1,19 +1,34 @@
-<h1>Magazines</h1>
-
-<div>
-  <% @magazines.each do |magazine| %>
-    <% if magazine.thumbnail.attached? %>
-      <div>
-        <%= image_tag magazine.thumbnail %>
-      </div>
-    <% end %>
-
-    <%= magazine.title %>
-    <%= magazine.publish_at %>
-    <p>
-      <%= link_to 'Show', magazine %>
-    </p>
-  <% end %>
-</div>
-
-<%= link_to 'New magazine', new_magazine_path %>
+<section>
+  <div class="hero is-small is-dark">
+    <div class="hero-body">
+      <h1 class="title">1.Vook Magazine</h1>
+    </div>
+  </div>
+  <%# タブ date/ranking %>
+  <section class="magazine-section">
+    <div class="columns is-mobile is-multiline">
+      <% @magazines.each do |magazine| %>
+        <div class='column is-one-quarter-tablet is-half-mobile'>
+          <div class='card'>
+            <%= link_to magazine do %>
+              <span class="magazine-date">
+                <%= l magazine.publish_at, format: :date %>
+              </span>
+              <div class='card-image'>
+                <figure class="image is-4by3">
+                  <%= image_tag magazine.thumbnail %>
+                </figure>
+              </div>
+              <div class='card-content'>
+                <h3 class="card-header-title">
+                  <%= magazine.title %>
+                </h3>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <%= link_to 'New Magazine', new_magazine_path, class: 'button' %>
+  </section>
+</section>

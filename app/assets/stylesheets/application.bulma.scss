@@ -15,7 +15,6 @@ $gray: #777777;
 $family-sans-serif: 'Helvetica Neue', Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
 $grey-dark: $black;
 $primary: $black;
-$link: $black;
 $info: $orange;
 $danger: $orange;
 
@@ -39,11 +38,10 @@ $input-shadow: none;
 $section-padding: 20px;
 $tabs-link-color: #808080;
 $button-border-width: 1px;
-
-@import "footer";
-@import "header";
-@import "home";
-@import "tabs";
+$card-content-padding: 20px;
+$card-header-padding: 0px;
+$footer-padding: 3rem 1.5rem;
+$column-gap: 0.25rem;
 
 // Import only what you need from Bulma
 @import "bulma/sass/utilities/_all.sass";
@@ -57,3 +55,9 @@ $button-border-width: 1px;
 @import "bulma/sass/layout/section.sass";
 
 @import 'bulma/bulma';
+
+@import "footer";
+@import "header";
+@import "home";
+@import "tabs";
+@import "magazine";

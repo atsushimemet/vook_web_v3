@@ -1,0 +1,37 @@
+.magazine-section {
+  margin: 20px 40px;
+  .magazine-content {
+    img {
+      object-fit: contain;
+      width: 80%;
+      margin: 20px auto;
+      max-width: 800px;
+    }
+  }
+  .magazine-title {
+    font-size: 20px;
+    font-weight: 600;
+  }
+  @include mobile {
+    margin: 20px 10px;
+  }
+  .magazine-body {
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+}
+
+.form-section {
+  margin-bottom: 20px;
+}
+
+.magazine-date {
+  background-color: #363636;
+  color: white;
+  font-weight: 700;
+  font-size: 14px;
+  position: absolute;
+  z-index: 5;
+  padding: 6px;
+  margin: 4px 4px;
+}
