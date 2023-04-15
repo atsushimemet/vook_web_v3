@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
   def index
-    @magazines = Magazine.order(publish_at: :desc).limit(4)
+    @magazines = Magazine.with_attached_thumbnail.order(publish_at: :desc).limit(4)
   end
 end
