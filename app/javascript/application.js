@@ -4,3 +4,5 @@ import "./controllers"
 
 import "./navbar-burger"
 import "./tabs"
+import "trix"
+import "@rails/actiontext"
