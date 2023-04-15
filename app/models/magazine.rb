@@ -4,4 +4,5 @@ class Magazine < ApplicationRecord
   validates :publish_at, presence: true
 
   has_one_attached :thumbnail
+  has_rich_text :body
 end
