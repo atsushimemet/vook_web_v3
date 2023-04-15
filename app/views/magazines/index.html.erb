@@ -1,0 +1,31 @@
+<section>
+  <div class="hero is-small is-dark">
+    <div class="hero-body">
+      <h1 class="title">1.Vook Magazine</h1>
+    </div>
+  </div>
+  <section class="magazine-section">
+    <div class="tabs is-centered is-boxed is-fullwidth is-large">
+      <ul>
+        <li class="tab-list is-active">
+          <a>DATE</a>
+        </li>
+        <li class="tab-list">
+          <a>RANKING</a>
+        </li>
+      </ul>
+    </div>
+    <div class="magazine-tab-container">
+      <div class="tab-content is-active">
+        <%= render 'magazines/card_list', magazines: @new_magazines %>
+      </div>
+      <div class="tab-content">
+        <%# @popular_magazinesができるまで@new_magazinesにしておく %>
+        <%= render 'magazines/card_list', magazines: @new_magazines %>
+      </div>
+    </div>
+    <div class='has-text-right mt-4'>
+      <%= link_to 'New Magazine', new_magazine_path, class: 'button is-dark' %>
+    </div>
+  </section>
+</section>

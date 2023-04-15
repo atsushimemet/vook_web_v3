@@ -1,12 +1,12 @@
 .tab-list {
   &.is-active a {
-    border-top: $black solid 2px !important;
+    border-top: $gray solid 4px !important;
     animation: fadeIn 0.7s ease 0s 1 normal;
+    font-weight: 700;
   }
 
   a {
     font-size: 18px;
-
     &:hover {
       color: $primary;
     }
@@ -42,10 +42,3 @@
     font-size: small;
   }
 }
-
-// モバイルで使うときにCSSの当て方
-// @include mobile {
-//   .knowledge-section {
-//     padding: 10px 20px 20px;
-//   }
-// }

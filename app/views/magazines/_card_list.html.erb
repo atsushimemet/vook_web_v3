@@ -1,0 +1,23 @@
+<div class="columns is-mobile is-multiline">
+  <% magazines.each do |magazine| %>
+    <div class='column is-one-quarter-tablet is-half-mobile'>
+      <div class='card'>
+        <%= link_to magazine do %>
+          <span class="magazine-date">
+            <%= l magazine.publish_at, format: :date %>
+          </span>
+          <div class='card-image'>
+            <figure class="image is-4by3">
+              <%= image_tag magazine.thumbnail %>
+            </figure>
+          </div>
+          <div class='card-content'>
+            <h3 class="card-header-title">
+              <%= magazine.title %>
+            </h3>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>

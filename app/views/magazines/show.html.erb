@@ -1,0 +1,25 @@
+<section>
+  <section class="magazine-section">
+    <h1 class="title">
+      <%= @magazine.title %>
+    </h1>
+    <div class="magazine-header">
+      <%= l @magazine.publish_at, format: :date %>
+    </div>
+    <div class="magazine-content">
+      <% if @magazine.thumbnail.attached? %>
+        <figure class='image'>
+          <%= image_tag @magazine.thumbnail %>
+        </figure>
+      <% end %>
+      <div class="magazine-body content">
+        <%= simple_format(@magazine.body) %>
+      </div>
+    </div>
+    <div class="magazine-edit buttons">
+      <%= link_to '記事編集', edit_magazine_path(@magazine), class: 'button' %>
+      <%= button_to '記事削除', @magazine, { method: :delete, data: { turbo_confirm: '本当に削除しますか？' }, class: 'button' } %>
+    </div>
+    <%= link_to 'Magazine一覧に戻る', magazines_path %>
+  </section>
+</section>
