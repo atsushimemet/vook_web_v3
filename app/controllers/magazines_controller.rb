@@ -19,6 +19,7 @@ class MagazinesController < ApplicationController
     if @magazine.save
       redirect_to @magazine, notice: '記事を作成しました'
     else
+      flash.now[:alert] = '投稿に失敗しました'
       render :new, status: :unprocessable_entity
     end
   end
@@ -27,6 +28,7 @@ class MagazinesController < ApplicationController
     if @magazine.update(magazine_params)
       redirect_to @magazine, notice: '記事を更新しました'
     else
+      flash.now[:alert] = '更新に失敗しました'
       render :edit, status: :unprocessable_entity
     end
   end
