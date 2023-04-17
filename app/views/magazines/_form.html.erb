@@ -1,46 +1,37 @@
 <section class='form-section'>
+  <%= render 'shared/errors', object: @magazine %>
   <%= form_with(model: magazine, local: true) do |form| %>
-    <% if magazine.errors.any? %>
-      <div style="color: red">
-        <h2><%= pluralize(magazine.errors.count, 'error') %> prohibited this magazine from being saved:</h2>
-        <ul>
-          <% magazine.errors.each do |error| %>
-            <li><%= error.full_message %></li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
 
     <div class='field'>
-      <%= form.label :thumbnail, 'サムネイル', class: 'label' %>
+      <%= form.label :thumbnail, class: 'label' %>
       <div class='control'>
         <%= form.file_field :thumbnail %>
       </div>
     </div>
 
     <div class="field">
-      <%= form.label :title, 'タイトル', class: 'label' %>
+      <%= form.label :title, class: 'label' %>
       <div class="control">
         <%= form.text_field :title, class: 'input' %>
       </div>
     </div>
 
     <div class="field">
-      <%= form.label :publish_at, '更新日', class: 'label' %>
+      <%= form.label :publish_at, class: 'label' %>
       <div class="control">
         <%= form.date_field :publish_at %>
       </div>
     </div>
 
     <div class="field content">
-      <%= form.label :body, '記事の内容', class: 'label' %>
+      <%= form.label :body, class: 'label' %>
       <div class="control">
         <%= form.rich_text_area :body %>
       </div>
     </div>
 
     <div class="field">
-      <%= form.label :summary, 'まとめ', class: 'label' %>
+      <%= form.label :summary, class: 'label' %>
       <div class="control">
         <%= form.text_field :summary, class: 'input' %>
       </div>

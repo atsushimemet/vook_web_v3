@@ -1,5 +1,5 @@
 class Magazine < ApplicationRecord
-  validates :title, presence: true
+  validates :title, presence: true, length: { maximum: 255 }
   validates :body, presence: true
   validates :publish_at, presence: true
 
