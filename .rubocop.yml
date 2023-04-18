@@ -15,6 +15,7 @@ AllCops:
     - 'config.ru'
     - 'node_modules/**/*'
     - 'db/migrate/*'
+    - 'db/seeds.rb'
     - 'db/schema.rb'
     - 'storage/**/*'
     - 'tmp/**/*'
@@ -36,4 +37,13 @@ Style/Documentation:
   Enabled: false
 
 Style/FrozenStringLiteralComment:
+  Enabled: false
+
+RSpec/MultipleExpectations:
+  Enabled: false
+
+RSpec/ExampleLength:
+  Enabled: false
+
+RSpec/LetSetup:
   Enabled: false
