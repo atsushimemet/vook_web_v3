@@ -5,13 +5,13 @@ RSpec.describe '/magazines', type: :system do
 
   describe 'index' do
     let!(:yesterday_magazine) { create(:yesterday_magazine) }
-    let!(:tomorrow_magazine) { create(:tomorrow_magazine) }
+    let!(:day_before_yesterday_magazine) { create(:day_before_yesterday_magazine) }
 
     it '記事が公開日順に並べられていること' do
       visit magazines_path
       within '.magazine-tab-container' do
         post_title = all('.card-header-title').map(&:text)
-        expect(post_title).to eq ['公開日が明日の記事', '【購入品紹介】"French Navy" Deck Jacket', '公開日が機能の記事']
+        expect(post_title).to eq ['【購入品紹介】"French Navy" Deck Jacket', '公開日が昨日の記事', '公開日が一昨日の記事']
       end
     end
   end
