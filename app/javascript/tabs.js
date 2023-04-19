@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('turbo:load', () => {
   const tabLists = document.querySelectorAll(".tab-list");
   const tabContent = document.querySelectorAll(".tab-content");
 

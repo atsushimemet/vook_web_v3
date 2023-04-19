@@ -17,23 +17,25 @@ class MagazinesController < ApplicationController
     @magazine = Magazine.new(magazine_params)
 
     if @magazine.save
-      redirect_to magazine_url(@magazine), notice: '記事を作成しました'
+      redirect_to @magazine, notice: '記事を作成しました'
     else
-      render :new
+      flash.now[:alert] = '投稿に失敗しました'
+      render :new, status: :unprocessable_entity
     end
   end
 
   def update
     if @magazine.update(magazine_params)
-      redirect_to magazine_url(@magazine), notice: '記事を更新しました'
+      redirect_to @magazine, notice: '記事を更新しました'
     else
-      render :edit
+      flash.now[:alert] = '更新に失敗しました'
+      render :edit, status: :unprocessable_entity
     end
   end
 
   def destroy
     @magazine.destroy
-    redirect_to magazines_url, notice: '記事を削除しました'
+    redirect_to magazines_path, notice: '記事を削除しました'
   end
 
   private
