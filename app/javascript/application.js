@@ -1,8 +1,8 @@
 // Entry point for the build script in your package.json
-import "@hotwired/turbo-rails"
-import "./controllers"
+import '@hotwired/turbo-rails';
+import './controllers';
 
-import "./navbar-burger"
-import "./tabs"
-import "trix"
-import "@rails/actiontext"
+import './navbar-burger';
+import './tabs';
+import 'trix';
+import '@rails/actiontext';
