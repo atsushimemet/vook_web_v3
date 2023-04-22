@@ -46,3 +46,9 @@ jobs:
 
     - name: ERB Lint
       run: bundle exec erblint --lint-all
+
+    - name: ES Lint
+      run: yarn eslint app/javascript/*.js
+
+    - name: Prettier
+      run: yarn prettier app/javascript/*.js
