@@ -1,6 +1,7 @@
 exclude:
   - '**/vendor/**/*'
   - '**/node_modules/**/*'
+  - 'app/views/active_storage/**/*'
 EnableDefaultLinters: true
 linters:
   Rubocop:
