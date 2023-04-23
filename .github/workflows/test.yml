@@ -26,7 +26,7 @@ jobs:
         ports:
           - 3306:3306
         env:
-          MYSQL_ALLOW_EMPTY_PASSWORD: yes
+          MYSQL_ROOT_PASSWORD: root
         options: >-
           --health-cmd "mysqladmin ping"
           --health-interval 10s
@@ -63,7 +63,11 @@ jobs:
       run:  yarn install --check-files
 
     - name: DB setup
-      run: bundle exec rails db:setup
+      env:
+        RAILS_ENV: test
+      run: |
+        cp config/database.yml.ci config/database.yml
+        bundle exec rails db:setup
 
     - name: RSpec
       run: bundle exec rspec
