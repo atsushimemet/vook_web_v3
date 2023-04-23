@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_23_133106) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_23_133444) do
   create_table "action_text_rich_texts", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
     t.text "body", size: :long
@@ -63,6 +63,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_23_133106) do
     t.index ["name"], name: "index_items_on_name", unique: true
   end
 
+  create_table "lines", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "name", null: false
+    t.bigint "brand_id", null: false
+    t.bigint "item_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["brand_id"], name: "index_lines_on_brand_id"
+    t.index ["item_id"], name: "index_lines_on_item_id"
+    t.index ["name"], name: "index_lines_on_name", unique: true
+  end
+
   create_table "magazines", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "title", null: false
     t.string "summary"
@@ -73,4 +84,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_23_133106) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "lines", "brands"
+  add_foreign_key "lines", "items"
 end
