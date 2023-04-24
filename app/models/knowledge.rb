@@ -5,4 +5,6 @@ class Knowledge < ApplicationRecord
   belongs_to :brand
   belongs_to :item
   belongs_to :line
+  has_one_attached :thumbnail
+  has_rich_text :body
 end

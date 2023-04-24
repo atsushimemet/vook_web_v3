@@ -1,0 +1,45 @@
+<%# adminユーザーの記事管理ページ %>
+<section>
+  <div class='hero is-small is-dark'>
+    <div class='hero-body'>
+      <h1 class='title'>0.Knowledge</h1>
+    </div>
+  </div>
+  <section class='knowledge-section'>
+    <table class='table is-striped'>
+      <thead>
+        <tr>
+          <th></th>
+          <th>記事</th>
+          <th>ブランド</th>
+          <th>ライン</th>
+          <th>アイテム</th>
+          <th>年</th>
+          <th>記事編集</th>
+          <th>記事削除</th>
+        </tr>
+      </thead>
+      <% @knowledges.each do |knowledge| %>
+        <tr>
+          <th><%= knowledge.id %></th>
+          <td>
+            <%= link_to knowledge.name, knowledge_path(knowledge) %>
+          </td>
+          <td><%= knowledge.brand.name %></td>
+          <td><%= knowledge.line.name %></td>
+          <td><%= knowledge.item.name %></td>
+          <td><%= knowledge.age %></td>
+          <td>
+            <%= link_to '編集', edit_knowledge_path(knowledge), class: 'button' %>
+          </td>
+          <td>
+            <%= button_to '削除', knowledge, { method: :delete, data: { turbo_confirm: '本当に削除しますか？' }, class: 'button' } %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+    <div class='has-text-right mt-4'>
+      <%= link_to 'New knowledge', new_knowledge_path, class: 'button is-dark' %>
+    </div>
+  </section>
+</section>

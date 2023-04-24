@@ -1,0 +1,7 @@
+<%# adminユーザーの記事管理ページ %>
+<section class='knowledge-section'>
+  <h1 class='title'>Knowledge編集</h1>
+  <%= render 'form', knowledge: @knowledge %>
+  <%= link_to '記事に戻る', @knowledge %> |
+  <%= link_to 'Knowledge一覧に戻る', knowledges_path %>
+</section>

@@ -1,0 +1,27 @@
+<section>
+  <section class='knowledge-section'>
+    <div class='subtitle'>
+      <%= @knowledge.brand.name %> ＞ <%= @knowledge.item.name %> ＞ <%= @knowledge.line.name %>
+    </div>
+    <h1 class='title'>
+      <%= @knowledge.name %>
+    </h1>
+    <div class='knowledge-content'>
+      <% if @knowledge.thumbnail.attached? %>
+        <figure class='image'>
+          <%= image_tag @knowledge.thumbnail %>
+        </figure>
+      <% end %>
+      <div class='knowledge-body content'>
+        <%= @knowledge.body %>
+      </div>
+    </div>
+    <div class='knowledge-edit buttons'>
+      <%= link_to '記事編集', edit_knowledge_path(@knowledge), class: 'button' %>
+      <%= button_to '記事削除', @knowledge, { method: :delete, data: { turbo_confirm: '本当に削除しますか？' }, class: 'button' } %>
+    </div>
+    <%= link_to "#{@knowledge.brand.name}ページ", knowledges_path %> ＞
+    <%= link_to "#{@knowledge.item.name}ページ", knowledges_path %> ＞
+    <%= link_to "#{@knowledge.line.name}ページ", knowledges_path %>
+  </section>
+</section>

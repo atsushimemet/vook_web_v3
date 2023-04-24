@@ -1,0 +1,58 @@
+<section class='form-section'>
+  <%= render 'shared/errors', object: @knowledge %>
+  <%= form_with(model: knowledge, local: true) do |form| %>
+
+    <div class='field'>
+      <%= form.label :thumbnail, class: 'label' %>
+      <div class='control'>
+        <%= form.file_field :thumbnail %>
+      </div>
+    </div>
+
+    <div class="field">
+      <%= form.label :name, class: 'label' %>
+      <div class="control">
+        <%= form.text_field :name, class: 'input' %>
+      </div>
+    </div>
+
+    <div class="field">
+      <%= form.label :brand, class: 'label' %>
+      <div class="control">
+        <%= form.select :brand_id, Brand.pluck(:id) %>
+      </div>
+    </div>
+
+    <div class="field">
+      <%= form.label :item, class: 'label' %>
+      <div class="control">
+        <%= form.select :item_id, Item.pluck(:id) %>
+      </div>
+    </div>
+
+    <div class="field">
+      <%= form.label :line, class: 'label' %>
+      <div class="control">
+        <%= form.select :line_id, Line.pluck(:id) %>
+      </div>
+    </div>
+
+    <div class="field">
+      <%= form.label :age, class: 'label' %>
+      <div class="control">
+        <%= form.number_field :age %>
+      </div>
+    </div>
+
+    <div class="field content">
+      <%= form.label :body, class: 'label' %>
+      <div class="control">
+        <%= form.rich_text_area :body %>
+      </div>
+    </div>
+
+    <div>
+      <%= form.submit class: 'button' %>
+    </div>
+  <% end %>
+</section>
