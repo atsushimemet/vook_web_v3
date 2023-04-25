@@ -2,7 +2,7 @@ FactoryBot.define do
   factory :magazine do
     title { '【購入品紹介】"French Navy" Deck Jacket' }
     publish_at { Date.current }
-    thumbnail { Rack::Test::UploadedFile.new(Rails.root.join('app/assets/images/map.jpg'), 'image/jpg') }
+    # thumbnail { Rack::Test::UploadedFile.new(Rails.root.join('app/assets/images/map.jpg'), 'image/jpg') }
     after(:create) do |magazine|
       ActionText::RichText.create!(
         record_type: 'Magazine',
@@ -16,7 +16,7 @@ FactoryBot.define do
   factory :yesterday_magazine, class: 'Magazine' do
     title { '公開日が昨日の記事' }
     publish_at { Date.current - 1 }
-    thumbnail { Rack::Test::UploadedFile.new(Rails.root.join('app/assets/images/map.jpg'), 'image/jpg') }
+    # thumbnail { Rack::Test::UploadedFile.new(Rails.root.join('app/assets/images/map.jpg'), 'image/jpg') }
     after(:create) do |magazine|
       ActionText::RichText.create!(
         record_type: 'Magazine',
@@ -30,7 +30,7 @@ FactoryBot.define do
   factory :day_before_yesterday_magazine, class: 'Magazine' do
     title { '公開日が一昨日の記事' }
     publish_at { Date.current - 2 }
-    thumbnail { Rack::Test::UploadedFile.new(Rails.root.join('app/assets/images/map.jpg'), 'image/jpg') }
+    # thumbnail { Rack::Test::UploadedFile.new(Rails.root.join('app/assets/images/map.jpg'), 'image/jpg') }
     after(:create) do |magazine|
       ActionText::RichText.create!(
         record_type: 'Magazine',
