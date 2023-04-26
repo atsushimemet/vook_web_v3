@@ -1,0 +1,31 @@
+<section>
+  <%= render 'knowledges/header' %>
+  <section class='brand-section'>
+    <div class='subtitle'>
+    </div>
+    <h2 class='title'>
+      <%= @brand.name %>
+    </h2>
+    <div class='columns is-mobile is-multiline'>
+      <% @brand.lines.each do |item| %>
+        <div class='column is-one-quarter-tablet is-half-mobile'>
+          <div class='card'>
+            <%#= link_to line_url do %>
+              <div class='card-content'>
+                <div class='card-header-name has-text-centered'>
+                  <%= item.name %>
+                </div>
+                <div class='card-image'>
+                  <figure class='image is-4by3'>
+                    <%#= image_tag item.thumbnail %>
+                  </figure>
+                </div>
+              </div>
+            <%# end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <%= link_to 'トップページに戻る', root_path %>
+  </section>
+</section>
