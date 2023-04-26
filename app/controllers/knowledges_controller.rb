@@ -2,7 +2,7 @@ class KnowledgesController < ApplicationController
   before_action :set_knowledge, only: %i[show edit update destroy]
 
   def index
-    @knowledges = Knowledge.all.includes(:line, :brand, :item)
+    @knowledges = Knowledge.includes(:line, :brand, :item)
   end
 
   def show; end

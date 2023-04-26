@@ -4,4 +4,5 @@ class Brand < ApplicationRecord
   has_many :knowledges, dependent: :nullify
   has_many :items, dependent: :nullify, through: :lines
   has_many :lines, dependent: :nullify
+  has_one_attached :logo
 end

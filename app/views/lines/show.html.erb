@@ -11,18 +11,20 @@
       <% @line.knowledges.each do |knowledge| %>
         <div class='column is-one-quarter-tablet is-half-mobile'>
           <div class='card'>
-            <%#= link_to knowledge_url do %>
+            <%= link_to knowledge_path(knowledge) do %>
               <div class='card-content'>
                 <div class='card-header-name has-text-centered'>
                   <%= knowledge.name %>
                 </div>
                 <div class='card-image'>
-                  <figure class='image is-4by3'>
-                    <%#= image_tag knowledge.thumbnail %>
-                  </figure>
+                  <% if knowledge.thumbnail %>
+                    <figure class='image is-4by3'>
+                      <%= image_tag knowledge.thumbnail %>
+                    </figure>
+                  <% end %>
                 </div>
               </div>
-            <%# end %>
+            <% end %>
           </div>
         </div>
       <% end %>

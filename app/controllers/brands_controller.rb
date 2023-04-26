@@ -1,5 +1,5 @@
 class BrandsController < ApplicationController
   def show
-    @brand = Brand.find_by(name: params[:name])
+    @brand = Brand.includes(lines: { image_attachment: :blob }).find_by(name: params[:name])
   end
 end

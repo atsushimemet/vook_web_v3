@@ -7,21 +7,23 @@
       <%= @item.name %>
     </h2>
     <div class='columns is-mobile is-multiline'>
-      <% @item.lines.each do |item| %>
+      <% @item.lines.each do |line| %>
         <div class='column is-one-quarter-tablet is-half-mobile'>
           <div class='card'>
-            <%#= link_to line_url do %>
+            <%= link_to line_path(line.name) do %>
               <div class='card-content'>
                 <div class='card-header-name has-text-centered'>
-                  <%= item.name %>
+                  <%= line.name %>
                 </div>
                 <div class='card-image'>
-                  <figure class='image is-4by3'>
-                    <%#= image_tag item.thumbnail %>
-                  </figure>
+                  <% if line.image %>
+                    <figure class='image is-4by3'>
+                      <%= image_tag line.image %>
+                    </figure>
+                  <% end %>
                 </div>
               </div>
-            <%# end %>
+            <% end %>
           </div>
         </div>
       <% end %>
