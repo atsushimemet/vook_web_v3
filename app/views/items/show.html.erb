@@ -1,33 +1,12 @@
 <section>
   <%= render 'knowledges/header' %>
-  <section class='item-section'>
-    <div class='subtitle'>
-    </div>
-    <h2 class='title'>
+  <section class='knowledge-section container'>
+    <nav class='breadcrumb'>
+    </nav>
+    <h2 class='title knowledge-title'>
       <%= @item.name %>
     </h2>
-    <div class='columns is-mobile is-multiline'>
-      <% @item.lines.each do |line| %>
-        <div class='column is-one-quarter-tablet is-half-mobile'>
-          <div class='card'>
-            <%= link_to line_path(line.name) do %>
-              <div class='card-content'>
-                <div class='card-header-name has-text-centered'>
-                  <%= line.name %>
-                </div>
-                <div class='card-image'>
-                  <% if line.image %>
-                    <figure class='image is-4by3'>
-                      <%= image_tag line.image %>
-                    </figure>
-                  <% end %>
-                </div>
-              </div>
-            <% end %>
-          </div>
-        </div>
-      <% end %>
-    </div>
+    <%= render 'knowledges/card_list', objects: @item.lines %>
     <%= link_to 'トップページに戻る', root_path %>
   </section>
 </section>

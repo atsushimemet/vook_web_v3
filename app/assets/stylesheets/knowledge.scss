@@ -1,0 +1,35 @@
+.knowledge-section {
+  @include mobile {
+    margin: 20px 10px;
+  }
+  .knowledge-title {
+    margin-bottom: 16px;
+    text-decoration: underline 4px;
+    text-decoration-skip-ink: none;
+  }
+  .card-header-name {
+    color: $black;
+    font-weight: 600;
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  .card-image img {
+    object-fit: contain;
+  }
+  .breadcrumb {
+    margin: 16px 0px;
+  }
+  .knowledge-content {
+    img {
+      object-fit: contain;
+      width: 80%;
+      margin: 20px auto;
+      max-width: 800px;
+      max-height: 500px;
+    }
+  }
+  .knowledge-body {
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+}

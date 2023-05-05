@@ -1,8 +1,12 @@
 <section>
-  <section class='knowledge-section'>
-    <div class='subtitle'>
-      <%= @knowledge.brand.name %> ＞ <%= @knowledge.item.name %> ＞ <%= @knowledge.line.name %>
-    </div>
+  <section class='knowledge-section container'>
+    <nav class='breadcrumb has-succeeds-separator is-medium'>
+      <ul>
+        <li><%= link_to @knowledge.brand.name, brand_path(@knowledge.brand.name) %></li>
+        <li><%= link_to @knowledge.item.name, item_path(@knowledge.item.name) %></li>
+        <li><%= link_to @knowledge.line.name, line_path(@knowledge.line.name) %></li>
+      </ul>
+    </nav>
     <h1 class='title'>
       <%= @knowledge.name %>
     </h1>
@@ -20,8 +24,6 @@
       <%= link_to '記事編集', edit_knowledge_path(@knowledge), class: 'button' %>
       <%= button_to '記事削除', @knowledge, { method: :delete, data: { turbo_confirm: '本当に削除しますか？' }, class: 'button' } %>
     </div>
-    <%= link_to "#{@knowledge.brand.name}ページ", brand_path(@knowledge.brand.name) %> ＞
-    <%= link_to "#{@knowledge.item.name}ページ", item_path(@knowledge.item.name) %> ＞
-    <%= link_to "#{@knowledge.line.name}ページ", line_path(@knowledge.line.name) %>
+    <%= link_to 'トップページに戻る', root_path %>
   </section>
 </section>

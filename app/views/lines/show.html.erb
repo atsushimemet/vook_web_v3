@@ -1,36 +1,16 @@
 <section>
   <%= render 'knowledges/header' %>
-  <section class='line-section'>
-    <div class='subtitle'>
-      <%= @line.brand.name %> | <%= @line.item.name %>
-    </div>
-    <h2 class='title'>
+  <section class='knowledge-section container'>
+    <nav class='breadcrumb has-succeeds-separator is-medium'>
+      <ul>
+        <li><%= link_to @line.brand.name, brand_path(@line.brand.name) %></li>
+        <li><%= link_to @line.item.name, item_path(@line.item.name) %></li>
+      </ul>
+    </nav>
+    <h2 class='title knowledge-title'>
       <%= @line.name %>
     </h2>
-    <div class='columns is-mobile is-multiline'>
-      <% @line.knowledges.each do |knowledge| %>
-        <div class='column is-one-quarter-tablet is-half-mobile'>
-          <div class='card'>
-            <%= link_to knowledge_path(knowledge) do %>
-              <div class='card-content'>
-                <div class='card-header-name has-text-centered'>
-                  <%= knowledge.name %>
-                </div>
-                <div class='card-image'>
-                  <% if knowledge.thumbnail %>
-                    <figure class='image is-4by3'>
-                      <%= image_tag knowledge.thumbnail %>
-                    </figure>
-                  <% end %>
-                </div>
-              </div>
-            <% end %>
-          </div>
-        </div>
-      <% end %>
-    </div>
-    <%= link_to 'トップページに戻る', root_path %> |
-    <%= link_to "#{@line.brand.name}ページ", brand_path(@line.brand.name) %> |
-    <%= link_to "#{@line.item.name}ページ", item_path(@line.item.name) %>
+    <%= render 'knowledges/card_list', objects: @line.knowledges %>
+    <%= link_to 'トップページに戻る', root_path %>
   </section>
 </section>
