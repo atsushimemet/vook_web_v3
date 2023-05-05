@@ -7,9 +7,9 @@
       <%= @knowledge.name %>
     </h1>
     <div class='knowledge-content'>
-      <% if @knowledge.thumbnail.attached? %>
+      <% if @knowledge.image.attached? %>
         <figure class='image'>
-          <%= image_tag @knowledge.thumbnail %>
+          <%= image_tag @knowledge.image %>
         </figure>
       <% end %>
       <div class='knowledge-body content'>
