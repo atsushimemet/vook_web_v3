@@ -1,4 +1,5 @@
 .knowledge-section {
+  margin: 20px auto;
   @include mobile {
     margin: 20px 10px;
   }
@@ -31,5 +32,8 @@
   .knowledge-body {
     padding: 10px;
     margin-bottom: 10px;
+  }
+  .table th,td{
+    vertical-align: inherit;
   }
 }
