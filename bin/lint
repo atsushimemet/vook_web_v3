@@ -1,5 +1,6 @@
 #!/bin/bash
 
 bundle exec rubocop -A
+erblint --lint-all -a
 yarn eslint app/javascript/*.js --fix
 yarn prettier app/javascript/*.js --write

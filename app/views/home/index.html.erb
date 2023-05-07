@@ -1,91 +1,63 @@
 <section>
-  <div class="hero is-small is-dark">
-    <div class="hero-body">
-      <h2 class="title">0.Knowledge</h2>
+  <div class='hero is-small is-dark'>
+    <div class='hero-body'>
+      <h2 class='title'>0.Knowledge</h2>
     </div>
   </div>
-  <section class="knowledge-section">
-    <div class="field is-grouped">
-      <p class="control is-expanded">
-        <input class="input" type="text" placeholder="知りたいブランドやアイテムを入力" autocomplete="off">
+  <section class='top-knowledge-section container'>
+    <div class='field is-grouped'>
+      <p class='control is-expanded'>
+        <input class='input' type='text' placeholder='知りたいブランドやアイテムを入力' autocomplete='off'>
       </p>
-      <p class="control">
-        <a class="button">
+      <p class='control'>
+        <a class='button'>
           Search
         </a>
       </p>
     </div>
-    <div class="knowledge-list">
-      <div class="tabs is-centered is-boxed">
+    <div class='knowledge-list'>
+      <div class='tabs is-centered is-boxed'>
         <ul>
-          <li class="tab-list is-active">
+          <li class='tab-list is-active'>
             <a>BLAND</a>
           </li>
-          <li class="tab-list">
+          <li class='tab-list'>
             <a>ITEM</a>
           </li>
-          <li class="tab-list">
+          <%# AGEは一度コメントアウト %>
+          <%# <li class='tab-list'>
             <a>AGE</a>
-          </li>
+          </li> %>
         </ul>
       </div>
-      <div class="knowladge-tab-container is-centered">
-        <div class="tab-content is-active">
-          <div class="columns is-multiline is-mobile has-text-centered">
-            <a href="#" class="knowladge-tab-item column">
-              <i class="fa-solid fa-shirt fa-3x"></i>
-              <p>Levi's</p>
-            </a>
-            <a href="#" class="knowladge-tab-item column">
-              <i class="fa-solid fa-shirt fa-3x"></i>
-              <p>Champion</p>
-            </a>
-            <a href="#" class="knowladge-tab-item column">
-              <i class="fa-solid fa-shirt fa-3x"></i>
-              <p>Ralph Lauren</p>
-            </a>
-            <a href="#" class="knowladge-tab-item column">
-              <i class="fa-solid fa-shirt fa-3x"></i>
-              <p>U.S.ARMY</p>
-            </a>
-            <a href="#" class="knowladge-tab-item column">
-              <i class="fa-solid fa-shirt fa-3x"></i>
-              <p>L.L.Bean</p>
-            </a>
-            <a href="#" class="knowladge-tab-item column">
-              <i class="fa-solid fa-shirt fa-3x"></i>
-              <p>PENDLETON</p>
-            </a>
+      <div class='knowledge-tab-container'>
+        <div class='tab-content is-active'>
+          <div class='columns is-multiline is-mobile is-centered'>
+            <% @brands.each do |brand| %>
+              <%= link_to brand_path(brand.name) do %>
+                <div class='knowledge-tab-item column has-text-centered'>
+                  <i class='fa-solid fa-shirt fa-3x'></i>
+                  <p><%= brand.name %></p>
+                </div>
+              <% end %>
+            <% end %>
           </div>
         </div>
-        <div class="tab-content">
-          <div class="columns is-multiline is-mobile has-text-centered">
-            <a href="#" class="knowladge-tab-item column">
-              <i class="fa-solid fa-shirt fa-3x"></i>
-              <p>T-shirt</p>
-            </a>
-            <a href="#" class="knowladge-tab-item column">
-              <i class="fa-solid fa-shirt fa-3x"></i>
-              <p>Girl T-shirt</p>
-            </a>
-            <a href="#" class="knowladge-tab-item column">
-              <i class="fa-solid fa-shirt fa-3x"></i>
-              <p>Polo shirt</p>
-            </a>
-            <a href="#" class="knowladge-tab-item column">
-              <i class="fa-solid fa-shirt fa-3x"></i>
-              <p>Shirt</p>
-            </a>
+        <div class='tab-content'>
+          <div class='columns is-multiline is-mobile is-centered'>
+            <% @items.each do |item| %>
+              <%= link_to item_path(item.name) do %>
+                <div class='knowledge-tab-item column has-text-centered'>
+                  <i class='fa-solid fa-shirt fa-3x'></i>
+                  <p><%= item.name %></p>
+                </div>
+              <% end %>
+            <% end %>
           </div>
         </div>
-        <div class="tab-content">
-          <li>
-            <a href="#">80's</a>
-          </li>
-          <li>
-            <a href="#">90's</a>
-          </li>
-        </div>
+        <%# AGEは一度コメントアウト %>
+        <%# <div class='tab-content'>
+        </div> %>
       </div>
     </div>
   </section>

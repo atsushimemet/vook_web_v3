@@ -1,0 +1,68 @@
+<section class='form-section'>
+  <%= render 'shared/errors', object: @knowledge %>
+  <%= form_with(model: knowledge, local: true) do |form| %>
+    <div class='field'>
+      <%= form.label :image, class: 'label' %>
+      <div class='control'>
+        <div class='file has-name'>
+          <label class='file-label'>
+            <%= form.label :image, class: 'file-label' do %>
+              <span class='file-cta'>
+                <span class='file-icon'>
+                  <i class='fas fa-upload'></i>
+                </span>
+                <span class='file-label'>
+                  サムネイル画像を選択
+                </span>
+              </span>
+              <%= form.file_field :image, class: 'file-input' %>
+            <% end %>
+            <span class='file-name'>
+              <%= form.object.image.filename if form.object.image.attached? %>
+            </span>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <div class='field'>
+      <%= form.label :name, class: 'label' %>
+      <div class='control'>
+        <%= form.text_field :name, class: 'input' %>
+      </div>
+    </div>
+
+    <div class='field'>
+      <%= form.label :brand_id, class: 'label' %>
+      <div class='control'>
+        <div class='select'>
+          <%= form.collection_select(:brand_id, Brand.all, :id, :name, prompt: 'ブランドを選択') %>
+        </div>
+        <div class='select'>
+          <%= form.collection_select(:item_id, Item.all, :id, :name, prompt: 'アイテムを選択') %>
+        </div>
+        <div class='select'>
+          <%= form.collection_select(:line_id, Line.all, :id, :name, prompt: 'ラインを選択') %>
+        </div>
+      </div>
+    </div>
+
+    <div class='field'>
+      <%= form.label :age, class: 'label' %>
+      <div class='control'>
+        <%= form.number_field :age, class: 'input' %>
+      </div>
+    </div>
+
+    <div class='field content'>
+      <%= form.label :body, class: 'label' %>
+      <div class='control'>
+        <%= form.rich_text_area :body %>
+      </div>
+    </div>
+
+    <div>
+      <%= form.submit class: 'button' %>
+    </div>
+  <% end %>
+</section>

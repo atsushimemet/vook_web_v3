@@ -1,0 +1,22 @@
+<div class='columns is-mobile is-multiline'>
+  <% objects.each do |object| %>
+    <div class='column is-one-quarter-tablet is-half-mobile'>
+      <div class='card'>
+        <%= link_to(params[:controller] == 'lines' ? knowledge_path(object) : line_path(object.name)) do %>
+          <div class='card-content'>
+            <div class='card-header-name has-text-centered'>
+              <%= object.name %>
+            </div>
+            <div class='card-image'>
+              <% if object.image %>
+                <figure class='image is-4by3'>
+                  <%= image_tag object.image %>
+                </figure>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>
