@@ -1,5 +1,5 @@
 FactoryBot.define do
   factory :item do
-    name { 'MyString' }
+    name { 'Denim' }
   end
 end
