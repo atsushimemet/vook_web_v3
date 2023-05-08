@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_08_062201) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_08_070035) do
   create_table "action_text_rich_texts", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
     t.text "body", size: :long
@@ -71,10 +71,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_08_062201) do
     t.bigint "line_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id", null: false
     t.index ["brand_id"], name: "index_knowledges_on_brand_id"
     t.index ["item_id"], name: "index_knowledges_on_item_id"
     t.index ["line_id"], name: "index_knowledges_on_line_id"
     t.index ["name"], name: "index_knowledges_on_name", unique: true
+    t.index ["user_id"], name: "index_knowledges_on_user_id"
   end
 
   create_table "lines", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -94,6 +96,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_08_062201) do
     t.datetime "publish_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_magazines_on_user_id"
   end
 
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -112,6 +116,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_08_062201) do
   add_foreign_key "knowledges", "brands"
   add_foreign_key "knowledges", "items"
   add_foreign_key "knowledges", "lines"
+  add_foreign_key "knowledges", "users"
   add_foreign_key "lines", "brands"
   add_foreign_key "lines", "items"
+  add_foreign_key "magazines", "users"
 end

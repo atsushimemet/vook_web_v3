@@ -14,7 +14,7 @@ class KnowledgesController < ApplicationController
   def edit; end
 
   def create
-    @knowledge = Knowledge.new(knowledge_params)
+    @knowledge = current_user.knowledges.new(knowledge_params)
 
     if @knowledge.save
       redirect_to @knowledge, notice: 'ページを作成しました'
