@@ -4,9 +4,20 @@ class User < ApplicationRecord
 
   with_options presence: true do
     validates :name, presence: true, length: { maximum: 100 }
-    validates :admin
     validates :uid
     validates :provider
   end
   validates :uid, uniqueness: { scope: :provider }
+
+  def self.find_or_create_from_auth_hash!(auth_hash)
+    provider = auth_hash[:provider]
+    uid = auth_hash[:uid]
+    name = auth_hash[:info][:name]
+    icon_url = auth_hash[:info][:image]
+
+    User.find_or_create_by!(provider:, uid:) do |user|
+      user.name = name
+      user.icon_url = icon_url
+    end
+  end
 end

@@ -18,9 +18,9 @@
           <a class="navbar-item" href="#">About</a>
           <a class="navbar-item" href="#">Search</a>
           <%= link_to 'Magazine', magazines_path, class: 'navbar-item' %>
-          <a class="navbar-item" href="#">Community</a>
           <a class="navbar-item" href="https://www.instagram.com/vook.vintagebook/">Instagram</a>
           <a class="navbar-item" href="https://www.tiktok.com/@vook.vintagebook/">Tiktok</a>
+          <%= button_to 'ログイン', '/auth/google_oauth2', method: :post, data: { turbo: false }, class: 'navbar-item' %>
         </div>
       </div>
   </nav>
