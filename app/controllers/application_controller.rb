@@ -12,4 +12,10 @@ class ApplicationController < ActionController::Base
   def login?
     current_user.present?
   end
+
+  def require_admin_login
+    return if current_user&.admin?
+
+    redirect_to root_path, alert: '管理者としてログインしてください'
+  end
 end

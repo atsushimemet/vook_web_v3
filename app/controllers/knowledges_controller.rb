@@ -1,5 +1,6 @@
 class KnowledgesController < ApplicationController
   before_action :set_knowledge, only: %i[show edit update destroy]
+  before_action :require_admin_login, only: %i[index new edit create update destroy]
 
   def index
     @knowledges = Knowledge.includes(:line, :brand, :item)

@@ -1,5 +1,6 @@
 class MagazinesController < ApplicationController
   before_action :set_magazine, only: %i[show edit update destroy]
+  before_action :require_admin_login, only: %i[new edit create update destroy]
 
   def index
     @new_magazines = Magazine.with_attached_thumbnail.order(publish_at: :desc)
