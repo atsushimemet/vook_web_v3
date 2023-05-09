@@ -4,19 +4,21 @@
 // @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200&display=swap');
 
 // Set your brand colors
-$orange: #ED6C00;
+$red: #c41230;
 $white: #fff;
 $black: #444444;
 $beige-light: #F7F7F7;
 $beige-lighter: #EFEFEF;
 $gray: #777777;
+$indigo: #0e1f4c;
 
 // Update Bulma's global variables
 $family-sans-serif: 'Helvetica Neue', Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
 $grey-dark: $black;
 $primary: $black;
-$info: $orange;
-$danger: $orange;
+$success: $indigo;
+$info: $red;
+$danger: $red;
 
 body {
   display: flex;

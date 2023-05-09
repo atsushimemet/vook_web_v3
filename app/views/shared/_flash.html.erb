@@ -1,10 +1,12 @@
 <% if flash.notice %>
   <div class='notification has-text-centered has-text-weight-bold is-success is-light m-2'>
+    <i class="fa-solid fa-circle-check"></i>
     <%= notice %>
   </div>
 <% end %>
 <% if flash.alert %>
   <div class='notification has-text-centered has-text-weight-bold is-danger is-light m-2'>
+    <i class="fa-solid fa-circle-exclamation"></i>
     <%= alert %>
   </div>
 <% end %>
