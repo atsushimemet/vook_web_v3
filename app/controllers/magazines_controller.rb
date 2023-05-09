@@ -1,5 +1,6 @@
 class MagazinesController < ApplicationController
   before_action :set_magazine, only: %i[show edit update destroy]
+  before_action :require_admin_login, only: %i[new edit create update destroy]
 
   def index
     @new_magazines = Magazine.with_attached_thumbnail.order(publish_at: :desc)
@@ -14,7 +15,7 @@ class MagazinesController < ApplicationController
   def edit; end
 
   def create
-    @magazine = Magazine.new(magazine_params)
+    @magazine = current_user.magazines.new(magazine_params)
 
     if @magazine.save
       redirect_to @magazine, notice: '記事を作成しました'

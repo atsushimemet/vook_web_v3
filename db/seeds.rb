@@ -1,8 +1,11 @@
 if Rails.env.development?
+  user = User.create!(name: 'admin', icon_url: 'https://1.bp.blogspot.com/-bAOIfmOoIvI/VY4WmqzWeVI/AAAAAAAAusA/wpJ8Jc1VgZ0/s800/job_kanrinin.png', admin: true, provider: 'google_oauth2', uid: 1234)
+
   7.times do |i|
     Magazine.create(
       title: '【購入品紹介】 "French Navy" Deck Jacket',
       summary: '',
+      user_id: user.id,
       publish_at: Date.current - i.day
     ).thumbnail.attach(io: File.open(Rails.root.join('app/assets/images/map.jpg')), filename: 'map.jpg')
   end
@@ -16,17 +19,20 @@ if Rails.env.development?
   end
 
   lines = [
-    {name: '501XX', brand: "Levi's", item: 'Denim'},
-    {name: '606 BIG E', brand: "Levi's", item: 'Denim'},
-    {name: '551ZXX', brand: "Levi's", item: 'Denim'},
-    {name: '501 BLACK', brand: "Levi's", item: 'Denim'},
+    {name: '501XX', brand: "Levi's", item: 'Denim Pants'},
+    {name: '606', brand: "Levi's", item: 'Denim Pants'},
+    {name: '551ZXX', brand: "Levi's", item: 'Denim Pants'},
+    {name: '501', brand: "Levi's", item: 'Denim Pants'},
     {name: 'FATIGUE JACKET', brand: 'U.S.ARMY', item: 'Jacket'},
     {name: 'M-65', brand: 'U.S.ARMY', item: 'Jacket'},
     {name: 'MODS COAT', brand: 'U.S.ARMY', item: 'Jacket'},
     {name: 'BOAT AND TOTE', brand: 'L.L.Bean', item: 'Bag'},
     {name: 'M-65 FIELD Pants', brand: 'U.S.ARMY', item: 'Pants'},
-    {name: '70505 4th', brand: "Levi's", item: 'Jacket'},
-    {name: 'REVERSE WEAVE', brand: 'Champion', item: 'Sweat'},
+    {name: '70505', brand: "Levi's", item: 'Jacket'},
+    {name: 'REVERSE WEAVE', brand: 'Champion', item: 'Sweat Shirt'},
+    {name: 'BOARD SHIRT', brand: 'Pendleton', item: 'Shirt'},
+    {name: '27mw DENIM WESTERN', brand: 'Wrangler', item: 'Shirt'},
+    {name: '91-J COVERALL', brand: 'Lee', item: 'Jacket'},
   ]
 
   lines.each do |line|
@@ -39,7 +45,7 @@ if Rails.env.development?
     ).image.attach(io: File.open(Rails.root.join('app/assets/images/line-501xx.jpg')), filename: 'line-501xx.jpg')
   end
 
-  knowledge = Knowledge.create!(name: 'ギャラ入り', age: 1955, brand_id: 1, item_id: 1, line_id: 1)
+  knowledge = Knowledge.create!(name: 'ギャラ入り', age: 1955, user_id: user.id, brand_id: 1, item_id: 1, line_id: 1)
   knowledge.image.attach(io: File.open(Rails.root.join('app/assets/images/knowledge-501xx2.jpg')), filename: 'knowledge-501xx1.jpg')
   ActionText::RichText.create!(
     record_type: 'Knowledge',
@@ -48,7 +54,7 @@ if Rails.env.development?
     body: "<div class=\"trix-content\">\n  <h1>紙パッチ</h1><div>1961年に製造されたギャラ入りは紙パッチ<br>「Every Garment Guaranteed」の表記から通称「ギャラ入り」と呼ばれ、<br>このモデルを象徴するディティールである。</div>\n</div>\n"
   )
 
-  knowledge2 = Knowledge.create!(name: '片面タブ', age: 1947, brand_id: 1, item_id: 1, line_id: 1)
+  knowledge2 = Knowledge.create!(name: '片面タブ', age: 1947, user_id: user.id, brand_id: 1, item_id: 1, line_id: 1)
   knowledge2.image.attach(io: File.open(Rails.root.join('app/assets/images/knowledge-501xx1.jpg')), filename: 'knowledge-501xx2.jpg')
   ActionText::RichText.create!(
     record_type: 'Knowledge',

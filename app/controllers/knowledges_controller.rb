@@ -1,5 +1,6 @@
 class KnowledgesController < ApplicationController
   before_action :set_knowledge, only: %i[show edit update destroy]
+  before_action :require_admin_login, only: %i[index new edit create update destroy]
 
   def index
     @knowledges = Knowledge.includes(:line, :brand, :item)
@@ -14,7 +15,7 @@ class KnowledgesController < ApplicationController
   def edit; end
 
   def create
-    @knowledge = Knowledge.new(knowledge_params)
+    @knowledge = current_user.knowledges.new(knowledge_params)
 
     if @knowledge.save
       redirect_to @knowledge, notice: 'ページを作成しました'

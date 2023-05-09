@@ -1,27 +1,35 @@
-<header class="navigation">
-  <nav id="navbar" class="navbar main-nav">
-      <div class="navbar-brand">
-        <div class="navbar-item">
-          <h1 class="header-logo">
-            <%= link_to image_tag('logo_vook.png', alt: 'logo'), '/' %>
-          </h1>
-        </div>
-        <button role="button" class="navbar-burger burger" data-hidden="true" data-target="navigation">
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-        </button>
+<header class='navigation'>
+  <nav id='navbar' class='navbar main-nav container'>
+    <div class='navbar-brand'>
+      <div class='navbar-item'>
+        <h1 class='header-logo'>
+          <%= link_to image_tag('logo_vook.png', alt: 'logo'), '/' %>
+        </h1>
       </div>
-
-      <div class="navbar-menu" id="navigation">
-        <div class="navbar-end">
-          <a class="navbar-item" href="#">About</a>
-          <a class="navbar-item" href="#">Search</a>
-          <%= link_to 'Magazine', magazines_path, class: 'navbar-item' %>
-          <a class="navbar-item" href="#">Community</a>
-          <a class="navbar-item" href="https://www.instagram.com/vook.vintagebook/">Instagram</a>
-          <a class="navbar-item" href="https://www.tiktok.com/@vook.vintagebook/">Tiktok</a>
-        </div>
+      <button role='button' class='navbar-burger burger' data-hidden='true' data-target='navigation'>
+        <span aria-hidden='true'></span>
+        <span aria-hidden='true'></span>
+        <span aria-hidden='true'></span>
+      </button>
+    </div>
+    <div class='navbar-menu' id='navigation'>
+      <div class='navbar-end'>
+        <a class='navbar-item' href='#'>About</a>
+        <a class='navbar-item' href='#'>Search</a>
+        <%= link_to 'Magazine', magazines_path, class: 'navbar-item' %>
+        <a class='navbar-item' href='https://www.instagram.com/vook.vintagebook/'>Instagram</a>
+        <a class='navbar-item' href='https://www.tiktok.com/@vook.vintagebook/'>Tiktok</a>
+        <% if login? %>
+          <div class='navbar-item'>
+            <%= button_to 'ログアウト', '/logout', method: :delete, data: { turbo: false },
+                                              class: 'button navbar-item is-primary is-light' %>
+          </div>
+        <% else %>
+          <div class='navbar-item'>
+            <%= button_to 'ログイン', '/auth/google_oauth2', method: :post, data: { turbo: false }, class: 'button is-dark' %>
+          </div>
+        <% end %>
       </div>
+    </div>
   </nav>
 </header>

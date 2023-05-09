@@ -83,3 +83,7 @@ group :test do
   gem 'capybara', github: 'teamcapybara/capybara'
   gem 'webdrivers'
 end
+
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-rails_csrf_protection'
