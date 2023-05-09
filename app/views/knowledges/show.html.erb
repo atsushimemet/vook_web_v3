@@ -20,10 +20,12 @@
         <%= @knowledge.body %>
       </div>
     </div>
-    <div class='knowledge-edit buttons'>
-      <%= link_to '記事編集', edit_knowledge_path(@knowledge), class: 'button' %>
-      <%= button_to '記事削除', @knowledge, { method: :delete, data: { turbo_confirm: '本当に削除しますか？' }, class: 'button' } %>
-    </div>
+    <% if admin_login? %>
+      <div class='knowledge-edit buttons'>
+        <%= link_to '記事編集', edit_knowledge_path(@knowledge), class: 'button' %>
+        <%= button_to '記事削除', @knowledge, { method: :delete, data: { turbo_confirm: '本当に削除しますか？' }, class: 'button' } %>
+      </div>
+    <% end %>
     <%= link_to 'トップページに戻る', root_path %>
   </section>
 </section>

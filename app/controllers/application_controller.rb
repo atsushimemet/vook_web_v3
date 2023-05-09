@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  helper_method :current_user, :login?
+  helper_method :current_user, :login?, :admin_login?
 
   def current_user
     @current_user ||= User.find_by(id: session[:user_id])
@@ -11,6 +11,10 @@ class ApplicationController < ActionController::Base
 
   def login?
     current_user.present?
+  end
+
+  def admin_login?
+    current_user&.admin?
   end
 
   def require_admin_login
