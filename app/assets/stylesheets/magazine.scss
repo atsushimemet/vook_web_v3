@@ -20,6 +20,9 @@
     padding: 10px;
     margin-bottom: 10px;
   }
+  .card-image img {
+    object-fit: contain;
+  }
 }
 
 .form-section {
