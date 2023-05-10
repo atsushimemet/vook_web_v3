@@ -1,4 +1,4 @@
-<section class='magazine-section'>
+<%= render partial: 'shared/hero_banner', locals: { title: '1.Vook Magazine' } %>
   <h1 class='title'>Magazine編集</h1>
   <%= render 'form', magazine: @magazine %>
   <%= link_to '記事に戻る', @magazine %> |
