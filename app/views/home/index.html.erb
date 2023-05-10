@@ -1,5 +1,5 @@
 <section>
-  <%= render partial: 'shared/hero_banner', locals: { title: '0.Knowledge' } %>
+  <%= render partial: 'shared/hero_banner', locals: { number: 0, title: 'Knowledge' } %>
   <div class='top-knowledge-section container'>
     <div class='field is-grouped'>
       <p class='control is-expanded'>
@@ -59,7 +59,7 @@
   </div>
 </section>
 <section>
-  <%= render partial: 'shared/hero_banner', locals: { title: '1.Vook Magazine' } %>
+  <%= render partial: 'shared/hero_banner', locals: { number: 1, title: 'Vook Magazine' } %>
   <div class="magazine-section container">
     <div class="columns is-mobile is-multiline">
       <% @magazines.each do |magazine| %>
@@ -90,7 +90,7 @@
   </div>
 </section>
 <section>
-  <%= render partial: 'shared/hero_banner', locals: { title: '2.Search The Vintage' } %>
+  <%= render partial: 'shared/hero_banner', locals: { number: 2, title: 'Search The Vintage' } %>
   <div class="item-search-cover">
     <%= image_tag('map.jpg', alt: 'search-map') %>
   </div>
@@ -108,7 +108,7 @@
   </div>
 </section>
 <section>
-  <%= render partial: 'shared/hero_banner', locals: { title: '3.Community' } %>
+  <%= render partial: 'shared/hero_banner', locals: { number: 3, title: 'Community' } %>
   <div class="community-section container">
     <div class="columns">
       <div class="column">
