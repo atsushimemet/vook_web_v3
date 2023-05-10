@@ -1,4 +1,9 @@
+<section>
   <%= render partial: 'shared/hero_banner', locals: { title: '0.Knowledge' } %>
+  <div class='knowledge-section container'>
+    <h2 class='title'>Knowledge作成</h2>
+    <%= render 'form', knowledge: @knowledge %>
 
-  <%= link_to 'Knowledge一覧に戻る', knowledges_path %>
+    <%= link_to 'Knowledge一覧に戻る', knowledges_path %>
+  </div>
 </section>

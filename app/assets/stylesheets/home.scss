@@ -1,11 +1,11 @@
 .top-knowledge-section {
   margin: 20px auto;
-  @include mobile {
+  @include touch {
     margin: 20px 10px;
   }
   .knowledge-list {
     padding: 30px;
-    @include mobile {
+    @include touch {
       padding: 10px;
     }
     border: 1px solid #e5e5e5;
@@ -22,7 +22,10 @@
 }
 
 .item-search-section {
-  margin: 20px 40px;
+  margin: 20px auto;
+  @include touch {
+    margin: 20px 10px;
+  }
 }
 
 .item-search-cover img {
@@ -36,5 +39,8 @@
 }
 
 .community-section {
-  margin: 20px 40px;
+  margin: 20px auto;
+  @include touch {
+    margin: 20px 10px;
+  }
 }
