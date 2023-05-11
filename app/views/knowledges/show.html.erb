@@ -1,5 +1,6 @@
 <section>
-  <section class='knowledge-section container'>
+  <%= render partial: 'shared/hero_banner', locals: { number: 0, title: 'Knowledge' } %>
+  <div class='knowledge-section container'>
     <nav class='breadcrumb has-succeeds-separator is-medium'>
       <ul>
         <li><%= link_to @knowledge.brand.name, brand_path(@knowledge.brand.name) %></li>
@@ -7,13 +8,13 @@
         <li><%= link_to @knowledge.line.name, line_path(@knowledge.line.name) %></li>
       </ul>
     </nav>
-    <h1 class='title'>
+    <h2 class='title'>
       <%= @knowledge.name %>
-    </h1>
+    </h2>
     <div class='knowledge-content'>
       <% if @knowledge.image.attached? %>
         <figure class='image'>
-          <%= image_tag @knowledge.image %>
+          <%= image_tag @knowledge.image.variant(resize_to_limit: [1000, 1000]) %>
         </figure>
       <% end %>
       <div class='knowledge-body content'>
@@ -27,5 +28,5 @@
       </div>
     <% end %>
     <%= link_to 'トップページに戻る', root_path %>
-  </section>
+  </div>
 </section>

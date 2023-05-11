@@ -1,6 +1,6 @@
 <section>
-  <%= render 'knowledges/header' %>
-  <section class='knowledge-section container'>
+  <%= render partial: 'shared/hero_banner', locals: { number: 0, title: 'Knowledge' } %>
+  <div class='knowledge-section container'>
     <table class='table is-striped'>
       <thead>
         <tr>
@@ -36,5 +36,5 @@
     <div class='has-text-right mt-4'>
       <%= link_to 'New knowledge', new_knowledge_path, class: 'button is-dark' %>
     </div>
-  </section>
+  </div>
 </section>

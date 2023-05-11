@@ -1,5 +1,8 @@
 .magazine-section {
-  margin: 20px 40px;
+  margin: 20px auto;
+  @include touch {
+    margin: 20px 10px;
+  }
   .magazine-content {
     img {
       object-fit: contain;
@@ -13,12 +16,12 @@
     font-size: 20px;
     font-weight: 600;
   }
-  @include mobile {
-    margin: 20px 10px;
-  }
   .magazine-body {
     padding: 10px;
     margin-bottom: 10px;
+  }
+  .card-image img {
+    object-fit: contain;
   }
 }
 

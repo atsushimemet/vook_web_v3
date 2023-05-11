@@ -1,6 +1,9 @@
-<section class='knowledge-section container'>
-  <h1 class='title'>Knowledge編集</h1>
-  <%= render 'form', knowledge: @knowledge %>
-  <%= link_to '記事に戻る', @knowledge %> |
-  <%= link_to 'Knowledge一覧に戻る', knowledges_path %>
+<section>
+  <%= render partial: 'shared/hero_banner', locals: { number: 0, title: 'Knowledge' } %>
+  <div class='knowledge-section container'>
+    <h2 class='title'>Knowledge編集</h2>
+    <%= render 'form', knowledge: @knowledge %>
+    <%= link_to '記事に戻る', @knowledge %> |
+    <%= link_to 'Knowledge一覧に戻る', knowledges_path %>
+  </div>
 </section>

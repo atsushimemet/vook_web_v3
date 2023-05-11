@@ -1,6 +1,6 @@
 <section>
-  <%= render 'knowledges/header' %>
-  <section class='knowledge-section container'>
+  <%= render partial: 'shared/hero_banner', locals: { number: 0, title: 'Knowledge' } %>
+  <div class='knowledge-section container'>
     <nav class='breadcrumb has-succeeds-separator is-medium'>
       <ul>
         <li><%= link_to @line.brand.name, brand_path(@line.brand.name) %></li>
@@ -12,5 +12,5 @@
     </h2>
     <%= render 'knowledges/card_list', objects: @line.knowledges %>
     <%= link_to 'トップページに戻る', root_path %>
-  </section>
+  </div>
 </section>

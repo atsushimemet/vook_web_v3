@@ -1,15 +1,16 @@
 <section>
-  <section class="magazine-section">
-    <h1 class="title">
+  <%= render partial: 'shared/hero_banner', locals: { number: 1, title: 'Vook Magazine' } %>
+  <div class='magazine-section container'>
+    <h2 class="title">
       <%= @magazine.title %>
-    </h1>
+    </h2>
     <div class="magazine-header">
       <%= l @magazine.publish_at, format: :date %>
     </div>
     <div class="magazine-content">
       <% if @magazine.thumbnail.attached? %>
         <figure class='image'>
-          <%= image_tag @magazine.thumbnail %>
+          <%= image_tag @magazine.thumbnail.variant(resize_to_limit: [1000, 1000]) %>
         </figure>
       <% end %>
       <div class="magazine-body content">
@@ -24,5 +25,5 @@
       </div>
     <% end %>
     <%= link_to 'Magazine一覧に戻る', magazines_path %>
-  </section>
+  </div>
 </section>

@@ -1,6 +1,6 @@
 .knowledge-section {
   margin: 20px auto;
-  @include mobile {
+  @include touch {
     margin: 20px 10px;
   }
   .knowledge-title {

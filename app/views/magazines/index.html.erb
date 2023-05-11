@@ -1,10 +1,6 @@
 <section>
-  <div class="hero is-small is-dark">
-    <div class="hero-body">
-      <h1 class="title">1.Vook Magazine</h1>
-    </div>
-  </div>
-  <section class="magazine-section">
+  <%= render partial: 'shared/hero_banner', locals: { number: 1, title: 'Vook Magazine' } %>
+  <div class='magazine-section container'>
     <div class="tabs is-centered is-boxed is-fullwidth is-large">
       <ul>
         <li class="tab-list is-active">
@@ -29,5 +25,5 @@
         <%= link_to 'New Magazine', new_magazine_path, class: 'button is-dark' %>
       </div>
     <% end %>
-  </section>
+  </div>
 </section>
