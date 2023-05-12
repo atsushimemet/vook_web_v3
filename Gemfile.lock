@@ -354,6 +354,7 @@ DEPENDENCIES
   image_processing (~> 1.2)
   jbuilder
   jsbundling-rails
+  mini_magick
   mysql2 (~> 0.5)
   omniauth
   omniauth-google-oauth2
