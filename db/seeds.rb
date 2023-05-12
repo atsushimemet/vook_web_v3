@@ -1,3 +1,49 @@
+lines = [
+  {name: '501', brand: "Levi's", item: 'Denim Pants'},
+  {name: '501XX', brand: "Levi's", item: 'Denim Pants'},
+  {name: '551ZXX', brand: "Levi's", item: 'Denim Pants'},
+  {name: '505', brand: "Levi's", item: 'Denim Pants'},
+  {name: '606', brand: "Levi's", item: 'Denim Pants'},
+  {name: '506XX', brand: "Levi's", item: 'Jacket'},
+  {name: '507XX', brand: "Levi's", item: 'Jacket'},
+  {name: '557XX', brand: "Levi's", item: 'Jacket'},
+  {name: '557', brand: "Levi's", item: 'Jacket'},
+  {name: '70505', brand: "Levi's", item: 'Jacket'},
+  {name: 'SHORT HORN DENIM WESTERN', brand: "Levi's", item: 'Shirt'},
+  {name: '27mw DENIM WESTERN', brand: 'Wrangler', item: 'Shirt'},
+  {name: '91-J COVERALL', brand: 'Lee', item: 'Shirt'},
+  {name: 'BOARD SHIRT', brand: 'Pendleton', item: 'Shirt'},
+  {name: 'REVERSE WEAVE', brand: 'Champion', item: 'Sweat Shirt'},
+  # {name: 'FATIGUE JACKET', brand: 'U.S.ARMY', item: 'Jacket'},
+  # {name: 'M-65', brand: 'U.S.ARMY', item: 'Jacket'},
+  # {name: 'MODS COAT', brand: 'U.S.ARMY', item: 'Jacket'},
+  # {name: 'BOAT AND TOTE', brand: 'L.L.Bean', item: 'Bag'},
+  # {name: 'M-65 FIELD Pants', brand: 'U.S.ARMY', item: 'Pants'},
+]
+
+lines.each do |line|
+  brand = Brand.find_or_create_by!(name: line[:brand])
+  item = Item.find_or_create_by!(name: line[:item])
+  line = Line.find_or_create_by!(
+    name: line[:name],
+    brand_id: brand.id,
+    item_id: item.id
+  )
+
+  case item.name
+  when 'Denim Pants'
+    image_path = 'line_denim_pants.jpg'
+  when 'Jacket'
+    image_path = 'line_jacket.png'
+  when 'Shirt'
+    image_path = 'line_shirt.png'
+  when 'Sweat Shirt'
+    image_path = 'line_sweat_shirt.png'
+  end
+
+  line.image.attach(io: File.open(Rails.root.join('app/assets/images/', image_path)), filename: image_path)
+end
+
 if Rails.env.development?
   user = User.create!(name: 'admin', icon_url: 'https://1.bp.blogspot.com/-bAOIfmOoIvI/VY4WmqzWeVI/AAAAAAAAusA/wpJ8Jc1VgZ0/s800/job_kanrinin.png', admin: true, provider: 'google_oauth2', uid: 1234)
 
@@ -16,33 +62,6 @@ if Rails.env.development?
       name: 'body',
       body: "#{magazine.id} <div class=\"trix-content\">\n  <div>90年代のフランス海軍デッキジャケット<br>海軍らしい紺色とUSとはまた違った雰囲気が良く、ユーズドショップにて購入。古着っぽくなりすぎないよう下はスラックスとローファー、全体色はネイビー×ホワイトの組み合わせにしてキレイめに中和したつもりです。□Tops / French Navy Deck Jacket<br>□Watch / rolex explore1<br>□Bottoms / steven alan<br>□Shoes / Hiroshi Tsubouchi</div>\n</div>\n"
     )
-  end
-
-  lines = [
-    {name: '501XX', brand: "Levi's", item: 'Denim Pants'},
-    {name: '606', brand: "Levi's", item: 'Denim Pants'},
-    {name: '551ZXX', brand: "Levi's", item: 'Denim Pants'},
-    {name: '501', brand: "Levi's", item: 'Denim Pants'},
-    {name: 'FATIGUE JACKET', brand: 'U.S.ARMY', item: 'Jacket'},
-    {name: 'M-65', brand: 'U.S.ARMY', item: 'Jacket'},
-    {name: 'MODS COAT', brand: 'U.S.ARMY', item: 'Jacket'},
-    {name: 'BOAT AND TOTE', brand: 'L.L.Bean', item: 'Bag'},
-    {name: 'M-65 FIELD Pants', brand: 'U.S.ARMY', item: 'Pants'},
-    {name: '70505', brand: "Levi's", item: 'Jacket'},
-    {name: 'REVERSE WEAVE', brand: 'Champion', item: 'Sweat Shirt'},
-    {name: 'BOARD SHIRT', brand: 'Pendleton', item: 'Shirt'},
-    {name: '27mw DENIM WESTERN', brand: 'Wrangler', item: 'Shirt'},
-    {name: '91-J COVERALL', brand: 'Lee', item: 'Jacket'},
-  ]
-
-  lines.each do |line|
-    Brand.find_or_create_by!(name: line[:brand])
-    Item.find_or_create_by!(name: line[:item])
-    Line.create!(
-      name: line[:name],
-      brand_id: Brand.find_by(name: line[:brand]).id,
-      item_id: Item.find_by(name: line[:item]).id
-    ).image.attach(io: File.open(Rails.root.join('app/assets/images/line-501xx.jpg')), filename: 'line-501xx.jpg')
   end
 
   knowledge = Knowledge.create!(name: 'ギャラ入り', age: 1955, user_id: user.id, brand_id: 1, item_id: 1, line_id: 1)
