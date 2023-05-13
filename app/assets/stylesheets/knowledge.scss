@@ -4,7 +4,6 @@
     margin: 20px 10px;
   }
   .knowledge-title {
-    margin-bottom: 16px;
     text-decoration: underline 4px;
     text-decoration-skip-ink: none;
   }
@@ -35,5 +34,16 @@
   }
   .table th,td{
     vertical-align: inherit;
+  }
+  .item-header {
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+    margin: 10px;
+    img {
+      border: solid $red 4px;
+      border-radius: 50%;
+      object-fit: contain;
+    }
   }
 }
