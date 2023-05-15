@@ -4,5 +4,6 @@ import './controllers';
 
 import './navbar-burger';
 import './tabs';
+import './pageloader';
 import 'trix';
 import '@rails/actiontext';
