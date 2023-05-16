@@ -85,6 +85,7 @@ group :test do
   gem 'webdrivers'
 end
 
+gem 'meta-tags'
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-rails_csrf_protection'
