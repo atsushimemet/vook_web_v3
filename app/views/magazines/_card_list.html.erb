@@ -8,7 +8,9 @@
           </span>
           <div class='card-image'>
             <figure class="image is-4by3">
-              <%= image_tag magazine.thumbnail.variant(resize_to_limit: [400, 400]) %>
+              <% if magazine.thumbnail.attached? %>
+                <%= image_tag magazine.thumbnail.variant(resize_to_limit: [400, 400]) %>
+              <% end %>
             </figure>
           </div>
           <div class='card-content'>
