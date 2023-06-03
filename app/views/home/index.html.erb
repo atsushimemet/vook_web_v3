@@ -62,8 +62,10 @@
   <%= render partial: 'shared/hero_banner', locals: { number: 1, title: 'Vook Magazine' } %>
   <div class="magazine-section container">
     <%= render 'magazines/card_list', magazines: @magazines %>
-    <div class='has-text-right'>
-      <%= link_to 'Magazineをもっと読む', magazines_path %>
+    <div class='read-more-button has-text-centered'>
+      <%= link_to magazines_path, class: 'button is-light is-large' do %>
+        Read more Magazines<i class="fa-solid fa-circle-right"></i>
+      <% end %>
     </div>
   </div>
 </section>
