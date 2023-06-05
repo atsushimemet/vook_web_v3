@@ -40,4 +40,17 @@ FactoryBot.define do
       )
     end
   end
+
+  factory :no_thumbnail_magazine, class: 'Magazine' do
+    title { 'サムネイル画像がない記事' }
+    publish_at { Date.current }
+    after(:create) do |magazine|
+      ActionText::RichText.create!(
+        record_type: 'Magazine',
+        record_id: magazine.id,
+        name: 'body',
+        body: 'この記事にはサムネイルがありません'
+      )
+    end
+  end
 end
