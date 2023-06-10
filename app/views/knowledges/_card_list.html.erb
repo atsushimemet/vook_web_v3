@@ -10,7 +10,9 @@
             <div class='card-image'>
               <% if object.image %>
                 <figure class='image is-4by3'>
-                  <%= image_tag object.image.variant(resize_to_limit: [400, 400]) %>
+                  <% if object.image.attached? %>
+                    <%= image_tag object.image.variant(resize_to_limit: [400, 400]) %>
+                  <% end %>
                 </figure>
               <% end %>
             </div>
