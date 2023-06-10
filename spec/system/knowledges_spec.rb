@@ -58,6 +58,19 @@
 #       expect(page).to have_content '紙パッチ'
 #     end
 
+#     it 'イメージ画像のない知識詳細ページへ遷移できること' do
+#       create(:no_image_knowledge, user_id: user.id, brand_id: brand.id, item_id: item.id, line_id: line.id)
+
+#       visit root_path
+#       find('a', text: 'ITEM').click
+#       click_on 'Denim'
+#       expect(page).to have_content 'Denim'
+#       click_on '501XX'
+#       expect(page).to have_content '501XX'
+#       click_on 'イメージ画像がない知識'
+#       expect(page).to have_content 'この知識にはイメージがありません'
+#     end
+
 #     it '管理者以外は記事編集と記事削除ボタンが表示されないこと' do
 #       sign_in_as(non_admin, uid: '5678')
 #       visit knowledge_path(knowledge)
