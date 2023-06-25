@@ -7,5 +7,8 @@ Rails.application.routes.draw do
   get 'auth/failure', to: redirect('/')
   resources :knowledges
   resources :magazines, path: '/magazine'
+  resources :brands, only: [] do
+    resources :lines, only: :index
+  end
   root 'home#index'
 end

@@ -36,14 +36,12 @@
       <%= form.label :brand_id, class: 'label' %>
       <div class='control'>
         <div class='select'>
-          <%= form.collection_select(:brand_id, Brand.all, :id, :name, prompt: 'ブランドを選択') %>
+          <%= form.select(:brand_id, brand_select_options, { prompt: 'ブランドを選択' }) %>
         </div>
         <div class='select'>
-          <%= form.collection_select(:item_id, Item.all, :id, :name, prompt: 'アイテムを選択') %>
+          <%= form.select(:line_id, line_select_options(@knowledge), { prompt: 'ラインを選択' }) %>
         </div>
-        <div class='select'>
-          <%= form.collection_select(:line_id, Line.all, :id, :name, prompt: 'ラインを選択') %>
-        </div>
+        <%= form.hidden_field :item_id %>
       </div>
     </div>
 
