@@ -4,6 +4,6 @@ module KnowledgesHelper
   end
 
   def line_select_options(knowledge)
-    knowledge.brand.try(:line).to_a.map { |line| [line.name, line.id, line.item_id] }
+    knowledge.brand.try(:line).to_a.map { |line| [line.name, line.id] }
   end
 end

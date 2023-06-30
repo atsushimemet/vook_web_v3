@@ -16,6 +16,7 @@ class KnowledgesController < ApplicationController
 
   def create
     @knowledge = current_user.knowledges.new(knowledge_params)
+    @knowledge.item_id = set_item_id
 
     if @knowledge.save
       redirect_to @knowledge, notice: 'ページを作成しました'
@@ -27,6 +28,7 @@ class KnowledgesController < ApplicationController
 
   def update
     if @knowledge.update(knowledge_params)
+      @knowledge.update(item_id: set_item_id)
       redirect_to @knowledge, notice: 'ページを更新しました'
     else
       flash.now[:alert] = '更新に失敗しました'
@@ -45,7 +47,11 @@ class KnowledgesController < ApplicationController
     @knowledge = Knowledge.find(params[:id])
   end
 
+  def set_item_id
+    Line.find(@knowledge.line_id).item_id
+  end
+
   def knowledge_params
-    params.require(:knowledge).permit(:name, :age, :body, :brand_id, :item_id, :line_id, :image)
+    params.require(:knowledge).permit(:name, :age, :body, :brand_id, :line_id, :image)
   end
 end
