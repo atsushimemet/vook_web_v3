@@ -25,12 +25,12 @@
 #         # attach_file 'Image', Rails.root.join('app', 'assets', 'images', 'knowledge-501xx1.jpg')
 #         fill_in 'knowledge_name', with: 'テストタイトル'
 #         select "Levi's", from: 'knowledge_brand_id'
-#         select 'Denim', from: 'knowledge_item_id'
 #         select '501XX', from: 'knowledge_line_id'
 #         fill_in 'knowledge_age', with: '1980'
 #         fill_in_rich_text_area 'knowledge_body', with: 'テスト文章'
 #         click_on '登録する'
 #         expect(page).to have_content 'ページを作成しました'
+#         expect(page).to have_content 'Denim Pants'
 #       end.to change(Knowledge, :count).by(1)
 #     end
 #   end

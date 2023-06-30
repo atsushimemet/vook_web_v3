@@ -13,4 +13,17 @@ FactoryBot.define do
       )
     end
   end
+
+  factory :no_image_knowledge, class: 'Knowledge' do
+    name { 'イメージ画像がない知識' }
+    age { 1955 }
+    after(:create) do |knowledge|
+      ActionText::RichText.create!(
+        record_type: 'Knowledge',
+        record_id: knowledge.id,
+        name: 'body',
+        body: 'この知識にはイメージがありません'
+      )
+    end
+  end
 end
