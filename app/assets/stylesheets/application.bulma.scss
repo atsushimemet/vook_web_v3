@@ -52,6 +52,7 @@ $card-header-padding: 0px;
 $footer-padding: 3rem 1.5rem;
 $column-gap: 0.25rem;
 $tabs-link-active-color: $gray;
+$navbar-breakpoint: 768px;
 
 // Import only what you need from Bulma
 @import "bulma/sass/utilities/_all.sass";
