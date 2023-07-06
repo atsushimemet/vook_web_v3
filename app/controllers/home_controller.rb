@@ -5,6 +5,5 @@ class HomeController < ApplicationController
     @magazines = Magazine.with_attached_thumbnail.order(publish_at: :desc).limit(4)
   end
 
-  def about
-  end
+  def about; end
 end
