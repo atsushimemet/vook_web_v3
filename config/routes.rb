@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
   get '/auth/:provider/callback', to: 'sessions#create'
   get 'auth/failure', to: redirect('/')
+  get '/about', to: 'home#about'
   resources :knowledges
   resources :magazines, path: '/magazine'
   resources :brands, only: [] do
