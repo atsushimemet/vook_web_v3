@@ -21,14 +21,14 @@
   }
 }
 
-.item-search-section {
+.item-discovery-section {
   margin: 20px auto;
   @include touch {
     margin: 20px 10px;
   }
 }
 
-.item-search-cover img {
+.item-discovery-cover img {
   width: 100%;
   height: 260px;
   object-fit: cover;
