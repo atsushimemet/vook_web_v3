@@ -60,7 +60,7 @@
   </div>
 </section>
 <section>
-  <%= render partial: 'shared/hero_banner', locals: { number: 1, title: 'Vook Magazine' } %>
+  <%= render partial: 'shared/hero_banner', locals: { number: 1, title: 'Magazine' } %>
   <div class="magazine-section container">
     <%= render 'magazines/card_list', magazines: @magazines %>
     <div class='read-more-button has-text-centered'>
@@ -71,11 +71,11 @@
   </div>
 </section>
 <section>
-  <%= render partial: 'shared/hero_banner', locals: { number: 2, title: 'Search The Vintage' } %>
-  <div class="item-search-cover">
-    <%= image_tag('map.jpg', alt: 'search-map') %>
+  <%= render partial: 'shared/hero_banner', locals: { number: 2, title: 'Discovery' } %>
+  <div class="item-discovery-cover">
+    <%= image_tag('map.jpg', alt: 'discovery-map') %>
   </div>
-  <div class="item-search-section container">
+  <div class="item-discovery-section container">
     <div class="field is-grouped">
       <p class="control is-expanded">
         <input class="input" type="text" placeholder="欲しいアイテムを入力" autocomplete="off">
