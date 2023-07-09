@@ -131,6 +131,7 @@ GEM
     globalid (1.1.0)
       activesupport (>= 5.0)
     hashie (5.0.0)
+    htmlbeautifier (1.4.2)
     i18n (1.12.0)
       concurrent-ruby (~> 1.0)
     i18n_generators (2.2.2)
@@ -357,6 +358,7 @@ DEPENDENCIES
   dotenv-rails
   erb_lint
   factory_bot_rails
+  htmlbeautifier
   i18n_generators
   image_processing (~> 1.2)
   jbuilder
