@@ -66,6 +66,7 @@ $navbar-breakpoint: 768px;
 @import "bulma/sass/layout/section.sass";
 
 @import 'bulma/bulma';
+@import '@creativebulma/bulma-tooltip/src/sass/index.sass';
 
 @import "footer";
 @import "header";

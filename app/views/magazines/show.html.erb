@@ -24,6 +24,22 @@
                       { method: :delete, data: { turbo_confirm: '本当に削除しますか？' }, class: 'button' } %>
       </div>
     <% end %>
+    <div class='share-buttons'>
+      <%= button_tag id: 'copy-link', class: 'button is-primary', data: { clipboard_text: request.url } do %>
+        <span>リンクをコピー<i class="fa-regular fa-copy"></i></span>
+      <% end %>
+      <%= link_to "http://line.me/R/msg/text/?#{@magazine.title}%0a#{request.url}%0ali", target: '_blank',
+                                                                                         rel: 'noopener' do %>
+        <i class="fa-brands fa-line fa-2x"></i>
+      <% end %>
+      <%= link_to "https://twitter.com/share?url=#{request.url}/%0a&text=#{@magazine.title}%0a&hashtags=vook",
+                  target: '_blank', rel: 'noopener' do %>
+        <i class="fa-brands fa-square-twitter fa-2x"></i>
+      <% end %>
+      <%= link_to "https://www.facebook.com/share.php?url=#{request.url}", target: '_blank', rel: 'noopener' do %>
+        <i class="fa-brands fa-square-facebook fa-2x"></i>
+      <% end %>
+    </div>
     <%= link_to 'Magazine一覧に戻る', magazines_path %>
   </div>
 </section>
