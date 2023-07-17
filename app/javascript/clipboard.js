@@ -1,11 +1,15 @@
 import ClipboardJS from 'clipboard';
 
-const copyLink = new ClipboardJS('#copy-link');
-const element = document.getElementById('copy-link');
-copyLink.on('success', () => {
-  element.setAttribute('data-tooltip', 'Copied!');
+document.addEventListener('turbo:load', () => {
+  const element = document.getElementById('copy-link');
+  if (element) {
+    const copyLink = new ClipboardJS('#copy-link');
+    copyLink.on('success', () => {
+      element.setAttribute('data-tooltip', 'Copied!');
 
-  setTimeout(() => {
-    element.removeAttribute('data-tooltip');
-  }, 1000);
+      setTimeout(() => {
+        element.removeAttribute('data-tooltip');
+      }, 1000);
+    });
+  }
 });
