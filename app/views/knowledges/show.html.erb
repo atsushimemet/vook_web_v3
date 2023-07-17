@@ -27,6 +27,7 @@
         <%= button_to '記事削除', @knowledge, { method: :delete, data: { turbo_confirm: '本当に削除しますか？' }, class: 'button' } %>
       </div>
     <% end %>
+    <%= render 'shared/share_banner', share_text: @knowledge.name %>
     <%= link_to 'トップページに戻る', root_path %>
   </div>
 </section>

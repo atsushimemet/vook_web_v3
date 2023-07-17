@@ -2,10 +2,13 @@
   "name": "app",
   "private": "true",
   "dependencies": {
+    "@creativebulma/bulma-divider": "^1.1.0",
+    "@creativebulma/bulma-tooltip": "^1.2.0",
     "@hotwired/stimulus": "^3.2.1",
     "@hotwired/turbo-rails": "^7.3.0",
     "@rails/actiontext": "^7.0.4-3",
     "bulma": "^0.9.4",
+    "clipboard": "^2.0.11",
     "esbuild": "^0.17.14",
     "sass": "^1.60.0",
     "trix": "^2.0.4"

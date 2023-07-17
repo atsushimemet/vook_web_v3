@@ -24,6 +24,7 @@
                       { method: :delete, data: { turbo_confirm: '本当に削除しますか？' }, class: 'button' } %>
       </div>
     <% end %>
+    <%= render 'shared/share_banner', share_text: @magazine.title %>
     <%= link_to 'Magazine一覧に戻る', magazines_path %>
   </div>
 </section>
