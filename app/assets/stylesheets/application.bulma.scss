@@ -12,6 +12,11 @@ $beige-light: #F7F7F7;
 $beige-lighter: #EFEFEF;
 $gray: #777777;
 
+// SNS color
+$twitter: #55acee;
+$facebook: #1877f2;
+$line: #06C755;
+
 // Update Bulma's global variables
 $family-sans-serif: 'Open Sans', 'Noto Sans JP', 'Helvetica Neue', Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
 $grey-dark: $black;
@@ -67,6 +72,7 @@ $navbar-breakpoint: 768px;
 
 @import 'bulma/bulma';
 @import '@creativebulma/bulma-tooltip/src/sass/index.sass';
+@import '@creativebulma/bulma-divider/src/sass/index.sass';
 
 @import "footer";
 @import "header";
@@ -75,5 +81,6 @@ $navbar-breakpoint: 768px;
 @import "knowledge";
 @import "magazine";
 @import "pageloader";
+@import "share";
 @import "trix/dist/trix";
 @import 'actiontext.css';
