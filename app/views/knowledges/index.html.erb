@@ -14,7 +14,7 @@
           <th>記事削除</th>
         </tr>
       </thead>
-      <% @knowledges.order(:brand_id, :item_id, :line_id, :age).each do |knowledge| %>
+      <% @knowledges.each do |knowledge| %>
         <tr>
           <th><%= knowledge.id %></th>
           <td>

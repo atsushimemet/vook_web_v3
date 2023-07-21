@@ -3,7 +3,7 @@ class KnowledgesController < ApplicationController
   before_action :require_admin_login, only: %i[index new edit create update destroy]
 
   def index
-    @knowledges = Knowledge.includes(:line, :brand, :item)
+    @knowledges = Knowledge.includes(:line, :brand, :item).order(:brand_id, :item_id, :line_id, :age)
   end
 
   def show; end
