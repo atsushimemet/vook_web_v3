@@ -14,7 +14,7 @@ module MetaTagsHelper
         description: :description,
         type: 'website',
         url: 'https://vook.tokyo/',
-        image: 'https://vook.tokyo/ogp/vook-ogp.png',
+        image: image_url('vook-ogp.png'),
         locale: 'ja_JP'
       },
       twitter: {
@@ -22,7 +22,7 @@ module MetaTagsHelper
         card: 'summary_large_image',
         site: '@vintagelevislis',
         description: :description,
-        image: 'https://vook.tokyo/ogp/vook-ogp.png',
+        image: image_url('vook-ogp.png'),
         domain: 'https://vook.tokyo/'
       }
     }
