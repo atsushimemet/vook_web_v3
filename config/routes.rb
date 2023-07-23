@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'product/:knowledge_id', to: 'products#show'
   get 'line/:name', to: 'lines#show', as: :line, constraints: { name: /[^\/]+/ }
   get 'item/:name', to: 'items#show', as: :item, constraints: { name: /[^\/]+/ }
   get 'brand/:name', to: 'brands#show', as: :brand, constraints: { name: /[^\/]+/ }
