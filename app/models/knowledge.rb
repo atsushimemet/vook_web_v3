@@ -3,6 +3,7 @@ class Knowledge < ApplicationRecord
   belongs_to :brand
   belongs_to :item
   belongs_to :line
+  has_many :products, dependent: :nullify
   has_one_attached :image
   has_rich_text :body
 
