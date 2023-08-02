@@ -1,6 +1,10 @@
 class ApplicationController < ActionController::Base
   helper_method :current_user, :login?, :admin_login?
 
+  if Rails.env.production?
+    rescue_from ActiveRecord::RecordNotFound, with: :render_404
+  end
+
   def current_user
     @current_user ||= User.find_by(id: session[:user_id])
   end
@@ -21,5 +25,12 @@ class ApplicationController < ActionController::Base
     return if current_user&.admin?
 
     redirect_to root_path, alert: '管理者としてログインしてください'
+  end
+
+  def render_404
+    respond_to do |format|
+      format.html { render template: 'errors/not_found', layout: 'layouts/application', status: :not_found }
+      format.all { render nothing: true, status: :not_found }
+    end
   end
 end
