@@ -112,7 +112,10 @@ if Rails.env.development?
   end
 
   %w[Rakuten Yahoo BASE].each do |name|
-    Platform.create!(name:)
+    platform = Platform.create!(name:)
+
+    image_path = "platform_#{platform.name.downcase}.png"
+    platform.image.attach(io: File.open(Rails.root.join("app/assets/images/#{image_path}")), filename: image_path)
   end
 
   products = [
@@ -122,6 +125,30 @@ if Rails.env.development?
       price: 43_890,
       knowledge_id: Knowledge.find(1).id,
       platform_id: Platform.find_by(name: 'Rakuten').id,
+      size_id: Size.find_by(name: 'w31').id
+    },
+    {
+      name: "60～70's Levi's 805 66single USA製 デニムパンツ W31 60年代 60s 70年代 70s リーバイス 66前期 インディゴ アメリカ製 【古着】 【ヴィンテージ】 【中古】",
+      url: 'https://example.com/',
+      price: 40_000,
+      knowledge_id: Knowledge.find(1).id,
+      platform_id: Platform.find_by(name: 'Rakuten').id,
+      size_id: Size.find_by(name: 'w31').id
+    },
+    {
+      name: "60～70's Levi's 805 66single USA製 デニムパンツ W31 60年代 60s 70年代 70s リーバイス 66前期 インディゴ アメリカ製 【古着】 【ヴィンテージ】",
+      url: 'https://example.net/',
+      price:50_000,
+      knowledge_id: Knowledge.find(1).id,
+      platform_id: Platform.find_by(name: 'Yahoo').id,
+      size_id: Size.find_by(name: 'w31').id
+    },
+    {
+      name: "60～70's Levi's 805 66single USA製 デニムパンツ W31 60年代 60s 70年代 70s リーバイス 66前期 インディゴ アメリカ製 【古着】",
+      url: 'https://example.org/',
+      price: 60_000,
+      knowledge_id: Knowledge.find(1).id,
+      platform_id: Platform.find_by(name: 'BASE').id,
       size_id: Size.find_by(name: 'w31').id
     },
     {
