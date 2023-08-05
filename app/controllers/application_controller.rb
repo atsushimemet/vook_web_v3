@@ -25,6 +25,7 @@ class ApplicationController < ActionController::Base
     redirect_to root_path, alert: '管理者としてログインしてください'
   end
 
+  private
   def render_not_found
     respond_to do |format|
       format.html { render template: 'errors/not_found', layout: 'layouts/application', status: :not_found }
