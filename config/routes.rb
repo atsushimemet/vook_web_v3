@@ -12,7 +12,5 @@ Rails.application.routes.draw do
     resources :lines, only: :index
   end
   root 'home#index'
-  if Rails.env.production?
-    match '*path', to: 'application#render_not_found', via: :all
-  end
+  match '*path', to: 'application#routing_error', via: :all
 end
