@@ -13,6 +13,6 @@ Rails.application.routes.draw do
   end
   root 'home#index'
   if Rails.env.production?
-    match '*path', to: 'application#render_404', via: :all
+    match '*path', to: 'application#render_not_found', via: :all
   end
 end
