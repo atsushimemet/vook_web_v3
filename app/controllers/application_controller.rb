@@ -28,8 +28,7 @@ class ApplicationController < ActionController::Base
   private
   def render_not_found
     respond_to do |format|
-      format.html { render template: 'errors/not_found', layout: 'layouts/application', status: :not_found }
-      format.all { render nothing: true, status: :not_found }
+      format.html { render 'errors/not_found', status: :not_found }
     end
   end
 end
