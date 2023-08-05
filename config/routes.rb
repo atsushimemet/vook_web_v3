@@ -13,7 +13,6 @@ Rails.application.routes.draw do
   end
   root 'home#index'
   if Rails.env.production?
-    # 未知のパスに対して404ページを表示するためのルート
     match '*path', to: 'application#render_404', via: :all
   end
 end
