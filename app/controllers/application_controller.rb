@@ -26,6 +26,7 @@ class ApplicationController < ActionController::Base
   end
 
   private
+
   def render_not_found
     respond_to do |format|
       format.html { render 'errors/not_found', status: :not_found }
