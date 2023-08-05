@@ -25,6 +25,10 @@ class ApplicationController < ActionController::Base
     redirect_to root_path, alert: '管理者としてログインしてください'
   end
 
+  def routing_error
+    raise ActionController::RoutingError, params[:path]
+  end
+
   private
 
   def render_not_found
