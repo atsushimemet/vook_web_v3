@@ -152,6 +152,30 @@ if Rails.env.development?
       size_id: Size.find_by(name: 'w31').id
     },
     {
+      name: "60～70's Levi's 805 66single USA製 デニムパンツ W32 60年代 60s 70年代 70s リーバイス 66前期 インディゴ アメリカ製 【古着】 【ヴィンテージ】 【中古】 【メンズ店】",
+      url: 'https://example.com1/',
+      price: 43_890,
+      knowledge_id: Knowledge.find(1).id,
+      platform_id: Platform.find_by(name: 'Rakuten').id,
+      size_id: Size.find_by(name: 'w32').id
+    },
+    {
+      name: "60～70's Levi's 805 66single USA製 デニムパンツ W33 60年代 60s 70年代 70s リーバイス 66前期 インディゴ アメリカ製 【古着】 【ヴィンテージ】 【中古】 【メンズ店】",
+      url: 'https://example.com2/',
+      price: 43_890,
+      knowledge_id: Knowledge.find(1).id,
+      platform_id: Platform.find_by(name: 'Yahoo').id,
+      size_id: Size.find_by(name: 'w33').id
+    },
+    {
+      name: "60～70's Levi's 805 66single USA製 デニムパンツ W34 60年代 60s 70年代 70s リーバイス 66前期 インディゴ アメリカ製 【古着】 【ヴィンテージ】 【中古】 【メンズ店】",
+      url: 'https://example.com3/',
+      price: 43_890,
+      knowledge_id: Knowledge.find(1).id,
+      platform_id: Platform.find_by(name: 'BASE').id,
+      size_id: Size.find_by(name: 'w34').id
+    },
+    {
       name: '【中古】L.L.Bean◆オールド/トートバッグ/キャンバス/70S後期タグ/ラージトート/レザーハンドル/大容量【バッグ】',
       url: 'https://item.rakuten.co.jp/jumblestore/2335232285580/',
       price: 19_690,
