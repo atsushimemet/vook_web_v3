@@ -6,4 +6,9 @@ class Product < ApplicationRecord
   validates :name, presence: true, uniqueness: true
   validates :url, presence: true, uniqueness: true
   validates :price, presence: true
+
+  def self.sizes(knowledge_id)
+    size_ids = where(knowledge_id: knowledge_id).distinct.pluck(:size_id)
+    Size.find(size_ids)
+  end
 end
