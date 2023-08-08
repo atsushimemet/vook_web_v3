@@ -22,4 +22,21 @@ class ApplicationController < ActionController::Base
 
     redirect_to root_path, alert: '管理者としてログインしてください'
   end
+
+  def routing_error
+    raise ActionController::RoutingError, params[:path]
+  end
+
+  if Rails.env.production?
+    rescue_from ActionController::RoutingError, with: :render_not_found
+    rescue_from ActiveRecord::RecordNotFound, with: :render_not_found
+  end
+
+  private
+
+  def render_not_found
+    respond_to do |format|
+      format.html { render 'errors/not_found', status: :not_found }
+    end
+  end
 end
