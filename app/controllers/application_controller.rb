@@ -1,8 +1,6 @@
 class ApplicationController < ActionController::Base
   helper_method :current_user, :login?, :admin_login?
 
-  rescue_from ActiveRecord::RecordNotFound, with: :render_not_found if Rails.env.production?
-
   def current_user
     @current_user ||= User.find_by(id: session[:user_id])
   end
