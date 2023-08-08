@@ -30,9 +30,7 @@ class ApplicationController < ActionController::Base
   end
 
   if Rails.env.production?
-    # ルーティングエラーを捕捉したらエラーページへ
     rescue_from ActionController::RoutingError, with: :render_not_found
-    # レコードが見つからないエラーを捕捉したらエラーページへ
     rescue_from ActiveRecord::RecordNotFound, with: :render_not_found
   end
 
