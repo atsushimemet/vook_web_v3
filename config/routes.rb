@@ -12,5 +12,7 @@ Rails.application.routes.draw do
     resources :lines, only: :index
   end
   root 'home#index'
-  match '*path', to: 'application#routing_error', via: :all
+  match '*path', to: 'application#routing_error', via: :all, constraints: lambda { |req|
+    req.path.exclude? 'rails/active_storage'
+  }
 end
