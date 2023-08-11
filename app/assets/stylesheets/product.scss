@@ -1,0 +1,51 @@
+.product-section {
+  margin: 20px auto;
+  @include touch {
+    margin: 20px 10px;
+  }
+  .breadcrumb {
+    margin: 16px 0px;
+  }
+  .product-header {
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+  }
+  .product-title {
+    font-size: 2rem;
+    font-weight: 600;
+    line-height: 1.125;
+  }
+  .product-image {
+    img {
+      object-fit: contain;
+      width: 80%;
+      margin: 20px auto;
+      max-width: 800px;
+      max-height: 500px;
+    }
+  }
+  .size-buttons {
+    .is-selected {
+      background-color: $primary;
+      border-color: transparent;
+      color: $white;
+    }
+  }
+  .product-link {
+    cursor: pointer;
+  }
+  .platform-col {
+    // TODO:表示を確認
+    // vertical-align: middle;
+  }
+  .platform-image {
+    max-width: 128px;
+    max-height: 48px;
+    vertical-align: middle;
+    @include touch {
+      max-width: 64px;
+      max-height: 24px;
+    }
+  }
+}

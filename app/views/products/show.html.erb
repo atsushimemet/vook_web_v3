@@ -12,36 +12,42 @@
       <h2 class='product-title'>
         <%= @knowledge.name %>
       </h2>
-      <span class='knowlege-link'>
+      <span class='knowledge-link'>
         <%= link_to '解説ページ', knowledge_path(@knowledge), class: 'button is-rounded' %>
       </span>
     </div>
-    <div class='product-image_and_size columns'>
-      <div class='product-image column'>
-        <% if @knowledge.image.attached? %>
-          <figure class='image'>
-            <%= image_tag @knowledge.image.variant(resize_to_limit: [1000, 1000]) %>
-          </figure>
-        <% end %>
-      </div>
-      <div class='product-sizes column'>
-        <div class='title is-4'>サイズ</div>
-        <div class='column is-one-quarter-tablet is-half-mobile'>
-            <%= button_tag 'ALL', class: 'button is-large size-button', data: { knowledge_id: @knowledge.id } %>
+    <div class='product-body'>
+      <div class='product-image_and_sizes columns'>
+        <div class='product-image column'>
+          <% if @knowledge.image.attached? %>
+            <figure class='image'>
+              <%= image_tag @knowledge.image.variant(resize_to_limit: [1000, 1000]) %>
+            </figure>
+          <% end %>
         </div>
-        <% @sizes.each do |size| %>
-          <div class='column is-one-quarter-tablet is-half-mobile'>
-            <%= button_tag size.name, class: 'button is-large size-button', data: { size_id: size.id, knowledge_id: @knowledge.id } %>
+        <div class='product-sizes column'>
+          <div class='title is-4'>サイズ</div>
+          <div class='size-buttons columns is-multiline is-mobile'>
+            <div class='column is-full'>
+              <%= button_tag 'ALL', class: 'size-button button is-large is-fullwidth is-selected',
+                                    data: { knowledge_id: @knowledge.id } %>
+            </div>
+            <% @sizes.each do |size| %>
+              <div class='column is-one-quarter'>
+                <%= button_tag size.name, class: 'size-button button is-large is-fullwidth',
+                                          data: { size_id: size.id, knowledge_id: @knowledge.id } %>
+              </div>
+            <% end %>
           </div>
-        <% end %>
+        </div>
       </div>
+      <div class='title is-4'>
+        価格
+      </div>
+      <table class='table is-bordered is-hoverable is-fullwidth' id='product-list'>
+        <%= render 'products/list', products: @products %>
+      </table>
     </div>
-    <div class='title is-4'>
-      価格
-    </div>
-    <table class='table is-bordered is-hoverable is-fullwidth' id='product-list'>
-      <%= render 'products/list', products: @products %>
-    </table>
     <%= render 'shared/share_banner', share_text: @knowledge.name %>
     <%= link_to 'トップページに戻る', root_path %>
   </div>
