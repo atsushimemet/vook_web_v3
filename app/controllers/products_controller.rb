@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
   def show
     @knowledge = Knowledge.find(params[:knowledge_id])
-    @products = params[:size] ? @knowledge.products.where(size: params[:size]) : @knowledge.products
+    @products = @knowledge.products.includes(platform: { image_attachment: :blob }).by_size(params[:size])
     @sizes = @products.sizes(@knowledge.id)
 
     respond_to do |format|

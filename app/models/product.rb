@@ -7,8 +7,10 @@ class Product < ApplicationRecord
   validates :url, presence: true, uniqueness: true
   validates :price, presence: true
 
+  scope :by_size, ->(size) { where(size:) if size.present? }
+
   def self.sizes(knowledge_id)
-    size_ids = where(knowledge_id: knowledge_id).distinct.pluck(:size_id)
+    size_ids = where(knowledge_id:).distinct.pluck(:size_id)
     Size.find(size_ids)
   end
 end
