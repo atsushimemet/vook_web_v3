@@ -8,9 +8,4 @@ class Product < ApplicationRecord
   validates :price, presence: true
 
   scope :by_size, ->(size) { where(size:) if size.present? }
-
-  def self.sizes(knowledge_id)
-    size_ids = where(knowledge_id:).distinct.pluck(:size_id)
-    Size.where(id: size_ids).order(:name)
-  end
 end
