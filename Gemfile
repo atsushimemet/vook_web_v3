@@ -67,7 +67,6 @@ group :development do
   gem 'erb_lint'
   gem 'htmlbeautifier'
   gem 'i18n_generators'
-  gem 'rack-mini-profiler'
   gem 'rubocop', require: false
   gem 'rubocop-performance', require: false
   gem 'rubocop-rails', require: false
@@ -75,7 +74,7 @@ group :development do
   gem 'web-console'
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
-  # gem "rack-mini-profiler"
+  gem "rack-mini-profiler"
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
@@ -83,7 +82,7 @@ end
 
 group :test do
   gem 'capybara', github: 'teamcapybara/capybara'
-  gem 'webdrivers'
+  gem 'selenium-webdriver'
 end
 
 gem 'dotenv-rails'
