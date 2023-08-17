@@ -11,12 +11,12 @@ lines = [
   { name: '70505', brand: "Levi's", item: 'Jacket' },
   { name: 'SHORT HORN DENIM WESTERN', brand: "Levi's", item: 'Shirt' },
   { name: '27mw DENIM WESTERN', brand: 'Wrangler', item: 'Shirt' },
-  { name: '91-J COVERALL', brand: 'Lee', item: 'Shirt' },
+  { name: '91-J COVERALL', brand: 'Lee', item: 'Jacket' },
   { name: 'BOARD SHIRT', brand: 'Pendleton', item: 'Shirt' },
   { name: 'REVERSE WEAVE', brand: 'Champion', item: 'Sweat Shirt' },
   { name: 'FATIGUE JACKET', brand: 'U.S.ARMY', item: 'Jacket' },
   { name: 'M-65', brand: 'U.S.ARMY', item: 'Jacket' },
-  { name: 'MODS COAT', brand: 'U.S.ARMY', item: 'Jacket' },
+  { name: 'MODS COAT', brand: 'U.S.ARMY', item: 'Coat' },
   { name: 'BOAT AND TOTE', brand: 'L.L.Bean', item: 'Bag' },
   { name: 'M-65 FIELD Pants', brand: 'U.S.ARMY', item: 'Pants' }
 ]
@@ -33,6 +33,7 @@ lines.each do |line|
                when 'Sweat Shirt' then 'line_sweat_shirt.png'
                when 'Bag' then 'line_bag.png'
                when 'Pants' then 'line_pants.png'
+               when 'Coat' then 'line_coat.png'
                end
 
   line.image.attach(io: File.open(Rails.root.join("app/assets/images/#{image_path}")), filename: image_path)
