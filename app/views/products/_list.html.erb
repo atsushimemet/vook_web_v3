@@ -1,0 +1,10 @@
+<% products.each do |product| %>
+  <tr onclick="window.open('<%= product.url %>')" class='product-link'>
+    <td class='platform-col'>
+      <%= image_tag product.platform.image, class: 'platform-image' %>
+    </td>
+    <%# TODO .truncate(100)など表示方法を確認 %>
+    <td><%= product.name %></td>
+    <td><%= product.price %></td>
+  </tr>
+<% end %>

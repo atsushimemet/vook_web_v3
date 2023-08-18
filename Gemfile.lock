@@ -217,6 +217,8 @@ GEM
       nio4r (~> 2.0)
     racc (1.6.2)
     rack (2.2.6.4)
+    rack-mini-profiler (3.1.1)
+      rack (>= 1.2.0)
     rack-protection (3.0.6)
       rack
     rack-test (2.1.0)
@@ -370,6 +372,7 @@ DEPENDENCIES
   omniauth-google-oauth2
   omniauth-rails_csrf_protection
   puma (~> 5.0)
+  rack-mini-profiler
   rails (~> 7.0.4, >= 7.0.4.3)
   rspec-rails
   rubocop

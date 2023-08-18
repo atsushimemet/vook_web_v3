@@ -6,6 +6,7 @@ import './navbar-burger';
 import './tabs';
 import './pageloader';
 import './line-select';
+import './size-select';
 import './clipboard';
 import 'trix';
 import '@rails/actiontext';

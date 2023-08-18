@@ -1,0 +1,58 @@
+<section>
+  <%= render partial: 'shared/hero_banner', locals: { number: 2, title: 'Discovery' } %>
+  <div class='product-section container'>
+    <nav class='breadcrumb has-succeeds-separator is-medium'>
+      <ul>
+        <li><%= link_to @knowledge.brand.name, brand_path(@knowledge.brand.name) %></li>
+        <li><%= link_to @knowledge.item.name, item_path(@knowledge.item.name) %></li>
+        <li><%= link_to @knowledge.line.name, line_path(@knowledge.line.name) %></li>
+      </ul>
+    </nav>
+    <div class='product-header'>
+      <h2 class='product-title'>
+        <%= @knowledge.name %>
+      </h2>
+      <span class='knowledge-link'>
+        <%= link_to '解説ページ', knowledge_path(@knowledge), class: 'button is-rounded' %>
+      </span>
+    </div>
+    <div class='product-body'>
+      <div class='product-image_and_sizes columns'>
+        <div class='product-image column'>
+          <% if @knowledge.image.attached? %>
+            <figure class='image'>
+              <%= image_tag @knowledge.image.variant(resize_to_limit: [1000, 1000]) %>
+            </figure>
+          <% end %>
+        </div>
+        <div class='product-sizes column'>
+          <div class='title is-4'>サイズ</div>
+          <div class='size-buttons columns is-multiline is-mobile'>
+            <div class='column is-full'>
+              <%= button_tag 'ALL', class: 'size-button button is-large is-fullwidth is-selected',
+                                    data: { knowledge_id: @knowledge.id } %>
+            </div>
+            <% @sizes.each do |size| %>
+              <div class='column is-one-quarter'>
+                <%= button_tag size.name, class: 'size-button button is-large is-fullwidth',
+                                          data: { size_id: size.id, knowledge_id: @knowledge.id } %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <div class='title is-4'>
+        商品情報
+      </div>
+      <% if @products.empty? %>
+        <p>現在、商品情報はありません</p>
+      <% else %>
+        <table class='table is-bordered is-hoverable is-fullwidth' id='product-list'>
+          <%= render 'products/list', products: @products %>
+        </table>
+      <% end %>
+    </div>
+    <%= render 'shared/share_banner', share_text: @knowledge.name %>
+    <%= link_to 'トップページに戻る', root_path %>
+  </div>
+</section>

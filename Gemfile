@@ -67,6 +67,7 @@ group :development do
   gem 'erb_lint'
   gem 'htmlbeautifier'
   gem 'i18n_generators'
+  gem 'rack-mini-profiler'
   gem 'rubocop', require: false
   gem 'rubocop-performance', require: false
   gem 'rubocop-rails', require: false
