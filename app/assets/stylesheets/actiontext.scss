@@ -1,0 +1,15 @@
+.trix-content {
+  overflow-wrap: anywhere;
+}
+
+trix-editor {
+  min-height: 35em;
+  max-height: 35em;
+  overflow-y: auto;
+}
+
+.trix-content .attachment--preview,
+.trix-content .attachment,
+.content figure {
+  all: initial;
+}
