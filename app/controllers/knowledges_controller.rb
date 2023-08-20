@@ -48,7 +48,7 @@ class KnowledgesController < ApplicationController
   end
 
   def set_item_id
-    Line.find(@knowledge.line_id).item_id
+    Line.find_by(id: @knowledge.line_id)&.item_id
   end
 
   def knowledge_params
