@@ -1,10 +1,19 @@
 FactoryBot.define do
   factory :product do
-    name { "リーバイス 501 ネイビー LEVI'S 66前期 BIGE 初期 Vステッチ ウエストシングル VINTAGE ヴィンテージ ジーンズ デニムパンツ　ビッグE 古着 【中古】wv1912-0165" }
-    url { 'https://item.rakuten.co.jp/wego-vintage/wv1912-0165/' }
+    knowledge
+    size factory: :size_w28
+    platform
+
+    name { "リーバイス 501 ネイビー LEVI'S 66前期 BIGE 初期 w28 001" }
+    url { 'https://item.rakuten.co.jp/wego-vintage/001/' }
     price { 82_500 }
-    knowledge { 1 }
-    platform { 1 }
-    size { 1 }
+
+    factory :product2 do
+      size factory: :size_w32
+
+      name { "リーバイス 501 ネイビー LEVI'S 66前期 BIGE 初期 w32 002" }
+      url { 'https://item.rakuten.co.jp/wego-vintage/002/' }
+      price { 60_500 }
+    end
   end
 end
