@@ -1,8 +1,7 @@
-require 'rails_helper'
+# require 'rails_helper'
 
 # RSpec.describe '/', type: :system do
-#   let(:user) { create(:admin) }
-#   let!(:no_thumbnail_magazine) { create(:no_thumbnail_magazine, user_id: user.id) }
+#   let!(:no_thumbnail_magazine) { create(:no_thumbnail_magazine) }
 
 #   it 'サムネイル画像のない記事があってもトップページが表示されること' do
 #     visit root_path

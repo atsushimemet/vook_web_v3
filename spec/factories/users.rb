@@ -1,17 +1,14 @@
 FactoryBot.define do
-  factory :admin, class: 'User' do
-    name { 'Admin' }
-    icon_url { 'https://example.com/image' }
-    admin { true }
-    provider { 'google_oauth2' }
-    uid { '1234' }
-  end
-
-  factory :non_admin, class: 'User' do
-    name { 'Non Admin' }
+  factory :user do
+    name { 'user' }
     icon_url { 'https://example.com/image' }
     admin { false }
     provider { 'google_oauth2' }
-    uid { '5678' }
+    sequence(:uid)
+
+    factory :admin do
+      name { 'admin user' }
+      admin { true }
+    end
   end
 end
