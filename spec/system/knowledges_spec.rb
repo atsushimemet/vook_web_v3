@@ -46,7 +46,7 @@
 #   describe 'show' do
 #     it 'トップページのブランドタブから知識詳細ページへ遷移できること' do
 #       visit root_path
-#       find('a', text: 'BLAND').click
+#       find('a', text: 'BRAND').click
 #       click_on "Levi's"
 #       expect(page).to have_content "Levi's"
 #       click_on '501'
