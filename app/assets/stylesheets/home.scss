@@ -45,6 +45,20 @@
   }
 }
 
+.instagram-list-section {
+  @include desktop {
+    padding: 0 64px;
+  }
+  .instagram-list-header {
+    margin: 24px 0;
+    .instagram-list-title{
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: 2px;
+    }
+  }
+}
+
 .hero-title-number {
   font-size: 50px;
   font-weight: bold;
