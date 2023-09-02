@@ -1,29 +1,29 @@
 module MetaTagsHelper
   def default_meta_tags # rubocop:disable Metrics/MethodLength
+    site_name = 'Vook'
+    default_title = "#{site_name}｜古着・ヴィンテージを楽しむための新しいメディア"
+    default_meta_description = 'ヴィンテージに特化したキュレーションメディアです。古着を楽しむための基本的な知識をわかりやすく解説'
+    default_og_image = image_url('vook-ogp.png')
+
     {
-      reverse: true,
-      charset: 'utf-8',
-      description: 'ヴィンテージに特化したキュレーションメディア。『古着を楽しむための基本的な知識をわかりやすく解説』',
+      title: default_title,
+      description: default_meta_description,
       keywords: 'ヴィンテージ,古着',
-      viewport: 'width=device-width, initial-scale=1.0',
+      viewport: 'width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1',
       icon: [
         { href: image_url('favicon.png') }
       ],
       og: {
-        site_name: 'Vook',
-        description: :description,
+        title: default_title,
+        site_name:,
+        description: default_meta_description,
         type: 'website',
-        url: 'https://vook.tokyo/',
-        image: image_url('vook-ogp.png'),
-        locale: 'ja_JP'
+        image: default_og_image
       },
       twitter: {
-        title: 'Vook',
         card: 'summary_large_image',
         site: '@vintagelevislis',
-        description: :description,
-        image: image_url('vook-ogp.png'),
-        domain: 'https://vook.tokyo/'
+        image: default_og_image
       }
     }
   end

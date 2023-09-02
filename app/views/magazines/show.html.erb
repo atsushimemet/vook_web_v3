@@ -1,3 +1,13 @@
+<% set_meta_tags(
+     title: "#{@magazine.title} | Vook", description: @magazine.summary,
+     og: {
+       title: "#{@magazine.title} | Vook",
+       description: @magazine.summary,
+       image: rails_blob_url(@magazine.thumbnail)
+     },
+     twitter: { image: rails_blob_url(@magazine.thumbnail) }
+   ) %>
+
 <section>
   <%= render partial: 'shared/hero_banner', locals: { number: 1, title: 'Vook Magazine' } %>
   <div class='magazine-section container'>
