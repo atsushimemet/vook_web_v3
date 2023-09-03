@@ -3,9 +3,11 @@
      og: {
        title: "#{@knowledge.name} | Vook",
        description: @knowledge.body.to_plain_text,
-       image: image_tag(@knowledge.image)
+       image: @knowledge.image.present? ? image_tag(@knowledge.image) : image_url('vook-ogp.png')
      },
-     twitter: { image: image_tag(@knowledge.image) }
+     twitter: {
+       image: @knowledge.image.present? ? image_tag(@knowledge.image) : image_url('vook-ogp.png')
+     }
    ) %>
 
 <section>

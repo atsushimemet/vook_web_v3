@@ -3,9 +3,11 @@
      og: {
        title: "#{@magazine.title} | Vook",
        description: @magazine.summary,
-       image: rails_blob_url(@magazine.thumbnail)
+       image: @magazine.thumbnail.present? ? rails_blob_url(@magazine.thumbnail) : image_url('vook-ogp.png')
      },
-     twitter: { image: rails_blob_url(@magazine.thumbnail) }
+     twitter: {
+       image: @magazine.thumbnail.present? ? rails_blob_url(@magazine.thumbnail) : image_url('vook-ogp.png')
+     }
    ) %>
 
 <section>
