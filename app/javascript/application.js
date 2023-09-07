@@ -8,6 +8,8 @@ import './pageloader';
 import './line-select';
 import './size-select';
 import './clipboard';
+import './knowledge-carousel';
 import 'trix';
 import '@rails/actiontext';
 import 'clipboard';
+import '@splidejs/splide';
