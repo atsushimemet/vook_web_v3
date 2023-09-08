@@ -58,6 +58,9 @@ $footer-padding: 3rem 1.5rem;
 $column-gap: 0.25rem;
 $tabs-link-active-color: $gray;
 $navbar-breakpoint: 768px;
+$card-radius: 0;
+$card-shadow: none;
+$card-content-padding: 1.0rem;
 
 // Import only what you need from Bulma
 @import "bulma/sass/utilities/_all.sass";
@@ -73,6 +76,7 @@ $navbar-breakpoint: 768px;
 @import 'bulma/bulma';
 @import '@creativebulma/bulma-tooltip/src/sass/index.sass';
 @import '@creativebulma/bulma-divider/src/sass/index.sass';
+@import '@splidejs/splide/src/css/template/default/index.scss';
 
 @import "footer";
 @import "header";

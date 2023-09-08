@@ -72,41 +72,72 @@
 </section>
 <section>
   <%= render partial: 'shared/hero_banner', locals: { number: 2, title: 'Discovery' } %>
-  <div class="item-discovery-cover">
-    <%= image_tag('map.jpg', alt: 'discovery-map') %>
-  </div>
-  <div class="item-discovery-section container">
-    <div class="field is-grouped">
-      <p class="control is-expanded">
-        <input class="input" type="text" placeholder="欲しいアイテムを入力" autocomplete="off">
-      </p>
-      <p class="control">
-        <a class="button">
-          Search
-        </a>
-      </p>
-    </div>
-  </div>
-</section>
-<section>
-  <%= render partial: 'shared/hero_banner', locals: { number: 3, title: 'Community' } %>
-  <div class='community-section container'>
-    <div class='instagram-list-section'>
-      <div class='instagram-list-header has-text-centered'>
-        <p>@vook.vintagebook</p>
-        <div class='instagram-list-title'>Instagram</div>
+  <div class='top-discovery-section container'>
+    <div class='carousel-title'>人気の商品</div>
+    <div class='splide' aria-label='discovery-carousel'>
+      <div class='splide__track'>
+        <ul class='splide__list'>
+          <% @pickup_knowledges.each do |knowledge| %>
+            <li class='splide__slide card'>
+              <%= link_to product_path(knowledge.id) do %>
+                <div class='product-card-image'>
+                  <div class='image is-square'>
+                    <% if knowledge.image.attached? %>
+                      <%= image_tag knowledge.image.variant(resize_to_limit: [600, 600]), alt: knowledge.name %>
+                    <% else %>
+                      <%= image_tag('product-sample.jpg', alt: 'product-sample') %>
+                    <% end %>
+                  </div>
+                </div>
+                <div>
+                  <div class='product-card-content'>
+                    <p><%= knowledge.brand.name %></p>
+                    <p class='slide-title'><%= "#{knowledge.line.name} #{knowledge.name}" %></p>
+                    <p>最低価格</p>
+                    <% if knowledge.products&.minimum(:price) %>
+                      <p class='slide-title'><%= number_to_currency(knowledge.products.minimum(:price)) %></p>
+                    <% else %>
+                      <p>現在、価格情報はありません</p>
+                    <% end %>
+                  </div>
+                <% end %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+        <ul class="splide__pagination"></ul>
       </div>
-      <div class='instagram-list-body'>
-        <div class='instagram-feeds columns is-mobile is-multiline'>
-          <% @instagram_feeds.each do |feed| %>
-            <div class='instagram-feed column is-one-third'>
-              <%= link_to feed['permalink'], target: '_blank', rel: 'noopener noreferrer' do %>
-                <%= image_tag feed['media_url'], alt: truncate(feed['caption'], length: 50) %>
-              <% end %>
-            </div>
-          <% end %>
+      <div class="field is-grouped">
+        <p class="control is-expanded">
+          <input class="input" type="text" placeholder="欲しいアイテムを入力" autocomplete="off">
+        </p>
+        <p class="control">
+          <a class="button">
+            Search
+          </a>
+        </p>
+      </div>
+    </div>
+  </section>
+  <section>
+    <%= render partial: 'shared/hero_banner', locals: { number: 3, title: 'Community' } %>
+    <div class='community-section container'>
+      <div class='instagram-list-section'>
+        <div class='instagram-list-header has-text-centered'>
+          <p>@vook.vintagebook</p>
+          <div class='instagram-list-title'>Instagram</div>
+        </div>
+        <div class='instagram-list-body'>
+          <div class='instagram-feeds columns is-mobile is-multiline'>
+            <% @instagram_feeds.each do |feed| %>
+              <div class='instagram-feed column is-one-third'>
+                <%= link_to feed['permalink'], target: '_blank', rel: 'noopener noreferrer' do %>
+                  <%= image_tag feed['media_url'], alt: truncate(feed['caption'], length: 50), loading: 'lazy' %>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>

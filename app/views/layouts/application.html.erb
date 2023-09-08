@@ -12,6 +12,7 @@
     <%= stylesheet_link_tag 'application', "data-turbo-track": 'reload' %>
     <%= stylesheet_link_tag 'https://fonts.googleapis.com/css2?family=Open+Sans&family=Noto+Sans+JP&display=swap' %>
     <%= javascript_include_tag 'application', "data-turbo-track": 'reload', defer: true %>
+    <%= hotwire_livereload_tags if Rails.env.development? %>
   </head>
 
   <body>

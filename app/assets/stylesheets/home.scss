@@ -21,21 +21,57 @@
   }
 }
 
-.item-discovery-section {
+.top-discovery-section {
   margin: 20px auto;
   @include touch {
     margin: 20px 10px;
   }
-}
-
-.item-discovery-cover img {
-  width: 100%;
-  height: 260px;
-  object-fit: cover;
-  background: gray;
-  filter: grayscale(100%);
-  opacity: .6;
-  background-attachment: fixed;
+  .carousel-title {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 16px;
+  }
+  .splide {
+    margin-bottom: 32px;
+  }
+  .splide__list {
+    @include mobile {
+      padding-right: 4rem !important;
+    }
+  }
+  .splide__slide {
+    width: 100%;
+    height: auto;
+    .product-card-image {
+      display: block;
+      position: relative;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border: solid 6px $primary;
+        &:hover{
+          opacity: .8;
+        }
+      }
+    }
+    .slide-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      @include touch {
+        font-size: 1.2rem;
+      }
+    }
+  }
+  .splide__pagination {
+    bottom: -0.6em;
+    .is-active {
+      background-color: $primary;
+    }
+  }
+  .product-card-content {
+    padding: 0.5rem;
+  }
 }
 
 .community-section {
