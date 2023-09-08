@@ -1,63 +1,7 @@
 <%= render 'home/pageloader' %>
 <section>
   <%= render partial: 'shared/hero_banner', locals: { number: 0, title: 'Knowledge' } %>
-  <div class='top-knowledge-section container'>
-    <div class='field is-grouped'>
-      <p class='control is-expanded'>
-        <input class='input' type='text' placeholder='知りたいブランドやアイテムを入力' autocomplete='off'>
-      </p>
-      <p class='control'>
-        <a class='button'>
-          Search
-        </a>
-      </p>
-    </div>
-    <div class='knowledge-list'>
-      <div class='tabs is-centered is-boxed'>
-        <ul>
-          <li class='tab-list is-active'>
-            <a>BRAND</a>
-          </li>
-          <li class='tab-list'>
-            <a>ITEM</a>
-          </li>
-          <%# AGEは一度コメントアウト %>
-          <%# <li class='tab-list'>
-            <a>AGE</a>
-          </li> %>
-        </ul>
-      </div>
-      <div class='knowledge-tab-container'>
-        <div class='tab-content is-active'>
-          <div class='columns is-multiline is-mobile is-centered'>
-            <% @brands.each do |brand| %>
-              <%= link_to brand_path(brand.name) do %>
-                <div class='knowledge-tab-item column has-text-centered'>
-                  <i class='fa-solid fa-shirt fa-3x'></i>
-                  <p><%= brand.name %></p>
-                </div>
-              <% end %>
-            <% end %>
-          </div>
-        </div>
-        <div class='tab-content'>
-          <div class='columns is-multiline is-mobile is-centered'>
-            <% @items.each do |item| %>
-              <%= link_to item_path(item.name) do %>
-                <div class='knowledge-tab-item column has-text-centered'>
-                  <i class='fa-solid fa-shirt fa-3x'></i>
-                  <p><%= item.name %></p>
-                </div>
-              <% end %>
-            <% end %>
-          </div>
-        </div>
-        <%# AGEは一度コメントアウト %>
-        <%# <div class='tab-content'>
-        </div> %>
-      </div>
-    </div>
-  </div>
+  <%= render partial: 'home/top_knowledge' %>
 </section>
 <section>
   <%= render partial: 'shared/hero_banner', locals: { number: 1, title: 'Magazine' } %>

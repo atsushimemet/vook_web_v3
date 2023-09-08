@@ -4,19 +4,19 @@
     margin: 20px 10px;
   }
   .knowledge-list {
-    padding: 30px;
-    @include touch {
-      padding: 10px;
-    }
-    border: 1px solid #e5e5e5;
+    margin-bottom: 28px;
   }
-  .knowledge-tab-item {
-    border-radius: 10px;
-    margin: 4px;
-    color: gray;
-    p {
-      margin-top: 4px;
-      font-size: small;
+  .lists-title {
+    margin-bottom: 10px;
+    font-size: 18px;
+  }
+  .list-title {
+    text-align: center;
+  }
+  img {
+    border-radius: 10%;
+    &:hover{
+      opacity: .8;
     }
   }
 }
