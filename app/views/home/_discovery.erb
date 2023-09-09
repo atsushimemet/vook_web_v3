@@ -1,0 +1,46 @@
+<%= render partial: 'shared/hero_banner', locals: { number: 2, title: 'Discovery' } %>
+<div class='top-discovery-container container'>
+  <p class='carousel-title'>人気の商品</p>
+  <div class='splide' aria-label='discovery-carousel'>
+    <div class='splide__track'>
+      <ul class='splide__list'>
+        <% @pickup_knowledges.each do |knowledge| %>
+          <li class='splide__slide card'>
+            <%= link_to product_path(knowledge.id) do %>
+              <div class='product-card-image'>
+                <div class='image is-square'>
+                  <% if knowledge.image.attached? %>
+                    <%= image_tag knowledge.image.variant(resize_to_limit: [600, 600]), alt: knowledge.name %>
+                  <% else %>
+                    <%= image_tag('product-sample.jpg', alt: 'product-sample') %>
+                  <% end %>
+                </div>
+              </div>
+              <div class='product-card-content'>
+                <p><%= knowledge.brand.name %></p>
+                <p class='slide-title'><%= "#{knowledge.line.name} #{knowledge.name}" %></p>
+                <p>最低価格</p>
+                <% if knowledge.products&.minimum(:price) %>
+                  <p class='slide-title'><%= number_to_currency(knowledge.products.minimum(:price)) %></p>
+                <% else %>
+                  <p>現在、価格情報はありません</p>
+                <% end %>
+              </div>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+    <ul class='splide__pagination is-hidden-mobile'></ul>
+  </div>
+  <div class='field is-grouped'>
+    <p class='control is-expanded'>
+      <input class='input' type='text' placeholder='欲しいアイテムを入力' autocomplete='off'>
+    </p>
+    <p class='control'>
+      <a class='button'>
+        Search
+      </a>
+    </p>
+  </div>
+</div>

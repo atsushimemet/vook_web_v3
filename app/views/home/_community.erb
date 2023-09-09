@@ -1,0 +1,20 @@
+<%= render partial: 'shared/hero_banner', locals: { number: 3, title: 'Community' } %>
+<div class='top-community-container container'>
+  <div class='instagram-list-section'>
+    <div class='instagram-list-header has-text-centered'>
+      <p>@vook.vintagebook</p>
+      <div class='instagram-list-title'>Instagram</div>
+    </div>
+    <div class='instagram-list-body'>
+      <div class='instagram-feeds columns is-mobile is-multiline'>
+        <% @instagram_feeds.each do |feed| %>
+          <div class='instagram-feed column is-one-third'>
+            <%= link_to feed['permalink'], target: '_blank', rel: 'noopener noreferrer' do %>
+              <%= image_tag feed['media_url'], alt: truncate(feed['caption'], length: 50), loading: 'lazy' %>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -16,7 +16,7 @@ document.addEventListener('turbo:load', () => {
         768: {
           type: 'slide',
           perPage: 2,
-          perMove: 1,
+          perMove: 5,
           rewind: false,
           padding: 0,
           focus: 1,

@@ -1,4 +1,5 @@
-<div class='top-knowledge-section container'>
+<%= render partial: 'shared/hero_banner', locals: { number: 0, title: 'Knowledge' } %>
+<div class='top-knowledge-container container'>
   <div class='knowledge-list'>
     <div class='lists-title divider is-left'>
       Brand
@@ -18,7 +19,7 @@
     </div>
     <div class='columns is-multiline is-mobile'>
       <% @items.each do |item| %>
-        <div class='knowledge-item column'>
+        <div class='knowledge-item column is-one-quarter-mobile'>
           <%= link_to item_path(item.name) do %>
             <i class='fa-solid fa-shirt fa-3x'></i>
             <p class=''><%= item.name %></p>
