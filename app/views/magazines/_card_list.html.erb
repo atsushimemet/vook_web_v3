@@ -1,20 +1,20 @@
-<div class="columns is-mobile is-multiline">
+<div class='magazine-cards columns is-mobile is-multiline'>
   <% magazines.each do |magazine| %>
     <div class='column is-one-quarter-tablet is-half-mobile'>
-      <div class='card'>
+      <div class='magazine-card card'>
         <%= link_to magazine do %>
-          <span class="magazine-date">
+          <span class='magazine-date'>
             <%= l magazine.publish_at, format: :date %>
           </span>
-          <div class='card-image'>
-            <figure class="image is-4by3">
+          <div class='magazine-card-image'>
+            <figure class='image is-square'>
               <% if magazine.thumbnail.attached? %>
                 <%= image_tag magazine.thumbnail.variant(resize_to_limit: [400, 400]) %>
               <% end %>
             </figure>
           </div>
-          <div class='card-content'>
-            <h3 class="card-header-title">
+          <div class='magazine-card-content'>
+            <h3 class='magazine-card-header'>
               <%= magazine.title %>
             </h3>
           </div>

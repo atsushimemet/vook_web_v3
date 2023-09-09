@@ -1,7 +1,7 @@
-<section>
+<section class='magazine-section'>
   <%= render partial: 'shared/hero_banner', locals: { number: 1, title: 'Magazine' } %>
-  <div class='magazine-section container'>
-    <h2 class='title'>Magazine作成</h2>
+  <div class='magazine-container container'>
+    <h2 class='magazine-title'>Magazine作成</h2>
     <%= render 'form', magazine: @magazine %>
 
     <%= link_to 'Magazine一覧に戻る', magazines_path %>
