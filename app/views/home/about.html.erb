@@ -1,11 +1,5 @@
 <section>
-  <div class='hero is-small is-dark'>
-    <div class='hero-body'>
-      <div class='container'>
-        <h1 class='title'>About</h1>
-      </div>
-    </div>
-  </div>
+  <%= render partial: 'shared/hero_banner', locals: { title: 'About' } %>
   <div class='about-section container'>
     <figure class='image is-3by2'>
       <%= image_tag 'logo_vook_main.png', alt: 'vook-about' %>

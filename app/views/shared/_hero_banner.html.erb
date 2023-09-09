@@ -1,8 +1,12 @@
-<div class='hero is-small is-dark'>
+<div class='hero is-small'>
   <div class='hero-body'>
     <div class='container'>
-      <h1 class='title'>
-        <span class='hero-title-number'><%= number %>.</span><%= title %>
+      <h1 class='hero-title'>
+        <% if defined?(number) %>
+          <span class='hero-title-number'><%= number %>.</span><%= title %>
+        <% else %>
+          <%= title %>
+        <% end %>
       </h1>
     </div>
   </div>
