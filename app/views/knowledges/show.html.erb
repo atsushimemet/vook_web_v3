@@ -10,9 +10,9 @@
      }
    ) %>
 
-<section>
+<section class='knowledge-section'>
   <%= render partial: 'shared/hero_banner', locals: { number: 0, title: 'Knowledge' } %>
-  <div class='knowledge-section container'>
+  <div class='knowledge-container container'>
     <nav class='breadcrumb has-succeeds-separator is-medium'>
       <ul>
         <li><%= link_to @knowledge.brand.name, brand_path(@knowledge.brand.name) %></li>
@@ -20,7 +20,7 @@
         <li><%= link_to @knowledge.line.name, line_path(@knowledge.line.name) %></li>
       </ul>
     </nav>
-    <h2 class='title'>
+    <h2 class='knowledge-title'>
       <%= @knowledge.name %>
     </h2>
     <div class='knowledge-content'>

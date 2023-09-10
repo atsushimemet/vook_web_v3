@@ -1,17 +1,19 @@
-<div class='columns is-mobile is-multiline'>
+<div class='knowledge-cards columns is-mobile is-multiline'>
   <% objects.each do |object| %>
     <div class='column is-one-quarter-tablet is-half-mobile'>
-      <div class='card'>
+      <div class='knowledge-card card'>
         <%= link_to(params[:controller] == 'lines' ? knowledge_path(object) : line_path(object.name)) do %>
-          <div class='card-content'>
-            <div class='card-header-name has-text-centered'>
+          <div class='knowledge-card-content'>
+            <div class='knowledge-card-header'>
               <%= object.name %>
             </div>
-            <div class='card-image'>
+            <div class='knowledge-card-image'>
               <% if object.image %>
-                <figure class='image is-4by3'>
+                <figure class='image is-square'>
                   <% if object.image.attached? %>
                     <%= image_tag object.image.variant(resize_to_limit: [400, 400]) %>
+                  <% else %>
+                    <%= image_tag('product-sample.jpg', alt: 'product-sample') %>
                   <% end %>
                 </figure>
               <% end %>
