@@ -1,38 +1,47 @@
 .magazine-section {
-  margin: 20px auto;
+  margin-bottom: 24px;
   @include touch {
-    margin: 20px 10px;
+    margin: 0 10px 40px;
   }
-  .magazine-content {
+  .magazine-cards {
+    margin-bottom: 32px;
+  }
+  .magazine-card {
+    margin: 16px;
     img {
-      object-fit: contain;
-      width: 80%;
-      margin: 20px auto;
-      max-height: 500px;
-      max-width: 800px;
+      object-fit: cover;
+    }
+    .magazine-card-content {
+      .magazine-card-header {
+        font-size: 1.2rem;
+      }
     }
   }
-  .magazine-title {
-    font-size: 20px;
-    font-weight: 600;
-  }
-  .magazine-body {
-    padding: 10px;
-    margin-bottom: 10px;
-  }
-  .card-image img {
-    object-fit: contain;
-  }
-  .read-more-button {
-    i {
-      margin-left: 6px;
+  .magazine-container {
+    .magazine-title {
+      font-size: 1.6rem;
+      font-weight: 600;
+      margin-bottom: 16px;
     }
+    .magazine-content {
+      img {
+        object-fit: contain;
+        width: 80%;
+        margin: 20px auto;
+        max-height: 500px;
+        max-width: 800px;
+      }
+      .magazine-body {
+        padding: 10px;
+        margin-bottom: 10px;
+      }
+    }
+  }
+  .form-section {
+    margin-bottom: 20px;
   }
 }
 
-.form-section {
-  margin-bottom: 20px;
-}
 
 .magazine-date {
   background-color: #363636;

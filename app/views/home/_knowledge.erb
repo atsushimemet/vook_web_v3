@@ -1,0 +1,41 @@
+<%= render partial: 'shared/hero_banner', locals: { number: 0, title: 'Knowledge' } %>
+<div class='top-knowledge-container container'>
+  <div class='knowledge-list'>
+    <div class='lists-title divider is-left'>
+      Brand
+    </div>
+    <div class='columns is-multiline is-mobile'>
+      <% @brands.each do |brand| %>
+        <div class='knowledge-brand column is-one-quarter-mobile'>
+          <%= link_to brand_path(brand.name) do %>
+            <%= image_tag brand.image.variant(resize_to_limit: [300, 300]), alt: brand.name %>
+            <p class='list-title'><%= brand.name %></p>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+    <div class='lists-title divider is-left'>
+      Item
+    </div>
+    <div class='columns is-multiline is-mobile'>
+      <% @items.each do |item| %>
+        <div class='knowledge-item column is-one-quarter-mobile'>
+          <%= link_to item_path(item.name) do %>
+            <i class='fa-solid fa-shirt fa-3x'></i>
+            <p class=''><%= item.name %></p>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class='field is-grouped'>
+    <p class='control is-expanded'>
+      <input class='input' type='text' placeholder='知りたいブランドやアイテムを入力' autocomplete='off'>
+    </p>
+    <p class='control'>
+      <a class='button'>
+        Search
+      </a>
+    </p>
+  </div>
+</div>

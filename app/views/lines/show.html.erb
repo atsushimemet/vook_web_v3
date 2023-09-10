@@ -1,13 +1,13 @@
-<section>
+<section class='knowledge-section'>
   <%= render partial: 'shared/hero_banner', locals: { number: 0, title: 'Knowledge' } %>
-  <div class='knowledge-section container'>
+  <div class='knowledge-container container'>
     <nav class='breadcrumb has-succeeds-separator is-medium'>
       <ul>
         <li><%= link_to @line.brand.name, brand_path(@line.brand.name) %></li>
         <li><%= link_to @line.item.name, item_path(@line.item.name) %></li>
       </ul>
     </nav>
-    <div class='knowledge-header media'>
+    <div class='knowledge-line-header media'>
       <figure class='media-left'>
         <% if @line.image %>
           <%= image_tag @line.image.variant(resize_to_limit: [200, 200]), class: 'image is-96x96' %>

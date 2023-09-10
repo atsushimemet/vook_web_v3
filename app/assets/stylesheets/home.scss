@@ -1,30 +1,58 @@
 .top-knowledge-section {
-  margin: 20px auto;
+  margin-bottom: 64px;
   @include touch {
-    margin: 20px 10px;
+    margin: 0 10px 40px;
   }
   .knowledge-list {
-    padding: 30px;
-    @include touch {
-      padding: 10px;
-    }
-    border: 1px solid #e5e5e5;
+    margin-bottom: 28px;
   }
-  .knowledge-tab-item {
-    border-radius: 10px;
-    margin: 4px;
-    color: gray;
-    p {
-      margin-top: 4px;
-      font-size: small;
+  .lists-title {
+    margin: 0 0 10px;
+    font-size: 18px;
+  }
+  .list-title {
+    text-align: center;
+  }
+  img {
+    border-radius: 10%;
+  }
+}
+
+.top-magazine-section {
+  background: $beige-lighter;
+  border-top: solid 1px $primary;
+  border-bottom: solid 1px $primary;
+  margin-bottom: 24px;
+  @include touch {
+    margin-bottom: 40px;
+  }
+  .magazine-cards {
+    margin-bottom: 32px;
+  }
+  .magazine-card {
+    background: $beige-lighter;
+    margin: 16px;
+    img {
+      object-fit: cover;
+    }
+    .magazine-card-content {
+      .magazine-card-header {
+        font-size: 1.2rem;
+      }
+    }
+  }
+  .read-more-button {
+    padding-bottom: 36px;
+    i {
+      margin-left: 6px;
     }
   }
 }
 
 .top-discovery-section {
-  margin: 20px auto;
+  margin-bottom: 64px;
   @include touch {
-    margin: 20px 10px;
+    margin: 0 10px 40px;
   }
   .carousel-title {
     font-size: 24px;
@@ -32,7 +60,7 @@
     margin-bottom: 16px;
   }
   .splide {
-    margin-bottom: 32px;
+    margin-bottom: 40px;
   }
   .splide__list {
     @include mobile {
@@ -50,9 +78,6 @@
         height: 100%;
         object-fit: cover;
         border: solid 6px $primary;
-        &:hover{
-          opacity: .8;
-        }
       }
     }
     .slide-title {
@@ -74,30 +99,36 @@
   }
 }
 
-.community-section {
-  margin: 20px auto;
+.top-community-section {
+  margin-bottom: 64px;
+  border-top: solid 1px $primary;
   @include touch {
-    margin: 20px 10px;
+    margin: 0 10px 40px;
   }
-}
-
-.instagram-list-section {
-  @include desktop {
-    padding: 0 64px;
-  }
-  .instagram-list-header {
-    margin: 24px 0;
-    .instagram-list-title{
-      font-size: 28px;
-      font-weight: 700;
-      letter-spacing: 2px;
+  .instagram-list-section {
+    @include desktop {
+      padding: 0 64px;
+    }
+    .instagram-list-header {
+      margin-bottom: 24px;
+      .instagram-list-title{
+        font-size: 28px;
+        font-weight: 700;
+        letter-spacing: 2px;
+      }
     }
   }
 }
 
-.hero-title-number {
-  font-size: 50px;
-  font-weight: bold;
+.hero {
+  .hero-title {
+    font-size: 32px;
+    font-weight: 600;
+  }
+  .hero-title-number {
+    font-size: 40px;
+    font-weight: 600;
+  }
 }
 
 .about-section {

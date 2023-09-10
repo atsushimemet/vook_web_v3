@@ -10,27 +10,27 @@
      }
    ) %>
 
-<section>
-  <%= render partial: 'shared/hero_banner', locals: { number: 1, title: 'Vook Magazine' } %>
-  <div class='magazine-section container'>
-    <h2 class="title">
+<section class='magazine-section'>
+  <%= render partial: 'shared/hero_banner', locals: { number: 1, title: 'Magazine' } %>
+  <div class='magazine-container container'>
+    <h2 class='magazine-title'>
       <%= @magazine.title %>
     </h2>
-    <div class="magazine-header">
+    <div class='magazine-header'>
       <%= l @magazine.publish_at, format: :date %>
     </div>
-    <div class="magazine-content">
+    <div class='magazine-content'>
       <% if @magazine.thumbnail.attached? %>
         <figure class='image'>
           <%= image_tag @magazine.thumbnail.variant(resize_to_limit: [1000, 1000]) %>
         </figure>
       <% end %>
-      <div class="magazine-body content">
+      <div class='magazine-body content'>
         <%= @magazine.body %>
       </div>
     </div>
     <% if admin_login? %>
-      <div class="magazine-edit buttons">
+      <div class='magazine-edit buttons'>
         <%= link_to '記事編集', edit_magazine_path(@magazine), class: 'button' %>
         <%= button_to '記事削除', @magazine,
                       { method: :delete, data: { turbo_confirm: '本当に削除しますか？' }, class: 'button' } %>

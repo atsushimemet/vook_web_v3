@@ -18,7 +18,8 @@ lines = [
   { name: 'M-65', brand: 'U.S.ARMY', item: 'Jacket' },
   { name: 'MODS COAT', brand: 'U.S.ARMY', item: 'Coat' },
   { name: 'BOAT AND TOTE', brand: 'L.L.Bean', item: 'Bag' },
-  { name: 'M-65 FIELD Pants', brand: 'U.S.ARMY', item: 'Pants' }
+  { name: 'M-65 FIELD Pants', brand: 'U.S.ARMY', item: 'Pants' },
+  { name: '1990s', brand: 'Patagonia', item: 'Shirt' }
 ]
 
 lines.each do |line|
@@ -39,8 +40,25 @@ lines.each do |line|
   line.image.attach(io: File.open(Rails.root.join("app/assets/images/#{image_path}")), filename: image_path)
 end
 
+brands = Brand.all
+brands.each do |brand|
+  image_path = case brand.name
+               when "Levi's" then 'brand_levis.jpg'
+               when 'Lee' then 'brand_lee.jpg'
+               when 'Pendleton' then 'brand_pendleton.jpg'
+               when 'Champion' then 'brand_champion.jpg'
+               when 'U.S.ARMY' then 'brand_usarmy.jpg'
+               when 'L.L.Bean' then 'brand_llbean.jpg'
+               when 'Wrangler' then 'brand_wrangler.jpg'
+               when 'Patagonia' then 'brand_patagonia.jpg'
+               end
+
+  brand.image.attach(io: File.open(Rails.root.join("app/assets/images/#{image_path}")), filename: image_path)
+end
+
 if Rails.env.development?
-  user = User.create!(name: 'admin', icon_url: 'https://1.bp.blogspot.com/-bAOIfmOoIvI/VY4WmqzWeVI/AAAAAAAAusA/wpJ8Jc1VgZ0/s800/job_kanrinin.png', admin: true, provider: 'google_oauth2', uid: 1234)
+  user = User.create!(name: 'admin',
+                      icon_url: 'https://1.bp.blogspot.com/-bAOIfmOoIvI/VY4WmqzWeVI/AAAAAAAAusA/wpJ8Jc1VgZ0/s800/job_kanrinin.png', admin: true, provider: 'google_oauth2', uid: 1234)
 
   7.times do |i|
     Magazine.create(
@@ -93,7 +111,7 @@ if Rails.env.development?
 
   knowledges_obj.each do |obj|
     knowledge = Knowledge.create!(obj.merge(user_id: user.id))
-    knowledge.image.attach(io: File.open(Rails.root.join('app/assets/images/knowledge-501xx1.jpg')),
+    knowledge.image.attach(io: File.open(Rails.root.join('app/assets/images/product-sample.jpg')),
                            filename: 'knowledge-501xx1.jpg')
     ActionText::RichText.create!(
       record_type: 'Knowledge',
@@ -139,7 +157,7 @@ if Rails.env.development?
     {
       name: "60～70's Levi's 805 66single USA製 デニムパンツ W31 60年代 60s 70年代 70s リーバイス 66前期 インディゴ アメリカ製 【古着】 【ヴィンテージ】",
       url: 'https://example.net/',
-      price:50_000,
+      price: 50_000,
       knowledge_id: Knowledge.find(1).id,
       platform_id: Platform.find_by(name: 'Yahoo').id,
       size_id: Size.find_by(name: 'w31').id
