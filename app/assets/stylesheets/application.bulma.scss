@@ -10,7 +10,7 @@ $white: #fff;
 $black: #444444;
 $beige-light: #F7F7F7;
 $beige-lighter: #EFEFEF;
-$gray: #777777;
+$gray: #e6e6e6;
 
 // SNS color
 $twitter: #55acee;
@@ -18,7 +18,7 @@ $facebook: #1877f2;
 $line: #06C755;
 
 // Update Bulma's global variables
-$family-sans-serif: 'Open Sans', 'Noto Sans JP', 'Helvetica Neue', Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
+$family-sans-serif: 'IBM Plex Sans', 'Noto Sans JP', 'Helvetica Neue', Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
 $grey-dark: $black;
 $primary: $black;
 $success: $indigo;
@@ -32,9 +32,15 @@ body {
   min-height: 100vh;
   a:hover {
     text-decoration: underline;
+    img {
+      opacity: .8;
+    }
   }
   .card {
     height: 100%;
+    img {
+      object-fit: cover;
+    }
   }
 }
 main {
@@ -46,21 +52,22 @@ main {
 
 // Update some of Bulma's component variables
 $container-max-width: 1100px;
+$navbar-breakpoint: 768px;
+$hero-body-padding-small: 1.5rem 1rem;
 $body-background-color: $white;
 $control-border-width: 2px;
+$footer-padding: 3rem 1.5rem;
+$footer-background-color: $primary;
 $input-shadow: none;
 $section-padding: 20px;
-$tabs-link-color: #808080;
 $button-border-width: 1px;
-$card-content-padding: 20px;
 $card-header-padding: 0px;
-$footer-padding: 3rem 1.5rem;
-$column-gap: 0.25rem;
-$tabs-link-active-color: $gray;
-$navbar-breakpoint: 768px;
+$card-content-padding: 1.0rem;
 $card-radius: 0;
 $card-shadow: none;
-$card-content-padding: 1.0rem;
+$column-gap: 0.25rem;
+$tabs-link-color: #808080;
+$tabs-link-active-color: $primary;
 
 // Import only what you need from Bulma
 @import "bulma/sass/utilities/_all.sass";
@@ -78,8 +85,8 @@ $card-content-padding: 1.0rem;
 @import '@creativebulma/bulma-divider/src/sass/index.sass';
 @import '@splidejs/splide/src/css/template/default/index.scss';
 
-@import "footer";
 @import "header";
+@import "footer";
 @import "home";
 @import "tabs";
 @import "knowledge";
