@@ -40,8 +40,8 @@ lines.each do |line|
   line.image.attach(io: File.open(Rails.root.join("app/assets/images/#{image_path}")), filename: image_path)
 end
 
-brans = Brand.all
-brans.each do |brand|
+brands = Brand.all
+brands.each do |brand|
   image_path = case brand.name
                when "Levi's" then 'brand_levis.jpg'
                when 'Lee' then 'brand_lee.jpg'
@@ -111,7 +111,7 @@ if Rails.env.development?
 
   knowledges_obj.each do |obj|
     knowledge = Knowledge.create!(obj.merge(user_id: user.id))
-    knowledge.image.attach(io: File.open(Rails.root.join('app/assets/images/knowledge-501xx1.jpg')),
+    knowledge.image.attach(io: File.open(Rails.root.join('app/assets/images/product-sample.jpg')),
                            filename: 'knowledge-501xx1.jpg')
     ActionText::RichText.create!(
       record_type: 'Knowledge',
@@ -240,5 +240,5 @@ if Rails.env.development?
     Product.create!(product)
   end
 
-  Rails.logger.debug 'seedデータを投入しました'
+  puts 'seedデータを投入しました'
 end

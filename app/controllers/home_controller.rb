@@ -4,7 +4,11 @@ class HomeController < ApplicationController
     @items = Item.all
     @magazines = Magazine.with_attached_thumbnail.order(publish_at: :desc).limit(8)
     # 本番環境で知識記事作られるまでidが10-14のものを表示させる
-    @pickup_knowledges = Knowledge.where(id: 10..14)
+    @pickup_knowledges = if Rails.env.production?
+                           Knowledge.where(id: 10..14)
+                         else
+                           Knowledge.where(id: 1..5)
+                         end
     @instagram_feeds = instagram_feed_cache
   end
 
