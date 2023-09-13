@@ -29,13 +29,8 @@
     </div>
   </div>
   <div class='field is-grouped'>
-    <p class='control is-expanded'>
-      <input class='input' type='text' placeholder='知りたいブランドやアイテムを入力' autocomplete='off'>
-    </p>
-    <p class='control'>
-      <a class='button'>
-        Search
-      </a>
-    </p>
+    <div class='control is-expanded'>
+      <%= collection_select(:knowledge, :name, Knowledge.includes(:brand, :line).all, :id, :name_with_brand_and_line, { prompt: '知りたいブランドやアイテムを入力' }, { class: 'input knowledge-search' }) %>
+    </div>
   </div>
 </div>
