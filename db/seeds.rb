@@ -19,7 +19,8 @@ lines = [
   { name: 'MODS COAT', brand: 'U.S.ARMY', item: 'Coat' },
   { name: 'BOAT AND TOTE', brand: 'L.L.Bean', item: 'Bag' },
   { name: 'M-65 FIELD Pants', brand: 'U.S.ARMY', item: 'Pants' },
-  { name: '1990s', brand: 'Patagonia', item: 'Shirt' }
+  { name: '1990s', brand: 'Patagonia', item: 'Shirt' },
+  { name: 'Shorts', brand: 'Patagonia', item: 'Shorts' }
 ]
 
 lines.each do |line|
@@ -35,6 +36,7 @@ lines.each do |line|
                when 'Bag' then 'line_bag.png'
                when 'Pants' then 'line_pants.png'
                when 'Coat' then 'line_coat.png'
+               when 'Shorts' then 'line_shorts.png'
                end
 
   line.image.attach(io: File.open(Rails.root.join("app/assets/images/#{image_path}")), filename: image_path)
@@ -54,6 +56,22 @@ brands.each do |brand|
                end
 
   brand.image.attach(io: File.open(Rails.root.join("app/assets/images/#{image_path}")), filename: image_path)
+end
+
+items = Item.all
+items.each do |item|
+  image_path = case item.name
+               when 'Denim Pants' then 'item_denim.jpg'
+               when 'Jacket' then 'item_jacket.jpg'
+               when 'Shirt' then 'item_shirt.jpg'
+               when 'Sweat Shirt' then 'item_sweat.jpg'
+               when 'Coat' then 'item_coat.jpg'
+               when 'Bag' then 'item_bag.jpg'
+               when 'Pants' then 'item_pants.jpg'
+               when 'Shorts' then 'item_shorts.jpg'
+               end
+
+  item.image.attach(io: File.open(Rails.root.join("app/assets/images/#{image_path}")), filename: image_path)
 end
 
 if Rails.env.development?
