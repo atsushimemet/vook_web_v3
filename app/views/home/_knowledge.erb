@@ -21,8 +21,8 @@
       <% @items.each do |item| %>
         <div class='knowledge-item column is-one-quarter-mobile'>
           <%= link_to item_path(item.name) do %>
-            <i class='fa-solid fa-shirt fa-3x'></i>
-            <p class=''><%= item.name %></p>
+            <%= image_tag item.image.variant(resize_to_limit: [300, 300]), alt: item.name %>
+            <p class='list-title'><%= item.name %></p>
           <% end %>
         </div>
       <% end %>

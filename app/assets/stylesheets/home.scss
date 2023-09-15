@@ -12,9 +12,15 @@
   }
   .list-title {
     text-align: center;
+    @include mobile {
+      font-size: 14px;
+    }
   }
   img {
     border-radius: 10%;
+  }
+  .knowledge-item img {
+    filter: sepia(50%);
   }
 }
 
