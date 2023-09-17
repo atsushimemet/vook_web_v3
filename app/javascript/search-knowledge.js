@@ -1,11 +1,17 @@
 import Choices from 'choices.js';
 
+let choicesInstance;
+
 document.addEventListener('turbo:load', () => {
   const knowledgeSearch = document.querySelector('.knowledge-search');
+
+  if (choicesInstance) {
+    choicesInstance.destroy();
+  }
+
   if (knowledgeSearch) {
     knowledgeSearch.selectedIndex = 0;
-    // eslint-disable-next-line no-new
-    new Choices(knowledgeSearch, {
+    choicesInstance = new Choices(knowledgeSearch, {
       allowHTML: true,
       searchResultLimit: 10,
       noResultsText: '一致する情報は見つかりません',
