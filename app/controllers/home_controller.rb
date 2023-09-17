@@ -1,13 +1,13 @@
 class HomeController < ApplicationController
   def index
-    @brands = Brand.all
-    @items = Item.all
+    @brands = Brand.with_attached_image.all
+    @items = Item.with_attached_image.all
     @magazines = Magazine.with_attached_thumbnail.order(publish_at: :desc).limit(8)
     # 本番環境で知識記事作られるまでidが10-14のものを表示させる
     @pickup_knowledges = if Rails.env.production?
-                           Knowledge.where(id: 10..14)
+                           Knowledge.with_attached_image.where(id: 10..14)
                          else
-                           Knowledge.where(id: 1..5)
+                           Knowledge.with_attached_image.where(id: 1..5)
                          end
     @instagram_feeds = instagram_feed_cache
   end

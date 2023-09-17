@@ -6,6 +6,6 @@ class LinesController < ApplicationController
 
   def show
     @line = Line.find_by(name: params[:name])
-    @knowledges = @line.knowledges.includes(:image_attachment).order(:age)
+    @knowledges = @line.knowledges.with_attached_image.order(:age)
   end
 end
