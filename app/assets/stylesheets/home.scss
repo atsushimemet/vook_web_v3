@@ -56,7 +56,7 @@
 }
 
 .top-discovery-section {
-  margin-bottom: 64px;
+  margin-bottom: 80px;
   @include touch {
     margin: 0 10px 40px;
   }
@@ -66,7 +66,7 @@
     margin-bottom: 16px;
   }
   .splide {
-    margin-bottom: 40px;
+    margin-bottom: 6em;
   }
   .splide__list {
     @include mobile {
@@ -94,8 +94,29 @@
       }
     }
   }
+  .splide__arrow {
+    background: white;
+    cursor: pointer;
+    position: absolute;
+    top: unset;
+    bottom: -3em;
+    transform: unset;
+    z-index: 1;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    height: 2em;
+    width: 4em;
+    border-radius: 4px;
+    border: solid 1px $primary;
+    color: $black;
+    font-size: 20px;
+    &:focus-visible {
+      outline: unset;
+    }
+  }
   .splide__pagination {
-    bottom: -0.6em;
+    bottom: -3em;
     .is-active {
       background-color: $primary;
     }
