@@ -42,6 +42,14 @@ body {
       object-fit: cover;
     }
   }
+  .breadcrumb {
+    a {
+      padding: 0 0.25em;
+    }
+    li::before {
+      content: '' !important;
+    }
+  }
 }
 main {
   flex: 1;
