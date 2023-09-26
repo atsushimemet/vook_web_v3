@@ -42,7 +42,7 @@
     }
   }
   .knowledge-card {
-    padding: 14px;
+    padding: 0 14px;
     @include mobile {
       padding: 4px;
     }
@@ -50,7 +50,7 @@
       color: $primary;
       font-weight: 600;
       font-size: 18px;
-      height: 50px;
+      height: 48px;
       overflow: hidden;
       display: flex;
       align-items: flex-end;
@@ -79,6 +79,28 @@
   .knowledge-body {
     padding: 10px;
     margin-bottom: 10px;
+  }
+  .knowledge-sub-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+  .knowledge-price {
+    margin-bottom: 48px;
+    .knowledge-price-body{
+      background: $beige-light;
+      padding: 32px;
+      .level-item {
+        @include mobile {
+          margin-bottom: 24px;
+        }
+      }
+    }
+  }
+  .knowledge-relation {
+    .knowledge-card-header {
+      height: auto;
+    }
   }
   .table th,td{
     vertical-align: inherit;

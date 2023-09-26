@@ -39,6 +39,56 @@
         <%= button_to '記事削除', @knowledge, { method: :delete, data: { turbo_confirm: '本当に削除しますか？' }, class: 'button' } %>
       </div>
     <% end %>
+    <div class='knowledge-price'>
+      <h3 class='knowledge-sub-title'>
+        <%= "#{@knowledge.name}の価格情報" %>
+      </h3>
+      <div class='knowledge-price-body'>
+        <div class='knowledge-price-info level'>
+          <% if @knowledge.products&.average(:price) %>
+            <div class='level-item has-text-centered'>
+              <div>
+                <p class='heading'>平均価格</p>
+                <p class='title'>
+                  <%= number_to_currency(@knowledge.products.average(:price)) %>
+                </p>
+              </div>
+            </div>
+            <div class='level-item has-text-centered'>
+              <div>
+                <p class='heading'>最低価格</p>
+                <p class='title'>
+                  <%= number_to_currency(@knowledge.products.minimum(:price)) %>
+                </p>
+              </div>
+            </div>
+            <div class='level-item has-text-centered'>
+              <div>
+                <p class='heading'>最高価格</p>
+                <p class='title'>
+                  <%= number_to_currency(@knowledge.products.maximum(:price)) %>
+                </p>
+              </div>
+            </div>
+          <% else %>
+            <p>現在、価格情報はありません</p>
+          <% end %>
+        </div>
+        <div class='produt-link has-text-right'>
+          <%= link_to '商品一覧ページへ', product_path(@knowledge) %>
+        </div>
+      </div>
+    </div>
+    <div class='knowledge-relation'>
+      <h4 class='knowledge-sub-title'>
+        <%= "#{@knowledge.name}の関連知識" %>
+      </h4>
+      <% if @knowledge.related_knowledges.blank? %>
+        <p>現在、関連情報はありません</p>
+      <% else %>
+        <%= render 'knowledges/card_list', objects: @knowledge.related_knowledges %>
+      <% end %>
+    </div>
     <%= render 'shared/share_banner', share_text: @knowledge.name %>
     <%= link_to 'トップページに戻る', root_path %>
   </div>
