@@ -1,23 +1,18 @@
 .magazine-section {
   margin-bottom: 24px;
-  @include touch {
-    margin: 0 10px 40px;
-  }
   .magazine-cards {
     margin-bottom: 32px;
   }
   .magazine-card {
-    margin: 16px;
+    margin: 8px;
     img {
       object-fit: cover;
     }
-    .magazine-card-content {
-      .magazine-card-header {
-        font-size: 1.2rem;
-      }
-    }
   }
   .magazine-container {
+    @include touch {
+      margin: 0 10px;
+    }
     .magazine-title {
       font-size: 1.6rem;
       font-weight: 600;

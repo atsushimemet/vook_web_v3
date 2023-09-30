@@ -1,7 +1,9 @@
 .knowledge-section {
   margin-bottom: 24px;
-  @include touch {
-    margin: 0 10px 40px;
+  .knowledge-container {
+    @include touch {
+      margin: 0 10px;
+    }
   }
   .knowledge-title {
     font-size: 2rem;
