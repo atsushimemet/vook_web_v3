@@ -13,4 +13,8 @@ class Knowledge < ApplicationRecord
   def name_with_brand_and_line
     "#{name} | #{brand.name} | #{line.name}"
   end
+
+  def related_knowledges
+    Knowledge.with_attached_image.where(line_id:).where.not(id:).limit(4)
+  end
 end

@@ -2,7 +2,8 @@
   <% objects.each do |object| %>
     <div class='column is-one-quarter-tablet is-half-mobile'>
       <div class='knowledge-card card'>
-        <%= link_to(params[:controller] == 'lines' ? knowledge_path(object) : line_path(object.name)) do %>
+        <% link_path = %w[brands items].include?(params[:controller]) ? line_path(object.name) : knowledge_path(object) # rubocop:disable Lint/UselessAssignment %>
+        <%= link_to link_path do %>
           <div class='knowledge-card-content'>
             <div class='knowledge-card-header'>
               <%= object.name %>
