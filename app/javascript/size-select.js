@@ -17,7 +17,7 @@ document.addEventListener('turbo:load', () => {
 
 const fetchProductsBySize = async (size, knowledgeId) => {
   try {
-    const endpoint = `/product/${knowledgeId}${size ? `?size=${size}` : ''}`;
+    const endpoint = `/products/${knowledgeId}${size ? `?size=${size}` : ''}`;
     const response = await fetch(endpoint, {
       headers: {
         Accept: 'text/javascript',
