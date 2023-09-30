@@ -1,7 +1,9 @@
 .top-knowledge-section {
   margin-bottom: 64px;
-  @include touch {
-    margin: 0 10px 40px;
+  .top-knowledge-container {
+    @include touch {
+      margin: 0 10px;
+    }
   }
   .knowledge-list {
     margin-bottom: 28px;
@@ -26,29 +28,18 @@
 
 .top-magazine-section {
   background: $beige-lighter;
-  border-top: solid 1px $primary;
-  border-bottom: solid 1px $primary;
-  margin-bottom: 24px;
-  @include touch {
-    margin-bottom: 40px;
-  }
   .magazine-cards {
     margin-bottom: 32px;
   }
   .magazine-card {
     background: $beige-lighter;
-    margin: 16px;
+    margin: 8px;
     img {
       object-fit: cover;
     }
-    .magazine-card-content {
-      .magazine-card-header {
-        font-size: 1.2rem;
-      }
-    }
   }
   .read-more-button {
-    padding-bottom: 36px;
+    padding-bottom: 64px;
     i {
       margin-left: 6px;
     }
@@ -56,9 +47,11 @@
 }
 
 .top-discovery-section {
-  margin-bottom: 80px;
-  @include touch {
-    margin: 0 10px 40px;
+  margin-bottom: 64px;
+  .top-discovery-container {
+    @include touch {
+      margin: 0 10px;
+    }
   }
   .carousel-title {
     font-size: 24px;
@@ -127,11 +120,8 @@
 }
 
 .top-community-section {
-  margin-bottom: 64px;
-  border-top: solid 1px $primary;
-  @include touch {
-    margin: 0 10px 40px;
-  }
+  padding-bottom: 64px;
+  background: #EFEFEF;
   .instagram-list-section {
     @include desktop {
       padding: 0 64px;
@@ -144,18 +134,28 @@
         letter-spacing: 2px;
       }
     }
+    .instagram-list-body {
+      margin-bottom: 24px;
+    }
   }
 }
 
 .hero {
   .hero-title {
-    font-size: 32px;
-    font-weight: 600;
-  }
-  .hero-title-number {
+    display: flex;
+    padding: 0 1rem;
     font-size: 40px;
     font-weight: 600;
+    line-height: normal;
+    border-left: solid 16px $primary;
+    gap: 10px;
   }
+  .hero-body {
+    padding: 3rem 1rem !important;
+    @include touch {
+        padding: 2.5rem 0rem !important;
+      }
+    }
 }
 
 .about-section {
