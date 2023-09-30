@@ -9,7 +9,7 @@ import './line-select';
 import './size-select';
 import './clipboard';
 import './knowledge-carousel';
-import './search-knowledge';
+import './home-search';
 import 'trix';
 import '@rails/actiontext';
 import '@splidejs/splide';
