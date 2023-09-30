@@ -26,8 +26,8 @@
 
 .top-magazine-section {
   background: $beige-lighter;
-  border-top: solid 1px $primary;
-  border-bottom: solid 1px $primary;
+  // border-top: solid 1px $primary;
+  // border-bottom: solid 1px $primary;
   margin-bottom: 24px;
   @include touch {
     margin-bottom: 40px;
@@ -127,8 +127,9 @@
 }
 
 .top-community-section {
-  margin-bottom: 64px;
-  border-top: solid 1px $primary;
+  padding-bottom: 64px;
+  // border-top: solid 1px $primary;
+  background: #EFEFEF;
   @include touch {
     margin: 0 10px 40px;
   }
