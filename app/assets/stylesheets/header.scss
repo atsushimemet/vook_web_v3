@@ -10,6 +10,12 @@
       margin: 2px 0 -4px;
     }
   }
+  .header-sns-icons {
+    display: flex;
+    .fa-square-instagram {
+      font-size: 2.4rem;
+    }
+  }
   @include mobile {
     .navbar-end {
       text-align: center;
@@ -23,6 +29,10 @@
       transform: translateY(-70%);
       transition: all 0.4s ease;
       pointer-events: none;
+      .header-sns-icons {
+        display: flex;
+        justify-content:center
+      }
     }
     .navbar-menu.is-active {
       opacity: 1;

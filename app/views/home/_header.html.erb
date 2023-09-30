@@ -15,10 +15,19 @@
     <div class='navbar-menu' id='navigation'>
       <div class='navbar-end'>
         <%= link_to 'About', about_path, class: 'navbar-item' %>
-        <a class='navbar-item' href='#'>Discovery</a>
         <%= link_to 'Magazine', magazines_path, class: 'navbar-item' %>
-        <a class='navbar-item' href='https://www.instagram.com/vook.vintagebook/'>Instagram</a>
-        <a class='navbar-item' href='https://www.tiktok.com/@vook.vintagebook/'>Tiktok</a>
+        <div class="header-sns-icons">
+          <div class='navbar-item'>
+            <%= link_to 'https://www.instagram.com/vook.vintagebook/', target: :_blank, rel: 'noopener' do %>
+              <i class='fa-brands fa-square-instagram'></i>
+            <% end %>
+          </div>
+          <div class='navbar-item'>
+            <%= link_to 'https://www.tiktok.com/@vook.tokyo/', target: :_blank, rel: 'noopener' do %>
+              <i class='fa-brands fa-tiktok fa-2x'></i>
+            <% end %>
+          </div>
+        </div>
         <div class='navbar-item'>
           <% if login? %>
             <%= button_to 'ログアウト', '/logout', method: :delete, data: { turbo: false },
