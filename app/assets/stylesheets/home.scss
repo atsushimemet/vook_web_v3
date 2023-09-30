@@ -60,6 +60,9 @@
   }
   .splide {
     margin-bottom: 6em;
+    @include mobile {
+      margin-bottom: 2em;
+    }
   }
   .splide__list {
     @include mobile {
@@ -122,6 +125,11 @@
 .top-community-section {
   padding-bottom: 64px;
   background: #EFEFEF;
+  .top-community-container {
+    @include touch {
+      margin: 0 10px;
+    }
+  }
   .instagram-list-section {
     @include desktop {
       padding: 0 64px;
