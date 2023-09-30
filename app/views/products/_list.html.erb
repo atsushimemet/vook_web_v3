@@ -5,6 +5,6 @@
     </td>
     <%# TODO .truncate(100)など表示方法を確認 %>
     <td><%= product.name %></td>
-    <td><%= product.price %></td>
+    <td class='price-col'><%= number_to_currency(product.price) %></td>
   </tr>
 <% end %>
