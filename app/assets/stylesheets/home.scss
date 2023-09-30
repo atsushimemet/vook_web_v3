@@ -150,13 +150,20 @@
 
 .hero {
   .hero-title {
-    font-size: 32px;
-    font-weight: 600;
-  }
-  .hero-title-number {
+    display: flex;
+    padding: 0 1rem;
     font-size: 40px;
     font-weight: 600;
+    line-height: normal;
+    border-left: solid 16px $primary;
+    gap: 10px;
   }
+  .hero-body {
+    padding: 3rem 1rem !important;
+    @include touch {
+        padding: 2.5rem 0rem !important;
+      }
+    }
 }
 
 .about-section {

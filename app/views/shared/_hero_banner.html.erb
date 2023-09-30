@@ -3,7 +3,13 @@
     <div class='container'>
       <h1 class='hero-title'>
         <% if defined?(number) %>
-          <span class='hero-title-number'><%= number %>.</span><%= title %>
+          <span class='hero-title-number'>
+            <%= number %>
+          </span>
+          <span class='hero-title-bar'>
+            |
+          </span>
+          <%= title %>
         <% else %>
           <%= title %>
         <% end %>
