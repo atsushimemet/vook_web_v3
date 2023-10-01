@@ -10,7 +10,32 @@
     font-weight: 600;
     line-height: 1.125;
   }
-  .knowledge-brand-item-header {
+  .knowledge-brand-header {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    margin-bottom: 16px;
+    padding: 3rem;
+    background: #f2f2f2;
+    @include touch {
+      padding: 2rem;
+      margin-bottom: 8px;
+    }
+    img {
+      width: 40%;
+      max-height: 48px;
+      object-fit: contain;
+      @include touch {
+        width: 60%;
+      }
+    }
+  }
+  @each $brand, $color in $brand-colors {
+    .knowledge-brand-header.#{$brand} {
+      background-color: $color;
+    }
+  }
+  .knowledge-item-header {
     align-items: center;
     img {
       border-radius: 10%;

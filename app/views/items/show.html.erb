@@ -1,7 +1,7 @@
 <section class='knowledge-section'>
   <%= render partial: 'shared/hero_banner', locals: { number: '00', title: 'Knowledge' } %>
   <div class='knowledge-container container'>
-    <div class='knowledge-brand-item-header media'>
+    <div class='knowledge-item-header media'>
       <figure class='media-left'>
         <% if @item.image %>
           <%= image_tag @item.image.variant(resize_to_limit: [200, 200]), alt: @item.name, class: 'image is-96x96' %>
