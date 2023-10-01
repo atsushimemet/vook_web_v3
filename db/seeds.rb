@@ -29,7 +29,7 @@ lines.each do |line|
   line = Line.find_or_create_by!(name: line[:name], brand_id: brand.id, item_id: item.id)
 
   image_path = case item.name
-               when 'Denim Pants' then 'line_denim_pants.jpg'
+               when 'Denim Pants' then 'line_denim_pants.png'
                when 'Jacket' then 'line_jacket.png'
                when 'Shirt' then 'line_shirt.png'
                when 'Sweat Shirt' then 'line_sweat_shirt.png'
@@ -43,35 +43,43 @@ lines.each do |line|
 end
 
 brands = Brand.all
-brands.each do |brand|
-  image_path = case brand.name
-               when "Levi's" then 'brand_levis.jpg'
-               when 'Lee' then 'brand_lee.jpg'
-               when 'Pendleton' then 'brand_pendleton.jpg'
-               when 'Champion' then 'brand_champion.jpg'
-               when 'U.S.ARMY' then 'brand_usarmy.jpg'
-               when 'L.L.Bean' then 'brand_llbean.jpg'
-               when 'Wrangler' then 'brand_wrangler.jpg'
-               when 'Patagonia' then 'brand_patagonia.jpg'
-               end
+brand_assets = {
+  "Levi's": { image: 'brand_levis.jpg', banner: 'brand_levis_banner.png' },
+  Lee: { image: 'brand_lee.jpg', banner: 'brand_lee_banner.png' },
+  Pendleton: { image: 'brand_pendleton.jpg', banner: 'brand_pendleton_banner.png' },
+  Champion: { image: 'brand_champion.jpg', banner: 'brand_champion_banner.png' },
+  "U.S.ARMY": { image: 'brand_usarmy.jpg', banner: 'brand_usarmy_banner.png' },
+  "L.L.Bean": { image: 'brand_llbean.jpg', banner: 'brand_llbean_banner.png' },
+  Wrangler: { image: 'brand_wrangler.jpg', banner: 'brand_wrangler_banner.png' },
+  Patagonia: { image: 'brand_patagonia.jpg', banner: 'brand_patagonia_banner.png' }
+}
 
-  brand.image.attach(io: File.open(Rails.root.join("app/assets/images/#{image_path}")), filename: image_path)
+brands.each do |brand|
+  assets = brand_assets[brand.name.to_sym]
+  next unless assets
+
+  brand.image.attach(io: File.open(Rails.root.join("app/assets/images/#{assets[:image]}")), filename: assets[:image])
+  brand.banner.attach(io: File.open(Rails.root.join("app/assets/images/#{assets[:banner]}")), filename: assets[:banner])
 end
 
 items = Item.all
-items.each do |item|
-  image_path = case item.name
-               when 'Denim Pants' then 'item_denim.jpg'
-               when 'Jacket' then 'item_jacket.jpg'
-               when 'Shirt' then 'item_shirt.jpg'
-               when 'Sweat Shirt' then 'item_sweat.jpg'
-               when 'Coat' then 'item_coat.jpg'
-               when 'Bag' then 'item_bag.jpg'
-               when 'Pants' then 'item_pants.jpg'
-               when 'Shorts' then 'item_shorts.jpg'
-               end
+item_assets = {
+  'Denim Pants' => { image: 'item_denim.jpg', banner: 'item_denim_banner.png' },
+  'Jacket' => { image: 'item_jacket.jpg', banner: 'item_jacket_banner.png' },
+  'Shirt' => { image: 'item_shirt.jpg', banner: 'item_shirt_banner.png' },
+  'Sweat Shirt' => { image: 'item_sweat.jpg', banner: 'item_sweat_banner.png' },
+  'Coat' => { image: 'item_coat.jpg', banner: 'item_coat_banner.png' },
+  'Bag' => { image: 'item_bag.jpg', banner: 'item_bag_banner.png' },
+  'Pants' => { image: 'item_pants.jpg', banner: 'item_pants_banner.png' },
+  'Shorts' => { image: 'item_shorts.jpg', banner: 'item_shorts_banner.png' }
+}
 
-  item.image.attach(io: File.open(Rails.root.join("app/assets/images/#{image_path}")), filename: image_path)
+items.each do |item|
+  assets = item_assets[item.name]
+  next unless assets
+
+  item.image.attach(io: File.open(Rails.root.join("app/assets/images/#{assets[:image]}")), filename: assets[:image])
+  item.banner.attach(io: File.open(Rails.root.join("app/assets/images/#{assets[:banner]}")), filename: assets[:banner])
 end
 
 if Rails.env.development?

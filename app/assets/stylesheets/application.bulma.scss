@@ -17,6 +17,30 @@ $twitter: #0F1419;
 $facebook: #1877f2;
 $line: #06C755;
 
+// Brand color
+$brand-colors: (
+  levis: #e64e43,
+  wrangler: #f2f2f2,
+  lee: #f2f2f2,
+  pendleton: #334b5d,
+  champion: #f2f2f2,
+  llbean: #3b8a5b,
+  usarmy: #333333,
+  patagonia: #333333,
+);
+
+// Item color
+$item-colors: (
+  denimpants: #6a818b,
+  jacket: #445464,
+  shirt: #9d9583,
+  sweatshirt: #BE8683,
+  bag: #dbbf74,
+  shorts: #5b6d7d,
+  coat: #ba8553,
+  pants: #a1ab65,
+);
+
 // Update Bulma's global variables
 $family-sans-serif: 'IBM Plex Sans', 'Noto Sans JP', 'Helvetica Neue', Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
 $grey-dark: $black;
