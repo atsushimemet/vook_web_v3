@@ -16,12 +16,11 @@
     justify-content: center;
     margin-bottom: 16px;
     padding: 3rem;
-    background: #f2f2f2;
     @include touch {
       padding: 2rem;
       margin-bottom: 8px;
     }
-    img {
+    .knowledge-banner {
       width: 40%;
       max-height: 48px;
       object-fit: contain;
@@ -36,19 +35,48 @@
     }
   }
   .knowledge-item-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
     align-items: center;
-    img {
-      border-radius: 10%;
-      object-fit: cover;
+    margin-bottom: 16px;
+    padding: 3rem;
+    gap: 24px;
+    @include touch {
+      padding: 2rem;
+      margin-bottom: 8px;
+      gap: 0;
     }
-    @include mobile {
-      .media-content {
-        overflow-y: hidden;
+    .knowledge-title {
+      font-size: 2.4rem;
+      color: $beige-lighter;
+      text-align: center;
+      text-shadow:
+        1px  1px 0px $black,
+        -1px  1px 0px $black,
+        1px -1px 0px $black,
+        -1px -1px 0px $black,
+        1px  0px 0px $black,
+        0px  1px 0px $black,
+        -1px  0px 0px $black,
+        0px -1px 0px $black;
+    }
+    .knowledge-banner {
+      max-height: 100px;
+      object-fit: contain;
+      @include touch {
+        width: 60%;
       }
-      img {
-        height: 74px;
-        width: 74px;
+    }
+    .knowledge-title, .knowledge-banner {
+      @include touch {
+        flex: 1;
       }
+    }
+  }
+  @each $item, $color in $item-colors {
+    .knowledge-item-header.#{$item} {
+      background-color: $color;
     }
   }
   .knowledge-line-header {
