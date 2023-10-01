@@ -54,6 +54,7 @@ body {
   display: flex;
   flex-flow: column;
   min-height: 100vh;
+  overflow-x: hidden;
   a:hover {
     text-decoration: underline;
     img {
