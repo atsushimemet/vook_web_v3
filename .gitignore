@@ -39,4 +39,5 @@
 /node_modules
 .env
 /public/ogp/*
+/public/sitemap.xml.gz
 coverage
