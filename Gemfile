@@ -93,3 +93,4 @@ gem 'omniauth'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-rails_csrf_protection'
 gem 'sitemap_generator'
+gem 'whenever', require: false
