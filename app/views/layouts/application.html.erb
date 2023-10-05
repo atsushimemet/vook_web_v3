@@ -13,6 +13,16 @@
     <%= stylesheet_link_tag 'https://fonts.googleapis.com/css2?family=Open+Sans&family=Noto+Sans+JP&display=swap' %>
     <%= javascript_include_tag 'application', "data-turbo-track": 'reload', defer: true %>
     <%= hotwire_livereload_tags if Rails.env.development? %>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GEB5PLKSXC"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-GEB5PLKSXC');
+    </script>
   </head>
 
   <body>
