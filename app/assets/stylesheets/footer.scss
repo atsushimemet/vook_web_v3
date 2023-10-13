@@ -5,28 +5,28 @@
   a {
     color: $white;
   }
+  .footer-sns-icons {
+    display: flex;
+    margin-bottom: 12px;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+
+    .fa-instagram {
+      font-size: 2.4rem;
+    }
+  }
+
   .footer-item {
-    margin: 8px;
     text-align: center;
+  }
+
+  .footer-link {
+    margin-bottom: 8px;
   }
 
   .copy-right {
     font-size: 14px;
     font-weight: bold;
-    margin: 10px;
-  }
-
-  .footer-sns-icons {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    .footer-sns-icon {
-      padding: 2px 8px;
-    }
-    img {
-      vertical-align: middle;
-      height: 28px;
-    }
   }
 }
