@@ -44,14 +44,14 @@ end
 
 brands = Brand.all
 brand_assets = {
-  "Levi's": { image: 'brand_levis.jpg', banner: 'brand_levis_banner.png' },
-  Lee: { image: 'brand_lee.jpg', banner: 'brand_lee_banner.png' },
-  Pendleton: { image: 'brand_pendleton.jpg', banner: 'brand_pendleton_banner.png' },
-  Champion: { image: 'brand_champion.jpg', banner: 'brand_champion_banner.png' },
-  "U.S.ARMY": { image: 'brand_usarmy.jpg', banner: 'brand_usarmy_banner.png' },
-  "L.L.Bean": { image: 'brand_llbean.jpg', banner: 'brand_llbean_banner.png' },
-  Wrangler: { image: 'brand_wrangler.jpg', banner: 'brand_wrangler_banner.png' },
-  Patagonia: { image: 'brand_patagonia.jpg', banner: 'brand_patagonia_banner.png' }
+  "Levi's": { image: 'brand_levis.png', banner: 'brand_levis_banner.png' },
+  Lee: { image: 'brand_lee.png', banner: 'brand_lee_banner.png' },
+  Pendleton: { image: 'brand_pendleton.png', banner: 'brand_pendleton_banner.png' },
+  Champion: { image: 'brand_champion.png', banner: 'brand_champion_banner.png' },
+  "U.S.ARMY": { image: 'brand_usarmy.png', banner: 'brand_usarmy_banner.png' },
+  "L.L.Bean": { image: 'brand_llbean.png', banner: 'brand_llbean_banner.png' },
+  Wrangler: { image: 'brand_wrangler.png', banner: 'brand_wrangler_banner.png' },
+  Patagonia: { image: 'brand_patagonia.png', banner: 'brand_patagonia_banner.png' }
 }
 
 brands.each do |brand|
@@ -64,14 +64,14 @@ end
 
 items = Item.all
 item_assets = {
-  'Denim Pants' => { image: 'item_denim.jpg', banner: 'item_denim_banner.png' },
-  'Jacket' => { image: 'item_jacket.jpg', banner: 'item_jacket_banner.png' },
-  'Shirt' => { image: 'item_shirt.jpg', banner: 'item_shirt_banner.png' },
-  'Sweat Shirt' => { image: 'item_sweat.jpg', banner: 'item_sweat_banner.png' },
-  'Coat' => { image: 'item_coat.jpg', banner: 'item_coat_banner.png' },
-  'Bag' => { image: 'item_bag.jpg', banner: 'item_bag_banner.png' },
-  'Pants' => { image: 'item_pants.jpg', banner: 'item_pants_banner.png' },
-  'Shorts' => { image: 'item_shorts.jpg', banner: 'item_shorts_banner.png' }
+  'Denim Pants' => { image: 'item_denim.png', banner: 'item_denim_banner.png' },
+  'Jacket' => { image: 'item_jacket.png', banner: 'item_jacket_banner.png' },
+  'Shirt' => { image: 'item_shirt.png', banner: 'item_shirt_banner.png' },
+  'Sweat Shirt' => { image: 'item_sweat.png', banner: 'item_sweat_banner.png' },
+  'Coat' => { image: 'item_coat.png', banner: 'item_coat_banner.png' },
+  'Bag' => { image: 'item_bag.png', banner: 'item_bag_banner.png' },
+  'Pants' => { image: 'item_pants.png', banner: 'item_pants_banner.png' },
+  'Shorts' => { image: 'item_shorts.png', banner: 'item_shorts_banner.png' }
 }
 
 items.each do |item|

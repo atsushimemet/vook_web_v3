@@ -49,7 +49,7 @@
     }
     .knowledge-title {
       font-size: 2.4rem;
-      color: $beige-lighter;
+      color: $dark-gray;
       text-align: center;
       text-shadow:
         1px  1px 0px $black,
@@ -82,7 +82,7 @@
   .knowledge-line-header {
     align-items: center;
     img {
-      border: solid $red 4px;
+      border: solid $primary 4px;
       border-radius: 50%;
       object-fit: contain;
     }
@@ -143,7 +143,7 @@
   .knowledge-price {
     margin-bottom: 48px;
     .knowledge-price-body{
-      background: $beige-light;
+      background: $light-gray;
       padding: 32px;
       .level-item {
         @include mobile {

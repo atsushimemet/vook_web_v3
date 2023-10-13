@@ -1,0 +1,58 @@
+$primary: #00081a;
+$primary95: #122736;
+$primary90: #203543;
+$primary80: #384d5b;
+$primary70: #506473;
+$primary60: #667a89;
+$primary50: #7f919f;
+$primary40: #98a8b4;
+$primary30: #b2bec8;
+$primary20: #ccd5dc;
+
+$black: #031624;
+$dark-gray: #e6eaee;
+$light-gray: #f2f4f7;
+$white: #f9fafb;
+
+$yellow: #d3bc68;
+$orange: #d0a561;
+$light-green: #8eaa67;
+$green: #409368;
+$pink: #ba827d;
+$brown: #AE9488;
+
+// SNS color
+$twitter: #0F1419;
+$facebook: #1877f2;
+$line: #06C755;
+
+// Brand color
+$brand-colors: (
+  levis: #b44a40,
+  wrangler: $dark-gray,
+  lee: $light-gray,
+  pendleton: $primary80,
+  champion: $dark-gray,
+  llbean: #00806a,
+  usarmy: $primary90,
+  patagonia: $primary90,
+);
+
+// Item color
+$item-colors: (
+  denimpants: $primary60,
+  jacket: $primary70,
+  shirt: $primary30,
+  sweatshirt: $primary50,
+  bag: #6388b2,
+  shorts: #9ab0ce,
+  coat: #4678a7,
+  pants: #7f9cc0,
+);
+
+// Update Bulma's global variables
+$link: $primary;
+$info: $dark-gray;
+$success: #6388b2;
+$danger: #b44a40;
+$light: $light-gray;

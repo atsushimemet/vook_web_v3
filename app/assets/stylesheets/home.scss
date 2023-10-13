@@ -22,18 +22,25 @@
   img {
     border-radius: 10%;
   }
-  .knowledge-item img {
-    filter: sepia(50%);
+  @each $brand, $color in $brand-colors {
+    .#{$brand} {
+      background-color: $color;
+    }
+  }
+  @each $item, $color in $item-colors {
+    .#{$item} {
+      background-color: $color;
+    }
   }
 }
 
 .top-magazine-section {
-  background: $beige-lighter;
+  background: $dark-gray;
   .magazine-cards {
     margin-bottom: 32px;
   }
   .magazine-card {
-    background: $beige-lighter;
+    background: $dark-gray;
     margin: 8px;
     img {
       object-fit: cover;
@@ -41,8 +48,12 @@
   }
   .read-more-button {
     padding-bottom: 64px;
-    i {
-      margin-left: 6px;
+    .button {
+      background-color: $primary95;
+      color: $white;
+      i {
+        margin-left: 6px;
+      }
     }
   }
 }
@@ -92,7 +103,7 @@
     }
   }
   .splide__arrow {
-    background: white;
+    background: $white;
     cursor: pointer;
     position: absolute;
     top: unset;
@@ -105,8 +116,8 @@
     height: 2em;
     width: 4em;
     border-radius: 4px;
-    border: solid 1px $primary;
-    color: $black;
+    border: solid 1px $primary90;
+    color: $primary90;
     font-size: 20px;
     &:focus-visible {
       outline: unset;
@@ -125,7 +136,7 @@
 
 .top-community-section {
   padding-bottom: 64px;
-  background: #EFEFEF;
+  background: $dark-gray;
   .top-community-container {
     @include touch {
       margin: 0 10px;
@@ -158,6 +169,7 @@
     line-height: normal;
     border-left: solid 16px $primary;
     gap: 10px;
+    color: $primary;
   }
   .hero-body {
     padding: 3rem 1rem !important;
