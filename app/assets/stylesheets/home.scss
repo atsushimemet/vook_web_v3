@@ -160,23 +160,23 @@
   }
 }
 
-.hero {
-  .hero-title {
-    display: flex;
-    padding: 0 1rem;
-    font-size: 40px;
-    font-weight: 600;
-    line-height: normal;
-    border-left: solid 16px $primary;
-    gap: 10px;
-    color: $primary;
-  }
-  .hero-body {
-    padding: 3rem 1rem !important;
+.section-headline {
+  .section-headline-body {
+    padding: 3rem 0;
     @include touch {
-        padding: 2.5rem 0rem !important;
+        padding: 2.5rem 0rem;
       }
     }
+
+  .section-headline-title {
+    display: flex;
+    align-items: center;
+    padding-left: 1rem;
+    font-size: 40px;
+    font-weight: 600;
+    border-left: solid 16px $primary;
+    color: $primary;
+  }
 }
 
 .about-section {

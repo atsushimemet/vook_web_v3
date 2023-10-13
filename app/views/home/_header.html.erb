@@ -33,7 +33,8 @@
             <%= button_to 'ログアウト', '/logout', method: :delete, data: { turbo: false },
                                               class: 'button is-light' %>
           <% else %>
-            <%= button_to 'ログイン', '/auth/google_oauth2', method: :post, data: { turbo: false }, class: 'button is-primary' %>
+            <%= button_to 'ログイン', '/auth/google_oauth2', method: :post, data: { turbo: false },
+                                                         class: 'button is-primary' %>
           <% end %>
         </div>
       </div>
