@@ -6,17 +6,15 @@
           <span class='magazine-date'>
             <%= l magazine.publish_at, format: :date %>
           </span>
-          <div class='magazine-card-image'>
-            <figure class='image is-square'>
-              <% if magazine.thumbnail.attached? %>
-                <%= image_tag magazine.thumbnail.variant(resize_to_limit: [400, 400]) %>
-              <% end %>
-            </figure>
+          <div class='magazine-card-image image is-square'>
+            <% if magazine.thumbnail.attached? %>
+              <%= image_tag magazine.thumbnail.variant(resize_to_limit: [400, 400]), alt: magazine.title %>
+            <% end %>
           </div>
           <div class='magazine-card-content'>
-            <h3 class='magazine-card-header'>
+            <div class='magazine-card-header'>
               <%= magazine.title %>
-            </h3>
+            </div>
           </div>
         <% end %>
       </div>

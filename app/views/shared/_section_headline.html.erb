@@ -1,0 +1,18 @@
+<div class='section-headline container'>
+  <div class='section-headline-body'>
+    <h1 class='section-headline-title'>
+      <% if defined?(number) %>
+        <span class='section-headline-number'>
+          <%= number %>
+        </span>
+        <%# フォントの影響か垂直中央にならないためgapをつけずに全角パイプ %>
+        <div class='section-headline-bar'>
+          ｜
+        </div>
+        <%= title %>
+      <% else %>
+        <%= title %>
+      <% end %>
+    </h1>
+  </div>
+</div>

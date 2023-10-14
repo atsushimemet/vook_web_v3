@@ -1,10 +1,9 @@
 .product-section {
-  margin: 20px auto;
   @include touch {
     margin: 20px 10px;
   }
   .breadcrumb {
-    margin: 16px 0px;
+    margin-bottom: 16px;
   }
   .product-header {
     display: flex;

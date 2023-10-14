@@ -1,14 +1,5 @@
 .magazine-section {
   margin-bottom: 24px;
-  .magazine-cards {
-    margin-bottom: 32px;
-  }
-  .magazine-card {
-    margin: 8px;
-    img {
-      object-fit: cover;
-    }
-  }
   .magazine-container {
     @include touch {
       margin: 0 10px;
@@ -38,13 +29,33 @@
 }
 
 
-.magazine-date {
-  background-color: #363636;
-  color: white;
-  font-weight: 700;
-  font-size: 14px;
-  position: absolute;
-  z-index: 5;
-  padding: 6px;
-  margin: 4px 4px;
+.magazine-cards {
+  margin: 0 8px;
+
+  .column {
+    padding: 0.75em;
+  }
+
+  .magazine-card {
+    margin-bottom: 16px;
+  }
+  .magazine-card-image {
+    margin-bottom: 16px;
+    img {
+      object-fit: cover;
+    }
+  }
+  .magazine-card-header {
+    font-size: 14px;
+  }
+  .magazine-date {
+    background-color: $primary;
+    color: $white;
+    font-weight: 700;
+    font-size: 14px;
+    position: absolute;
+    z-index: 5;
+    padding: 6px;
+    margin: 4px 4px;
+  }
 }

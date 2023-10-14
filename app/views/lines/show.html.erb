@@ -1,5 +1,5 @@
 <section class='knowledge-section'>
-  <%= render partial: 'shared/hero_banner', locals: { number: '00', title: 'Knowledge' } %>
+  <%= render partial: 'shared/section_headline', locals: { number: '00', title: 'Knowledge' } %>
   <div class='knowledge-container container'>
     <nav class='breadcrumb is-medium'>
       <ul>
@@ -10,7 +10,7 @@
     <div class='knowledge-line-header media'>
       <figure class='media-left'>
         <% if @line.image %>
-          <%= image_tag @line.image.variant(resize_to_limit: [200, 200]), class: 'image is-96x96' %>
+          <%= image_tag @line.image.variant(resize_to_limit: [200, 200]), class: 'image is-96x96', alt: @line.name %>
         <% end %>
       </figure>
       <div class='media-content'>

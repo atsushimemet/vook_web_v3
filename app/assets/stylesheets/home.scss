@@ -6,11 +6,19 @@
     }
   }
   .knowledge-list {
-    margin-bottom: 28px;
+    margin-bottom: 48px;
+    @include touch {
+      margin-bottom: 28px;
+    }
   }
   .lists-title {
-    margin: 0 0 10px;
-    font-size: 18px;
+    margin: 0 0 24px;
+    font-size: 24px;
+    text-transform: capitalize;
+    @include mobile {
+      margin: 0 0 10px;
+      font-size: 18px;
+    }
   }
   .list-title {
     text-align: center;
@@ -21,27 +29,31 @@
   img {
     border-radius: 10%;
   }
-  .knowledge-item img {
-    filter: sepia(50%);
+  @each $brand, $color in $brand-colors {
+    .#{$brand} {
+      background-color: $color;
+    }
+  }
+  @each $item, $color in $item-colors {
+    .#{$item} {
+      background-color: $color;
+    }
   }
 }
 
 .top-magazine-section {
-  background: $beige-lighter;
-  .magazine-cards {
-    margin-bottom: 32px;
-  }
+  background: $dark-gray;
   .magazine-card {
-    background: $beige-lighter;
-    margin: 8px;
-    img {
-      object-fit: cover;
-    }
+    background: $dark-gray;
   }
   .read-more-button {
     padding-bottom: 64px;
-    i {
-      margin-left: 6px;
+    .button {
+      background-color: $primary95;
+      color: $white;
+      i {
+        margin-left: 6px;
+      }
     }
   }
 }
@@ -79,7 +91,7 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
-        border: solid 6px $primary;
+        border: solid 2px $primary;
       }
     }
     .slide-title {
@@ -91,7 +103,7 @@
     }
   }
   .splide__arrow {
-    background: white;
+    background: $white;
     cursor: pointer;
     position: absolute;
     top: unset;
@@ -104,8 +116,8 @@
     height: 2em;
     width: 4em;
     border-radius: 4px;
-    border: solid 1px $primary;
-    color: $black;
+    border: solid 1px $primary90;
+    color: $primary90;
     font-size: 20px;
     &:focus-visible {
       outline: unset;
@@ -124,7 +136,7 @@
 
 .top-community-section {
   padding-bottom: 64px;
-  background: #EFEFEF;
+  background: $dark-gray;
   .top-community-container {
     @include touch {
       margin: 0 10px;
@@ -148,26 +160,26 @@
   }
 }
 
-.hero {
-  .hero-title {
-    display: flex;
-    padding: 0 1rem;
-    font-size: 40px;
-    font-weight: 600;
-    line-height: normal;
-    border-left: solid 16px $primary;
-    gap: 10px;
-  }
-  .hero-body {
-    padding: 3rem 1rem !important;
+.section-headline {
+  .section-headline-body {
+    padding: 3rem 0;
     @include touch {
-        padding: 2.5rem 0rem !important;
+        padding: 2.5rem 0rem;
       }
     }
+
+  .section-headline-title {
+    display: flex;
+    align-items: center;
+    padding-left: 1rem;
+    font-size: 40px;
+    font-weight: 600;
+    border-left: solid 16px $primary;
+    color: $primary;
+  }
 }
 
 .about-section {
-  margin: 20px auto;
   @include touch {
     margin: 20px 10px;
   }

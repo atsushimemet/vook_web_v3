@@ -1,5 +1,5 @@
 <section class='magazine-section'>
-  <%= render partial: 'shared/hero_banner', locals: { number: '01', title: 'Magazine' } %>
+  <%= render partial: 'shared/section_headline', locals: { number: '01', title: 'Magazine' } %>
   <div class='magazine-container container'>
     <div class='tabs is-centered is-boxed is-fullwidth is-large'>
       <ul>
@@ -22,7 +22,7 @@
     </div>
     <% if admin_login? %>
       <div class='has-text-right mt-4'>
-        <%= link_to 'New Magazine', new_magazine_path, class: 'button is-dark' %>
+        <%= link_to 'New Magazine', new_magazine_path, class: 'button is-primary' %>
       </div>
     <% end %>
   </div>

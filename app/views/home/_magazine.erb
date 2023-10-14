@@ -1,8 +1,8 @@
-<%= render partial: 'shared/hero_banner', locals: { number: '01', title: 'Magazine' } %>
+<%= render partial: 'shared/section_headline', locals: { number: '01', title: 'Magazine' } %>
 <div class='top-magazine-container container'>
   <%= render 'magazines/card_list', magazines: @magazines %>
   <div class='read-more-button has-text-centered'>
-    <%= link_to magazines_path, class: 'button is-primary is-large' do %>
+    <%= link_to magazines_path, class: 'button is-large' do %>
       Read more Magazines<i class='fa-solid fa-circle-right'></i>
     <% end %>
   </div>

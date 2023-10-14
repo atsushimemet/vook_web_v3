@@ -1,6 +1,6 @@
 .tab-list {
   &.is-active a {
-    border-top: $gray solid 4px !important;
+    border-top: $primary solid 4px !important;
     animation: fadeIn 0.7s ease 0s 1 normal;
     font-weight: 700;
   }

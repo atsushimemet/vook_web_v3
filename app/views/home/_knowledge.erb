@@ -1,4 +1,4 @@
-<%= render partial: 'shared/hero_banner', locals: { number: '00', title: 'Knowledge' } %>
+<%= render partial: 'shared/section_headline', locals: { number: '00', title: 'Knowledge' } %>
 <div class='top-knowledge-container container'>
   <div class='knowledge-list'>
     <div class='lists-title divider is-left'>
@@ -8,7 +8,7 @@
       <% @brands.each do |brand| %>
         <div class='knowledge-brand column is-one-quarter-mobile'>
           <%= link_to brand_path(brand.name) do %>
-            <%= image_tag brand.image.variant(resize_to_limit: [300, 300]), alt: brand.name %>
+            <%= image_tag brand.image.variant(resize_to_limit: [300, 300]), alt: brand.name, class: brand.name.gsub(/[.' ]/, '').downcase %>
             <p class='list-title'><%= brand.name %></p>
           <% end %>
         </div>
@@ -21,7 +21,7 @@
       <% @items.each do |item| %>
         <div class='knowledge-item column is-one-quarter-mobile'>
           <%= link_to item_path(item.name) do %>
-            <%= image_tag item.image.variant(resize_to_limit: [300, 300]), alt: item.name %>
+            <%= image_tag item.image.variant(resize_to_limit: [300, 300]), alt: item.name, class: item.name.gsub(/[.' ]/, '').downcase %>
             <p class='list-title'><%= item.name %></p>
           <% end %>
         </div>
