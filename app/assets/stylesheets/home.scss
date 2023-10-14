@@ -91,7 +91,7 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
-        border: solid 6px $primary;
+        border: solid 2px $primary;
       }
     }
     .slide-title {
@@ -180,7 +180,6 @@
 }
 
 .about-section {
-  margin: 20px auto;
   @include touch {
     margin: 20px 10px;
   }
