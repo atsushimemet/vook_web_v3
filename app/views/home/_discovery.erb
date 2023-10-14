@@ -12,7 +12,7 @@
                   <% if knowledge.image.attached? %>
                     <%= image_tag knowledge.image.variant(resize_to_limit: [600, 600]), alt: knowledge.name %>
                   <% else %>
-                    <%= image_tag('product-sample.jpg', alt: 'product-sample') %>
+                    <%= image_tag('product-sample.jpg', alt: 'product-sample', size: '400x400') %>
                   <% end %>
                 </div>
               </div>
