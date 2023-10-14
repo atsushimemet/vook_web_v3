@@ -180,11 +180,23 @@
 }
 
 .about-section {
+  margin-bottom: 64px;
   @include touch {
-    margin: 20px 10px;
+    margin: 0 10px 64px;
   }
-  img {
-    object-fit: cover;
+  .about-image {
+    margin: 0 auto 16px;
+    text-align: center;
+    img {
+      width: 500px;
+      height: 300px;
+      object-fit: cover;
+      filter: contrast(0.95);
+      @include mobile {
+        width: 400px;
+        height: 200px;
+      }
+    }
   }
   .about-message {
     line-height: 28px;
