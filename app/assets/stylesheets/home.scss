@@ -6,12 +6,19 @@
     }
   }
   .knowledge-list {
-    margin-bottom: 28px;
+    margin-bottom: 48px;
+    @include touch {
+      margin-bottom: 28px;
+    }
   }
   .lists-title {
-    margin: 0 0 10px;
-    font-size: 18px;
+    margin: 0 0 24px;
+    font-size: 24px;
     text-transform: capitalize;
+    @include mobile {
+      margin: 0 0 10px;
+      font-size: 18px;
+    }
   }
   .list-title {
     text-align: center;
@@ -36,15 +43,8 @@
 
 .top-magazine-section {
   background: $dark-gray;
-  .magazine-cards {
-    margin-bottom: 32px;
-  }
   .magazine-card {
     background: $dark-gray;
-    margin: 8px;
-    img {
-      object-fit: cover;
-    }
   }
   .read-more-button {
     padding-bottom: 64px;
