@@ -42,6 +42,25 @@ lines.each do |line|
   line.image.attach(io: File.open(Rails.root.join("app/assets/images/#{image_path}")), filename: image_path)
 end
 
+# 本番環境での画像差し替え用
+# lines = Line.all
+# lines.each do |line|
+#   item = Item.find(line.item_id)
+
+#   image_path = case item.name
+#                when 'Denim Pants' then 'line_denim_pants.png'
+#                when 'Jacket' then 'line_jacket.png'
+#                when 'Shirt' then 'line_shirt.png'
+#                when 'Sweat Shirt' then 'line_sweat_shirt.png'
+#                when 'Bag' then 'line_bag.png'
+#                when 'Pants' then 'line_pants.png'
+#                when 'Coat' then 'line_coat.png'
+#                when 'Shorts' then 'line_shorts.png'
+#                end
+
+#   line.image.attach(io: File.open(Rails.root.join("app/assets/images/#{image_path}")), filename: image_path)
+# end
+
 brands = Brand.all
 brand_assets = {
   "Levi's": { image: 'brand_levis.png', banner: 'brand_levis_banner.png' },
@@ -64,14 +83,14 @@ end
 
 items = Item.all
 item_assets = {
-  'Denim Pants' => { image: 'item_denim.png', banner: 'item_denim_banner.png' },
-  'Jacket' => { image: 'item_jacket.png', banner: 'item_jacket_banner.png' },
-  'Shirt' => { image: 'item_shirt.png', banner: 'item_shirt_banner.png' },
-  'Sweat Shirt' => { image: 'item_sweat.png', banner: 'item_sweat_banner.png' },
-  'Coat' => { image: 'item_coat.png', banner: 'item_coat_banner.png' },
-  'Bag' => { image: 'item_bag.png', banner: 'item_bag_banner.png' },
-  'Pants' => { image: 'item_pants.png', banner: 'item_pants_banner.png' },
-  'Shorts' => { image: 'item_shorts.png', banner: 'item_shorts_banner.png' }
+  'Denim Pants': { image: 'item_denim.png', banner: 'item_denim_banner.png' },
+  'Jacket': { image: 'item_jacket.png', banner: 'item_jacket_banner.png' },
+  'Shirt': { image: 'item_shirt.png', banner: 'item_shirt_banner.png' },
+  'Sweat Shirt': { image: 'item_sweat.png', banner: 'item_sweat_banner.png' },
+  'Coat': { image: 'item_coat.png', banner: 'item_coat_banner.png' },
+  'Bag': { image: 'item_bag.png', banner: 'item_bag_banner.png' },
+  'Pants': { image: 'item_pants.png', banner: 'item_pants_banner.png' },
+  'Shorts': { image: 'item_shorts.png', banner: 'item_shorts_banner.png' }
 }
 
 items.each do |item|
@@ -94,7 +113,8 @@ if Rails.env.development?
       publish_at: Date.current - i.day
     ).thumbnail.attach(io: File.open(Rails.root.join('app/assets/images/map.jpg')), filename: 'map.jpg')
   end
-  Magazine.all.each do |magazine|
+
+  Magazine.all.find_each do |magazine|
     ActionText::RichText.create!(
       record_type: 'Magazine',
       record_id: magazine.id,
