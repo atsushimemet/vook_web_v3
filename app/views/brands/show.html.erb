@@ -1,9 +1,10 @@
 <section class='knowledge-section'>
   <%= render partial: 'shared/section_headline', locals: { number: '00', title: 'Knowledge' } %>
   <div class='knowledge-container container'>
-    <nav class='breadcrumb is-medium'>
+    <nav class='breadcrumb-list'>
       <ul>
-        <li><%= link_to "##{@brand.name}", brand_path(@brand.name) %></li>
+        <li><i class='fa-solid fa-tag icon-tag' aria-label='Tag'></i></li>
+        <li><%= link_to "##{@brand.name}", brand_path(@brand.name), class: 'button is-rounded' %></li>
       </ul>
     </nav>
     <div class='knowledge-brand-header <%= @brand.name.gsub(/[.' ]/, '').downcase %>'>

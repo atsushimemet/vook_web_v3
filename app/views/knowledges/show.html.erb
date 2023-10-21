@@ -13,11 +13,12 @@
 <section class='knowledge-section'>
   <%= render partial: 'shared/section_headline', locals: { number: '00', title: 'Knowledge' } %>
   <div class='knowledge-container container'>
-    <nav class='breadcrumb is-medium'>
+    <nav class='breadcrumb-list'>
       <ul>
-        <li><%= link_to "##{@knowledge.brand.name}", brand_path(@knowledge.brand.name) %></li>
-        <li><%= link_to "##{@knowledge.item.name}", item_path(@knowledge.item.name) %></li>
-        <li><%= link_to "##{@knowledge.line.name}", line_path(@knowledge.line.name) %></li>
+        <li><i class='fa-solid fa-tag icon-tag' aria-label='Tag'></i></li>
+        <li><%= link_to "##{@knowledge.brand.name}", brand_path(@knowledge.brand.name), class: 'button is-rounded' %></li>
+        <li><%= link_to "##{@knowledge.item.name}", item_path(@knowledge.item.name), class: 'button is-rounded' %></li>
+        <li><%= link_to "##{@knowledge.line.name}", line_path(@knowledge.line.name), class: 'button is-rounded' %></li>
       </ul>
     </nav>
     <h2 class='knowledge-title'>

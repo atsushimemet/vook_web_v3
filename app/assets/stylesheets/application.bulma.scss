@@ -20,14 +20,6 @@ body {
       object-fit: cover;
     }
   }
-  .breadcrumb {
-    a {
-      padding: 0 0.25em;
-    }
-    li::before {
-      content: '' !important;
-    }
-  }
 }
 main {
   flex: 1;
@@ -44,6 +36,7 @@ $control-border-width: 2px;
 $input-shadow: none;
 $section-padding: 20px;
 $button-border-width: 1px;
+$button-focus-box-shadow-size: unset;
 $card-header-padding: 0px;
 $card-content-padding: 1.0rem;
 $card-radius: 0;
@@ -73,6 +66,7 @@ $tabs-link-active-color: $primary;
 @import "footer";
 @import "home";
 @import "tabs";
+@import "breadcrumb";
 @import "knowledge";
 @import "magazine";
 @import "product";
