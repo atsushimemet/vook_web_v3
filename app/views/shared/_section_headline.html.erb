@@ -1,15 +1,13 @@
 <div class='section-headline container'>
-  <div class='section-headline-body'>
-    <h1 class='section-headline-title'>
+  <div class='section-headline-content'>
+    <h1 class='section-headline-main'>
       <% if defined?(number) %>
-        <span class='section-headline-number'>
+        <span class='section-headline-prefix'>
           <%= number %>
         </span>
-        <%# フォントの影響か垂直中央にならないためgapをつけずに全角パイプ %>
-        <div class='section-headline-bar'>
-          ｜
-        </div>
-        <%= title %>
+        <span class='section-headline-text'>
+          <%= title %>
+        </span>
       <% else %>
         <%= title %>
       <% end %>
