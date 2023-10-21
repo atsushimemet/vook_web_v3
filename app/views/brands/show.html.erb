@@ -1,6 +1,12 @@
 <section class='knowledge-section'>
   <%= render partial: 'shared/section_headline', locals: { number: '00', title: 'Knowledge' } %>
   <div class='knowledge-container container'>
+    <nav class='breadcrumb-list'>
+      <ul>
+        <li><i class='fa-solid fa-tag icon-tag' aria-label='Tag'></i></li>
+        <li><%= link_to "##{@brand.name}", brand_path(@brand.name), class: 'button is-rounded' %></li>
+      </ul>
+    </nav>
     <div class='knowledge-brand-header <%= @brand.name.gsub(/[.' ]/, '').downcase %>'>
       <% if @brand.banner.attached? %>
         <%= image_tag @brand.banner, alt: @brand.name, class: 'knowledge-banner' %>

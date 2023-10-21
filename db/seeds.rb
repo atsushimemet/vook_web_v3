@@ -94,7 +94,7 @@ item_assets = {
 }
 
 items.each do |item|
-  assets = item_assets[item.name]
+  assets = item_assets[item.name.to_sym]
   next unless assets
 
   item.image.attach(io: File.open(Rails.root.join("app/assets/images/#{assets[:image]}")), filename: assets[:image])
