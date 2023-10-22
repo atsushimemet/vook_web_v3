@@ -1,3 +1,7 @@
-<%= @user.name %>
-<%= @user.profile %>
-<%= image_tag @user.icon_url if @user.icon_url.present? %>
+<div style="display: flex; align-items: flex-start; justify-content: center; height: 60vh; padding-top: 20px;">
+    <div style="text-align:center; padding:50px; border:1px solid #ccc; border-radius:10px; display:block; margin:auto; width:300px;">
+        <%= image_tag @user.icon_url, style: "max-width:200px; border-radius:50%; margin-bottom:20px;" if @user.icon_url.present? %>
+        <h2 style="margin-bottom:20px;"><%= @user.name %></h2>
+        <p style="margin-bottom:20px;"><%= @user.profile %></p>
+    </div>
+</div>
