@@ -6,6 +6,7 @@ class User < ApplicationRecord
     validates :name, presence: true, length: { maximum: 100 }
     validates :uid
     validates :provider
+    validates :profile, length: { maximum: 500 }
   end
   validates :uid, uniqueness: { scope: :provider }
 
