@@ -1,0 +1,32 @@
+/* vook_web_v3/app/assets/stylesheets/styles.css */
+.flex-container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    height: 60vh;
+    padding-top: 20px;
+}
+
+.box {
+    text-align: center;
+    padding: 50px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    display: block;
+    margin: auto;
+    width: 300px;
+}
+
+.user-icon {
+    max-width: 200px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+.user-name {
+    margin-bottom: 20px;
+}
+
+.user-profile {
+    margin-bottom: 20px;
+}
