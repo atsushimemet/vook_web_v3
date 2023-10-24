@@ -6,8 +6,8 @@ class User < ApplicationRecord
     validates :name, length: { maximum: 100 }
     validates :uid
     validates :provider
-    validates :profile, length: { maximum: 500 }
   end
+  validates :profile, length: { maximum: 500 }
   validates :uid, uniqueness: { scope: :provider }
 
   def self.find_or_create_from_auth_hash!(auth_hash)
