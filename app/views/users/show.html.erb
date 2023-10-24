@@ -5,7 +5,7 @@
     <% end %>
     <h2 class="user-name"><%= @user.name %></h2>
     <p class="user-introduction">
-      <%= @user.introduction.present? ? @user.introduction : "自己紹介はまだありません" %>
+      <%= @user.introduction.presence || '自己紹介はまだありません' %>
     </p>
   </div>
 </div>
