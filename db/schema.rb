@@ -138,7 +138,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_24_093249) do
     t.string "uid", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "introduction"
+    t.text "introduction"
     t.index ["provider", "uid"], name: "index_users_on_provider_and_uid", unique: true
   end
 
