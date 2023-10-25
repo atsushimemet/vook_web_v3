@@ -14,6 +14,19 @@
   .brand-list {
     margin-bottom: 32px;
   }
+  .is-one-eighth-desktop {
+    @include desktop {
+      flex: none;
+      width: 12.5%;
+    }
+  }
+  .more-brands-trigger {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+  }
+
   .lists-title {
     margin: 0 0 24px;
     font-size: 24px;
