@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :brands, only: [] do
     resources :lines, only: :index
   end
+  resources :users, only: [:show]
   root 'home#index'
 
   get '/tos', to: 'home#tos', as: 'tos'

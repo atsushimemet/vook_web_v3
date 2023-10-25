@@ -3,10 +3,11 @@ class User < ApplicationRecord
   has_many :magazines, dependent: :destroy
 
   with_options presence: true do
-    validates :name, presence: true, length: { maximum: 100 }
+    validates :name, length: { maximum: 100 }
     validates :uid
     validates :provider
   end
+  validates :introduction, length: { maximum: 500 }
   validates :uid, uniqueness: { scope: :provider }
 
   def self.find_or_create_from_auth_hash!(auth_hash)
