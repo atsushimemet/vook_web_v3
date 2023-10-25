@@ -1,11 +1,14 @@
-<div class="flex-container">
-  <div class="box">
-    <% if @user.icon_url.present? %>
-      <%= image_tag @user.icon_url, class: 'user-icon' %>
-    <% end %>
-    <h2 class="user-name"><%= @user.name %></h2>
-    <p class="user-introduction">
-      <%= @user.introduction.presence || '自己紹介はまだありません' %>
-    </p>
+<div class='user-section'>
+  <%= render partial: 'shared/section_headline', locals: { title: 'User' } %>
+  <div class='user-container container'>
+    <div class='user-profile'>
+      <% if @user.icon_url.present? %>
+        <%= image_tag @user.icon_url, class: 'user-icon', alt: 'user-image' %>
+      <% end %>
+      <div class='user-name'><%= @user.name %></div>
+      <p class='user-introduction content'>
+        <%= @user.introduction.presence || '自己紹介はまだありません' %>
+      </p>
+    </div>
   </div>
 </div>

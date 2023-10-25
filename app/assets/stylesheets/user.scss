@@ -1,32 +1,35 @@
-/* vook_web_v3/app/assets/stylesheets/styles.css */
-.flex-container {
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    height: 60vh;
-    padding-top: 20px;
-}
+.user-section {
+  justify-content: center;
+  margin-bottom: 48px;
 
-.box {
+  .user-container {
+    @include touch {
+      margin: 0 10px;
+    }
+  }
+
+  .user-profile {
+    padding: 4em 2em;
     text-align: center;
-    padding: 50px;
-    border: 1px solid #ccc;
+    border: 1px solid $primary;
     border-radius: 10px;
-    display: block;
-    margin: auto;
-    width: 300px;
-}
+    margin: 0 auto;
+    max-width: 320px;
+  }
 
-.user-icon {
+  .user-icon {
     max-width: 200px;
     border-radius: 50%;
-    margin-bottom: 20px;
-}
+    margin-bottom: 24px;
+  }
 
-.user-name {
-    margin-bottom: 20px;
-}
+  .user-name {
+    margin-bottom: 24px;
+    color: $primary;
+    font-weight: 700;
+  }
 
-.user-introduction {
-    margin-bottom: 20px;
+  .user-introduction {
+    overflow-wrap: break-word;
+  }
 }
