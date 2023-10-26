@@ -5,6 +5,7 @@ import './controllers';
 import './navbar-burger';
 import './tabs';
 import './pageloader';
+import './show-more-brands';
 import './line-select';
 import './size-select';
 import './clipboard';

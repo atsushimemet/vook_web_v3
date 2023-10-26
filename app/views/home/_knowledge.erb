@@ -6,15 +6,20 @@
         Brand
       </div>
       <div class='columns is-multiline is-mobile'>
-        <% @brands.each do |brand| %>
-          <div class='knowledge-brand column is-one-quarter-mobile'>
-            <%= link_to brand_path(brand.name) do %>
-              <%= image_tag brand.image.variant(resize_to_limit: [200, 200]), size: '200x200', alt: brand.name, class: brand.name.gsub(/[.' ]/, '').downcase %>
-              <p class='list-title'><%= brand.name %></p>
-            <% end %>
-          </div>
+        <% @brands.first(8).each do |brand| %>
+          <%= render 'home/knowledge/brand', brand: %>
         <% end %>
       </div>
+      <% if @brands.count > 8 %>
+        <%= link_to '#more-brands', data: { action: 'collapse' }, class: 'more-brands-trigger is-right' do %>
+          All Brands<i class='fa-solid fa-chevron-down'></i>
+        <% end %>
+        <div id='more-brands' class='columns is-multiline is-mobile is-collapsible'>
+          <% @brands.drop(8).each do |brand| %>
+            <%= render 'home/knowledge/brand', brand: %>
+          <% end %>
+        </div>
+      <% end %>
     </div>
     <div class='item-list'>
       <div class='lists-title divider is-left'>
