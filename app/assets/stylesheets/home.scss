@@ -15,7 +15,7 @@
     margin-bottom: 32px;
   }
   .is-one-eighth-desktop {
-    @include desktop {
+    @include tablet {
       flex: none;
       width: 12.5%;
     }
@@ -31,6 +31,10 @@
     margin: 0 0 24px;
     font-size: 24px;
     text-transform: capitalize;
+    color: $primary90;
+    &::after {
+      background-color: $primary90;
+    }
     @include mobile {
       margin: 0 0 10px;
       font-size: 18px;
