@@ -27,10 +27,8 @@ class ApplicationController < ActionController::Base
     raise ActionController::RoutingError, params[:path]
   end
 
-  if Rails.env.production?
-    rescue_from ActionController::RoutingError, with: :render_not_found
-    rescue_from ActiveRecord::RecordNotFound, with: :render_not_found
-  end
+  rescue_from ActionController::RoutingError, with: :render_not_found
+  rescue_from ActiveRecord::RecordNotFound, with: :render_not_found
 
   private
 

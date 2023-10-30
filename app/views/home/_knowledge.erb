@@ -6,18 +6,14 @@
         Brand
       </div>
       <div class='columns is-multiline is-mobile'>
-        <% @brands.first(8).each do |brand| %>
-          <%= render 'home/knowledge/brand', brand: %>
-        <% end %>
+        <%= render partial: 'home/knowledge/brand', collection: @first_brands, as: :brand %>
       </div>
-      <% if @brands.count > 8 %>
+      <% if @more_brands.present? %>
         <%= link_to '#more-brands', data: { action: 'collapse' }, class: 'more-brands-trigger is-right' do %>
           All Brands<i class='fa-solid fa-chevron-down'></i>
         <% end %>
         <div id='more-brands' class='columns is-multiline is-mobile is-collapsible'>
-          <% @brands.drop(8).each do |brand| %>
-            <%= render 'home/knowledge/brand', brand: %>
-          <% end %>
+          <%= render partial: 'home/knowledge/brand', collection: @more_brands, as: :brand %>
         </div>
       <% end %>
     </div>

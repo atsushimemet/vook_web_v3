@@ -39,6 +39,9 @@ Style/Documentation:
 Style/FrozenStringLiteralComment:
   Enabled: false
 
+Metrics/AbcSize:
+  Max: 30
+
 RSpec/MultipleExpectations:
   Enabled: false
 
@@ -46,4 +49,10 @@ RSpec/ExampleLength:
   Enabled: false
 
 RSpec/LetSetup:
+  Enabled: false
+
+RSpec/MultipleMemoizedHelpers:
+  Max: 8
+
+RSpec/ContextWording:
   Enabled: false

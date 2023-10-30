@@ -3,8 +3,14 @@
     <div class='column is-one-quarter-tablet is-half-mobile'>
       <div class='magazine-card card'>
         <%= link_to magazine do %>
-          <span class='magazine-date'>
-            <%= l magazine.publish_at, format: :date %>
+          <span class='magazine-date <%= 'draft' if magazine.draft? %><%= 'scheduled' if magazine.scheduled? %>'>
+            <% if magazine.draft? %>
+              <%= '下書き' %>
+            <% elsif magazine.scheduled? %>
+              <%= "予約：#{l magazine.publish_at, format: :short}" %>
+            <% else %>
+              <%= l magazine.publish_at, format: :date %>
+            <% end %>
           </span>
           <div class='magazine-card-image image is-square'>
             <% if magazine.thumbnail.attached? %>
