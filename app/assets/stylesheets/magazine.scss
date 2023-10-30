@@ -58,5 +58,11 @@
     z-index: 5;
     padding: 6px;
     margin: 4px 4px;
+    &.draft {
+      background-color: $danger;
+    }
+    &.scheduled {
+      background-color: $success;
+    }
   }
 }

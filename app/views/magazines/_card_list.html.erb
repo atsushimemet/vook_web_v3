@@ -3,11 +3,11 @@
     <div class='column is-one-quarter-tablet is-half-mobile'>
       <div class='magazine-card card'>
         <%= link_to magazine do %>
-          <span class='magazine-date'>
+          <span class='magazine-date <%= 'draft' if magazine.draft? %><%= 'scheduled' if magazine.scheduled? %>'>
             <% if magazine.draft? %>
-              <span class='draft'><%= '下書き' %></span>
+              <%= '下書き' %>
             <% elsif magazine.scheduled? %>
-              <span class='scheduled'><%= "予約：#{l magazine.publish_at, format: :short}" %></span>
+              <%= "予約：#{l magazine.publish_at, format: :short}" %>
             <% else %>
               <%= l magazine.publish_at, format: :date %>
             <% end %>

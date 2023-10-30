@@ -3,7 +3,11 @@ class MagazinesController < ApplicationController
   before_action :require_admin_login, only: %i[new edit create update destroy]
 
   def index
-    @new_magazines = admin_login? ? Magazine.with_attached_thumbnail.order(publish_at: :desc) : Magazine.published.with_attached_thumbnail.order(publish_at: :desc)
+    @new_magazines = if admin_login?
+                       Magazine.with_attached_thumbnail.order(publish_at: :desc)
+                     else
+                       Magazine.published.with_attached_thumbnail.order(publish_at: :desc)
+                     end
   end
 
   def show
