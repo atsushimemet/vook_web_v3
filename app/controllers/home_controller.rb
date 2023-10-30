@@ -2,7 +2,7 @@ class HomeController < ApplicationController
   def index
     @brands = Brand.with_attached_image.all
     @items = Item.with_attached_image.all
-    @magazines = Magazine.with_attached_thumbnail.order(publish_at: :desc).limit(8)
+    @magazines = Magazine.published.with_attached_thumbnail.order(publish_at: :desc).limit(8)
     # 本番環境で知識記事作られるまでidが10-14のものを表示させる
     @pickup_knowledges = if Rails.env.production?
                            Knowledge.with_attached_image.where(id: 10..14)

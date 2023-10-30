@@ -4,5 +4,20 @@ class Magazine < ApplicationRecord
   has_rich_text :body
 
   validates :title, presence: true, length: { maximum: 255 }
-  validates :publish_at, presence: true
+
+  scope :draft, -> { where(publish_at: nil) }
+  scope :published, -> { where('publish_at <= ?', Time.current) }
+  scope :scheduled, -> { where('publish_at > ?', Time.current) }
+
+  def draft?
+    publish_at.nil?
+  end
+
+  def published?
+    publish_at? && publish_at <= Time.current
+  end
+
+  def scheduled?
+    publish_at? && publish_at > Time.current
+  end
 end
