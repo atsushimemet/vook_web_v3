@@ -1,6 +1,7 @@
 class HomeController < ApplicationController
   def index
-    @brands = Brand.with_attached_image.all
+    @first_brands = Brand.with_attached_image.limit(8)
+    @more_brands = Brand.with_attached_image.offset(8)
     @items = Item.with_attached_image.all
     @magazines = Magazine.published.with_attached_thumbnail.order(publish_at: :desc).limit(8)
     # 本番環境で知識記事作られるまでidが10-14のものを表示させる
