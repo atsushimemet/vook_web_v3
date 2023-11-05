@@ -38,9 +38,9 @@
       </div>
     </div>
     <% if admin_login? %>
-      <div class='magazine-edit buttons'>
-        <%= link_to '記事編集', edit_magazine_path(@magazine), class: 'button' %>
-        <%= button_to '記事削除', @magazine,
+      <div class='magazine-edit buttons is-right'>
+        <%= link_to '編集', edit_magazine_path(@magazine), class: 'button is-primary' %>
+        <%= button_to '削除', @magazine,
                       { method: :delete, data: { turbo_confirm: '本当に削除しますか？' }, class: 'button' } %>
       </div>
     <% end %>

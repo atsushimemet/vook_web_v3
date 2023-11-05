@@ -35,9 +35,10 @@
       </div>
     </div>
     <% if admin_login? %>
-      <div class='knowledge-edit buttons'>
-        <%= link_to '記事編集', edit_knowledge_path(@knowledge), class: 'button' %>
-        <%= button_to '記事削除', @knowledge, { method: :delete, data: { turbo_confirm: '本当に削除しますか？' }, class: 'button' } %>
+      <div class='knowledge-edit buttons is-right'>
+        <%= link_to 'Knowledge一覧', knowledges_path, class: 'button is-success' %>
+        <%= link_to '編集', edit_knowledge_path(@knowledge), class: 'button is-primary' %>
+        <%= button_to '削除', @knowledge, { method: :delete, data: { turbo_confirm: '本当に削除しますか？' }, class: 'button' } %>
       </div>
     <% end %>
     <div class='knowledge-price'>

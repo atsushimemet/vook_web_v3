@@ -129,7 +129,16 @@
       height: auto;
     }
   }
-  .table th,td{
-    vertical-align: inherit;
+
+  .knowledges-table {
+    th,td{
+      vertical-align: inherit;
+    }
+    th {
+      text-align: center;
+    }
+  }
+  .form-section{
+    margin-bottom: 32px;
   }
 }
