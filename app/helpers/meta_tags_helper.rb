@@ -3,7 +3,7 @@ module MetaTagsHelper
     site_name = 'Vook'
     default_title = "#{site_name}｜古着・ヴィンテージを楽しむための新しいメディア"
     default_meta_description = 'ヴィンテージに特化したキュレーションメディアです。古着を楽しむための基本的な知識をわかりやすく解説'
-    default_og_image = image_url('vook-ogp.png')
+    default_og_image = image_url('logo_ogp.png')
 
     {
       title: default_title,
