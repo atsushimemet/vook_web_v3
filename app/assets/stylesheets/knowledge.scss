@@ -21,12 +21,6 @@
       padding: 2rem 0;
       margin-bottom: 8px;
     }
-    .knowledge-banner {
-      object-fit: cover;
-      @include touch {
-        width: 60%;
-      }
-    }
   }
   @each $brand, $color in $brand-colors {
     .knowledge-brand-header.#{$brand} {
