@@ -8,9 +8,6 @@
       </ul>
     </nav>
     <div class='knowledge-item-header <%= @item.name.gsub(/[.' ]/, '').downcase %>'>
-      <h2 class='knowledge-title'>
-        <%= @item.name %>
-      </h2>
       <% if @item.banner.attached? %>
         <%= image_tag @item.banner, alt: @item.name, class: 'knowledge-banner' %>
       <% end %>

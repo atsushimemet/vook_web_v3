@@ -21,12 +21,6 @@
       padding: 2rem 0;
       margin-bottom: 8px;
     }
-    .knowledge-banner {
-      object-fit: cover;
-      @include touch {
-        width: 60%;
-      }
-    }
   }
   @each $brand, $color in $brand-colors {
     .knowledge-brand-header.#{$brand} {
@@ -46,26 +40,6 @@
     @include touch {
       padding: 2rem 0;
       margin-bottom: 8px;
-    }
-    .knowledge-title {
-      font-size: 2.4rem;
-      color: $dark-gray;
-      white-space: nowrap;
-      text-shadow:
-        1px  1px 0px $black,
-        -1px  1px 0px $black,
-        1px -1px 0px $black,
-        -1px -1px 0px $black,
-        1px  0px 0px $black,
-        0px  1px 0px $black,
-        -1px  0px 0px $black,
-        0px -1px 0px $black;
-      @include touch {
-        flex: 1;
-        max-width: 120px;
-        text-align: center;
-        white-space: normal;
-      }
     }
     .knowledge-banner {
       max-width: 100%;
@@ -116,6 +90,7 @@
         height: 100%;
         object-fit: cover;
         border: solid 2px $primary;
+        background-color: $dark-gray;
       }
     }
   }
