@@ -29,14 +29,14 @@ lines.each do |line|
   line = Line.find_or_create_by!(name: line[:name], brand_id: brand.id, item_id: item.id)
 
   image_path = case item.name
-               when 'Denim Pants' then 'line_denim_pants.png'
-               when 'Jacket' then 'line_jacket.png'
-               when 'Shirt' then 'line_shirt.png'
-               when 'Sweat Shirt' then 'line_sweat_shirt.png'
-               when 'Bag' then 'line_bag.png'
-               when 'Pants' then 'line_pants.png'
-               when 'Coat' then 'line_coat.png'
-               when 'Shorts' then 'line_shorts.png'
+               when 'Denim Pants' then 'line_default_denim_pants.png'
+               when 'Jacket' then 'line_default_jacket.png'
+               when 'Shirt' then 'line_default_shirt.png'
+               when 'Sweat Shirt' then 'line_default_sweat_shirt.png'
+               when 'Bag' then 'line_default_bag.png'
+               when 'Pants' then 'line_default_pants.png'
+               when 'Coat' then 'line_default_coat.png'
+               when 'Shorts' then 'line_default_shorts.png'
                end
 
   line.image.attach(io: File.open(Rails.root.join("app/assets/images/#{image_path}")), filename: image_path)
@@ -48,14 +48,14 @@ end
 #   item = Item.find(line.item_id)
 
 #   image_path = case item.name
-#                when 'Denim Pants' then 'line_denim_pants.png'
-#                when 'Jacket' then 'line_jacket.png'
-#                when 'Shirt' then 'line_shirt.png'
-#                when 'Sweat Shirt' then 'line_sweat_shirt.png'
-#                when 'Bag' then 'line_bag.png'
-#                when 'Pants' then 'line_pants.png'
-#                when 'Coat' then 'line_coat.png'
-#                when 'Shorts' then 'line_shorts.png'
+#                when 'Denim Pants' then 'line_default_denim_pants.png'
+#                when 'Jacket' then 'line_default_jacket.png'
+#                when 'Shirt' then 'line_default_shirt.png'
+#                when 'Sweat Shirt' then 'line_default_sweat_shirt.png'
+#                when 'Bag' then 'line_default_bag.png'
+#                when 'Pants' then 'line_default_pants.png'
+#                when 'Coat' then 'line_default_coat.png'
+#                when 'Shorts' then 'line_default_shorts.png'
 #                end
 
 #   line.image.attach(io: File.open(Rails.root.join("app/assets/images/#{image_path}")), filename: image_path)
