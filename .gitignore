@@ -32,9 +32,12 @@
 
 /app/assets/builds/*
 /app/assets/images
+/app/assets/csv
 /app/assets/stylesheets/**/*.css.map
 /app/assets/stylesheets/**/*.css
 !/app/assets/builds/.keep
+
+/db/*.sql
 
 /node_modules
 .env

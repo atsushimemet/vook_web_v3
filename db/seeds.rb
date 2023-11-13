@@ -44,21 +44,32 @@ end
 
 # 本番環境での画像差し替え用
 # lines = Line.all
+
+# require 'csv'
+# image_paths = CSV.read(Rails.root.join('app/assets/csv/line_image_attach.csv'), headers: true).map do |row|
+#                 [row['name'], row['image_path']]
+#               end.to_h
+
 # lines.each do |line|
-#   item = Item.find(line.item_id)
+#   image_path = image_paths[line.name]
 
-#   image_path = case item.name
-#                when 'Denim Pants' then 'line_default_denim_pants.png'
-#                when 'Jacket' then 'line_default_jacket.png'
-#                when 'Shirt' then 'line_default_shirt.png'
-#                when 'Sweat Shirt' then 'line_default_sweat_shirt.png'
-#                when 'Bag' then 'line_default_bag.png'
-#                when 'Pants' then 'line_default_pants.png'
-#                when 'Coat' then 'line_default_coat.png'
-#                when 'Shorts' then 'line_default_shorts.png'
-#                end
+#   unless image_path
+#     item = Item.find(line.item_id)
+#     image_path = case item.name
+#                 when 'Denim Pants' then 'line_default_denim_pants'
+#                 when 'Jacket' then 'line_default_jacket'
+#                 when 'Shirt' then 'line_default_shirt'
+#                 when 'Sweat Shirt' then 'line_default_sweat_shirt'
+#                 when 'Bag' then 'line_default_bag'
+#                 when 'Pants' then 'line_default_pants'
+#                 when 'Coat' then 'line_default_coat'
+#                 when 'Shorts' then 'line_default_shorts'
+#                 end
+#   end
 
-#   line.image.attach(io: File.open(Rails.root.join("app/assets/images/#{image_path}")), filename: image_path)
+#   if image_path
+#     line.image.attach(io: File.open(Rails.root.join("app/assets/images/#{image_path}.png")), filename: image_path)
+#   end
 # end
 
 brands = Brand.all
@@ -70,7 +81,7 @@ brand_assets = {
   "U.S.ARMY": { image: 'brand_usarmy.png', banner: 'brand_usarmy_banner.png' },
   "L.L.Bean": { image: 'brand_llbean.png', banner: 'brand_llbean_banner.png' },
   Wrangler: { image: 'brand_wrangler.png', banner: 'brand_wrangler_banner.png' },
-  Patagonia: { image: 'brand_patagonia.png', banner: 'brand_patagonia_banner.png' }
+  patagonia: { image: 'brand_patagonia.png', banner: 'brand_patagonia_banner.png' }
 }
 
 brands.each do |brand|
@@ -104,6 +115,8 @@ end
 if Rails.env.development?
   user = User.create!(name: 'admin',
                       icon_url: 'https://1.bp.blogspot.com/-bAOIfmOoIvI/VY4WmqzWeVI/AAAAAAAAusA/wpJ8Jc1VgZ0/s800/job_kanrinin.png', admin: true, provider: 'google_oauth2', uid: 1234)
+  # dumpしたときはuserが存在するので以下
+  # user = User.first
 
   7.times do |i|
     Magazine.create(
