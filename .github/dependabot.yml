@@ -7,3 +7,10 @@ updates:
       day: "saturday"
       time: "08:00"
       timezone: "Asia/Tokyo"
+  - package-ecosystem: "npm"
+    directory: '/'
+    schedule:
+      interval: "weekly"
+      day: "saturday"
+      time: "08:00"
+      timezone: "Asia/Tokyo"
