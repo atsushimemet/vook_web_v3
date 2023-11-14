@@ -2,20 +2,26 @@ class HomeController < ApplicationController
   def index
     @first_brands = Brand.with_attached_image.limit(8)
     @more_brands = Brand.with_attached_image.offset(8)
+    @first_items = Item.with_attached_image.limit(8)
+    @more_items = Item.with_attached_image.offset(8)
     @items = Item.with_attached_image.all
     @magazines = Magazine.published.with_attached_thumbnail.order(publish_at: :desc).limit(8)
-    # 本番環境で知識記事作られるまでidが10-14のものを表示させる
-    @pickup_knowledges = if Rails.env.production?
-                           Knowledge.with_attached_image.where(id: 10..14)
-                         else
-                           Knowledge.with_attached_image.where(id: 1..5)
-                         end
+    @pickup_knowledges = current_pickup_knowledge
     @instagram_feeds = instagram_feed_cache
   end
 
   def about; end
 
   private
+
+  # 本番環境で知識記事作られるまでの一時的なpickup
+  def current_pickup_knowledge
+    if Rails.env.production?
+      Knowledge.with_attached_image.where(id: 10..14)
+    else
+      Knowledge.with_attached_image.where(id: 1..5)
+    end
+  end
 
   def instagram_feed_cache
     Rails.cache.fetch('instagram_feed', expires_in: 1.hour) do

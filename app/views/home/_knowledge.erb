@@ -6,14 +6,14 @@
         Brand
       </div>
       <div class='columns is-multiline is-mobile'>
-        <%= render partial: 'home/knowledge/brand', collection: @first_brands, as: :brand %>
+        <%= render partial: 'home/knowledge/icon', collection: @first_brands, as: :icon %>
       </div>
       <% if @more_brands.present? %>
         <%= link_to '#more-brands', data: { action: 'collapse' }, class: 'more-brands-trigger is-right' do %>
           All Brands<i class='fa-solid fa-chevron-down'></i>
         <% end %>
         <div id='more-brands' class='columns is-multiline is-mobile is-collapsible'>
-          <%= render partial: 'home/knowledge/brand', collection: @more_brands, as: :brand %>
+          <%= render partial: 'home/knowledge/icon', collection: @more_brands, as: :icon %>
         </div>
       <% end %>
     </div>
@@ -22,15 +22,16 @@
         Item
       </div>
       <div class='columns is-multiline is-mobile'>
-        <% @items.each do |item| %>
-          <div class='knowledge-item column is-one-quarter-mobile'>
-            <%= link_to item_path(item.name) do %>
-              <%= image_tag item.image.variant(resize_to_limit: [200, 200]), size: '200x200', alt: item.name, class: item.name.gsub(/[.' ]/, '').downcase %>
-              <p class='list-title'><%= item.name %></p>
-            <% end %>
-          </div>
-        <% end %>
+        <%= render partial: 'home/knowledge/icon', collection: @first_items, as: :icon %>
       </div>
+      <% if @more_items.present? %>
+        <%= link_to '#more-items', data: { action: 'collapse' }, class: 'more-items-trigger is-right' do %>
+          All Items<i class='fa-solid fa-chevron-down'></i>
+        <% end %>
+        <div id='more-items' class='columns is-multiline is-mobile is-collapsible'>
+          <%= render partial: 'home/knowledge/icon', collection: @more_items, as: :icon %>
+        </div>
+      <% end %>
     </div>
   </div>
   <div class='field is-grouped'>
