@@ -6,4 +6,8 @@ class Item < ApplicationRecord
   has_one_attached :banner
 
   validates :name, presence: true, length: { maximum: 100 }
+
+  def to_param
+    name
+  end
 end

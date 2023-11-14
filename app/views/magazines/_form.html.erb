@@ -9,36 +9,36 @@
       </div>
     </div>
 
-    <div class="field">
+    <div class='field'>
       <%= form.label :title, class: 'label' %>
-      <div class="control">
+      <div class='control'>
         <%= form.text_field :title, class: 'input' %>
       </div>
     </div>
 
-    <div class="field">
-      <%= form.label :publish_at, class: 'label' %>
-      <div class="control">
+    <div class='field'>
+      <%= form.label :publish_at, '公開日(未設定にしておくと下書き保存)', class: 'label' %>
+      <div class='control'>
         <%= form.datetime_field :publish_at %>
       </div>
     </div>
 
-    <div class="field content">
+    <div class='field content'>
       <%= form.label :body, class: 'label' %>
-      <div class="control">
+      <div class='control'>
         <%= form.rich_text_area :body %>
       </div>
     </div>
 
-    <div class="field">
+    <div class='field'>
       <%= form.label :summary, class: 'label' %>
-      <div class="control">
+      <div class='control'>
         <%= form.text_field :summary, class: 'input' %>
       </div>
     </div>
 
-    <div>
-      <%= form.submit class: 'button' %>
+    <div class='buttons is-right'>
+      <%= form.submit class: 'button is-primary' %>
     </div>
   <% end %>
 </section>

@@ -1,0 +1,9 @@
+<div class='knowledge-brand column is-one-eighth-desktop is-one-quarter-mobile'>
+  <%= link_to polymorphic_path(icon) do %>
+    <% if icon.image.attached? %>
+      <%= image_tag icon.image.variant(resize_to_limit: [200, 200]), size: '200x200', alt: icon.name,
+                                                                     class: icon.name.gsub(/[.' ]/, '').downcase %>
+    <% end %>
+    <p class='list-title'><%= icon.name %></p>
+  <% end %>
+</div>
