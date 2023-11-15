@@ -1,28 +1,37 @@
-<footer class="footer">
-  <div class="container">
-    <div class="footer-sns-icons">
-      <div class="footer-sns-icon instagram-icon">
-        <%= link_to 'https://www.instagram.com/vook.vintagebook/', target: :_blank, rel: 'noopener' do %>
-          <i class='fa-brands fa-instagram'></i>
-        <% end %>
+<footer class='footer'>
+  <div class='container'>
+    <div class='footer-columns'>
+      <div class='left-content'>
+        <div class='footer-logo'>
+          <%= image_tag 'logo_mark.png', alt: 'logo-mark', class: 'logo-mark', size: '200x200' %>
+        </div>
       </div>
-      <div class="footer-sns-icon tiktok-icon">
-        <%= link_to 'https://www.tiktok.com/@vook.tokyo/', target: :_blank, rel: 'noopener' do %>
-          <i class='fa-brands fa-tiktok fa-2x'></i>
-        <% end %>
+      <div class='right-content'>
+        <div class='footer-sns-icons'>
+          <div class='footer-sns-icon instagram-icon'>
+            <%= link_to 'https://www.instagram.com/vook.vintagebook/', target: :_blank, rel: 'noopener' do %>
+              <i class='fa-brands fa-instagram'></i>
+            <% end %>
+          </div>
+          <div class='footer-sns-icon tiktok-icon'>
+            <%= link_to 'https://www.tiktok.com/@vook.tokyo/', target: :_blank, rel: 'noopener' do %>
+              <i class='fa-brands fa-tiktok fa-2x'></i>
+            <% end %>
+          </div>
+        </div>
+        <div class='footer-item'>
+          <div class='footer-link'>
+            <span>
+              <%= link_to '利用規約', tos_path %>
+            </span>
+            <span>/</span>
+            <span>
+              <%= link_to 'プライバシーポリシー', privacy_policy_path %>
+            </span>
+          </div>
+          <p class='copy-right'>&copy;Vook 2023</p>
+        </div>
       </div>
-    </div>
-    <div class="footer-item">
-      <div class="footer-link">
-        <span>
-          <%= link_to '利用規約', tos_path %>
-        </span>
-        <span>/</span>
-        <span>
-          <%= link_to 'プライバシーポリシー', privacy_policy_path %>
-        </span>
-      </div>
-      <p class="copy-right">&copy;Vook 2023</p>
     </div>
   </div>
 </footer>

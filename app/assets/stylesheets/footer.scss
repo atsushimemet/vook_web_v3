@@ -1,13 +1,32 @@
 .footer {
   padding: 3rem 1.5rem !important;
-  background-color: $primary95 !important;
+  background-color: $primary !important;
   color: $dark-gray;
   a {
     color: $white;
   }
+
+  .footer-columns {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 80px;
+    @include mobile {
+      display: block;
+    }
+  }
+
+  .footer-logo {
+    text-align: center;
+    margin-bottom: 16px;
+    .logo-mark {
+      filter: brightness(0) invert(1);
+    }
+  }
+
   .footer-sns-icons {
     display: flex;
-    margin-bottom: 12px;
+    margin-bottom: 16px;
     justify-content: center;
     align-items: center;
     gap: 24px;
@@ -22,7 +41,7 @@
   }
 
   .footer-link {
-    margin-bottom: 8px;
+    margin-bottom: 16px;
   }
 
   .copy-right {
