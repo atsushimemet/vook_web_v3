@@ -1,5 +1,9 @@
-.trix-content {
+.trix-content * {
   overflow-wrap: anywhere;
+  line-height: 2;
+  a {
+    color: #6388b2;
+  }
 }
 
 trix-editor {
