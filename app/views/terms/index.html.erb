@@ -1,0 +1,26 @@
+<section class='term-section'>
+  <%= render partial: 'shared/section_headline', locals: { title: 'Terms' } %>
+  <div class='term-container container'>
+    <% if admin_login? %>
+      <div class='has-text-right'>
+        <%= link_to '用語登録', new_term_path, class: 'button is-primary' %>
+      </div>
+    <% end %>
+    <div class='term-lists'>
+      <% @terms.each do |term| %>
+        <div class='term-list' id=<%= term.name %>>
+          <li class='term-list-name'>
+            <%= "【#{term.name}】" %>
+          </li>
+          <ul class='term-list-description'>
+            <%= term.description %>
+          </ul>
+          <div class='term-edit-button'>
+            <%= link_to '編集', edit_term_path(term.id), class: 'button' if admin_login? %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <%= link_to 'トップページに戻る', root_path %>
+  </div>
+</section>

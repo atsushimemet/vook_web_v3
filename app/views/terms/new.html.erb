@@ -1,0 +1,8 @@
+<section class='term-section'>
+  <%= render partial: 'shared/section_headline', locals: { title: 'Terms' } %>
+  <div class='term-container container'>
+    <h2 class='term-title'>用語作成</h2>
+    <%= render 'form', term: @term %>
+    <%= link_to 'Terms一覧に戻る', terms_path %>
+  </div>
+</section>
