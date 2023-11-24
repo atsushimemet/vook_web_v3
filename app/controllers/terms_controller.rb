@@ -34,7 +34,7 @@ class TermsController < ApplicationController
 
   def destroy
     @term.destroy
-    redirect_to terms_path, notice: '記事を削除しました'
+    redirect_to terms_path, notice: '用語を削除しました'
   end
 
   private

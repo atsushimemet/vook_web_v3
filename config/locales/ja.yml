@@ -16,6 +16,13 @@ ja:
         publish_at: 公開日
         thumbnail: サムネイル
         summary: まとめ
+    models:
+      term: 用語
+    attributes:
+      term:
+        name: 名前
+        kana: フリガナ
+        description: 説明
   date:
     abbr_day_names:
     - 日
