@@ -1,0 +1,37 @@
+.term-section {
+  margin-bottom: 24px;
+  .term-container {
+    @include touch {
+      margin: 0 10px;
+    }
+    .term-name {
+      font-size: 1.6rem;
+      font-weight: 600;
+      margin-bottom: 16px;
+      color: $primary;
+    }
+    .term-lists {
+      margin-bottom: 24px;
+    }
+    .term-list {
+      padding: 1rem 0;
+      &:not(:last-child) {
+        border-bottom: 1px solid $dark-gray
+      }
+      .term-list-name{
+        list-style: none;
+        font-size: 1rem;
+        font-weight: 600;
+      }
+      .term-list-description {
+        padding: 1rem 1rem 0;
+      }
+    }
+    .term-edit-button {
+      text-align: right;
+    }
+  }
+  .form-section {
+    margin-bottom: 20px;
+  }
+}

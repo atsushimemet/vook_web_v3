@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     resources :lines, only: :index
   end
   resources :users, only: [:show]
+  resources :terms, only: %i[index new edit create update destroy]
   get 'products/:knowledge_id', to: 'products#show', as: 'product'
 
   get '/auth/:provider/callback', to: 'sessions#create'
