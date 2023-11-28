@@ -6,4 +6,9 @@ module KnowledgesHelper
   def line_select_options(knowledge)
     Line.where(brand_id: knowledge.brand_id).map { |line| [line.name, line.id] }
   end
+
+  def instagram_embed(instagram_url)
+    embed_url = instagram_url.gsub('ig_web_copy_link', 'ig_embed')
+    render 'shared/instagram_embed', instagram_url: embed_url
+  end
 end

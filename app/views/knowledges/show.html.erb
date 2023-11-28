@@ -34,6 +34,7 @@
         <%= @knowledge.body %>
       </div>
     </div>
+    <%= instagram_embed(@knowledge.instagram_url) if @knowledge.instagram_url.present? %>
     <% if admin_login? %>
       <div class='knowledge-edit buttons is-right'>
         <%= link_to 'Knowledge一覧', knowledges_path, class: 'button is-success' %>

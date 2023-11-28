@@ -9,6 +9,8 @@ ja:
           has_many: "%{record}が存在しているので削除できません"
     models:
       magazine: 記事
+      knowledge: 知識
+      term: 用語
     attributes:
       magazine:
         title: タイトル
@@ -16,13 +18,20 @@ ja:
         publish_at: 公開日
         thumbnail: サムネイル
         summary: まとめ
-    models:
-      term: 用語
-    attributes:
       term:
         name: 名前
         kana: フリガナ
         description: 説明
+      knowledge:
+        name: 名前
+        age: 年代
+        instagram_url: インスタURL
+        image: 画像
+        body: 内容
+        brand: ブランド
+        brand_id: ブランド
+        item: アイテム
+        line: ライン
   date:
     abbr_day_names:
     - 日

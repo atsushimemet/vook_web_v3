@@ -34,10 +34,17 @@
       </div>
     </div>
 
+    <div class='field'>
+      <%= form.label :instagram_url, class: 'label' %>
+      <div class='control'>
+        <%= form.text_field :instagram_url, class: 'input' %>
+      </div>
+    </div>
+
     <div class='field content'>
       <%= form.label :body, class: 'label' %>
       <div class='control'>
-        <%= form.rich_text_area :body %>
+        <%= form.rich_text_area :body, class: 'textarea' %>
       </div>
     </div>
 

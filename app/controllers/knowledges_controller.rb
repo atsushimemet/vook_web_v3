@@ -52,6 +52,6 @@ class KnowledgesController < ApplicationController
   end
 
   def knowledge_params
-    params.require(:knowledge).permit(:name, :age, :body, :brand_id, :line_id, :image)
+    params.require(:knowledge).permit(:name, :age, :body, :instagram_url, :brand_id, :line_id, :image)
   end
 end

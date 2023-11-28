@@ -112,6 +112,12 @@
     font-weight: 600;
     margin-bottom: 16px;
   }
+  .knowledge-instagram-embed {
+    margin-bottom: 48px;
+    @include tablet {
+      margin-left: 3em;
+    }
+  }
   .knowledge-price {
     margin-bottom: 48px;
     .knowledge-price-body{
