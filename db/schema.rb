@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_24_011359) do
+ActiveRecord::Schema[7.1].define(version: 2023_11_24_153935) do
   create_table "action_text_rich_texts", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
     t.text "body", size: :long
@@ -72,6 +72,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_24_011359) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id", null: false
+    t.string "instagram_url"
     t.index ["brand_id"], name: "index_knowledges_on_brand_id"
     t.index ["item_id"], name: "index_knowledges_on_item_id"
     t.index ["line_id"], name: "index_knowledges_on_line_id"
