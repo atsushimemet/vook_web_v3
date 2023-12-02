@@ -10,6 +10,9 @@
       margin-bottom: 16px;
       color: $primary;
     }
+    .magazine-header-date {
+      margin-bottom: 16px;
+    }
     .magazine-content {
       img {
         object-fit: contain;
@@ -28,7 +31,6 @@
     margin-bottom: 20px;
   }
 }
-
 
 .magazine-cards {
   margin: 0 8px;
@@ -61,8 +63,6 @@
   font-weight: 700;
   font-size: 14px;
   padding: 4px 8px;
-  margin-bottom: 16px;
-  max-width: 62px;
   &.draft {
     background-color: $danger;
   }
