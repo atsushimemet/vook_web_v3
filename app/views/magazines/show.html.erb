@@ -13,9 +13,6 @@
 <section class='magazine-section'>
   <%= render partial: 'shared/section_headline', locals: { number: '01', title: 'Magazine' } %>
   <div class='magazine-container container'>
-    <h2 class='magazine-title'>
-      <%= @magazine.title %>
-    </h2>
     <div class='magazine-header'>
       <div class='magazine-date'>
         <% if @magazine.draft? %>
@@ -27,6 +24,9 @@
         <% end %>
       </div>
     </div>
+    <h2 class='magazine-title'>
+      <%= @magazine.title %>
+    </h2>
     <div class='magazine-content'>
       <% if @magazine.thumbnail.attached? %>
         <figure class='image'>

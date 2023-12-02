@@ -9,6 +9,10 @@ $primary40: #98a8b4;
 $primary30: #b2bec8;
 $primary20: #ccd5dc;
 
+$secondary: #FCD900;
+$denim: #4678a7;
+$red: #b44a40;
+
 $black: #031624;
 $dark-gray: #e6eaee;
 $light-gray: #f2f4f7;
@@ -28,7 +32,7 @@ $line: #06C755;
 
 // Brand color
 $brand-colors: (
-  levis: #b44a40,
+  levis: $red,
   wrangler: $dark-gray,
   lee: $light-gray,
   pendleton: $primary80,
@@ -46,13 +50,13 @@ $item-colors: (
   sweatshirt: $primary50,
   bag: #6388b2,
   shorts: #9ab0ce,
-  coat: #4678a7,
+  coat: $denim,
   pants: #7f9cc0,
 );
 
 // Update Bulma's global variables
 $link: $primary;
 $info: $dark-gray;
-$success: #6388b2;
-$danger: #b44a40;
+$success: $denim;
+$danger: $red;
 $light: $light-gray;

@@ -2,7 +2,7 @@
   margin-bottom: 24px;
   .magazine-container {
     @include touch {
-      margin: 0 10px;
+      margin: 0 16px;
     }
     .magazine-title {
       font-size: 1.6rem;
@@ -14,7 +14,7 @@
       img {
         object-fit: contain;
         width: 80%;
-        margin: 20px auto;
+        margin: 16px auto;
         max-height: 500px;
         max-width: 800px;
       }
@@ -50,19 +50,23 @@
     font-size: 14px;
   }
   .magazine-date {
-    background-color: $primary;
-    color: $white;
-    font-weight: 700;
-    font-size: 14px;
     position: absolute;
     z-index: 5;
-    padding: 6px;
-    margin: 4px 4px;
-    &.draft {
-      background-color: $danger;
-    }
-    &.scheduled {
-      background-color: $success;
-    }
+  }
+}
+
+.magazine-date {
+  background-color: $secondary;
+  color: $primary;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 4px 8px;
+  margin-bottom: 16px;
+  max-width: 62px;
+  &.draft {
+    background-color: $danger;
+  }
+  &.scheduled {
+    background-color: $success;
   }
 }

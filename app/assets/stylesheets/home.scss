@@ -2,7 +2,7 @@
   margin-bottom: 64px;
   .top-knowledge-container {
     @include touch {
-      margin: 0 10px;
+      margin: 0 16px;
     }
   }
   .knowledge-list {
@@ -37,7 +37,7 @@
       background-color: $primary90;
     }
     @include mobile {
-      margin: 0 0 10px;
+      margin: 0 0 16px;
       font-size: 18px;
     }
   }
@@ -83,7 +83,7 @@
   margin-bottom: 64px;
   .top-discovery-container {
     @include touch {
-      margin: 0 10px;
+      margin: 0 16px;
     }
   }
   .carousel-title {
@@ -160,7 +160,7 @@
   background: $dark-gray;
   .top-community-container {
     @include touch {
-      margin: 0 10px;
+      margin: 0 16px;
     }
   }
   .instagram-list-section {
