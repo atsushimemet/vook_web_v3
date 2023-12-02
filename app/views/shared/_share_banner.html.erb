@@ -9,18 +9,20 @@
       </div>
     </li>
     <li class='share-button line-button'>
-      <%= link_to "http://line.me/R/msg/text/?#{share_text}%0a#{request.url}%0ali", target: '_blank', rel: 'noopener' do %>
+      <%= link_to "http://line.me/R/msg/text/?#{share_text}%0a#{request.url}%0ali", target: '_blank', rel: 'noopener',
+                                                                                    'aria-label': 'share on line' do %>
         <i class='fa-brands fa-line fa-lg'></i>
       <% end %>
     </li>
     <li class='share-button tweet-button'>
       <%= link_to "https://twitter.com/share?url=#{request.url}/%0a&text=#{share_text}%0a&hashtags=vook",
-                  target: '_blank', rel: 'noopener' do %>
+                  target: '_blank', rel: 'noopener', 'aria-label': 'share on x' do %>
         <i class='fa-brands fa-x-twitter fa-lg'></i>
       <% end %>
     </li>
     <li class='share-button fb-button'>
-      <%= link_to "https://www.facebook.com/share.php?u=#{request.url}", target: '_blank', rel: 'noopener' do %>
+      <%= link_to "https://www.facebook.com/share.php?u=#{request.url}", target: '_blank', rel: 'noopener',
+                                                                         'aria-label': 'share on facebook' do %>
         <i class='fa-brands fa-facebook fa-lg'></i>
       <% end %>
     </li>
