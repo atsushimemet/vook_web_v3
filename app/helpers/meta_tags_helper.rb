@@ -9,7 +9,6 @@ module MetaTagsHelper
       title: default_title,
       description: default_meta_description,
       keywords: 'ヴィンテージ,古着',
-      viewport: 'width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1',
       icon: [
         { href: image_url('favicon.png') }
       ],

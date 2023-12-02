@@ -2,7 +2,7 @@
   margin-bottom: 24px;
   .knowledge-container {
     @include touch {
-      margin: 0 10px;
+      margin: 0 16px;
     }
   }
   .knowledge-title {
@@ -89,7 +89,7 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
-        border: solid 2px $primary;
+        border: solid 1px $primary;
         background-color: $dark-gray;
       }
     }

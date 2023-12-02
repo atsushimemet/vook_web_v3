@@ -14,6 +14,9 @@
     font-weight: 600;
     border-left: solid 16px $primary;
     color: $primary;
+    @include mobile {
+      font-size: 32px;
+    }
   }
 
   .section-headline-prefix {
