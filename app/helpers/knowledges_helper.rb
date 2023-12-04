@@ -8,7 +8,8 @@ module KnowledgesHelper
   end
 
   def instagram_embed(instagram_url)
-    embed_url = instagram_url.gsub('ig_web_copy_link', 'ig_embed')
+    base_url = instagram_url.match(%r{(https://www.instagram.com/p/[^/]+/)}).to_s
+    embed_url = "#{base_url}embed/?cr=1"
     render 'shared/instagram_embed', instagram_url: embed_url
   end
 end
