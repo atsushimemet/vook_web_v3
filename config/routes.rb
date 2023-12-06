@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   get '/about', to: 'home#about'
   get '/tos', to: 'home#tos', as: 'tos'
   get '/privacy_policy', to: 'home#privacy_policy', as: 'privacy_policy'
+  get '/admin', to: 'admin#show'
   match '*path', to: 'application#routing_error', via: :all, constraints: lambda { |req|
     req.path.exclude? 'rails/active_storage'
   }
