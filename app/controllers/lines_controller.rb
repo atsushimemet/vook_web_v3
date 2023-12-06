@@ -30,7 +30,10 @@ class LinesController < ApplicationController
   end
 
   def update
-    if @line.update(line_params)
+    if params[:line][:name].blank?
+      @line.errors.add(:name, :blank)
+      render :edit, status: :unprocessable_entity
+    elsif @line.update(line_params)
       redirect_to edit_line_path(@line), notice: 'ラインを更新しました'
     else
       flash.now[:alert] = 'ライン登録に失敗しました'

@@ -24,7 +24,10 @@ class ItemsController < ApplicationController
   end
 
   def update
-    if @item.update(item_params)
+    if params[:item][:name].blank?
+      @item.errors.add(:name, :blank)
+      render :edit, status: :unprocessable_entity
+    elsif @item.update(item_params)
       redirect_to edit_item_path(@item), notice: 'アイテムを更新しました'
     else
       flash.now[:alert] = 'アイテム登録に失敗しました'

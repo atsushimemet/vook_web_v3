@@ -24,7 +24,10 @@ class BrandsController < ApplicationController
   end
 
   def update
-    if @brand.update(brand_params)
+    if params[:brand][:name].blank?
+      @brand.errors.add(:name, :blank)
+      render :edit, status: :unprocessable_entity
+    elsif @brand.update(brand_params)
       redirect_to edit_brand_path(@brand), notice: 'ブランドを更新しました'
     else
       flash.now[:alert] = 'ブランド登録に失敗しました'
