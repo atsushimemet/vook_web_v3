@@ -1,0 +1,35 @@
+<section class='brand-section'>
+  <%= render partial: 'shared/section_headline', locals: { title: 'brand' } %>
+  <div class='brand-container container'>
+    <h2 class='brand-title'>
+      <%= "#{@brand.name}編集" %>
+    </h2>
+
+    <table>
+      <tr>
+        <th>アイコン</th>
+        <td>
+          <% if @brand.image.attached? %>
+            <%= image_tag @brand.image %>
+          <% else %>
+            なし
+          <% end %>
+        </td>
+      </tr>
+      <tr>
+        <th>バナー</th>
+        <td>
+          <% if @brand.banner.attached? %>
+            <%= image_tag @brand.banner %>
+          <% else %>
+            なし
+          <% end %>
+        </td>
+      </tr>
+    </table>
+
+    <%= render 'form', brand: @brand %>
+    <%= link_to 'ブランドページ', @brand %> |
+    <%= link_to '管理画面に戻る', admin_path %>
+  </div>
+</section>

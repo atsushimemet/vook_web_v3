@@ -1,0 +1,28 @@
+<div class='container'>
+  <%= render partial: 'shared/section_headline', locals: { title: 'Brand' } %>
+  <table class='admin-table table is-striped'>
+    <thead>
+      <tr>
+        <th></th>
+        <th>ブランド</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <% @brands.each.with_index(1) do |brand, index| %>
+      <tr>
+        <td><%= index %></td>
+        <td>
+          <%= link_to brand.name, brand_path(brand) %>
+        </td>
+        <td>
+          <%= link_to '編集', edit_brand_path(brand), class: 'button is-primary' %>
+        </td>
+        <td>
+          <%= button_to '削除', brand, { method: :delete, data: { turbo_confirm: '本当に削除しますか？' }, class: 'button' } %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+  <%= link_to 'New Brand', new_brand_path, class: 'button is-primary' %>
+</div>

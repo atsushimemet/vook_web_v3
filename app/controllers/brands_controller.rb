@@ -1,5 +1,49 @@
 class BrandsController < ApplicationController
+  before_action :set_brand, only: %i[edit update destroy]
+  before_action :require_admin_login, only: %i[new edit create update destroy]
+
+  def new
+    @brand = Brand.new
+  end
+
   def show
     @brand = Brand.includes(lines: { image_attachment: :blob }).find_by(name: params[:name])
+  end
+
+  def edit; end
+
+  def create
+    @brand = Brand.new(brand_params)
+
+    if @brand.save
+      redirect_to admin_path, notice: 'ブランドを登録しました'
+    else
+      flash.now[:alert] = 'ブランド登録に失敗しました'
+      render :new, status: :unprocessable_entity
+    end
+  end
+
+  def update
+    if @brand.update(brand_params)
+      redirect_to edit_brand_path(@brand), notice: 'ブランドを更新しました'
+    else
+      flash.now[:alert] = 'ブランド登録に失敗しました'
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    @brand.destroy
+    redirect_to admin_path, notice: 'ブランドを削除しました'
+  end
+
+  private
+
+  def set_brand
+    @brand = Brand.find_by(name: params[:name])
+  end
+
+  def brand_params
+    params.require(:brand).permit(:name, :image, :banner)
   end
 end

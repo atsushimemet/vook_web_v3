@@ -1,9 +1,6 @@
 Rails.application.routes.draw do
   root 'home#index'
-
-  resources :brands, only: [:show], param: :name, constraints: { name: /[^\/]+/ }
-  resources :items, only: [:show], param: :name, constraints: { name: /[^\/]+/ }
-  resources :lines, only: [:show], param: :name, constraints: { name: /[^\/]+/ }
+  resources :brands, only: %i[show new edit create update destroy], param: :name, constraints: { name: /[^\/]+/ }
   resources :knowledges
   resources :magazines, path: '/magazine'
   resources :brands, only: [] do
