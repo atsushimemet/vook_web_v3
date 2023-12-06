@@ -1,0 +1,35 @@
+<section class='item-section'>
+  <%= render partial: 'shared/section_headline', locals: { title: 'Item' } %>
+  <div class='item-container container'>
+    <h2 class='item-title'>
+      <%= "#{@item.name}編集" %>
+    </h2>
+
+    <table>
+      <tr>
+        <th>アイコン</th>
+        <td>
+          <% if @item.image.attached? %>
+            <%= image_tag @item.image %>
+          <% else %>
+            なし
+          <% end %>
+        </td>
+      </tr>
+      <tr>
+        <th>バナー</th>
+        <td>
+          <% if @item.banner.attached? %>
+            <%= image_tag @item.banner %>
+          <% else %>
+            なし
+          <% end %>
+        </td>
+      </tr>
+    </table>
+
+    <%= render 'form', item: @item %>
+    <%= link_to 'アイテムページ', @item %> |
+    <%= link_to '管理画面に戻る', admin_path %>
+  </div>
+</section>

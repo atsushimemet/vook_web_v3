@@ -25,4 +25,30 @@
     <% end %>
   </table>
   <%= link_to 'New Brand', new_brand_path, class: 'button is-primary' %>
+  <%= render partial: 'shared/section_headline', locals: { title: 'Item' } %>
+  <table class='admin-table table is-striped'>
+    <thead>
+      <tr>
+        <th></th>
+        <th>アイテム</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <% @items.each.with_index(1) do |item, index| %>
+      <tr>
+        <td><%= index %></td>
+        <td>
+          <%= link_to item.name, item_path(item) %>
+        </td>
+        <td>
+          <%= link_to '編集', edit_item_path(item), class: 'button is-primary' %>
+        </td>
+        <td>
+          <%= button_to '削除', item, { method: :delete, data: { turbo_confirm: '本当に削除しますか？' }, class: 'button' } %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+  <%= link_to 'New Item', new_item_path, class: 'button is-primary' %>
 </div>
