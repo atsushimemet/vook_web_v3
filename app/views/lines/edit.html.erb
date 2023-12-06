@@ -1,0 +1,25 @@
+<section class='line-section'>
+  <%= render partial: 'shared/section_headline', locals: { title: 'Line' } %>
+  <div class='line-container container'>
+    <h2 class='line-title'>
+      <%= "#{@line.name}編集" %>
+    </h2>
+
+    <table>
+      <tr>
+        <th>アイコン</th>
+        <td>
+          <% if @line.image.attached? %>
+            <%= image_tag @line.image %>
+          <% else %>
+            なし
+          <% end %>
+        </td>
+      </tr>
+    </table>
+
+    <%= render 'form', line: @line %>
+    <%= link_to 'ラインページ', @line %> |
+    <%= link_to '管理画面に戻る', admin_path %>
+  </div>
+</section>
