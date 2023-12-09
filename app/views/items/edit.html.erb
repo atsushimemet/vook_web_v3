@@ -1,11 +1,11 @@
-<section class='item-section'>
+<section class='admin-section'>
   <%= render partial: 'shared/section_headline', locals: { title: 'Item' } %>
-  <div class='item-container container'>
-    <h2 class='item-title'>
-      <%= "#{@item.name}編集" %>
-    </h2>
-
-    <table>
+  <div class='admin-container container'>
+    <table class='table preview-table is-bordered is-fullwidth'>
+      <tr>
+        <th>アイテム名</th>
+        <td><%= @item.name %></td>
+      </tr>
       <tr>
         <th>アイコン</th>
         <td>
@@ -27,9 +27,9 @@
         </td>
       </tr>
     </table>
-
+    <hr class='has-background-dark'>
     <%= render 'form', item: @item %>
-    <%= link_to 'アイテムページ', @item %> |
-    <%= link_to '管理画面に戻る', admin_path %>
+    <%= link_to '管理画面に戻る', admin_path %> |
+    <%= link_to "#{@item.name}のページへ", @item %>
   </div>
 </section>

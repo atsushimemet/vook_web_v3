@@ -1,11 +1,11 @@
-<section class='brand-section'>
-  <%= render partial: 'shared/section_headline', locals: { title: 'brand' } %>
-  <div class='brand-container container'>
-    <h2 class='brand-title'>
-      <%= "#{@brand.name}編集" %>
-    </h2>
-
-    <table>
+<section class='admin-section'>
+  <%= render partial: 'shared/section_headline', locals: { title: 'Brand' } %>
+  <div class='admin-container container'>
+    <table class='table preview-table is-bordered is-fullwidth'>
+      <tr>
+        <th>ブランド名</th>
+        <td><%= @brand.name %></td>
+      </tr>
       <tr>
         <th>アイコン</th>
         <td>
@@ -27,9 +27,9 @@
         </td>
       </tr>
     </table>
-
+    <hr class='has-background-dark'>
     <%= render 'form', brand: @brand %>
-    <%= link_to 'ブランドページ', @brand %> |
-    <%= link_to '管理画面に戻る', admin_path %>
+    <%= link_to '管理画面に戻る', admin_path %> |
+    <%= link_to "#{@brand.name}のページへ", @brand %>
   </div>
 </section>

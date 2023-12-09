@@ -30,7 +30,7 @@ main {
 
 // Update some of Bulma's component variables
 $container-max-width: 1100px;
-$navbar-breakpoint: 768px;
+$navbar-breakpoint: 769px;
 $body-background-color: $white;
 $control-border-width: 2px;
 $input-shadow: none;
@@ -44,6 +44,7 @@ $card-shadow: none;
 $column-gap: 0.25rem;
 $tabs-link-color: #808080;
 $tabs-link-active-color: $primary;
+$table-striped-row-even-background-color: $light-gray;
 
 // Import only what you need from Bulma
 @import "bulma/sass/utilities/_all.sass";
@@ -66,6 +67,7 @@ $tabs-link-active-color: $primary;
 @import "header";
 @import "footer";
 @import "home";
+@import "admin";
 @import "section-headline";
 @import "tabs";
 @import "breadcrumb";

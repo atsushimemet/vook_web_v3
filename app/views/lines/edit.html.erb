@@ -1,11 +1,19 @@
-<section class='line-section'>
+<section class='admin-section'>
   <%= render partial: 'shared/section_headline', locals: { title: 'Line' } %>
-  <div class='line-container container'>
-    <h2 class='line-title'>
-      <%= "#{@line.name}編集" %>
-    </h2>
-
-    <table>
+  <div class='admin-container container'>
+    <table class='table preview-table is-bordered is-fullwidth'>
+      <tr>
+        <th>ライン名</th>
+        <td><%= @line.name %></td>
+      </tr>
+      <tr>
+        <th>ブランド名</th>
+        <td><%= @line.brand.name %></td>
+      </tr>
+      <tr>
+        <th>アイテム名</th>
+        <td><%= @line.item.name %></td>
+      </tr>
       <tr>
         <th>アイコン</th>
         <td>
@@ -17,9 +25,9 @@
         </td>
       </tr>
     </table>
-
+    <hr class='has-background-dark'>
     <%= render 'form', line: @line %>
-    <%= link_to 'ラインページ', @line %> |
-    <%= link_to '管理画面に戻る', admin_path %>
+    <%= link_to '管理画面に戻る', admin_path %> |
+    <%= link_to "#{@line.name}のページへ", @line %>
   </div>
 </section>
