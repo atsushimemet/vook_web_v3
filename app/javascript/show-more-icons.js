@@ -6,7 +6,7 @@ document.addEventListener('turbo:load', () => {
   const handleTriggerClick = (trigger) => {
     const target = document.querySelector(trigger.getAttribute('href'));
     const collapsible = collapsibles.find(
-      (collapsible) => collapsible.element === target
+      (collapsible) => collapsible.element === target,
     );
     collapsible.open();
     trigger.style.display = 'none';
