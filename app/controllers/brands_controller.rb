@@ -36,8 +36,12 @@ class BrandsController < ApplicationController
   end
 
   def destroy
-    @brand.destroy
-    redirect_to admin_path, notice: 'ブランドを削除しました'
+    if @brand.lines.blank?
+      @brand.destroy
+      redirect_to admin_path, notice: 'ブランドを削除しました'
+    else
+      redirect_to admin_path, alert: 'ラインが存在するので削除できません'
+    end
   end
 
   private

@@ -36,8 +36,12 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    @item.destroy
-    redirect_to admin_path, notice: 'アイテムを削除しました'
+    if @item.lines.blank?
+      @item.destroy
+      redirect_to admin_path, notice: 'アイテムを削除しました'
+    else
+      redirect_to admin_path, alert: 'ラインが存在するので削除できません'
+    end
   end
 
   private
