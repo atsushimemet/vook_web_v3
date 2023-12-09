@@ -1,0 +1,17 @@
+<table class='admin-table table is-striped'>
+  <% models.each.with_index(1) do |model, index| %>
+    <tr>
+      <td><%= index %></td>
+      <td>
+        <%= link_to model.name, polymorphic_path(model) %>
+      </td>
+      <td>
+        <%= link_to '編集', edit_polymorphic_path(model), class: 'button is-primary' %>
+      </td>
+      <td>
+        <%= button_to '削除', polymorphic_path(model),
+                      { method: :delete, data: { turbo_confirm: '本当に削除しますか？' }, class: 'button' } %>
+      </td>
+    </tr>
+  <% end %>
+</table>
