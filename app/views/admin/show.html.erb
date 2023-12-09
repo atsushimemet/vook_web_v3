@@ -1,5 +1,8 @@
 <section class='admin-section'>
   <div class='container admin-container'>
+    <%= link_to 'Knowledge管理', knowledges_path %>/
+    <%= link_to 'Magazine管理', magazines_path %>
+
     <%= render partial: 'shared/section_headline', locals: { title: 'Brand' } %>
     <%= render partial: 'table', locals: { models: @brands } %>
     <%= link_to 'New Brand', new_brand_path, class: 'button is-primary new-button' %>
