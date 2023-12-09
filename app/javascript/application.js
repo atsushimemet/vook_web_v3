@@ -11,6 +11,7 @@ import './size-select';
 import './clipboard';
 import './knowledge-carousel';
 import './home-search';
+import './file-preview';
 import 'trix';
 import '@rails/actiontext';
 import '@splidejs/splide';

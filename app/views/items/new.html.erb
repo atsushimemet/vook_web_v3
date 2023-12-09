@@ -1,0 +1,9 @@
+<section class='admin-section'>
+  <%= render partial: 'shared/section_headline', locals: { title: 'Item' } %>
+  <div class='admin-container container'>
+    <h2 class='item-title title'>Item作成</h2>
+    <%= render 'form', item: @item %>
+
+    <%= link_to '管理画面に戻る', admin_path %>
+  </div>
+</section>

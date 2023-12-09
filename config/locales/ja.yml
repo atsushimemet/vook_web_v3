@@ -11,6 +11,9 @@ ja:
       magazine: 記事
       knowledge: 知識
       term: 用語
+      brand: ブランド
+      item: アイテム
+      line: ライン
     attributes:
       magazine:
         title: タイトル
@@ -32,6 +35,19 @@ ja:
         brand_id: ブランド
         item: アイテム
         line: ライン
+      brand:
+        name: ブランド名
+        image: アイコン
+        banner: バナー
+      item:
+        name: アイテム名
+        image: アイコン
+        banner: バナー
+      line:
+        name: ライン名
+        brand_id: ブランド
+        item_id: アイテム
+        image: アイコン
   date:
     abbr_day_names:
     - 日

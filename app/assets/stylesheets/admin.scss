@@ -1,0 +1,29 @@
+.admin-section {
+  margin: 24px 0;
+  .admin-container {
+    @include touch {
+      margin: 0 16px;
+    }
+  }
+  .admin-table {
+    .buttons-container {
+      text-align: right;
+    }
+    tr {
+      max-height: 160px;
+    }
+    th,td {
+      vertical-align: inherit;
+    }
+  }
+  .new-button {
+    margin-bottom: 32px;
+  }
+  .form-section{
+    margin-bottom: 32px;
+  }
+  .preview-table {
+    background-color: #fff;
+  }
+}
+

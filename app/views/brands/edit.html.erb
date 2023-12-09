@@ -1,0 +1,35 @@
+<section class='admin-section'>
+  <%= render partial: 'shared/section_headline', locals: { title: 'Brand' } %>
+  <div class='admin-container container'>
+    <table class='table preview-table is-bordered is-fullwidth'>
+      <tr>
+        <th>ブランド名</th>
+        <td><%= @brand.name %></td>
+      </tr>
+      <tr>
+        <th>アイコン</th>
+        <td>
+          <% if @brand.image.attached? %>
+            <%= image_tag @brand.image %>
+          <% else %>
+            なし
+          <% end %>
+        </td>
+      </tr>
+      <tr>
+        <th>バナー</th>
+        <td>
+          <% if @brand.banner.attached? %>
+            <%= image_tag @brand.banner %>
+          <% else %>
+            なし
+          <% end %>
+        </td>
+      </tr>
+    </table>
+    <hr class='has-background-dark'>
+    <%= render 'form', brand: @brand %>
+    <%= link_to '管理画面に戻る', admin_path %> |
+    <%= link_to "#{@brand.name}のページへ", @brand %>
+  </div>
+</section>

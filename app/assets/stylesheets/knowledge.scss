@@ -56,8 +56,8 @@
     align-items: center;
     margin-bottom: 8px;
     img {
-      border: solid 2px $primary;
-      border-radius: 50%;
+      background-color: $dark-gray;
+      border: solid 1px $primary;
     }
     @include mobile {
       .media-content {
