@@ -10,15 +10,41 @@
 
     <div class='field'>
       <%= form.label :image, class: 'label' %>
-      <div class='control'>
-        <%= form.file_field :image %>
+      <div class='control file has-name'>
+        <label class='file-label'>
+          <%= form.file_field :image, class: 'file-input' %>
+          <span class='file-cta'>
+            <span class='file-icon'>
+              <i class='fas fa-upload'></i>
+            </span>
+            <span class='file-label'>
+              ファイルを選択
+            </span>
+          </span>
+          <span class='file-name'>
+            No file uploaded
+          </span>
+        </label>
       </div>
     </div>
 
     <div class='field'>
       <%= form.label :banner, class: 'label' %>
-      <div class='control'>
-        <%= form.file_field :banner %>
+      <div id='file-js-example' class='control file has-name'>
+        <label class='file-label'>
+          <%= form.file_field :banner, class: 'file-input' %>
+          <span class='file-cta'>
+            <span class='file-icon'>
+              <i class='fas fa-upload'></i>
+            </span>
+            <span class='file-label'>
+              ファイルを選択
+            </span>
+          </span>
+          <span class='file-name'>
+            No file uploaded
+          </span>
+        </label>
       </div>
     </div>
 
