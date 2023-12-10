@@ -3,6 +3,7 @@ import '@hotwired/turbo-rails';
 import '@rails/actiontext';
 import 'trix';
 import '@splidejs/splide';
+import 'tributejs';
 
 import './trix-content';
 import './navbar-burger';
