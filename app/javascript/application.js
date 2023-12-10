@@ -4,6 +4,7 @@ import '@rails/actiontext';
 import 'trix';
 import '@splidejs/splide';
 
+import './trix-content';
 import './navbar-burger';
 import './tabs';
 import './pageloader';
