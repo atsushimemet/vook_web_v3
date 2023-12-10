@@ -20,6 +20,11 @@ body {
       object-fit: cover;
     }
   }
+  .table {
+    display: block;
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: touch;
+  }
 }
 main {
   flex: 1;
