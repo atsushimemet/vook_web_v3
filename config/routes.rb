@@ -20,6 +20,11 @@ Rails.application.routes.draw do
   get '/tos', to: 'home#tos', as: 'tos'
   get '/privacy_policy', to: 'home#privacy_policy', as: 'privacy_policy'
   get '/admin', to: 'admin#show'
+
+  namespace :api, defaults: { format: :json } do
+    resources :terms, only: [:index]
+  end
+
   match '*path', to: 'application#routing_error', via: :all, constraints: lambda { |req|
     req.path.exclude? 'rails/active_storage'
   }
