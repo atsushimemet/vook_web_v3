@@ -91,6 +91,7 @@ GEM
       tzinfo (~> 2.0)
     addressable (2.8.5)
       public_suffix (>= 2.0.2, < 6.0)
+    alba (3.0.2)
     ast (2.4.2)
     base64 (0.2.0)
     better_html (2.0.2)
@@ -164,9 +165,6 @@ GEM
     irb (1.9.1)
       rdoc
       reline (>= 0.3.8)
-    jbuilder (2.11.5)
-      actionview (>= 5.0.0)
-      activesupport (>= 5.0.0)
     jsbundling-rails (1.2.1)
       railties (>= 6.0.0)
     json (2.7.0)
@@ -410,6 +408,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  alba
   bootsnap
   bullet
   capybara!
@@ -422,7 +421,6 @@ DEPENDENCIES
   htmlbeautifier
   i18n_generators
   image_processing (~> 1.2)
-  jbuilder
   jsbundling-rails
   meta-tags
   mini_magick

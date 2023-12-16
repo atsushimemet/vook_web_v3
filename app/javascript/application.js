@@ -1,7 +1,12 @@
 // Entry point for the build script in your package.json
 import '@hotwired/turbo-rails';
-import './controllers';
+import '@rails/actiontext';
+import 'trix';
+import '@splidejs/splide';
+import 'tributejs';
 
+import './trix-content';
+import './mention';
 import './navbar-burger';
 import './tabs';
 import './pageloader';
@@ -12,7 +17,4 @@ import './clipboard';
 import './knowledge-carousel';
 import './home-search';
 import './file-preview';
-import 'trix';
-import '@rails/actiontext';
-import '@splidejs/splide';
 import 'choices.js';

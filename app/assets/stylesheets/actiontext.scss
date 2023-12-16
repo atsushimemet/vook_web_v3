@@ -7,14 +7,44 @@
   }
 }
 
+.textarea:not([rows]) {
+  min-height: 24em;
+}
+
 trix-editor {
   min-height: 35em;
   max-height: 35em;
   overflow-y: auto;
+  a {
+    color: $blue;
+  }
 }
 
 .trix-content .attachment--preview,
 .trix-content .attachment,
 .content figure {
   all: initial;
+}
+
+.attachment--preview {
+  margin: 0.6em 0;
+  text-align: center;
+  width: 100%;
+}
+
+.tribute-container {
+  border: 1px solid $dark-gray;
+
+    li {
+    background: $white;
+    padding: 0.2em 1em;
+    min-width: 14em;
+    max-width: 100%;
+  }
+
+  .highlight {
+    background: $denim;
+    color: $white;
+    font-weight: bold;
+  }
 }
