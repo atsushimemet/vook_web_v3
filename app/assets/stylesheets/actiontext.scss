@@ -18,3 +18,20 @@ trix-editor {
 .content figure {
   all: initial;
 }
+
+.tribute-container {
+  border: 1px solid $dark-gray;
+
+  li {
+    background: $white;
+    padding: 0.2em 1em;
+    min-width: 14em;
+    max-width: 100%;
+  }
+
+  .highlight {
+    background: $denim;
+    color: $white;
+    font-weight: bold;
+  }
+}

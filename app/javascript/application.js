@@ -6,6 +6,7 @@ import '@splidejs/splide';
 import 'tributejs';
 
 import './trix-content';
+import './mention';
 import './navbar-burger';
 import './tabs';
 import './pageloader';
