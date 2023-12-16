@@ -10,7 +10,7 @@ document.addEventListener('turbo:load', () => {
         const tribute = new Tribute({
           collection: [
             {
-              trigger: '#',
+              trigger: '@',
               values: data,
               lookup: 'name',
               menuItemLimit: 10,
