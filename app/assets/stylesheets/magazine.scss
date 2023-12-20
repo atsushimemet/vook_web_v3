@@ -33,14 +33,12 @@
 }
 
 .magazine-cards {
-  margin: 0 8px;
-
-  .column {
-    padding: 0.75em;
-  }
-
   .magazine-card {
+    padding: 0 14px;
     margin-bottom: 16px;
+    @include mobile {
+      padding: 4px;
+    }
   }
   .magazine-card-image {
     margin-bottom: 16px;

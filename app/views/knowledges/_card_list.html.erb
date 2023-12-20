@@ -1,24 +1,25 @@
 <div class='knowledge-cards columns is-mobile is-multiline'>
   <% objects.each do |object| %>
     <div class='column is-one-quarter-tablet is-half-mobile'>
-      <div class='knowledge-card card'>
+      <div class='knowledge-card'>
         <% link_path = %w[brands items].include?(params[:controller]) ? line_path(object.name) : knowledge_path(object) # rubocop:disable Lint/UselessAssignment %>
+        <div class='knowledge-card-header'>
+          <%= link_to object.name, link_path %>
+        </div>
         <%= link_to link_path do %>
           <div class='knowledge-card-content'>
-            <div class='knowledge-card-header'>
-              <%= object.name %>
-            </div>
-            <div class='knowledge-card-image'>
-              <% if object.image %>
-                <figure class='image is-square'>
-                  <% if object.image.attached? %>
-                    <%= image_tag object.image.variant(resize_to_limit: [400, 400]), alt: '' %>
-                  <% else %>
-                    <%= image_tag('product-sample.jpg', alt: '', size: '400x400') %>
-                  <% end %>
-                </figure>
-              <% end %>
-            </div>
+            <% if object.image.attached? %>
+              <div class='knowledge-card-image image is-square'>
+                <%= image_tag object.image.variant(resize_to_limit: [400, 400]), alt: "#{object.name}-image" %>
+              </div>
+            <% else %>
+              <div class='default-card'>
+                <div class='default-card-image image is-square'>
+                  <%= image_tag('logo_mark.png', alt: 'default-image', width: '100%', height: 'auto') %>
+                  <span class='default-card-name'><%= object.name %></span>
+                </div>
+              </div>
+            <% end %>
           </div>
         <% end %>
       </div>

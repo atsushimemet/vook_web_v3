@@ -93,6 +93,28 @@
         background-color: $dark-gray;
       }
     }
+    .default-card {
+      text-align: center;
+      .default-card-image {
+        border: solid 1px $primary;
+      }
+      .default-card-image img {
+        padding: 1rem;
+        background-color: $dark-gray;
+        opacity: .1;
+      }
+      .default-card-name {
+        position: absolute;
+        width: 100%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 1.6rem;
+        font-weight: 700;
+        overflow-wrap: anywhere;
+        word-break: keep-all;
+      }
+    }
   }
   .knowledge-content {
     img {
