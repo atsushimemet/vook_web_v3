@@ -64,6 +64,11 @@
 
 .top-magazine-section {
   background: $dark-gray;
+  .top-magazine-container {
+    @include touch {
+      margin: 0 16px;
+    }
+  }
   .magazine-card {
     background: $dark-gray;
   }
