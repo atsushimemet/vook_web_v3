@@ -48,6 +48,16 @@
       </div>
     </div>
 
+    <div class='field'>
+      <%= form.label :color, class: 'label' %>
+      <div class='control'>
+        <%= form.color_field :color, class: 'color-picker' %>
+        <span class='color-label'>
+          <%= @item.color %>
+        </span>
+      </div>
+    </div>
+
     <div class='buttons is-right'>
       <%= form.submit class: 'button is-primary' %>
     </div>

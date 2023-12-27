@@ -25,5 +25,14 @@
   .preview-table {
     background-color: #fff;
   }
+  .color-field {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .color-picker {
+    width: 80px;
+    height: 40px;
+  }
 }
 
