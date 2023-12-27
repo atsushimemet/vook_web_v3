@@ -17,4 +17,5 @@ import './clipboard';
 import './knowledge-carousel';
 import './home-search';
 import './file-preview';
+import './color-picker';
 import 'choices.js';

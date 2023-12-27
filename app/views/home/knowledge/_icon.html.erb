@@ -2,7 +2,7 @@
   <%= link_to polymorphic_path(icon) do %>
     <% if icon.image.attached? %>
       <%= image_tag icon.image.variant(resize_to_limit: [200, 200]), size: '200x200', alt: '',
-                                                                     class: icon.name.gsub(/[.' ]/, '').downcase %>
+                                                                     style: "background-color: #{icon.color}" %>
     <% end %>
     <p class='list-title'><%= icon.name %></p>
   <% end %>

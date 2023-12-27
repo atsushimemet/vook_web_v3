@@ -7,7 +7,7 @@
         <li><%= link_to "##{@brand.name}", brand_path(@brand.name), class: 'button is-rounded' %></li>
       </ul>
     </nav>
-    <div class='knowledge-brand-header <%= @brand.name.gsub(/[.' ]/, '').downcase %>'>
+    <div class='knowledge-brand-header' style="background-color: <%= @brand.color %>">
       <% if @brand.banner.attached? %>
         <%= image_tag @brand.banner, alt: @brand.name, class: 'knowledge-banner' %>
       <% end %>

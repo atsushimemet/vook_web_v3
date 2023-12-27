@@ -1,29 +1,31 @@
 <section class='admin-section'>
   <%= render partial: 'shared/section_headline', locals: { title: 'Line' } %>
   <div class='admin-container container'>
-    <table class='table preview-table is-bordered is-fullwidth'>
-      <tr>
-        <th>ライン名</th>
-        <td><%= @line.name %></td>
-      </tr>
-      <tr>
-        <th>ブランド名</th>
-        <td><%= @line.brand.name %></td>
-      </tr>
-      <tr>
-        <th>アイテム名</th>
-        <td><%= @line.item.name %></td>
-      </tr>
-      <tr>
-        <th>アイコン</th>
-        <td>
-          <% if @line.image.attached? %>
-            <%= image_tag @line.image %>
-          <% else %>
-            なし
-          <% end %>
-        </td>
-      </tr>
+    <table class='table is-bordered is-fullwidth'>
+      <tbody class='preview-table'>
+        <tr>
+          <th>ライン名</th>
+          <td><%= @line.name %></td>
+        </tr>
+        <tr>
+          <th>ブランド名</th>
+          <td><%= @line.brand.name %></td>
+        </tr>
+        <tr>
+          <th>アイテム名</th>
+          <td><%= @line.item.name %></td>
+        </tr>
+        <tr>
+          <th>アイコン</th>
+          <td>
+            <% if @line.image.attached? %>
+              <%= image_tag @line.image %>
+            <% else %>
+              なし
+            <% end %>
+          </td>
+        </tr>
+      </tbody>
     </table>
     <hr class='has-background-dark'>
     <%= render 'form', line: @line %>

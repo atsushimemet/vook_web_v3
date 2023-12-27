@@ -50,8 +50,11 @@
 
     <div class='field'>
       <%= form.label :color, class: 'label' %>
-      <div class='control'>
-        <%= form.color_field :color, class: '' %>
+      <div class='control color-field'>
+        <%= form.color_field :color, class: 'color-picker' %>
+        <span class='color-label'>
+          <%= @brand.color %>
+        </span>
       </div>
     </div>
 

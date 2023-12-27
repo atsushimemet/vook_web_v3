@@ -1,31 +1,37 @@
 <section class='admin-section'>
   <%= render partial: 'shared/section_headline', locals: { title: 'Item' } %>
   <div class='admin-container container'>
-    <table class='table preview-table is-bordered is-fullwidth'>
-      <tr>
-        <th>アイテム名</th>
-        <td><%= @item.name %></td>
-      </tr>
-      <tr>
-        <th>アイコン</th>
-        <td>
-          <% if @item.image.attached? %>
-            <%= image_tag @item.image %>
-          <% else %>
-            なし
-          <% end %>
-        </td>
-      </tr>
-      <tr>
-        <th>バナー</th>
-        <td>
-          <% if @item.banner.attached? %>
-            <%= image_tag @item.banner %>
-          <% else %>
-            なし
-          <% end %>
-        </td>
-      </tr>
+    <table class='table is-bordered is-fullwidth'>
+      <tbody class='preview-table'>
+        <tr>
+          <th>アイテム名</th>
+          <td><%= @item.name %></td>
+        </tr>
+        <tr>
+          <th>アイコン</th>
+          <td>
+            <% if @item.image.attached? %>
+              <%= image_tag @item.image, style: "background-color: #{@item.color}" %>
+            <% else %>
+              なし
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <th>バナー</th>
+          <td>
+            <% if @item.banner.attached? %>
+              <%= image_tag @item.banner, style: "background-color: #{@item.color}" %>
+            <% else %>
+              なし
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <th>アイテムカラー</th>
+          <td><%= @item.color %></td>
+        </tr>
+      </tbody>
     </table>
     <hr class='has-background-dark'>
     <%= render 'form', item: @item %>
