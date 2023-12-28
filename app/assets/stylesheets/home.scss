@@ -50,16 +50,6 @@
   img {
     border-radius: 10%;
   }
-  @each $brand, $color in $brand-colors {
-    .#{$brand} {
-      background-color: $color;
-    }
-  }
-  @each $item, $color in $item-colors {
-    .#{$item} {
-      background-color: $color;
-    }
-  }
 }
 
 .top-magazine-section {
