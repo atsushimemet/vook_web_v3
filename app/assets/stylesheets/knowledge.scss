@@ -22,11 +22,6 @@
       margin-bottom: 8px;
     }
   }
-  @each $brand, $color in $brand-colors {
-    .knowledge-brand-header.#{$brand} {
-      background-color: $color;
-    }
-  }
 
   .knowledge-item-header {
     display: flex;
@@ -44,11 +39,6 @@
     .knowledge-banner {
       max-width: 100%;
       height: auto;
-    }
-  }
-  @each $item, $color in $item-colors {
-    .knowledge-item-header.#{$item} {
-      background-color: $color;
     }
   }
 
