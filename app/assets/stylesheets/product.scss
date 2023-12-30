@@ -31,6 +31,16 @@
   .product-link {
     cursor: pointer;
   }
+  .product-information {
+    display: flex;
+    .ad {
+      display: flex;
+      align-items: flex-end;
+      margin-left: auto;
+      font-size: 16px;
+      color: $primary50;
+    }
+  }
   .platform-col {
     // TODO:表示を確認
     // vertical-align: middle;
