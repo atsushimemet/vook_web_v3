@@ -9,10 +9,10 @@
         <%= render partial: 'home/knowledge/icon', collection: @first_brands, as: :icon %>
       </div>
       <% if @more_brands.present? %>
-        <%= link_to '#more-brands', data: { action: 'collapse' }, class: 'more-brands-trigger is-right' do %>
+        <%= link_to '#', data: { target: '#more-brands' }, class: 'accordion-trigger' do %>
           All Brands<i class='fa-solid fa-chevron-down'></i>
         <% end %>
-        <div id='more-brands' class='columns is-multiline is-mobile is-collapsible'>
+        <div id='more-brands' class='columns is-multiline is-mobile accordion-content'>
           <%= render partial: 'home/knowledge/icon', collection: @more_brands, as: :icon %>
         </div>
       <% end %>
@@ -25,10 +25,10 @@
         <%= render partial: 'home/knowledge/icon', collection: @first_items, as: :icon %>
       </div>
       <% if @more_items.present? %>
-        <%= link_to '#more-items', data: { action: 'collapse' }, class: 'more-items-trigger is-right' do %>
+        <%= link_to '#', data: { target: '#more-items' }, class: 'accordion-trigger' do %>
           All Items<i class='fa-solid fa-chevron-down'></i>
         <% end %>
-        <div id='more-items' class='columns is-multiline is-mobile is-collapsible'>
+        <div id='more-items' class='columns is-multiline is-mobile accordion-content'>
           <%= render partial: 'home/knowledge/icon', collection: @more_items, as: :icon %>
         </div>
       <% end %>
