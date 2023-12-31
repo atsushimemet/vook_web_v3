@@ -1,27 +1,16 @@
-import bulmaCollapsible from '@creativebulma/bulma-collapsible';
-
 document.addEventListener('turbo:load', () => {
-  const collapsibles = bulmaCollapsible.attach('.is-collapsible');
+  const triggers = document.querySelectorAll('.accordion-trigger');
 
-  const handleTriggerClick = (trigger) => {
-    const target = document.querySelector(trigger.getAttribute('href'));
-    const collapsible = collapsibles.find(
-      (collapsible) => collapsible.element === target,
-    );
-    collapsible.open();
-    trigger.style.display = 'none';
-  };
+  triggers.forEach((trigger) => {
+    trigger.addEventListener('click', (event) => {
+      event.preventDefault();
 
-  const moreBrandsTrigger = document.querySelector('.more-brands-trigger');
-  const moreItemsTrigger = document.querySelector('.more-items-trigger');
+      const targetId = trigger.dataset.target;
+      const targetContent = document.querySelector(targetId);
 
-  moreBrandsTrigger?.addEventListener('click', (event) => {
-    event.preventDefault();
-    handleTriggerClick(moreBrandsTrigger);
-  });
-
-  moreItemsTrigger?.addEventListener('click', (event) => {
-    event.preventDefault();
-    handleTriggerClick(moreItemsTrigger);
+      trigger.style.display = 'none';
+      targetContent.classList.add('is-open');
+      targetContent.style.maxHeight = targetContent.scrollHeight + 'px';
+    });
   });
 });
