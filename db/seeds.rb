@@ -20,7 +20,9 @@ lines = [
   { name: 'BOAT AND TOTE', brand: 'L.L.Bean', item: 'Bag' },
   { name: 'M-65 FIELD Pants', brand: 'U.S.ARMY', item: 'Pants' },
   { name: '1990s', brand: 'patagonia', item: 'Shirt' },
-  { name: 'Shorts', brand: 'patagonia', item: 'Shorts' }
+  { name: 'Shorts', brand: 'patagonia', item: 'Shorts' },
+  { name: 'N-3 HBT PANT', brand: 'U.S.NAVY', item: 'Pants' },
+  { name: 'DAS Parka', brand: 'patagonia', item: 'Down jacket' },
 ]
 
 lines.each do |line|
@@ -39,7 +41,7 @@ lines.each do |line|
                when 'Shorts' then 'line_default_shorts.png'
                end
 
-  line.image.attach(io: File.open(Rails.root.join("app/assets/images/#{image_path}")), filename: image_path)
+  line.image.attach(io: File.open(Rails.root.join("app/assets/images/#{image_path}")), filename: image_path) if image_path
 end
 
 brands = Brand.all
@@ -51,7 +53,8 @@ brand_assets = {
   "U.S.ARMY": { image: 'brand_usarmy.png', banner: 'brand_usarmy_banner.png', color: '#203543' },
   "L.L.Bean": { image: 'brand_llbean.png', banner: 'brand_llbean_banner.png', color: '#00806a' },
   Wrangler: { image: 'brand_wrangler.png', banner: 'brand_wrangler_banner.png', color: '#e6eaee' },
-  patagonia: { image: 'brand_patagonia.png', banner: 'brand_patagonia_banner.png', color: '#203543' }
+  patagonia: { image: 'brand_patagonia.png', banner: 'brand_patagonia_banner.png', color: '#203543' },
+  "U.S.NAVY": { image: 'brand_usnavy.png', banner: 'brand_usnavy_banner.png', color: '#203543' },
 }
 
 brands.each do |brand|
@@ -60,28 +63,31 @@ brands.each do |brand|
 
   brand.image.attach(io: File.open(Rails.root.join("app/assets/images/#{assets[:image]}")), filename: assets[:image])
   brand.banner.attach(io: File.open(Rails.root.join("app/assets/images/#{assets[:banner]}")), filename: assets[:banner])
-  brand.update(color: assets[:color])
+  brand.update(color: assets[:color], display_order: brand.id)
 end
 
 items = Item.all
-item_assets = {
-  'Denim Pants': { image: 'item_denim.png', banner: 'item_denim_banner.png', color: '#667a89' },
-  'Jacket': { image: 'item_jacket.png', banner: 'item_jacket_banner.png', color: '#506473' },
-  'Shirt': { image: 'item_shirt.png', banner: 'item_shirt_banner.png', color: '#b2bec8' },
-  'Sweat Shirt': { image: 'item_sweat.png', banner: 'item_sweat_banner.png', color: '#7f919f' },
-  'Coat': { image: 'item_coat.png', banner: 'item_coat_banner.png', color: '#4678a7' },
-  'Bag': { image: 'item_bag.png', banner: 'item_bag_banner.png', color: '#6388b2' },
-  'Pants': { image: 'item_pants.png', banner: 'item_pants_banner.png', color: '#7f9cc0' },
-  'Shorts': { image: 'item_shorts.png', banner: 'item_shorts_banner.png', color: '#9ab0ce' }
+items.update_all(display_order: nil)
+item_attributes = {
+  'Denim Pants': { image: 'item_denim.png', banner: 'item_denim_banner.png', color: '#667a89', order: 5 },
+  'Jacket': { image: 'item_jacket.png', banner: 'item_jacket_banner.png', color: '#506473', order: 2 },
+  'Shirt': { image: 'item_shirt.png', banner: 'item_shirt_banner.png', color: '#b2bec8', order: 4 },
+  'Sweat Shirt': { image: 'item_sweat.png', banner: 'item_sweat_banner.png', color: '#7f919f', order: 3 },
+  'Coat': { image: 'item_coat.png', banner: 'item_coat_banner.png', color: '#4678a7', order: 1 },
+  'Bag': { image: 'item_bag.png', banner: 'item_bag_banner.png', color: '#6388b2', order: 8 },
+  'Pants': { image: 'item_pants.png', banner: 'item_pants_banner.png', color: '#7f9cc0', order: 6 },
+  'Shorts': { image: 'item_shorts.png', banner: 'item_shorts_banner.png', color: '#9ab0ce', order: 7 },
+  'T-shirt': { image: 'item_tshirt.png', banner: 'item_tshirt_banner.png', color: '#2897be', order: 9 },
+  'Down jacket': { image: 'item_downjacket.png', banner: 'item_downjacket_banner.png', color: '#53acca', order: 10 }
 }
 
-items.each do |item|
-  assets = item_assets[item.name.to_sym]
-  next unless assets
+Item.all.each do |item|
+  attributes = item_attributes[item.name.to_sym]
+  next unless attributes
 
-  item.image.attach(io: File.open(Rails.root.join("app/assets/images/#{assets[:image]}")), filename: assets[:image])
-  item.banner.attach(io: File.open(Rails.root.join("app/assets/images/#{assets[:banner]}")), filename: assets[:banner])
-  item.update(color: assets[:color])
+  item.image.attach(io: File.open(Rails.root.join("app/assets/images/#{attributes[:image]}")), filename: attributes[:image])
+  item.banner.attach(io: File.open(Rails.root.join("app/assets/images/#{attributes[:banner]}")), filename: attributes[:banner])
+  item.update(color: attributes[:color], display_order: attributes[:order])
 end
 
 if Rails.env.development?

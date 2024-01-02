@@ -1,10 +1,9 @@
 class HomeController < ApplicationController
   def index
-    @first_brands = Brand.with_attached_image.limit(8)
-    @more_brands = Brand.with_attached_image.offset(8)
-    @first_items = Item.with_attached_image.limit(8)
-    @more_items = Item.with_attached_image.offset(8)
-    @items = Item.with_attached_image.all
+    @first_brands = Brand.with_attached_image.order(:display_order).limit(8)
+    @more_brands = Brand.with_attached_image.order(:display_order).offset(8)
+    @first_items = Item.with_attached_image.order(:display_order).limit(8)
+    @more_items = Item.with_attached_image.order(:display_order).offset(8)
     @magazines = Magazine.published.with_attached_thumbnail.order(publish_at: :desc).limit(8)
     @pickup_knowledges = current_pickup_knowledge
     @instagram_feeds = instagram_feed_cache

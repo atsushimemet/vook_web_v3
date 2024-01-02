@@ -8,7 +8,15 @@ class Item < ApplicationRecord
   validates :name, presence: true, length: { maximum: 100 }
   validates :color, length: { maximum: 7 }
 
+  before_create :set_default_display_order
+
   def to_param
     name
+  end
+
+  private
+
+  def set_default_display_order
+    self.display_order = Item.maximum(:display_order).to_i + 1
   end
 end
