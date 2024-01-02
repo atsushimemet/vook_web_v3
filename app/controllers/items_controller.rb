@@ -8,6 +8,7 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.includes(lines: { image_attachment: :blob }).find_by(name: params[:name])
+    @lines = @item.lines.includes(:brand).order('brands.display_order')
   end
 
   def edit; end
