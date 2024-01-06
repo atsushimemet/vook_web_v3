@@ -1,5 +1,5 @@
 // Entry point for the build script in your package.json
-import '@hotwired/turbo-rails';
+import { Turbo } from '@hotwired/turbo-rails';
 import '@rails/actiontext';
 import 'trix';
 import '@splidejs/splide';
@@ -19,3 +19,5 @@ import './home-search';
 import './file-preview';
 import './color-picker';
 import 'choices.js';
+
+Turbo.session.drive = false;
