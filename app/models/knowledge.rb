@@ -10,10 +10,6 @@ class Knowledge < ApplicationRecord
   validates :name, presence: true, length: { maximum: 100 }
   validates :age, presence: true, numericality: { only_integer: true }
 
-  def name_with_brand_and_line
-    "#{name} | #{brand.name} | #{line.name}"
-  end
-
   def related_knowledges
     Knowledge.with_attached_image.where(line_id:).where.not(id:).limit(4)
   end
