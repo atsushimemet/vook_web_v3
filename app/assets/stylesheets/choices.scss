@@ -1,8 +1,13 @@
 .choices {
   &__inner {
     background-color: $light-gray;
+    border: solid 1px $primary;
   }
   &__list {
     z-index: 10 !important;
+    color: $primary;
+  }
+  &__placeholder {
+    opacity: 1;
   }
 }
