@@ -28,7 +28,9 @@
             <%= link_to '編集', edit_knowledge_path(knowledge), class: 'button is-primary' %>
           </td>
           <td>
-            <%= button_to '削除', knowledge, { method: :delete, data: { turbo_confirm: '本当に削除しますか？' }, class: 'button' } %>
+            <%= button_to '削除', knowledge,
+                          { method: :delete, form: { data: { turbo: true, turbo_confirm: '本当に削除しますか？' } },
+                            class: 'button' } %>
           </td>
         </tr>
       <% end %>

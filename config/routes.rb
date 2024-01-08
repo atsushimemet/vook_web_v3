@@ -23,6 +23,7 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: { format: :json } do
     resources :terms, only: [:index]
+    resources :knowledges, only: [:index]
   end
 
   match '*path', to: 'application#routing_error', via: :all, constraints: lambda { |req|

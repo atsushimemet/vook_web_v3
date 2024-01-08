@@ -26,7 +26,8 @@
     <div class='buttons is-right'>
       <%= form.submit class: 'button is-primary' %>
       <% if term.persisted? %>
-        <%= link_to '削除', term, data: { turbo_method: :delete, turbo_confirm: '本当に削除しますか？' }, class: 'button' %>
+        <%= link_to '削除', term, data: { turbo: true, turbo_method: :delete, turbo_confirm: '本当に削除しますか？' },
+                                class: 'button' %>
       <% end %>
     </div>
   <% end %>

@@ -44,7 +44,7 @@
       <div class='magazine-edit buttons is-right'>
         <%= link_to '編集', edit_magazine_path(@magazine), class: 'button is-primary' %>
         <%= button_to '削除', @magazine,
-                      { method: :delete, data: { turbo_confirm: '本当に削除しますか？' }, class: 'button' } %>
+                      { method: :delete, form: { data: { turbo: true, turbo_confirm: '本当に削除しますか？' } }, class: 'button' } %>
       </div>
     <% end %>
     <%= render 'shared/share_banner', share_text: @magazine.title %>

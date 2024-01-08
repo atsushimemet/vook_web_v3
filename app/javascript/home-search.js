@@ -1,26 +1,30 @@
 import Choices from 'choices.js';
 
-let choicesInstanceKnowledge;
-let choicesInstanceProduct;
-
 document.addEventListener('turbo:load', () => {
   const knowledgeSearch = document.querySelector('.knowledge-search');
 
-  if (choicesInstanceKnowledge) {
-    choicesInstanceKnowledge.destroy();
-  }
-
   if (knowledgeSearch) {
-    knowledgeSearch.selectedIndex = 0;
-    choicesInstanceKnowledge = new Choices(knowledgeSearch, {
+    const knowledgeChoices = new Choices(knowledgeSearch, {
       allowHTML: true,
       searchResultLimit: 10,
       noResultsText: '一致する情報は見つかりません',
       itemSelectText: '',
+      placeholderValue: '知りたいブランドやアイテムを入力',
     });
 
-    knowledgeSearch.addEventListener('change', function () {
-      const selectedValue = this.value;
+    knowledgeChoices.setChoices(async () => {
+      const response = await fetch(`api/knowledges`);
+      const knowledges = await response.json();
+      return knowledges.map((knowledge) => {
+        return {
+          label: knowledge.name_with_brand_and_line,
+          value: knowledge.id,
+        };
+      });
+    });
+
+    knowledgeSearch.addEventListener('change', (event) => {
+      const selectedValue = event.detail.value;
       if (selectedValue) {
         window.location.href = `/knowledges/${selectedValue}`;
       }
@@ -29,21 +33,28 @@ document.addEventListener('turbo:load', () => {
 
   const productSearch = document.querySelector('.product-search');
 
-  if (choicesInstanceProduct) {
-    choicesInstanceProduct.destroy();
-  }
-
   if (productSearch) {
-    productSearch.selectedIndex = 0;
-    choicesInstanceProduct = new Choices(productSearch, {
+    const knowledgeChoices = new Choices(productSearch, {
       allowHTML: true,
       searchResultLimit: 10,
-      noResultsText: '一致する商品は見つかりません',
+      noResultsText: '一致する情報は見つかりません',
       itemSelectText: '',
+      placeholderValue: '欲しいブランドやアイテムを入力',
     });
 
-    productSearch.addEventListener('change', function () {
-      const selectedValue = this.value;
+    knowledgeChoices.setChoices(async () => {
+      const response = await fetch(`api/knowledges`);
+      const knowledges = await response.json();
+      return knowledges.map((knowledge) => {
+        return {
+          label: knowledge.name_with_brand_and_line,
+          value: knowledge.id,
+        };
+      });
+    });
+
+    productSearch.addEventListener('change', (event) => {
+      const selectedValue = event.detail.value;
       if (selectedValue) {
         window.location.href = `/products/${selectedValue}`;
       }

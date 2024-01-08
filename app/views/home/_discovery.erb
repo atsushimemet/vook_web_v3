@@ -43,7 +43,7 @@
   </div>
   <div class='field is-grouped'>
     <div class='control is-expanded'>
-      <%= collection_select(:knowledge, :name, Knowledge.includes(:brand, :line).all, :id, :name_with_brand_and_line, { prompt: '欲しいブランドやアイテムを入力' }, { class: 'input product-search' }) %>
+      <select class='input product-search' name='product-search' id='product-search'></select>
     </div>
   </div>
 </div>
