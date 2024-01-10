@@ -12,7 +12,7 @@
     }
   }
   .brand-list {
-    margin-bottom: 32px;
+    margin-bottom: 40px;
   }
   .is-one-eighth-desktop {
     @include tablet {
@@ -38,7 +38,8 @@
 
   .lists-title {
     margin: 0 0 24px;
-    font-size: 24px;
+    font-size: 28px;
+    font-weight: 700;
     text-transform: capitalize;
     color: $primary90;
     &::after {
@@ -46,7 +47,7 @@
     }
     @include mobile {
       margin: 0 0 16px;
-      font-size: 18px;
+      font-size: 20px;
     }
   }
   .list-title {
@@ -166,20 +167,19 @@
       margin: 0 16px;
     }
   }
+  .instagram-list-header {
+    margin-bottom: 32px;
+    .instagram-list-title{
+      font-size: 24px;
+      font-weight: 700;
+    }
+  }
   .instagram-list-section {
     @include desktop {
       padding: 0 64px;
     }
-    .instagram-list-header {
-      margin-bottom: 24px;
-      .instagram-list-title{
-        font-size: 28px;
-        font-weight: 700;
-        letter-spacing: 2px;
-      }
-    }
     .instagram-list-body {
-      margin-bottom: 24px;
+      // margin-bottom: 24px;
     }
   }
 }
