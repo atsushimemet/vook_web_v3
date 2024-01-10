@@ -2,7 +2,7 @@
 <div class='top-knowledge-container container'>
   <div class='knowledge-list'>
     <div class='brand-list'>
-      <div class='lists-title divider is-left'>
+      <div class='lists-title'>
         Brand
       </div>
       <div class='columns is-multiline is-mobile'>
@@ -10,7 +10,7 @@
       </div>
       <% if @more_brands.present? %>
         <%= link_to '#', data: { target: '#more-brands' }, class: 'accordion-trigger' do %>
-          All Brands<i class='fa-solid fa-chevron-down'></i>
+          All Brands<i class='fa-solid fa-caret-down'></i>
         <% end %>
         <div id='more-brands' class='columns is-multiline is-mobile accordion-content'>
           <%= render partial: 'home/knowledge/icon', collection: @more_brands, as: :icon %>
@@ -18,7 +18,7 @@
       <% end %>
     </div>
     <div class='item-list'>
-      <div class='lists-title divider is-left'>
+      <div class='lists-title'>
         Item
       </div>
       <div class='columns is-multiline is-mobile'>
@@ -26,7 +26,7 @@
       </div>
       <% if @more_items.present? %>
         <%= link_to '#', data: { target: '#more-items' }, class: 'accordion-trigger' do %>
-          All Items<i class='fa-solid fa-chevron-down'></i>
+          All Items<i class='fa-solid fa-caret-down'></i>
         <% end %>
         <div id='more-items' class='columns is-multiline is-mobile accordion-content'>
           <%= render partial: 'home/knowledge/icon', collection: @more_items, as: :icon %>

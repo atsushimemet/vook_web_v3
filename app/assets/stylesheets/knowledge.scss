@@ -9,6 +9,7 @@
     font-size: 2rem;
     font-weight: 600;
     line-height: 1.125;
+    margin-bottom: 32px;
   }
 
   .knowledge-brand-header {
@@ -30,7 +31,7 @@
     align-items: center;
     flex-wrap: wrap;
     margin-bottom: 16px;
-    padding: 3rem;
+    padding: 2rem;
     gap: 24px;
     @include touch {
       padding: 2rem 0;
@@ -45,6 +46,11 @@
   .knowledge-line-header {
     align-items: center;
     margin-bottom: 8px;
+    .line-title {
+      font-size: 2rem;
+      font-weight: 600;
+      line-height: 1.125;
+    }
     img {
       background-color: $dark-gray;
       border: solid 1px $primary;
