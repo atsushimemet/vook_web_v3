@@ -12,6 +12,11 @@
         <%= image_tag @brand.banner, alt: @brand.name, class: 'knowledge-banner' %>
       <% end %>
     </div>
+    <% if @brand.description.present? %>
+      <div class='knowledge-description'>
+        <%= @brand.description %>
+      </div>
+    <% end %>
     <%= render 'knowledges/card_list', objects: @brand.lines %>
     <%= link_to 'トップページに戻る', root_path %>
   </div>
