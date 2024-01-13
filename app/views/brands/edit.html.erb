@@ -31,6 +31,10 @@
           <th>ブランドカラー</th>
           <td><%= @brand.color %></td>
         </tr>
+        <tr>
+          <th>説明文</th>
+          <td><%= @brand.description.presence %></td>
+        </tr>
       </tbody>
     </table>
     <hr class='has-background-dark'>

@@ -7,9 +7,6 @@
   }
 }
 
-.textarea:not([rows]) {
-  min-height: 24em;
-}
 
 trix-editor {
   min-height: 35em;
@@ -17,6 +14,9 @@ trix-editor {
   overflow-y: auto;
   a {
     color: $blue;
+  }
+  &.textarea:not([rows]) {
+    min-height: 24em;
   }
 }
 
