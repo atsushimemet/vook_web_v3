@@ -59,6 +59,11 @@
     }
   }
 
+  .knowledge-description {
+    padding: 0.5rem;
+    line-height: normal;
+  }
+
   .knowledge-card {
     padding: 0 14px;
     @include mobile {
