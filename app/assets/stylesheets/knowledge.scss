@@ -134,18 +134,32 @@
       margin-left: 3em;
     }
   }
+
+  .knowledge-price-histogram {
+    margin-bottom: 24px;
+    @include mobile {
+      width: 100%;
+      height: auto;
+      overflow-x: scroll;
+    }
+  }
+
   .knowledge-price {
     margin-bottom: 48px;
     .knowledge-price-body{
       background: $light-gray;
       padding: 32px;
       .level-item {
+        .average-price {
+          color: $denim;
+        }
         @include mobile {
           margin-bottom: 24px;
         }
       }
     }
   }
+
   .knowledge-relation {
     .knowledge-card-header {
       height: auto;

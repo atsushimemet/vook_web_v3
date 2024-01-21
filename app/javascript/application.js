@@ -18,6 +18,7 @@ import './knowledge-carousel';
 import './home-search';
 import './file-preview';
 import './color-picker';
+import './price-histogram';
 import 'choices.js';
 
 Turbo.session.drive = false;

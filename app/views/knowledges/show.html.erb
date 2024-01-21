@@ -48,13 +48,14 @@
       <h3 class='knowledge-sub-title'>
         <%= "#{@knowledge.name}の価格情報" %>
       </h3>
+      <div id='price-histogram' class='knowledge-price-histogram'></div>
       <div class='knowledge-price-body'>
         <div class='knowledge-price-info level'>
           <% if @knowledge.products&.average(:price) %>
             <div class='level-item has-text-centered'>
               <div>
                 <p class='heading'>平均価格</p>
-                <p class='title'>
+                <p class='title average-price'>
                   <%= number_to_currency(@knowledge.products.average(:price)) %>
                 </p>
               </div>
