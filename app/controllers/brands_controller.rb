@@ -7,7 +7,8 @@ class BrandsController < ApplicationController
   end
 
   def show
-    @brand = Brand.includes(lines: { image_attachment: :blob }).find_by(name: params[:name])
+    @brand = Brand.find_by(name: params[:name])
+    @lines = @brand.lines.includes(image_attachment: :blob).knowledge_count_order
   end
 
   def edit; end

@@ -10,7 +10,7 @@ document.addEventListener('turbo:load', () => {
       const response = await fetch(`/api/products/${productId}`);
       const products = await response.json();
 
-      if (products.length === 0) {
+      if (products.length <= 1) {
         // データがない場合の処理
         priceHistogram.innerHTML = '';
         return;
