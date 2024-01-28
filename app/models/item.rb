@@ -14,6 +14,12 @@ class Item < ApplicationRecord
     name
   end
 
+  scope :knowledge_count_order, lambda {
+    left_joins(:knowledges)
+      .group('items.id')
+      .order('COUNT(knowledges.id) DESC')
+  }
+
   private
 
   def set_default_display_order
