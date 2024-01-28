@@ -8,10 +8,7 @@ class BrandsController < ApplicationController
 
   def show
     @brand = Brand.find_by(name: params[:name])
-    @lines = @brand.lines.left_joins(:knowledges)
-                   .includes(image_attachment: :blob)
-                   .group('lines.id')
-                   .order('COUNT(knowledges.id) DESC')
+    @lines = @brand.lines.includes(image_attachment: :blob).knowledge_count_order
   end
 
   def edit; end

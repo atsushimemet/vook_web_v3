@@ -9,4 +9,10 @@ class Line < ApplicationRecord
   def to_param
     name
   end
+
+  scope :knowledge_count_order, lambda {
+    left_joins(:knowledges)
+      .group('lines.id')
+      .order('COUNT(knowledges.id) DESC')
+  }
 end
