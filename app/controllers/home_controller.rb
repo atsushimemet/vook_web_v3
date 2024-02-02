@@ -32,12 +32,12 @@ class HomeController < ApplicationController
   end
 
   def fetch_instagram_feed
-    uri = URI.parse("https://graph.facebook.com/v17.0/#{ENV['INSTAGRAM_ACCOUNT_ID']}/media?fields=caption,media_url,permalink&access_token=#{ENV['INSTA_TOKEN']}")
+    uri = URI.parse("https://graph.facebook.com/v17.0/#{ENV['INSTAGRAM_ACCOUNT_ID']}/media?fields=caption,media_url,permalink,media_type&access_token=#{ENV['INSTA_TOKEN']}")
     response = Net::HTTP.get_response(uri)
     json = JSON.parse(response.body)
 
     if json['data']
-      json['data'][0..8]
+      json['data'].select { |media| media['media_type'] == 'CAROUSEL_ALBUM' }.first(9)
     else
       Rails.logger.error("Instagram API did not return 'data': #{json}")
       []
