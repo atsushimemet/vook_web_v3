@@ -9,9 +9,9 @@ name: Test
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 permissions:
   contents: read
@@ -34,40 +34,45 @@ jobs:
           --health-retries 5
 
     steps:
-    - name: Set Timezone
-      uses: szenius/set-timezone@v1.0
-      with:
-        timezoneLinux: "Asia/Tokyo"
+      - name: Set Timezone
+        uses: szenius/set-timezone@v1.0
+        with:
+          timezoneLinux: 'Asia/Tokyo'
 
-    - uses: actions/checkout@v2
-    - name: Set up Ruby
-      uses: ruby/setup-ruby@v1
-      with:
-        ruby-version: .ruby-version
-        bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+      - uses: actions/checkout@v2
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: .ruby-version
+          bundler-cache: true # runs 'bundle install' and caches installed gems automatically
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v2
-      with:
-        node-version: '16.x'
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16.x'
 
-    - name: Cache node modules
-      uses: actions/cache@v2.1.4
-      with:
-        path: node_modules
-        key: ${{ runner.os }}-node-${{ hashFiles('**/yarn.lock') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
+      - name: Cache node modules
+        uses: actions/cache@v2.1.4
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
 
-    - name: yarn install
-      run:  yarn install --check-files
+      - name: yarn install
+        run: yarn install --check-files
 
-    - name: DB setup
-      env:
-        RAILS_ENV: test
-      run: |
-        cp config/database.yml.ci config/database.yml
-        bundle exec rails db:create
+      - name: DB setup
+        env:
+          RAILS_ENV: test
+        run: |
+          cp config/database.yml.ci config/database.yml
+          bundle exec rails db:create
 
-    - name: RSpec
-      run: bundle exec rspec
+      - name: Precompile assets
+        env:
+          RAILS_ENV: test
+        run: bundle exec rails assets:precompile
+
+      - name: RSpec
+        run: bundle exec rspec
