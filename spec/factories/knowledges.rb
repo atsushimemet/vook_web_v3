@@ -7,7 +7,7 @@ FactoryBot.define do
 
     name { '66前期' }
     age { 1955 }
-    image { Rack::Test::UploadedFile.new(Rails.root.join('app/assets/images/knowledge-501xx1.jpg'), '501xx.jpg') }
+    image { Rack::Test::UploadedFile.new(Rails.root.join('public/test.png'), '501xx.jpg') }
     after(:create) do |knowledge|
       ActionText::RichText.create!(
         record_type: 'Knowledge',

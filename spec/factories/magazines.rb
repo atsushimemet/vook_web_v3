@@ -3,7 +3,7 @@ FactoryBot.define do
     user factory: :admin
     title { '【購入品紹介】"French Navy" Deck Jacket' }
     publish_at { Time.current }
-    thumbnail { Rack::Test::UploadedFile.new(Rails.root.join('app/assets/images/map.jpg'), 'image/jpg') }
+    thumbnail { Rack::Test::UploadedFile.new(Rails.root.join('public/test.png'), 'image/jpg') }
     after(:create) do |magazine|
       ActionText::RichText.create!(
         record_type: 'Magazine',
