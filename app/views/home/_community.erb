@@ -7,11 +7,11 @@
   </div>
   <div class='instagram-list-section'>
     <div class='instagram-list-body'>
-      <div class='instagram-feeds columns is-mobile is-multiline'>
+      <div class='instagram-feeds'>
         <% @instagram_feeds.each do |feed| %>
-          <div class='instagram-feed column is-one-third'>
+          <div class='instagram-feed'>
             <%= link_to feed['permalink'], target: '_blank', rel: 'noopener noreferrer' do %>
-              <%= image_tag feed['media_url'], alt: truncate(feed['caption'], length: 50), loading: 'lazy' %>
+              <%= image_tag feed['media_url'], size: '297x297', alt: truncate(feed['caption'], length: 50), loading: 'lazy' %>
             <% end %>
           </div>
         <% end %>
