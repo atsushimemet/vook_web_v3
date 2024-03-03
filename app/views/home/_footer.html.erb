@@ -23,13 +23,17 @@
         </div>
         <div class='footer-item'>
           <div class='footer-link'>
-            <span>
-              <%= link_to '利用規約', tos_path %>
-            </span>
-            <span>/</span>
-            <span>
-              <%= link_to 'プライバシーポリシー', privacy_policy_path %>
-            </span>
+            <ul>
+              <li>
+                <%= link_to '利用規約', tos_path %>
+              </li>
+              <li>
+                <%= link_to 'プライバシーポリシー', privacy_policy_path %>
+              </li>
+              <li>
+                <%= link_to 'お問い合わせ', 'https://forms.gle/7UsfHYKSHqDC7yoy6' %>
+              </li>
+            </ul>
           </div>
           <p class='copy-right'>&copy; Vook tokyo 2023 - <%= Time.zone.today.year %></p>
         </div>
