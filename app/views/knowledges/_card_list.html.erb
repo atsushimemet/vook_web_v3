@@ -15,6 +15,9 @@
         </div>
         <%= link_to link_path do %>
           <div class='knowledge-card-content'>
+            <% if object.instance_of?(Knowledge) && object.draft? %>
+              <span class='knowledge-state-draft'>下書き</span>
+            <% end %>
             <% if object.image.attached? %>
               <div class='knowledge-card-image image is-square'>
                 <%= image_tag object.image.variant(resize_to_limit: [400, 400]), alt: "#{object.name}-image" %>
