@@ -21,6 +21,11 @@
         <li><%= link_to "##{@knowledge.line.name}", line_path(@knowledge.line.name), class: 'button is-rounded' %></li>
       </ul>
     </nav>
+    <% if @knowledge.draft? %>
+      <div class='knowledge-draft-message'>
+        この記事は下書きです
+      </div>
+    <% end %>
     <h2 class='knowledge-title'>
       <%= @knowledge.name %>
     </h2>

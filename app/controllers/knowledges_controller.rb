@@ -6,7 +6,9 @@ class KnowledgesController < ApplicationController
     @knowledges = Knowledge.includes(:line, :brand, :item).order(:brand_id, :item_id, :line_id, :age)
   end
 
-  def show; end
+  def show
+    require_admin_login if @knowledge.draft?
+  end
 
   def new
     @knowledge = Knowledge.new
@@ -52,6 +54,6 @@ class KnowledgesController < ApplicationController
   end
 
   def knowledge_params
-    params.require(:knowledge).permit(:name, :age, :body, :instagram_url, :brand_id, :line_id, :image)
+    params.require(:knowledge).permit(:name, :age, :body, :instagram_url, :brand_id, :line_id, :image, :status)
   end
 end

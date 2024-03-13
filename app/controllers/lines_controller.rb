@@ -9,7 +9,11 @@ class LinesController < ApplicationController
 
   def show
     @line = Line.find_by(name: params[:name])
-    @knowledges = @line.knowledges.with_attached_image.order(:age)
+    @knowledges = if current_user&.admin?
+                    @line.knowledges.with_attached_image.order(:age)
+                  else
+                    @line.knowledges.published.with_attached_image.order(:age)
+                  end
   end
 
   def new
