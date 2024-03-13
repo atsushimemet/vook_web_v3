@@ -10,8 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_01_13_043012) do
-  create_table "action_text_rich_texts", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+ActiveRecord::Schema[7.1].define(version: 2024_03_09_051100) do
+  create_table "action_text_rich_texts", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
     t.string "name", null: false
     t.text "body", size: :long
     t.string "record_type", null: false
@@ -21,7 +21,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_13_043012) do
     t.index ["record_type", "record_id", "name"], name: "index_action_text_rich_texts_uniqueness", unique: true
   end
 
-  create_table "active_storage_attachments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "active_storage_attachments", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
     t.bigint "record_id", null: false
@@ -31,7 +31,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_13_043012) do
     t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
   end
 
-  create_table "active_storage_blobs", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "active_storage_blobs", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
     t.string "key", null: false
     t.string "filename", null: false
     t.string "content_type"
@@ -43,13 +43,13 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_13_043012) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table "active_storage_variant_records", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "active_storage_variant_records", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
-  create_table "brands", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "brands", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -60,7 +60,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_13_043012) do
     t.index ["name"], name: "index_brands_on_name", unique: true
   end
 
-  create_table "items", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "items", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -71,7 +71,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_13_043012) do
     t.index ["name"], name: "index_items_on_name", unique: true
   end
 
-  create_table "knowledges", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "knowledges", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
     t.string "name", null: false
     t.integer "age", null: false
     t.bigint "brand_id", null: false
@@ -81,6 +81,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_13_043012) do
     t.datetime "updated_at", null: false
     t.bigint "user_id", null: false
     t.string "instagram_url"
+    t.integer "status", default: 0
     t.index ["brand_id"], name: "index_knowledges_on_brand_id"
     t.index ["item_id"], name: "index_knowledges_on_item_id"
     t.index ["line_id"], name: "index_knowledges_on_line_id"
@@ -88,7 +89,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_13_043012) do
     t.index ["user_id"], name: "index_knowledges_on_user_id"
   end
 
-  create_table "lines", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "lines", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
     t.string "name", null: false
     t.bigint "brand_id", null: false
     t.bigint "item_id", null: false
@@ -99,7 +100,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_13_043012) do
     t.index ["name"], name: "index_lines_on_name", unique: true
   end
 
-  create_table "magazines", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "magazines", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
     t.string "title", null: false
     t.string "summary"
     t.datetime "publish_at"
@@ -109,14 +110,14 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_13_043012) do
     t.index ["user_id"], name: "index_magazines_on_user_id"
   end
 
-  create_table "platforms", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "platforms", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_platforms_on_name", unique: true
   end
 
-  create_table "products", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "products", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
     t.string "name", null: false
     t.string "url", null: false
     t.integer "price", null: false
@@ -132,14 +133,14 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_13_043012) do
     t.index ["url"], name: "index_products_on_url", unique: true
   end
 
-  create_table "sizes", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "sizes", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_sizes_on_name", unique: true
   end
 
-  create_table "terms", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "terms", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
     t.string "name", null: false
     t.string "kana", null: false
     t.datetime "created_at", null: false
@@ -148,7 +149,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_13_043012) do
     t.index ["name"], name: "index_terms_on_name", unique: true
   end
 
-  create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "users", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
     t.string "name", null: false
     t.string "icon_url"
     t.boolean "admin", default: false, null: false

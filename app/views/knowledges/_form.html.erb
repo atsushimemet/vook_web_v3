@@ -61,6 +61,14 @@
       </div>
     </div>
 
+    <div class='field'>
+      <%= form.label :status, class: 'label' %>
+      <% Knowledge.statuses_i18n.each do |status, value| %>
+        <%= form.radio_button :status, status, class: 'radio' %>
+        <%= form.label :status, value, value: status %>
+      <% end %>
+    </div>
+
     <div class='buttons is-right'>
       <%= form.submit class: 'button is-primary' %>
     </div>

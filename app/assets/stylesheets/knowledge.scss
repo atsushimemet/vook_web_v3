@@ -109,6 +109,14 @@
         word-break: keep-all;
       }
     }
+    .knowledge-state-draft {
+      position: absolute;
+      z-index: 5;
+      background-color: $danger;
+      color: $white;
+      font-size: 14px;
+      padding: 4px 8px;
+    }
   }
   .knowledge-content {
     img {
@@ -137,6 +145,14 @@
 
   .no-knowledge-cards {
     padding: 2.5rem 0;
+  }
+
+  .knowledge-draft-message {
+    padding: 1rem 0;
+    margin-bottom: 24px;
+    text-align: center;
+    color: $white;
+    background-color: $danger;
   }
 
   .knowledge-price-histogram {

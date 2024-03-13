@@ -89,6 +89,7 @@ group :test do
 end
 
 gem 'dotenv-rails'
+gem 'enum_help'
 gem 'meta-tags'
 gem 'omniauth'
 gem 'omniauth-google-oauth2'

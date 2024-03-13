@@ -5,6 +5,7 @@
       <thead>
         <tr>
           <th></th>
+          <th></th>
           <th>知識</th>
           <th>ブランド</th>
           <th>ライン</th>
@@ -16,6 +17,11 @@
       </thead>
       <% @knowledges.each.with_index(1) do |knowledge, index| %>
         <tr>
+          <td>
+            <% if knowledge.draft? %>
+              <i class="fa-regular fa-pen-to-square"></i>
+            <% end %>
+          </td>
           <td><%= index %></td>
           <td>
             <%= link_to knowledge.name, knowledge_path(knowledge) %>

@@ -7,6 +7,7 @@ FactoryBot.define do
 
     name { '66前期' }
     age { 1955 }
+    status { 'published' }
     image { Rack::Test::UploadedFile.new(Rails.root.join('public/test.png'), '501xx.jpg') }
     after(:create) do |knowledge|
       ActionText::RichText.create!(
@@ -28,6 +29,7 @@ FactoryBot.define do
 
     name { 'イメージ画像がない知識' }
     age { 1955 }
+    status { 'published' }
     after(:create) do |knowledge|
       ActionText::RichText.create!(
         record_type: 'Knowledge',

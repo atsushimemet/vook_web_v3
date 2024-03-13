@@ -5,8 +5,8 @@ ja:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
         restrict_dependent_destroy:
-          has_one: "%{record}が存在しているので削除できません"
-          has_many: "%{record}が存在しているので削除できません"
+          has_one: '%{record}が存在しているので削除できません'
+          has_many: '%{record}が存在しているので削除できません'
     models:
       magazine: 記事
       knowledge: 知識
@@ -28,13 +28,14 @@ ja:
       knowledge:
         name: 名前
         age: 年代
-        instagram_url: インスタURL
+        instagram_url: Instagram URL
         image: 画像
         body: 内容
         brand: ブランド
         brand_id: ブランド
         item: アイテム
         line: ライン
+        status: ステータス
       brand:
         name: ブランド名
         image: アイコン
@@ -48,74 +49,79 @@ ja:
         brand_id: ブランド
         item_id: アイテム
         image: アイコン
+  enums:
+    knowledge:
+      status:
+        draft: 下書き
+        published: 公開
   date:
     abbr_day_names:
-    - 日
-    - 月
-    - 火
-    - 水
-    - 木
-    - 金
-    - 土
+      - 日
+      - 月
+      - 火
+      - 水
+      - 木
+      - 金
+      - 土
     abbr_month_names:
-    -
-    - 1月
-    - 2月
-    - 3月
-    - 4月
-    - 5月
-    - 6月
-    - 7月
-    - 8月
-    - 9月
-    - 10月
-    - 11月
-    - 12月
+      -
+      - 1月
+      - 2月
+      - 3月
+      - 4月
+      - 5月
+      - 6月
+      - 7月
+      - 8月
+      - 9月
+      - 10月
+      - 11月
+      - 12月
     day_names:
-    - 日曜日
-    - 月曜日
-    - 火曜日
-    - 水曜日
-    - 木曜日
-    - 金曜日
-    - 土曜日
+      - 日曜日
+      - 月曜日
+      - 火曜日
+      - 水曜日
+      - 木曜日
+      - 金曜日
+      - 土曜日
     formats:
-      default: "%y/%m/%d"
-      long: "%Y年%m月%d日(%a)"
-      short: "%m/%d"
+      default: '%y/%m/%d'
+      long: '%Y年%m月%d日(%a)'
+      short: '%m/%d'
     month_names:
-    -
-    - 1月
-    - 2月
-    - 3月
-    - 4月
-    - 5月
-    - 6月
-    - 7月
-    - 8月
-    - 9月
-    - 10月
-    - 11月
-    - 12月
+      -
+      - 1月
+      - 2月
+      - 3月
+      - 4月
+      - 5月
+      - 6月
+      - 7月
+      - 8月
+      - 9月
+      - 10月
+      - 11月
+      - 12月
     order:
-    - :year
-    - :month
-    - :day
+      - :year
+      - :month
+      - :day
   datetime:
     distance_in_words:
       about_x_hours: 約%{count}時間
       about_x_months: 約%{count}ヶ月
       about_x_years: 約%{count}年
-      almost_x_years: "%{count}年弱"
+      almost_x_years: '%{count}年弱'
       half_a_minute: 30秒前後
-      less_than_x_seconds: "%{count}秒未満"
-      less_than_x_minutes: "%{count}分未満"
-      over_x_years: "%{count}年以上"
-      x_seconds: "%{count}秒"
-      x_minutes: "%{count}分"
-      x_days: "%{count}日"
-      x_months: "%{count}ヶ月"
-      x_years: "%{count}年"
+      less_than_x_seconds: '%{count}秒未満'
+      less_than_x_minutes: '%{count}分未満'
+      over_x_years: '%{count}年以上'
+      x_seconds: '%{count}秒'
+      x_minutes: '%{count}分'
+      x_days: '%{count}日'
+      x_months: '%{count}ヶ月'
+      x_years: '%{count}年'
     prompts:
       second: 秒
       minute: 分
@@ -124,7 +130,7 @@ ja:
       month: 月
       year: 年
   errors:
-    format: "%{attribute}%{message}"
+    format: '%{attribute}%{message}'
     messages:
       accepted: を受諾してください
       blank: を入力してください
@@ -153,7 +159,7 @@ ja:
       wrong_length: は%{count}文字で入力してください
     template:
       body: 次の項目を確認してください
-      header: "%{model}に%{count}個のエラーが発生しました"
+      header: '%{model}に%{count}個のエラーが発生しました'
   helpers:
     select:
       prompt: 選択してください
@@ -164,23 +170,23 @@ ja:
   number:
     currency:
       format:
-        delimiter: ","
-        format: "%n%u"
+        delimiter: ','
+        format: '%n%u'
         precision: 0
-        separator: "."
+        separator: '.'
         significant: false
         strip_insignificant_zeros: false
         unit: 円
     format:
-      delimiter: ","
+      delimiter: ','
       precision: 3
       round_mode: default
-      separator: "."
+      separator: '.'
       significant: false
       strip_insignificant_zeros: false
     human:
       decimal_units:
-        format: "%n %u"
+        format: '%n %u'
         units:
           billion: 十億
           million: 百万
@@ -194,7 +200,7 @@ ja:
         significant: true
         strip_insignificant_zeros: true
       storage_units:
-        format: "%n%u"
+        format: '%n%u'
         units:
           byte: バイト
           eb: EB
@@ -206,20 +212,20 @@ ja:
     percentage:
       format:
         delimiter: ''
-        format: "%n%"
+        format: '%n%'
     precision:
       format:
         delimiter: ''
   support:
     array:
-      last_word_connector: "、"
-      two_words_connector: "、"
-      words_connector: "、"
+      last_word_connector: '、'
+      two_words_connector: '、'
+      words_connector: '、'
   time:
     am: 午前
     formats:
-      default: "%Y年%m月%d日(%a) %H時%M分%S秒 %z"
-      long: "%Y/%m/%d %H:%M"
-      short: "%m/%d %H:%M"
-      date: "%y.%m.%d"
+      default: '%Y年%m月%d日(%a) %H時%M分%S秒 %z'
+      long: '%Y/%m/%d %H:%M'
+      short: '%m/%d %H:%M'
+      date: '%y.%m.%d'
     pm: 午後
