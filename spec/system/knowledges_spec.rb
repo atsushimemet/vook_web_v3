@@ -5,6 +5,20 @@ RSpec.describe '/knowledges', type: :system do
   let(:admin) { create(:admin) }
   let!(:knowledge) { create(:knowledge, user: admin) }
 
+  describe 'index' do
+    it '管理者が知識一覧ページにアクセスできること' do
+      sign_in_as(admin)
+      visit knowledges_path
+      expect(page).to have_content '66前期'
+    end
+
+    it '管理者以外が知識一覧ページにアクセスしようとするとリダイレクトされること' do
+      sign_in_as(user)
+      visit knowledges_path
+      expect(page).to have_content '管理者としてログインしてください'
+    end
+  end
+
   describe 'new' do
     it '管理者以外が知識作成ページに遷移するとリダイレクトされること' do
       sign_in_as(user)
@@ -44,6 +58,8 @@ RSpec.describe '/knowledges', type: :system do
   end
 
   describe 'show' do
+    let(:draft_knowledge) { create(:knowledge, user: admin, status: 'draft') }
+
     it 'トップページのブランドタブから知識詳細ページへ遷移できること' do
       visit root_path
       click_on "Levi's"
@@ -80,6 +96,18 @@ RSpec.describe '/knowledges', type: :system do
       visit knowledge_path(knowledge)
       expect(page).to have_no_content '編集'
       expect(page).to have_no_content '削除'
+    end
+
+    it '下書きの知識記事が管理者にのみ表示されること' do
+      sign_in_as(admin)
+      visit knowledge_path(draft_knowledge)
+      expect(page).to have_content draft_knowledge.name
+    end
+
+    it '下書きの知識記事が非管理者には表示されないこと' do
+      sign_in_as(user)
+      visit knowledge_path(draft_knowledge)
+      expect(page).to have_content '管理者としてログインしてください'
     end
   end
 
