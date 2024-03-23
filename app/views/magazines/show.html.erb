@@ -1,7 +1,7 @@
 <% set_meta_tags(
-     title: "#{@magazine.title} | Vook", description: @magazine.summary,
+     title: "#{@magazine.title} | Vook tokyo", description: @magazine.summary,
      og: {
-       title: "#{@magazine.title} | Vook",
+       title: "#{@magazine.title} | Vook tokyo",
        description: @magazine.summary,
        image: @magazine.thumbnail.present? ? rails_blob_url(@magazine.thumbnail) : image_url('logo_ogp.png')
      },
