@@ -2,6 +2,14 @@
   <%= render 'shared/errors', object: @knowledge %>
   <%= form_with(model: knowledge, local: true) do |form| %>
     <div class='field'>
+      <%= form.label :status, class: 'label' %>
+      <% Knowledge.statuses_i18n.each do |status, value| %>
+        <%= form.radio_button :status, status, class: 'radio' %>
+        <%= form.label :status, value, value: status %>
+      <% end %>
+    </div>
+
+    <div class='field'>
       <%= form.label :image, class: 'label' %>
       <div class='control file has-name'>
         <label class='file-label'>
@@ -62,11 +70,11 @@
     </div>
 
     <div class='field'>
-      <%= form.label :status, class: 'label' %>
-      <% Knowledge.statuses_i18n.each do |status, value| %>
-        <%= form.radio_button :status, status, class: 'radio' %>
-        <%= form.label :status, value, value: status %>
-      <% end %>
+      <%= form.label :mermaid_chart, class: 'label' %>
+      <div class='control'>
+        <%= form.text_area :mermaid_chart, class: 'textarea mermaid-textarea', rows: 10 %>
+      </div>
+      <div class='mermaid' id='mermaid-preview'></div>
     </div>
 
     <div class='buttons is-right'>
