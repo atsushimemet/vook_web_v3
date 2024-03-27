@@ -54,9 +54,9 @@
         <h3 class='knowledge-sub-title'>
           <%= "#{@knowledge.name}の判別" %>
         </h3>
-        <div class='mermaid'>
-          <%= sanitize(@knowledge.mermaid_chart) %>
-        </div>
+        <pre class='mermaid'>
+          <%= @knowledge.mermaid_chart %>
+        </pre>
       </div>
     <% end %>
     <div class='knowledge-price'>

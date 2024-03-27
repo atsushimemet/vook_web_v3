@@ -4,7 +4,6 @@ import '@rails/actiontext';
 import 'trix';
 import '@splidejs/splide';
 import 'tributejs';
-import 'mermaid';
 
 import './trix-content';
 import './mention';

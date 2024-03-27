@@ -1,7 +1,7 @@
 import mermaid from 'mermaid';
 
 document.addEventListener('turbo:load', () => {
-  let options = {
+  const options = {
     theme: 'base',
     themeVariables: {
       primaryColor: '#FCD900',
@@ -11,8 +11,10 @@ document.addEventListener('turbo:load', () => {
       secondaryColor: '#e6eaee',
       tertiaryColor: '#f2f4f7',
     },
+    securityLevel: 'loose',
   };
   mermaid.initialize(options);
+  mermaid.run();
 
   const mermaidTextArea = document.querySelector('.mermaid-textarea');
 
@@ -26,8 +28,7 @@ document.addEventListener('turbo:load', () => {
   };
 
   if (mermaidTextArea) {
-    options = { ...options, startOnLoad: false };
-    mermaid.initialize(options);
+    updateMermaidPreview();
     mermaidTextArea.addEventListener('input', updateMermaidPreview);
   }
 });
