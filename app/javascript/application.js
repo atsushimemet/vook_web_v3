@@ -4,6 +4,7 @@ import '@rails/actiontext';
 import 'trix';
 import '@splidejs/splide';
 import 'tributejs';
+import 'mermaid';
 
 import './trix-content';
 import './mention';
@@ -15,6 +16,7 @@ import './line-select';
 import './size-select';
 import './clipboard';
 import './knowledge-carousel';
+import './knowledge-mermaid';
 import './home-search';
 import './file-preview';
 import './color-picker';

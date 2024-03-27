@@ -139,7 +139,7 @@
   .knowledge-instagram-embed {
     margin-bottom: 48px;
     @include tablet {
-      margin-left: 3em;
+      padding-left: 3em;
     }
   }
 
@@ -153,6 +153,17 @@
     text-align: center;
     color: $white;
     background-color: $danger;
+  }
+
+  .knowledge-identification {
+    margin-bottom: 48px;
+    .mermaid {
+      padding: 1em;
+      background: #fff;
+      @include tablet {
+        padding-left: 3em;
+      }
+    }
   }
 
   .knowledge-price-histogram {
@@ -197,5 +208,13 @@
   }
   .form-section{
     margin-bottom: 32px;
+
+    .mermaid-textarea{
+      margin-bottom: 16px;
+    }
+    .mermaid {
+      padding: 1em;
+      background: #fff;
+    }
   }
 }

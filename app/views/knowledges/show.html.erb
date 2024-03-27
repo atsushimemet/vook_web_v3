@@ -13,6 +13,14 @@
 <section class='knowledge-section'>
   <%= render partial: 'shared/section_headline', locals: { number: '00', title: 'Knowledge' } %>
   <div class='knowledge-container container'>
+    <% if admin_login? %>
+      <div class='knowledge-edit buttons is-right'>
+        <%= link_to 'Knowledge一覧', knowledges_path, class: 'button is-success' %>
+        <%= link_to '編集', edit_knowledge_path(@knowledge), class: 'button is-primary' %>
+        <%= button_to '削除', @knowledge,
+                      { method: :delete, form: { data: { turbo: true, turbo_confirm: '本当に削除しますか？' } }, class: 'button' } %>
+      </div>
+    <% end %>
     <nav class='breadcrumb-list'>
       <ul>
         <li><i class='fa-solid fa-tag icon-tag' aria-label='Tag'></i></li>
@@ -41,12 +49,14 @@
       </div>
     </div>
     <%= instagram_embed(@knowledge.instagram_url) if @knowledge.instagram_url.present? %>
-    <% if admin_login? %>
-      <div class='knowledge-edit buttons is-right'>
-        <%= link_to 'Knowledge一覧', knowledges_path, class: 'button is-success' %>
-        <%= link_to '編集', edit_knowledge_path(@knowledge), class: 'button is-primary' %>
-        <%= button_to '削除', @knowledge,
-                      { method: :delete, form: { data: { turbo: true, turbo_confirm: '本当に削除しますか？' } }, class: 'button' } %>
+    <% if @knowledge.mermaid_chart %>
+      <div class='knowledge-identification'>
+        <h3 class='knowledge-sub-title'>
+          <%= "#{@knowledge.name}の判別" %>
+        </h3>
+        <div class='mermaid'>
+          <%= @knowledge.mermaid_chart %>
+        </div>
       </div>
     <% end %>
     <div class='knowledge-price'>
