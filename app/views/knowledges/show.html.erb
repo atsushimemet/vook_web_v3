@@ -55,7 +55,7 @@
           <%= "#{@knowledge.name}の判別" %>
         </h3>
         <div class='mermaid'>
-          <%= @knowledge.mermaid_chart %>
+          <%= sanitize(@knowledge.mermaid_chart) %>
         </div>
       </div>
     <% end %>
