@@ -7,7 +7,7 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find_by(name: params[:name])
+    @item = Item.find_by!(name: params[:name])
     @lines = @item.lines.includes(image_attachment: :blob).knowledge_count_order
   end
 
