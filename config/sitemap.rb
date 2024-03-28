@@ -7,6 +7,7 @@ SitemapGenerator::Sitemap.create do
   add '/about', changefreq: 'yearly'
   add '/tos', changefreq: 'yearly'
   add '/privacy_policy', changefreq: 'yearly'
+  add '/terms', changefreq: 'monthly'
 
   Knowledge.find_each do |knowledge|
     add knowledge_path(knowledge), lastmod: knowledge.updated_at, changefreq: 'weekly'
