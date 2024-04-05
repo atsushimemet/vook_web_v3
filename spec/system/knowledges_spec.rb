@@ -109,6 +109,12 @@ RSpec.describe '/knowledges', type: :system do
       visit knowledge_path(draft_knowledge)
       expect(page).to have_content '管理者としてログインしてください'
     end
+
+    it '判別方法が空の場合に項目が表示されないこと' do
+      knowledge.update(mermaid_chart: '')
+      visit knowledge_path(knowledge)
+      expect(page).to have_no_content '判別'
+    end
   end
 
   describe 'update' do

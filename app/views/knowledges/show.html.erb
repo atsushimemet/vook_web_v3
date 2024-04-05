@@ -49,7 +49,7 @@
       </div>
     </div>
     <%= instagram_embed(@knowledge.instagram_url) if @knowledge.instagram_url.present? %>
-    <% if @knowledge.mermaid_chart %>
+    <% if @knowledge.mermaid_chart.present? %>
       <div class='knowledge-identification'>
         <h3 class='knowledge-sub-title'>
           <%= "#{@knowledge.name}の判別" %>
