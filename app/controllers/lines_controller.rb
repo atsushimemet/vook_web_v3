@@ -1,5 +1,5 @@
 class LinesController < ApplicationController
-  before_action :set_line, only: %i[edit update destroy]
+  before_action :set_line, only: %i[show edit update destroy]
   before_action :require_admin_login, only: %i[new edit create update destroy]
 
   def index
@@ -8,12 +8,10 @@ class LinesController < ApplicationController
   end
 
   def show
-    @line = Line.find_by!(name: params[:name])
-    @knowledges = if current_user&.admin?
-                    @line.knowledges.with_attached_image.order(:age)
-                  else
-                    @line.knowledges.published.with_attached_image.order(:age)
-                  end
+    redirect_to root_path, alert: 'コンテンツが存在しません' and return if @line.knowledges.published.empty? && !admin_login?
+
+    knowledges_scope = admin_login? ? @line.knowledges : @line.knowledges.published
+    @knowledges = knowledges_scope.with_attached_image.order(:age)
   end
 
   def new
@@ -53,7 +51,7 @@ class LinesController < ApplicationController
   private
 
   def set_line
-    @line = Line.find_by(name: params[:name])
+    @line = Line.find_by!(name: params[:name])
   end
 
   def line_params
