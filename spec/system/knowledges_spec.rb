@@ -91,29 +91,55 @@ RSpec.describe '/knowledges', type: :system do
       expect(page).to have_content 'この知識にはイメージがありません'
     end
 
-    it '管理者以外は編集と削除ボタンが表示されないこと' do
-      sign_in_as(user)
-      visit knowledge_path(knowledge)
-      expect(page).to have_no_content '編集'
-      expect(page).to have_no_content '削除'
-    end
-
-    it '下書きの知識記事が管理者にのみ表示されること' do
-      sign_in_as(admin)
-      visit knowledge_path(draft_knowledge)
-      expect(page).to have_content draft_knowledge.name
-    end
-
-    it '下書きの知識記事が非管理者には表示されないこと' do
-      sign_in_as(user)
-      visit knowledge_path(draft_knowledge)
-      expect(page).to have_content '管理者としてログインしてください'
-    end
-
     it '判別方法が空の場合に項目が表示されないこと' do
       knowledge.update(mermaid_chart: '')
       visit knowledge_path(knowledge)
       expect(page).to have_no_content '判別'
+    end
+
+    it '商品が存在する場合に商品ページへの導線が表示されること' do
+      create(:product, knowledge:)
+      visit knowledge_path(knowledge)
+      expect(page).to have_content '商品一覧ページへ'
+    end
+
+    it '商品がない場合に導線が表示されないこと' do
+      visit knowledge_path(knowledge)
+      expect(page).to have_no_content '商品一覧ページへ'
+    end
+
+    context '管理者の場合' do
+      before do
+        sign_in_as(admin)
+      end
+
+      it '編集と削除ボタンが表示されること' do
+        visit knowledge_path(knowledge)
+        expect(page).to have_content '編集'
+        expect(page).to have_content '削除'
+      end
+
+      it '下書きの知識記事が表示されること' do
+        visit knowledge_path(draft_knowledge)
+        expect(page).to have_content draft_knowledge.name
+      end
+    end
+
+    context '管理者以外の場合' do
+      before do
+        sign_in_as(user)
+      end
+
+      it '編集と削除ボタンが表示されないこと' do
+        visit knowledge_path(knowledge)
+        expect(page).to have_no_content '編集'
+        expect(page).to have_no_content '削除'
+      end
+
+      it '下書きの知識記事が表示されないこと' do
+        visit knowledge_path(draft_knowledge)
+        expect(page).to have_content '管理者としてログインしてください'
+      end
     end
   end
 
