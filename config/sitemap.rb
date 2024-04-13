@@ -9,7 +9,7 @@ SitemapGenerator::Sitemap.create do
   add '/privacy_policy', changefreq: 'yearly'
   add '/terms', changefreq: 'monthly'
 
-  Knowledge.find_each do |knowledge|
+  Knowledge.published.find_each do |knowledge|
     add knowledge_path(knowledge), lastmod: knowledge.updated_at, changefreq: 'weekly'
 
     latest_product_update = knowledge.products.maximum(:updated_at)
@@ -28,7 +28,7 @@ SitemapGenerator::Sitemap.create do
     add item_path(item.name), changefreq: 'monthly'
   end
 
-  Line.find_each do |line|
+  Line.with_published_knowledge.find_each do |line|
     add line_path(line.name), changefreq: 'monthly'
   end
 end
