@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: %i[edit update destroy]
+  before_action :set_item, only: %i[show edit update destroy]
   before_action :require_admin_login, only: %i[new edit create update destroy]
 
   def new
@@ -7,8 +7,8 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find_by!(name: params[:name])
-    @lines = @item.lines.includes(image_attachment: :blob).knowledge_count_order
+    scoped_lines = admin_login? ? @item.lines : @item.lines.with_published_knowledge
+    @lines = scoped_lines.includes(image_attachment: :blob).knowledge_count_order
   end
 
   def edit; end
@@ -48,7 +48,7 @@ class ItemsController < ApplicationController
   private
 
   def set_item
-    @item = Item.find_by(name: params[:name])
+    @item = Item.find_by!(name: params[:name])
   end
 
   def item_params

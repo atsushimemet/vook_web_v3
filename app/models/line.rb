@@ -15,4 +15,8 @@ class Line < ApplicationRecord
       .group('lines.id')
       .order('COUNT(knowledges.id) DESC')
   }
+
+  scope :with_published_knowledge, lambda {
+    joins(:knowledges).where(knowledges: { status: Knowledge.statuses[:published] }).distinct
+  }
 end
