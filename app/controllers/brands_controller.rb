@@ -1,5 +1,5 @@
 class BrandsController < ApplicationController
-  before_action :set_brand, only: %i[edit update destroy]
+  before_action :set_brand, only: %i[show edit update destroy]
   before_action :require_admin_login, only: %i[new edit create update destroy]
 
   def new
@@ -7,8 +7,8 @@ class BrandsController < ApplicationController
   end
 
   def show
-    @brand = Brand.find_by!(name: params[:name])
-    @lines = @brand.lines.includes(image_attachment: :blob).knowledge_count_order
+    scoped_lines = admin_login? ? @brand.lines : @brand.lines.with_published_knowledge
+    @lines = scoped_lines.includes(image_attachment: :blob).knowledge_count_order
   end
 
   def edit; end
@@ -48,7 +48,7 @@ class BrandsController < ApplicationController
   private
 
   def set_brand
-    @brand = Brand.find_by(name: params[:name])
+    @brand = Brand.find_by!(name: params[:name])
   end
 
   def brand_params
