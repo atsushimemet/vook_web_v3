@@ -37,3 +37,9 @@ $info: $dark-gray;
 $success: $denim;
 $danger: $red;
 $light: $light-gray;
+$secondary-invert: findColorInvert($secondary) !default;
+$secondary-light: findLightColor($secondary) !default;
+$secondary-dark: findDarkColor($secondary) !default;
+$custom-colors: (
+  'secondary': ($secondary, $secondary-invert, $secondary-light, $secondary-dark)
+);
