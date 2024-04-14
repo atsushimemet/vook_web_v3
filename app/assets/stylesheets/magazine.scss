@@ -22,13 +22,63 @@
         max-width: 800px;
       }
       .magazine-body {
-        padding: 10px;
-        margin-bottom: 10px;
+        padding: 8px;
+        margin-bottom: 24px;
+      }
+    }
+    .magazine-tags {
+      margin-bottom: 32px;
+      font-size: 14px;
+      ul {
+        display: flex;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        gap: 4px;
+      }
+      .button {
+        padding-left: calc(1em);
+        padding-right: calc(1em);
+        border-color: $primary;
+        color: $primary;
+        // [TODO]リンク先が決まったら外す
+        cursor: default;
+      }
+      .icon-tag {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        color: $white;
+        background-color: $primary;
       }
     }
   }
   .form-section {
     margin-bottom: 20px;
+    .choices__inner {
+      background-color: $white;
+      border-radius: 4px;
+      border: 2px solid hsl(0deg, 0%, 86%);
+    }
+    .choices__list--multiple .choices__item {
+      border-radius: 8px;
+      background-color: $primary;
+      border: 1px solid $white;
+      .choices__button {
+        border-left: 1px solid $white;
+      }
+      &.is-highlighted {
+        background-color: $primary;
+        border: 1px solid $white;
+      }
+    }
+    .choices__input {
+      background-color: $white;
+      width: auto !important;
+    }
   }
 }
 

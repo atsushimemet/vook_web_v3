@@ -1,20 +1,20 @@
-import Choices from 'choices.js'
+import Choices from 'choices.js';
 
 document.addEventListener('turbo:load', () => {
-  const element = document.getElementById('magazine-tag');
+  const tagForm = document.getElementById('magazine-tag');
 
-  if (element) {
-    return new Choices(element, {
+  if (tagForm) {
+    return new Choices(tagForm, {
       allowHTML: true,
       delimiter: ',',
       removeItemButton: true,
       maxItemCount: 5,
       addItemText: (value) => {
-        return `Enterを押すと<b>「${value}」</b>のタグが追加されます`
+        return `Enterを押すと<b>「${value}」</b>のタグが追加されます`;
       },
       maxItemText: (maxItemCount) => {
-        return `タグは最大${maxItemCount}つまでです。`
-      }
-    })
+        return `タグは最大${maxItemCount}つまでです。`;
+      },
+    });
   }
-})
+});
