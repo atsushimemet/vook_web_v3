@@ -25,6 +25,7 @@ Rails.application.routes.draw do
     resources :terms, only: [:index]
     resources :knowledges, only: [:index]
     resources :products, only: [:show]
+    resources :tags, only: [:index]
   end
 
   match '*path', to: 'application#routing_error', via: :all, constraints: lambda { |req|
