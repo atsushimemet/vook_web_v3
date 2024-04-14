@@ -88,6 +88,7 @@ group :test do
   gem 'selenium-webdriver'
 end
 
+gem 'acts-as-taggable-on'
 gem 'dotenv-rails'
 gem 'enum_help'
 gem 'meta-tags'
