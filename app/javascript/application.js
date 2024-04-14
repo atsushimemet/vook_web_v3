@@ -14,6 +14,7 @@ import './show-more-icons';
 import './line-select';
 import './size-select';
 import './clipboard';
+import './magazine-tag';
 import './knowledge-carousel';
 import './knowledge-mermaid';
 import './home-search';

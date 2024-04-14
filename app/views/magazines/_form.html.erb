@@ -36,6 +36,13 @@
       </div>
     </div>
 
+    <div class='field'>
+      <%= form.label :tag_list, class: 'label' %>
+      <div class='control'>
+        <%= form.text_field :tag_list, value: @magazine.tag_list.join(','), class: 'input', id: 'magazine-tag' %>
+      </div>
+    </div>
+
     <div class='field content'>
       <%= form.label :body, class: 'label' %>
       <div class='control'>
