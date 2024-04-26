@@ -1,7 +1,7 @@
 // Entry point for the build script in your package.json
 import { Turbo } from '@hotwired/turbo-rails';
 import '@rails/actiontext';
-import 'trix';
+import Trix from 'trix';
 import '@splidejs/splide';
 import 'tributejs';
 
@@ -24,3 +24,5 @@ import './price-histogram';
 import 'choices.js';
 
 Turbo.session.drive = false;
+Trix.config.blockAttributes.default.tagName = 'p';
+Trix.config.blockAttributes.heading1.tagName = 'h3';
