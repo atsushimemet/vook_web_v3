@@ -23,6 +23,13 @@
       </div>
     </div>
 
+    <div class='field'>
+      <%= form.label :category_names, 'カテゴリー', class: 'label' %>
+      <div class='control choices-input'>
+        <%= form.text_field :category_names, value: term.categories.map(&:name).join(','), id: 'choices-input' %>
+      </div>
+    </div>
+
     <div class='buttons is-right'>
       <%= form.submit class: 'button is-primary' %>
       <% if term.persisted? %>

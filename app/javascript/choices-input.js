@@ -1,7 +1,7 @@
 import Choices from 'choices.js';
 
 document.addEventListener('turbo:load', () => {
-  const tagForm = document.getElementById('magazine-tag');
+  const tagForm = document.getElementById('choices-input');
 
   if (tagForm) {
     return new Choices(tagForm, {

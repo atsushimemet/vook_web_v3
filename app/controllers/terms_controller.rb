@@ -8,12 +8,16 @@ class TermsController < ApplicationController
 
   def new
     @term = Term.new
+    @term.categories.new
   end
 
-  def edit; end
+  def edit
+    @term.categories.new if @term.categories.blank?
+  end
 
   def create
     @term = Term.new(term_params)
+    prepare_category
 
     if @term.save
       redirect_to terms_path, notice: '用語を登録しました'
@@ -24,6 +28,7 @@ class TermsController < ApplicationController
   end
 
   def update
+    prepare_category
     if @term.update(term_params)
       redirect_to terms_path, notice: '用語を更新しました'
     else
@@ -44,6 +49,31 @@ class TermsController < ApplicationController
   end
 
   def term_params
-    params.require(:term).permit(:name, :kana, :description)
+    params.require(:term).permit(:name, :kana, :description, categories_attributes: %i[id name],
+                                                             term_categories_attributes: %i[id term_id category_id])
+  end
+
+  def prepare_category
+    return unless params[:term][:category_names]
+
+    category_names = params[:term][:category_names].split(',').map(&:strip).uniq
+    assign_categories = category_names.map do |name|
+      Category.find_or_create_by(name:)
+    end
+
+    add_new_categories(assign_categories)
+    remove_old_categories(assign_categories)
+  end
+
+  def add_new_categories(assign_categories)
+    (assign_categories - @term.categories).each do |category|
+      @term.categories << category
+    end
+  end
+
+  def remove_old_categories(assign_categories)
+    (@term.categories - assign_categories).each do |category|
+      @term.categories.destroy(category)
+    end
   end
 end

@@ -1,12 +1,16 @@
-.trix-content * {
-  overflow-wrap: anywhere;
-  line-height: 2;
-  a {
-    color: $blue;
-    text-decoration: underline;
+.trix-content {
+  * {
+    overflow-wrap: anywhere;
+    line-height: 2;
+    a {
+      color: $blue;
+      text-decoration: underline;
+    }
+  }
+  ul {
+    list-style: disc;
   }
 }
-
 
 trix-editor {
   min-height: 35em;
@@ -17,6 +21,10 @@ trix-editor {
   }
   &.textarea:not([rows]) {
     min-height: 24em;
+  }
+  ol, ul {
+    list-style: revert;
+    list-style-position: inside;
   }
 }
 
