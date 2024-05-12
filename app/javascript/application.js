@@ -14,13 +14,13 @@ import './show-more-icons';
 import './line-select';
 import './size-select';
 import './clipboard';
-import './magazine-tag';
 import './knowledge-carousel';
 import './knowledge-mermaid';
 import './home-search';
 import './file-preview';
 import './color-picker';
 import './price-histogram';
+import './choices-input';
 import 'choices.js';
 
 Turbo.session.drive = false;

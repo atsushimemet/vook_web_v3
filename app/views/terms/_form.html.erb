@@ -25,9 +25,8 @@
 
     <div class='field'>
       <%= form.label :category_names, 'カテゴリー', class: 'label' %>
-      <div class='control'>
-        <%= form.text_field :category_names, value: term.categories.map(&:name).join(','), class: 'input',
-                                             id: 'magazine-tag' %>
+      <div class='control choices-input'>
+        <%= form.text_field :category_names, value: term.categories.map(&:name).join(','), id: 'choices-input' %>
       </div>
     </div>
 
