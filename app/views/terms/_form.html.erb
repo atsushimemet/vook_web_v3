@@ -23,6 +23,14 @@
       </div>
     </div>
 
+    <div class='field'>
+      <%= form.label :category_names, 'カテゴリー', class: 'label' %>
+      <div class='control'>
+        <%= form.text_field :category_names, value: term.categories.map(&:name).join(','), class: 'input',
+                                             id: 'magazine-tag' %>
+      </div>
+    </div>
+
     <div class='buttons is-right'>
       <%= form.submit class: 'button is-primary' %>
       <% if term.persisted? %>
