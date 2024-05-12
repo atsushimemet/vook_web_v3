@@ -56,18 +56,22 @@ class TermsController < ApplicationController
     return unless params[:term][:category_names]
 
     category_names = params[:term][:category_names].split(',').map(&:strip).uniq
-
     assign_categories = category_names.map do |name|
       Category.find_or_create_by(name:)
     end
 
-    add_categories = assign_categories - @term.categories
-    add_categories.each do |category|
+    add_new_categories(assign_categories)
+    remove_old_categories(assign_categories)
+  end
+
+  def add_new_categories(assign_categories)
+    (assign_categories - @term.categories).each do |category|
       @term.categories << category
     end
+  end
 
-    remove_categories = @term.categories - assign_categories
-    remove_categories.each do |category|
+  def remove_old_categories(assign_categories)
+    (@term.categories - assign_categories).each do |category|
       @term.categories.destroy(category)
     end
   end
