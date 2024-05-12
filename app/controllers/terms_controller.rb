@@ -1,7 +1,6 @@
 class TermsController < ApplicationController
   before_action :set_term, only: %i[edit update destroy]
   before_action :require_admin_login, only: %i[new edit create update destroy]
-  before_action :prepare_category_names, only: %i[create update]
 
   def index
     @terms = Term.includes([:rich_text_description]).sort_by { |term| term.kana.tr('ァ-ン', 'ぁ-ん') }
@@ -18,6 +17,7 @@ class TermsController < ApplicationController
 
   def create
     @term = Term.new(term_params)
+    prepare_category
 
     if @term.save
       redirect_to terms_path, notice: '用語を登録しました'
@@ -28,6 +28,7 @@ class TermsController < ApplicationController
   end
 
   def update
+    prepare_category
     if @term.update(term_params)
       redirect_to terms_path, notice: '用語を更新しました'
     else
@@ -52,7 +53,7 @@ class TermsController < ApplicationController
                                                              term_categories_attributes: %i[id term_id category_id])
   end
 
-  def prepare_category_names
+  def prepare_category
     return unless params[:term][:category_names]
 
     category_names = params[:term][:category_names].split(',').map(&:strip).uniq
