@@ -10,6 +10,10 @@ Rails.application.routes.draw do
   end
   resources :users, only: [:show]
   resources :terms, only: %i[index new edit create update destroy]
+  namespace :terms do
+    get '/:category_name', to: 'categories#show', as: 'category', constraints: { category_name: /[^\/]+/ }
+  end
+
   get 'products/:knowledge_id', to: 'products#show', as: 'product'
 
   get '/auth/:provider/callback', to: 'sessions#create'

@@ -4,6 +4,12 @@
     @include touch {
       margin: 0 16px;
     }
+    .category-terms-title {
+      font-size: 1.6rem;
+      font-weight: 600;
+      margin-bottom: 16px;
+      color: $primary;
+    }
     .term-name {
       font-size: 1.6rem;
       font-weight: 600;
