@@ -1,0 +1,64 @@
+body {
+  display: flex;
+  flex-flow: column;
+  min-height: 100vh;
+  a:hover {
+    text-decoration: underline;
+    img {
+      opacity: .8;
+    }
+  }
+  .card {
+    height: 100%;
+    img {
+      object-fit: cover;
+    }
+  }
+  .table {
+    display: block;
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+main {
+  flex: 1;
+}
+.input:focus {
+  border: solid 1px gray;
+}
+
+.layout-wrapper {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1036px;
+  margin: 0 auto;
+  gap: 24px;
+
+  .main-content {
+    width: 66.7%;
+
+    @include touch {
+      width: 100%;
+    }
+  }
+
+  .sidebar {
+    width: 29.6%;
+
+    @include touch {
+      display: none;
+    }
+  }
+}
+
+.pc-contents {
+  @include touch {
+    display: none;
+  }
+}
+
+.mobile-contents {
+  @include desktop {
+    display: none;
+  }
+}
