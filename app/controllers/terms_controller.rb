@@ -3,7 +3,8 @@ class TermsController < ApplicationController
   before_action :require_admin_login, only: %i[new edit create update destroy]
 
   def index
-    @terms = Term.includes([:rich_text_description]).sort_by { |term| term.kana.tr('ァ-ン', 'ぁ-ん') }
+    @terms = Term.includes(%i[rich_text_description categories]).sort_by { |term| term.kana.tr('ァ-ン', 'ぁ-ん') }
+    @categories = @terms.flat_map(&:categories).uniq
   end
 
   def new
