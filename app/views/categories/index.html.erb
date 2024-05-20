@@ -19,8 +19,7 @@
           </td>
           <td>
             <%= button_to '削除', category_path(category),
-                          { method: :delete,
-                            form: { form: { data: { turbo: true, turbo_confirm: '本当に削除しますか？' } } },
+                          { method: :delete, form: { data: { turbo: true, turbo_confirm: '本当に削除しますか？' } },
                             class: 'button' } %>
           </td>
         </tr>

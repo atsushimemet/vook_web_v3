@@ -11,7 +11,7 @@
       <td>
         <%= button_to '削除', polymorphic_path(model),
                       { method: :delete,
-                        form: { form: { data: { turbo: true, turbo_confirm: '本当に削除しますか？' } } },
+                        form: { data: { turbo: true, turbo_confirm: '本当に削除しますか？' } },
                         class: 'button' } %>
       </td>
     </tr>
