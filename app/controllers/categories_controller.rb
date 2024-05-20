@@ -24,6 +24,8 @@ class CategoriesController < ApplicationController
     redirect_to categories_path, notice: 'カテゴリーを削除しました'
   end
 
+  private
+
   def set_category
     @category = Category.find(params[:id])
   end
