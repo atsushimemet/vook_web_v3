@@ -4,6 +4,12 @@
     @include touch {
       margin: 0 16px;
     }
+    .category-terms-title {
+      font-size: 1.6rem;
+      font-weight: 600;
+      margin-bottom: 16px;
+      color: $primary;
+    }
     .term-name {
       font-size: 1.6rem;
       font-weight: 600;
@@ -33,5 +39,23 @@
   }
   .form-section {
     margin-bottom: 20px;
+  }
+  .categories-lists {
+    padding: 1em;
+    margin-bottom: 16px;
+    background: $light-gray;
+    list-style: none;
+    @include desktop {
+      position: sticky;
+      top: 16px;
+    }
+    .title {
+      font-size: 1.0rem;
+      margin-bottom: 16px;
+      color: $primary;
+    }
+    .button {
+      margin-bottom: 4px;
+    }
   }
 }

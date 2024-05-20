@@ -1,0 +1,30 @@
+<section class='admin-section'>
+  <div class='container admin-container'>
+    <%= render partial: 'shared/section_headline', locals: { title: 'Category' } %>
+    <article class='message is-danger'>
+      <div class='message-body'>
+        <p>現状、カテゴリーはTermでしか利用されていないが、将来的には他のモデルでも利用される可能性あり。
+          必要になったときにここでのカテゴリー作成を実装。それまでは各Termからカテゴリー追加をお願いします。</p>
+      </div>
+    </article>
+    <table class='admin-table table is-fullwidth is-striped'>
+      <% @categories.each.with_index(1) do |category, index| %>
+        <tr>
+          <td><%= index %></td>
+          <td>
+            <%= category.name %>
+          </td>
+          <td>
+            <%= link_to '編集', edit_category_path(category), class: 'button is-primary' %>
+          </td>
+          <td>
+            <%= button_to '削除', category_path(category),
+                          { method: :delete, form: { data: { turbo: true, turbo_confirm: '本当に削除しますか？' } },
+                            class: 'button' } %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+    <%= link_to 'adminページに戻る', admin_path %>
+  </div>
+</section>

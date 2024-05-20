@@ -1,0 +1,8 @@
+<div class='categories-lists'>
+  <p class='title'>カテゴリー</p>
+  <% categories.each do |category| %>
+    <span class='categories-list'>
+      <%= link_to category.name, terms_category_path(category.name), class: 'button is-small' %>
+    </span>
+  <% end %>
+</div>

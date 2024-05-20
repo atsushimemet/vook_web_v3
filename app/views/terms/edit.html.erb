@@ -3,6 +3,11 @@
   <div class='term-container container'>
     <h2 class='term-name'>用語編集</h2>
     <%= render 'form', term: @term %>
-    <%= link_to 'Terms一覧に戻る', terms_path %>
+    <ul>
+      <li><%= link_to 'Terms一覧', terms_path %></li>
+      <% @term.categories.select { |category| category.name.present? }.each do |category| %>
+        <li><%= link_to "#{category.name}の用語一覧", terms_category_path(category.name) %></li>
+      <% end %>
+    </ul>
   </div>
 </section>

@@ -1,0 +1,15 @@
+<section class='form-section'>
+  <%= render 'shared/errors', object: @category %>
+  <%= form_with(model: category, local: true) do |form| %>
+    <div class='field'>
+      <%= form.label :name, class: 'label' %>
+      <div class='control'>
+        <%= form.text_field :name, class: 'input' %>
+      </div>
+    </div>
+
+    <div class='buttons is-right'>
+      <%= form.submit class: 'button is-primary' %>
+    </div>
+  <% end %>
+</section>
