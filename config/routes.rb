@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   end
   resources :users, only: [:show]
   resources :terms, only: %i[index new edit create update destroy]
+  resources :categories, only: %i[index edit update destroy]
   namespace :terms do
     get '/:category_name', to: 'categories#show', as: 'category', constraints: { category_name: /[^\/]+/ }
   end
