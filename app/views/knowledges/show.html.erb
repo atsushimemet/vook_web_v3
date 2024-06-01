@@ -44,11 +44,19 @@
                                                                                  height: '500px' %>
         </figure>
       <% end %>
-      <div class='knowledge-body content'>
-        <%= @knowledge.body %>
-      </div>
     </div>
-    <%= instagram_embed(@knowledge.instagram_url) if @knowledge.instagram_url.present? %>
+    <% if @knowledge.topic_sentence.present? %>
+      <div class='knowledge-identification'>
+        <h3 class='knowledge-sub-title'>
+          <%= @knowledge.topic_sentence %>
+        </h3>
+      </div>
+    <% end %>
+    <% if @knowledge.summary.present? %>
+      <div class='knowledge-identification'>
+        <%= @knowledge.summary %>
+      </div>
+    <% end %>
     <% if @knowledge.mermaid_chart.present? %>
       <div class='knowledge-identification'>
         <h3 class='knowledge-sub-title'>
@@ -100,6 +108,10 @@
         <% end %>
       </div>
     </div>
+    <div class='knowledge-body content'>
+      <%= @knowledge.body %>
+    </div>
+    <%= instagram_embed(@knowledge.instagram_url) if @knowledge.instagram_url.present? %>
     <div class='knowledge-relation'>
       <h4 class='knowledge-sub-title'>
         <%= "#{@knowledge.name}の関連知識" %>

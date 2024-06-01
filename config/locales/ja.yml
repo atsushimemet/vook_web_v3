@@ -37,6 +37,8 @@ ja:
         item: アイテム
         line: ライン
         status: ステータス
+        topic_sentence: トピック
+        summary: サマリー
       brand:
         name: ブランド名
         image: アイコン
