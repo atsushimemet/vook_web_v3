@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_06_040335) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_01_062639) do
   create_table "action_text_rich_texts", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
     t.string "name", null: false
     t.text "body", size: :long
@@ -60,7 +60,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_06_040335) do
     t.index ["name"], name: "index_brands_on_name", unique: true
   end
 
-  create_table "categories", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "categories", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -90,6 +90,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_06_040335) do
     t.string "instagram_url"
     t.integer "status", default: 0
     t.text "mermaid_chart"
+    t.text "summary"
+    t.string "topic_sentence"
     t.index ["brand_id"], name: "index_knowledges_on_brand_id"
     t.index ["item_id"], name: "index_knowledges_on_item_id"
     t.index ["line_id"], name: "index_knowledges_on_line_id"
@@ -178,7 +180,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_06_040335) do
     t.index ["name"], name: "index_tags_on_name", unique: true
   end
 
-  create_table "term_categories", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "term_categories", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
     t.bigint "term_id", null: false
     t.bigint "category_id", null: false
     t.datetime "created_at", null: false
