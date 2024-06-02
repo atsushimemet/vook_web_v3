@@ -121,20 +121,18 @@
   .knowledge-content {
     img {
       object-fit: cover;
-      width: 80%;
-      margin: 20px auto;
-      max-width: 800px;
+      width: 100%;
+      margin: 0 auto 48px;
       max-height: 500px;
     }
   }
   .knowledge-body {
-    padding: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 48px;
   }
   .knowledge-sub-title {
-    font-size: 1.2rem;
-    font-weight: 600;
     margin-bottom: 16px;
+    font-size: 1.4rem;
+    font-weight: 600;
   }
   .knowledge-instagram-embed {
     margin-bottom: 48px;
@@ -142,7 +140,38 @@
       padding-left: 3em;
     }
   }
-
+  .knowledge-topic-sentence {
+    margin-bottom: 48px;
+  }
+  .knowledge-summary {
+    position: relative;
+    margin-bottom: 48px;
+    padding: 2rem 3rem;
+    font-size: 1.2rem;
+    overflow-wrap: break-word;
+    &:before,
+    &:after {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      display: inline-block;
+      content:'';
+    }
+    &:before {
+      top:0;
+      left: 0;
+      border: inset 8px $primary;
+      border-bottom-color: $white;
+      border-right-color: $white;
+    }
+    &:after {
+      bottom:0;
+      right: 0;
+      border: outset 8px $primary;
+      border-top-color: $white;
+      border-left-color: $white;
+    }
+  }
   .no-knowledge-cards {
     padding: 2.5rem 0;
   }
@@ -220,5 +249,9 @@
       padding: 1em;
       background: #fff;
     }
+  }
+
+  .knowledge-edit {
+    margin-top: 2rem;
   }
 }

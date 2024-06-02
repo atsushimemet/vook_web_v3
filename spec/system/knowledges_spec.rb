@@ -64,9 +64,9 @@ RSpec.describe '/knowledges', type: :system do
       visit root_path
       click_on "Levi's"
       expect(page).to have_content "Levi's"
-      click_on '501'
+      click_on '501', match: :first
       expect(page).to have_content '501'
-      click_on '66前期'
+      click_on '66前期', match: :first
       expect(page).to have_content 'フロントボタン'
     end
 
@@ -74,9 +74,9 @@ RSpec.describe '/knowledges', type: :system do
       visit root_path
       click_on 'Denim Pants'
       expect(page).to have_content 'Denim Pants'
-      click_on '501'
+      click_on '501', match: :first
       expect(page).to have_content '501'
-      click_on '66前期'
+      click_on '66前期', match: :first
       expect(page).to have_content 'フロントボタン'
     end
 
@@ -85,7 +85,7 @@ RSpec.describe '/knowledges', type: :system do
       visit root_path
       click_on 'Denim Pants'
       expect(page).to have_content 'Denim Pants'
-      click_on '501'
+      click_on '501', match: :first
       expect(page).to have_content '501'
       click_on 'イメージ画像がない知識', match: :first
       expect(page).to have_content 'この知識にはイメージがありません'
