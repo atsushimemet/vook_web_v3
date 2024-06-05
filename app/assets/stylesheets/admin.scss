@@ -34,5 +34,11 @@
     width: 80px;
     height: 40px;
   }
+  .menu-lists {
+    position: sticky;
+    top: 16px;
+    padding: 1em;
+    border: solid 1px $primary;
+  }
 }
 
