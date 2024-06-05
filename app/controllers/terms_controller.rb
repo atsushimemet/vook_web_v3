@@ -50,8 +50,9 @@ class TermsController < ApplicationController
   end
 
   def term_params
-    params.require(:term).permit(:name, :kana, :description, categories_attributes: %i[id name],
-                                                             term_categories_attributes: %i[id term_id category_id])
+    params.require(:term).permit(:name, :kana, :description, :image,
+                                 categories_attributes: %i[id name],
+                                 term_categories_attributes: %i[id term_id category_id])
   end
 
   def prepare_category
