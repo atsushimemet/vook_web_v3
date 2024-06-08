@@ -22,7 +22,7 @@
             </span>
           </span>
           <span class='file-name'>
-            No file uploaded
+            <%= @item.image.attached? ? @item.image.filename.to_s : 'No file uploaded' %>
           </span>
         </label>
       </div>
@@ -42,7 +42,7 @@
             </span>
           </span>
           <span class='file-name'>
-            No file uploaded
+            <%= @item.banner.attached? ? @item.banner.filename.to_s : 'No file uploaded' %>
           </span>
         </label>
       </div>

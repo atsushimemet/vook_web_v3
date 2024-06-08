@@ -16,7 +16,7 @@
             </span>
           </span>
           <span class='file-name'>
-            No file uploaded
+            <%= @magazine.thumbnail.attached? ? @magazine.thumbnail.filename.to_s : 'No file uploaded' %>
           </span>
         </label>
       </div>
