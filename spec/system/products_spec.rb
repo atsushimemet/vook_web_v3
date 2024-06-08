@@ -17,12 +17,12 @@ RSpec.describe 'Products', type: :system do
         expect(page).to have_content "リーバイス 501 ネイビー LEVI'S 66前期 BIGE 初期 w28 001"
       end
 
-      it 'サイズボタンを押すとサイズに紐づいた商品が表示されること' do
-        visit product_path(knowledge_id: product.knowledge.id)
-        click_on 'w32'
-        expect(page).to have_content "リーバイス 501 ネイビー LEVI'S 66前期 BIGE 初期 w32 002"
-        expect(page).not_to have_content "リーバイス 501 ネイビー LEVI'S 66前期 BIGE 初期 w28 001"
-      end
+      # it 'サイズボタンを押すとサイズに紐づいた商品が表示されること' do
+      #   visit product_path(knowledge_id: product.knowledge.id)
+      #   click_on 'w32'
+      #   expect(page).to have_content "リーバイス 501 ネイビー LEVI'S 66前期 BIGE 初期 w32 002"
+      #   expect(page).not_to have_content "リーバイス 501 ネイビー LEVI'S 66前期 BIGE 初期 w28 001"
+      # end
     end
 
     context '商品が存在しない場合' do

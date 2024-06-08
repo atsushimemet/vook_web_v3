@@ -33,12 +33,12 @@
               <%= button_tag 'ALL', class: 'size-button button is-large is-fullwidth is-selected',
                                     data: { knowledge_id: @knowledge.id } %>
             </div>
-            <% @sizes.each do |size| %>
-              <div class='column is-one-quarter'>
-                <%= button_tag size.name, class: 'size-button button is-large is-fullwidth',
+            <%# @sizes.each do |size| %>
+              <%# <div class='column is-one-quarter'> %>
+                <%#= button_tag size.name, class: 'size-button button is-large is-fullwidth',
                                           data: { size_id: size.id, knowledge_id: @knowledge.id } %>
-              </div>
-            <% end %>
+              <%# </div> %>
+            <%# end %>
           </div>
         </div>
       </div>
