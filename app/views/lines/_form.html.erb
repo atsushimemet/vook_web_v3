@@ -36,7 +36,7 @@
             </span>
           </span>
           <span class='file-name'>
-            No file uploaded
+            <%= @line.image.attached? ? @line.image.filename.to_s : 'No file uploaded' %>
           </span>
         </label>
       </div>

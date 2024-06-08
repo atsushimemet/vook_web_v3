@@ -23,7 +23,7 @@
             </span>
           </span>
           <span class='file-name'>
-            No file uploaded
+            <%= @knowledge.image.attached? ? @knowledge.image.filename.to_s : 'No file uploaded' %>
           </span>
         </label>
       </div>

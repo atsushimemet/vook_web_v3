@@ -22,7 +22,7 @@
             </span>
           </span>
           <span class='file-name'>
-            No file uploaded
+            <%= @brand.image.attached? ? @brand.image.filename.to_s : 'No file uploaded' %>
           </span>
         </label>
       </div>
@@ -42,7 +42,7 @@
             </span>
           </span>
           <span class='file-name'>
-            No file uploaded
+            <%= @brand.banner.attached? ? @brand.banner.filename.to_s : 'No file uploaded' %>
           </span>
         </label>
       </div>
