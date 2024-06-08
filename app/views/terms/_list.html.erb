@@ -1,0 +1,22 @@
+<ul class='term-lists'>
+  <% terms.each do |term| %>
+    <li class='term-list' id="<%= term.name %>">
+      <% if term.image.attached? %>
+        <div class='term-list-image'>
+          <%= image_tag term.image.variant(resize_to_limit: [200, 200]), class: 'image is-96x96', alt: term.name %>
+        </div>
+      <% end %>
+      <div class='term-content'>
+        <div class='term-list-name'>
+          <%= "【#{term.name}】" %>
+        </div>
+        <div class='term-list-description'>
+          <%= term.description %>
+        </div>
+        <div class='term-edit-button'>
+          <%= link_to '編集', edit_term_path(term.id), class: 'button' if admin_login? %>
+        </div>
+      </div>
+    </li>
+  <% end %>
+</ul>

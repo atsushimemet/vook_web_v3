@@ -1,17 +1,38 @@
 <section class='admin-section'>
-  <div class='container admin-container'>
-    <%= link_to 'Knowledge管理', knowledges_path, class: 'button' %>
-    <%= link_to 'Magazine管理', magazines_path, class: 'button' %>
-    <%= link_to 'Category管理', categories_path, class: 'button' %>
-
-    <%= render partial: 'shared/section_headline', locals: { title: 'Brand' } %>
-    <%= render partial: 'table', locals: { models: @brands } %>
-    <%= link_to 'New Brand', new_brand_path, class: 'button is-primary new-button' %>
-    <%= render partial: 'shared/section_headline', locals: { title: 'Item' } %>
-    <%= render partial: 'table', locals: { models: @items } %>
-    <%= link_to 'New Item', new_item_path, class: 'button is-primary new-button' %>
-    <%= render partial: 'shared/section_headline', locals: { title: 'Line' } %>
-    <%= render partial: 'table', locals: { models: @lines } %>
-    <%= link_to 'New Line', new_line_path, class: 'button is-primary new-button' %>
+  <%= render partial: 'shared/section_headline', locals: { title: 'Brand' } %>
+  <div class='layout-wrapper main-content'>
+    <div class='container admin-container'>
+      <%= render partial: 'table', locals: { models: @brands } %>
+      <%= link_to 'New Brand', new_brand_path, class: 'button is-primary new-button' %>
+      <%= render partial: 'shared/section_headline', locals: { title: 'Item' } %>
+      <%= render partial: 'table', locals: { models: @items } %>
+      <%= link_to 'New Item', new_item_path, class: 'button is-primary new-button' %>
+      <%= render partial: 'shared/section_headline', locals: { title: 'Line' } %>
+      <%= render partial: 'table', locals: { models: @lines } %>
+      <%= link_to 'New Line', new_line_path, class: 'button is-primary new-button' %>
+    </div>
+    <div class='sidebar'>
+      <div class='menu-lists menu'>
+        <p class='menu-label'>Magazine</p>
+        <ul class='menu-list'>
+          <li><%= link_to 'Magazine一覧', magazines_path %></li>
+          <li><%= link_to 'Magazine新規作成', new_magazine_path %></li>
+        </ul>
+        <p class='menu-label'>Knowledge</p>
+        <ul class='menu-list'>
+          <li><%= link_to 'Knowledge一覧', knowledges_path %></li>
+          <li><%= link_to 'Knowledge新規作成', new_knowledge_path %></li>
+        </ul>
+        <p class='menu-label'>Term</p>
+        <ul class='menu-list'>
+          <li><%= link_to 'Term一覧', terms_path %></li>
+          <li><%= link_to 'Term新規作成', new_term_path %></li>
+        </ul>
+        <p class='menu-label'>Category</p>
+        <ul class='menu-list'>
+          <li><%= link_to 'Category一覧', categories_path %></li>
+        </ul>
+      </div>
+    </div>
   </div>
 </section>

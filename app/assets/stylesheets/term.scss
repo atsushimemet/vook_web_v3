@@ -20,17 +20,27 @@
       margin-bottom: 24px;
     }
     .term-list {
+      display: flex;
+      align-items: flex-start;
       padding: 1rem 0;
       &:not(:last-child) {
         border-bottom: 1px solid $dark-gray
+      }
+      .term-list-image {
+        margin-right: 16px;
+        flex: 0 0 auto;
+        img {
+          object-fit: cover;
+        }
+      }
+      .term-content {
+        flex: 1 1 auto;
       }
       .term-list-name{
         list-style: none;
         font-size: 1rem;
         font-weight: 600;
-      }
-      .term-list-description {
-        padding: 1rem 1rem 0;
+        margin-bottom: 8px;
       }
     }
     .term-edit-button {

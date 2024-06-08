@@ -3,8 +3,10 @@ class TermsController < ApplicationController
   before_action :require_admin_login, only: %i[new edit create update destroy]
 
   def index
-    @terms = Term.includes(%i[rich_text_description categories]).sort_by { |term| term.kana.tr('ァ-ン', 'ぁ-ん') }
-    @categories = @terms.flat_map(&:categories).uniq
+    @terms = Term.includes(%i[rich_text_description categories], { image_attachment: :blob }).sort_by do |term|
+      term.kana.tr('ァ-ン', 'ぁ-ん')
+    end
+    @categories = Category.joins(:terms).distinct
   end
 
   def new
@@ -50,8 +52,9 @@ class TermsController < ApplicationController
   end
 
   def term_params
-    params.require(:term).permit(:name, :kana, :description, categories_attributes: %i[id name],
-                                                             term_categories_attributes: %i[id term_id category_id])
+    params.require(:term).permit(:name, :kana, :description, :image,
+                                 categories_attributes: %i[id name],
+                                 term_categories_attributes: %i[id term_id category_id])
   end
 
   def prepare_category
