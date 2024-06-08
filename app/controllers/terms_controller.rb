@@ -3,8 +3,10 @@ class TermsController < ApplicationController
   before_action :require_admin_login, only: %i[new edit create update destroy]
 
   def index
-    @terms = Term.includes(%i[rich_text_description categories]).sort_by { |term| term.kana.tr('ァ-ン', 'ぁ-ん') }
-    @categories = @terms.flat_map(&:categories).uniq
+    @terms = Term.includes(%i[rich_text_description categories], { image_attachment: :blob }).sort_by do |term|
+      term.kana.tr('ァ-ン', 'ぁ-ん')
+    end
+    @categories = Category.joins(:terms).distinct
   end
 
   def new
