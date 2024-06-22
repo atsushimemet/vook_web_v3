@@ -85,7 +85,7 @@ RSpec.describe '/magazines', type: :system do
         click_on '登録'
         expect(page).to have_content '投稿に失敗しました'
         expect(page).to have_content 'タイトルを入力してください'
-      end.to change(Magazine, :count).by(0)
+      end.not_to change(Magazine, :count)
     end
   end
 
@@ -148,7 +148,7 @@ RSpec.describe '/magazines', type: :system do
           fill_in 'magazine_title', with: '変更タイトル'
           click_on '更新'
           expect(page).to have_content '記事を更新しました'
-        end.to change(Magazine, :count).by(0)
+        end.not_to change(Magazine, :count)
       end
 
       it '空欄投稿では記事の編集ができないこと' do
@@ -158,7 +158,7 @@ RSpec.describe '/magazines', type: :system do
           click_on '更新'
           expect(page).to have_content '更新に失敗しました'
           expect(page).to have_content 'タイトルを入力してください'
-        end.to change(Magazine, :count).by(0)
+        end.not_to change(Magazine, :count)
       end
     end
 

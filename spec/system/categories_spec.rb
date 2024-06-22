@@ -27,7 +27,7 @@ RSpec.describe '/categories', type: :system do
         fill_in 'category_name', with: '変更カテゴリ'
         click_on '更新'
         expect(page).to have_content 'カテゴリーを更新しました'
-      end.to change(Category, :count).by(0)
+      end.not_to change(Category, :count)
     end
   end
 
