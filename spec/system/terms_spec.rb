@@ -45,7 +45,7 @@ RSpec.describe 'Terms', type: :system do
         expect(page).to have_content '登録に失敗しました'
         expect(page).to have_content '名前を入力してください'
         expect(page).to have_content 'フリガナを入力してください'
-      end.to change(Term, :count).by(0)
+      end.not_to change(Term, :count)
     end
   end
 
@@ -63,7 +63,7 @@ RSpec.describe 'Terms', type: :system do
           fill_in 'term_name', with: '変更タイトル'
           click_on '更新'
           expect(page).to have_content '用語を更新しました'
-        end.to change(Term, :count).by(0)
+        end.not_to change(Term, :count)
       end
 
       it '空欄投稿では用語の編集ができないこと' do
@@ -73,7 +73,7 @@ RSpec.describe 'Terms', type: :system do
           click_on '更新'
           expect(page).to have_content '更新に失敗しました'
           expect(page).to have_content '名前を入力してください'
-        end.to change(Term, :count).by(0)
+        end.not_to change(Term, :count)
       end
     end
 
