@@ -12,5 +12,7 @@ RAILS_ENV=production bundle exec rails db:migrate
 # アセットのプリコンパイル
 RAILS_ENV=production bundle exec rails assets:precompile
 
+# Nginxを再起動
+sudo systemctl restart nginx
 # Pumaを再起動
 sudo systemctl restart puma
