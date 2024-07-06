@@ -11,7 +11,7 @@
         <%= render 'terms/categories_list', categories: @categories %>
       </div>
       <h2 class='category-terms-title'><%= "#{@category.name}の用語一覧" %></h2>
-      <%= render 'terms/list', terms: @terms %>
+      <%= render 'terms/list', terms: @terms, is_admin: admin_login? %>
       <%= link_to 'トップページに戻る', root_path %>
     </div>
     <div class='sidebar'>

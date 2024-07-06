@@ -17,7 +17,7 @@
       </div>
       <% @grouped_terms.each do |group, terms| %>
         <h2 class='group-title' id="<%= group %>"><%= group %></h2>
-        <%= render 'terms/list', terms: %>
+        <%= render 'terms/list', terms:, is_admin: admin_login? %>
       <% end %>
       <%= link_to 'トップページに戻る', root_path %>
     </div>
