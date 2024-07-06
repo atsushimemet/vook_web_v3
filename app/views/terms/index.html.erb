@@ -7,10 +7,18 @@
           <%= link_to '用語登録', new_term_path, class: 'button is-primary' %>
         </div>
       <% end %>
+      <div class='kana-groups-links'>
+        <% @kana_groups.each do |group| %>
+          <%= link_to group, "/terms##{group}", class: 'kana-groups-link' %>
+        <% end %>
+      </div>
       <div class='mobile-contents'>
         <%= render 'categories_list', categories: @categories %>
       </div>
-      <%= render 'terms/list', terms: @terms %>
+      <% @grouped_terms.each do |group, terms| %>
+        <h2 class='group-title' id="<%= group %>"><%= group %></h2>
+        <%= render 'terms/list', terms: %>
+      <% end %>
       <%= link_to 'トップページに戻る', root_path %>
     </div>
     <div class='sidebar'>

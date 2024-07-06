@@ -8,4 +8,23 @@ class Term < ApplicationRecord
 
   validates :name, presence: true, length: { maximum: 100 }, uniqueness: true
   validates :kana, presence: true, length: { maximum: 100 }, uniqueness: true
+
+  KANA_GROUPS = {
+    'あ行' => 'ア'..'オ',
+    'か行' => 'カ'..'コ',
+    'さ行' => 'サ'..'ソ',
+    'た行' => 'タ'..'ト',
+    'な行' => 'ナ'..'ノ',
+    'は行' => 'ハ'..'ホ',
+    'ま行' => 'マ'..'モ',
+    'や行' => 'ヤ'..'ヨ',
+    'ら行' => 'ラ'..'ロ',
+    'わ行' => 'ワ'..'ン'
+  }.freeze
+
+  def self.grouped_by_kana
+    KANA_GROUPS.transform_values do |range|
+      where(kana: range).order(:kana)
+    end
+  end
 end
