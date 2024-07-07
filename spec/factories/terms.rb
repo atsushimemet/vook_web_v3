@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :term do
     name { '赤耳' }
-    kana { 'akamimi' }
+    kana { 'アカミミ' }
 
     after(:create) do |term|
       ActionText::RichText.create!(

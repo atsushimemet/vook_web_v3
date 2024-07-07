@@ -20,6 +20,11 @@ $column-gap: 0.25rem;
 $tabs-link-color: #808080;
 $tabs-link-active-color: $primary;
 $table-striped-row-even-background-color: $light-gray;
+@media screen and (min-width: 1024px) and (max-width: 1215px) {
+  .container {
+    max-width: 1036px !important;
+  }
+}
 
 // Import only what you need from Bulma
 @import "bulma/sass/utilities/_all.sass";

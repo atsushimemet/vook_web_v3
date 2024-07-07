@@ -14,7 +14,7 @@
           <%= term.description %>
         </div>
         <div class='term-edit-button'>
-          <%= link_to '編集', edit_term_path(term.id), class: 'button' if admin_login? %>
+          <%= link_to '編集', edit_term_path(term.id), class: 'button' if is_admin %>
         </div>
       </div>
     </li>

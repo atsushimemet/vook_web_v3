@@ -2,16 +2,16 @@
   <%= render partial: 'shared/section_headline', locals: { title: 'Terms' } %>
   <div class='layout-wrapper'>
     <div class='term-container container main-content'>
-      <h2 class='category-terms-title'><%= "#{@category.name}の用語一覧" %></h2>
       <% if admin_login? %>
         <div class='has-text-right'>
-          <%= link_to '用語登録', new_term_path, class: 'button is-primary' %>
+          <%= link_to '用語登録', new_term_path, class: 'button is-primary mb-4' %>
         </div>
       <% end %>
       <div class='mobile-contents'>
         <%= render 'terms/categories_list', categories: @categories %>
       </div>
-      <%= render 'terms/list', terms: @terms %>
+      <h2 class='category-terms-title'><%= "#{@category.name}の用語一覧" %></h2>
+      <%= render 'terms/list', terms: @terms, is_admin: admin_login? %>
       <%= link_to 'トップページに戻る', root_path %>
     </div>
     <div class='sidebar'>
