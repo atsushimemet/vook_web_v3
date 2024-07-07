@@ -7,7 +7,8 @@ class Term < ApplicationRecord
   has_one_attached :image
 
   validates :name, presence: true, length: { maximum: 100 }, uniqueness: true
-  validates :kana, presence: true, length: { maximum: 100 }, uniqueness: true
+  validates :kana, presence: true, length: { maximum: 100 }, uniqueness: true,
+                   format: { with: /\A[ァ-ヶー－]+\z/, message: 'は全角カタカナで入力してください' }
 
   KANA_GROUPS = {
     'ア行' => 'ア'..'オ',
