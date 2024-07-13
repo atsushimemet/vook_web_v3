@@ -10,6 +10,7 @@ import './mention';
 import './navbar-burger';
 import './tabs';
 import './pageloader';
+import './pagetop';
 import './show-more-icons';
 import './line-select';
 import './size-select';
