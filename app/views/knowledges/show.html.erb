@@ -59,7 +59,7 @@
     <% end %>
     <% if @knowledge.mermaid_chart.present? %>
       <div class='knowledge-identification'>
-        <h3 class='knowledge-sub-title' id='deterimination'>
+        <h3 class='knowledge-sub-title'>
           <%= "#{@knowledge.name}の判別" %>
         </h3>
         <pre class='mermaid'>
@@ -68,7 +68,7 @@
       </div>
     <% end %>
     <div class='knowledge-price'>
-      <h3 class='knowledge-sub-title' id='price'>
+      <h3 class='knowledge-sub-title'>
         <%= "#{@knowledge.name}の価格情報" %>
       </h3>
       <div id='price-histogram' class='knowledge-price-histogram'></div>
