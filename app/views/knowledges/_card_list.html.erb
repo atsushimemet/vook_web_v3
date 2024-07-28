@@ -18,19 +18,18 @@
             <% if object.instance_of?(Knowledge) && object.draft? %>
               <span class='knowledge-state-draft'>下書き</span>
             <% end %>
-            <%# TODO: サムネの方針が決まっていないので一旦文字とVookロゴの表示だけにする %>
-            <%# if object.image.attached? %>
-            <%# <div class='knowledge-card-image image is-square'> %>
-            <%#= image_tag object.image.variant(resize_to_limit: [400, 400]), alt: "#{object.name}-image" %>
-            <%# </div> %>
-            <%# else %>
+            <% if object.image.attached? %>
+              <div class='knowledge-card-image image is-square'>
+                <%= image_tag object.image.variant(resize_to_limit: [400, 400]), alt: "#{object.name}-image" %>
+              </div>
+            <% else %>
             <div class='default-card'>
               <div class='default-card-image image is-square'>
                 <%= image_tag('logo_mark.png', alt: 'default-image', width: '100%', height: 'auto') %>
                 <span class='default-card-name'><%= object.name %></span>
               </div>
             </div>
-            <%# end %>
+            <% end %>
           </div>
         <% end %>
       </div>
