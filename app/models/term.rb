@@ -11,21 +11,27 @@ class Term < ApplicationRecord
                    format: { with: /\A[ァ-ヶー－]+\z/, message: 'は全角カタカナで入力してください' }
 
   KANA_GROUPS = {
-    'ア行' => 'ア'..'オ',
-    'カ行' => 'カ'..'コ',
-    'サ行' => 'サ'..'ソ',
-    'タ行' => 'タ'..'ト',
-    'ナ行' => 'ナ'..'ノ',
-    'ハ行' => 'ハ'..'ホ',
-    'マ行' => 'マ'..'モ',
-    'ヤ行' => 'ヤ'..'ヨ',
-    'ラ行' => 'ラ'..'ロ',
-    'ワ行' => 'ワ'..'ン'
+    'ア行' => /[ァ-オ]/,
+    'カ行' => /[カ-ゴ]/,
+    'サ行' => /[サ-ゾ]/,
+    'タ行' => /[タ-ド]/,
+    'ナ行' => /[ナ-ノ]/,
+    'ハ行' => /[ハ-ポ]/,
+    'マ行' => /[マ-モ]/,
+    'ヤ行' => /[ャ-ヨ]/,
+    'ラ行' => /[ラ-ロ]/,
+    'ワ行' => /[ワ-ン]/
   }.freeze
 
   def self.grouped_by_kana
-    KANA_GROUPS.transform_values do |range|
-      where(kana: range).order(:kana)
+    grouped_terms = all.group_by do |term|
+      KANA_GROUPS.each do |group, regex|
+        break group if term.kana[0].match?(regex)
+      end
+    end
+
+    KANA_GROUPS.keys.each_with_object({}) do |group, result|
+      result[group] = grouped_terms[group].sort_by(&:kana) if grouped_terms.key?(group)
     end
   end
 end
