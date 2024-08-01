@@ -15,6 +15,7 @@ document.addEventListener('turbo:load', () => {
                 values: data,
                 lookup: 'name',
                 menuItemLimit: 10,
+                replaceTextSuffix: '',
                 selectTemplate: (item) => {
                   return `<a href="/terms#${item.original.name}">${item.original.name}</a>`;
                 },
