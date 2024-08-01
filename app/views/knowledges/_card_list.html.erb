@@ -23,12 +23,12 @@
                 <%= image_tag object.image.variant(resize_to_limit: [400, 400]), alt: "#{object.name}-image" %>
               </div>
             <% else %>
-            <div class='default-card'>
-              <div class='default-card-image image is-square'>
-                <%= image_tag('logo_mark.png', alt: 'default-image', width: '100%', height: 'auto') %>
-                <span class='default-card-name'><%= object.name %></span>
+              <div class='default-card'>
+                <div class='default-card-image image is-square'>
+                  <%= image_tag('logo_mark.png', alt: 'default-image', width: '100%', height: 'auto') %>
+                  <span class='default-card-name'><%= object.name %></span>
+                </div>
               </div>
-            </div>
             <% end %>
           </div>
         <% end %>
