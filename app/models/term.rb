@@ -24,14 +24,10 @@ class Term < ApplicationRecord
   }.freeze
 
   def self.grouped_by_kana
-    grouped_terms = all.group_by do |term|
+    all.order(:kana).group_by do |term|
       KANA_GROUPS.each do |group, regex|
         break group if term.kana[0].match?(regex)
       end
-    end
-
-    KANA_GROUPS.keys.each_with_object({}) do |group, result|
-      result[group] = grouped_terms[group].sort_by(&:kana) if grouped_terms.key?(group)
     end
   end
 end
