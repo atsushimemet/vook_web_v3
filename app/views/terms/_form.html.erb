@@ -29,6 +29,13 @@
       </div>
     </div>
 
+    <% if @term.image.attached? %>
+      <div class='field'>
+        <%= form.check_box :remove_image %>
+        <%= form.label :remove_image, '画像を削除' %>
+      </div>
+    <% end %>
+
     <div class='field'>
       <%= form.label :kana, class: 'label' %>
       <div class='control'>
