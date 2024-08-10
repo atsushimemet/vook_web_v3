@@ -75,6 +75,18 @@ RSpec.describe 'Terms', type: :system do
           expect(page).to have_content '名前を入力してください'
         end.not_to change(Term, :count)
       end
+
+      it '画像の削除ができること' do
+        term_with_image = create(:image_term)
+        visit terms_path
+        expect(page).to have_selector("img[src$='test.png']")
+        visit edit_term_path(term_with_image)
+        expect(page).to have_content 'test.png'
+        check '画像を削除'
+        click_on '更新'
+        expect(page).to have_content '用語を更新しました'
+        expect(page).not_to have_selector("img[src$='test.png']")
+      end
     end
 
     context '管理者以外の場合' do
