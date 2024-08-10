@@ -1,4 +1,4 @@
-<%= render 'home/pageloader' %>
+<%= render 'home/pageloader' unless Rails.env.test? %>
 <section class='top-knowledge-section'>
   <%= render partial: 'home/knowledge' %>
 </section>
