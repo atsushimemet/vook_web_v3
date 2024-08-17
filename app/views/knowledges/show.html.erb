@@ -1,3 +1,5 @@
+<%= javascript_include_tag 'knowledges/show', "data-turbo-track": 'reload' %>
+
 <% set_meta_tags(
      title: "#{@knowledge.name} | Vook tokyo", description: @knowledge.body.to_plain_text,
      og: {

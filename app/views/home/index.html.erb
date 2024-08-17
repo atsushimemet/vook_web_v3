@@ -1,3 +1,5 @@
+<%= javascript_include_tag 'home/index', "data-turbo-track": 'reload' %>
+
 <%= render 'home/pageloader' unless Rails.env.test? %>
 <section class='top-knowledge-section'>
   <%= render partial: 'home/knowledge' %>
