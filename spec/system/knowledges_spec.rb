@@ -170,9 +170,9 @@ RSpec.describe '/knowledges', type: :system do
   end
 
   describe 'destroy' do
-    it '知識詳細ページから知識記事の削除ができること' do
+    it '知識一覧ページから知識記事の削除ができること' do
       sign_in_as(admin)
-      visit knowledge_path(knowledge)
+      visit knowledges_path
       expect do
         click_on '削除'
         page.accept_confirm '本当に削除しますか？'

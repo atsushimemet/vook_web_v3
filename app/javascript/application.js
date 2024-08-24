@@ -2,27 +2,20 @@
 import { Turbo } from '@hotwired/turbo-rails';
 import '@rails/actiontext';
 import Trix from 'trix';
-import '@splidejs/splide';
-import 'tributejs';
 
 import './trix-content';
-import './mention';
 import './navbar-burger';
 import './tabs';
-import './pageloader';
 import './pagetop';
-import './show-more-icons';
-import './line-select';
 import './size-select';
 import './clipboard';
-import './knowledge-carousel';
-import './knowledge-mermaid';
-import './home-search';
-import './file-preview';
-import './color-picker';
-import './price-histogram';
+
+// 【TODO】adminでも分割する
 import './choices-input';
-import 'choices.js';
+import './color-picker';
+import './mention';
+import './line-select';
+import './file-preview';
 
 Turbo.session.drive = false;
 Trix.config.blockAttributes.default.tagName = 'p';
