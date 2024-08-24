@@ -12,11 +12,7 @@
     <%= stylesheet_link_tag 'application', "data-turbo-track": 'reload' %>
     <%= stylesheet_link_tag 'https://fonts.googleapis.com/css2?family=Poppins&family=Noto+Sans+JP&display=swap' %>
     <%= javascript_include_tag 'application', "data-turbo-track": 'reload', defer: true %>
-    <% if content_for?(:javascript) %>
-      <%= yield :javascript %>
-    <% end %>
-    <%= javascript_include_tag 'https://www.instagram.com/embed.js' %>
-    <%= javascript_include_tag 'https://www.gstatic.com/charts/loader.js' %>
+    <%= yield :extra_javascript %>
     <%= hotwire_livereload_tags if Rails.env.development? %>
 
     <!-- Google tag (gtag.js) -->
@@ -26,7 +22,6 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-GEB5PLKSXC');
     </script>
     <meta name="google-adsense-account" content="ca-pub-7292276589292080">

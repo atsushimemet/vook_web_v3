@@ -1,4 +1,8 @@
-<%= javascript_include_tag 'knowledges/show', "data-turbo-track": 'reload' %>
+<% content_for :extra_javascript do %>
+  <%= javascript_include_tag 'knowledges/show', "data-turbo-track": 'reload', defer: true %>
+  <%= javascript_include_tag 'https://www.instagram.com/embed.js', defer: true %>
+  <%= javascript_include_tag 'https://www.gstatic.com/charts/loader.js', defer: true %>
+<% end %>
 
 <% set_meta_tags(
      title: "#{@knowledge.name} | Vook tokyo", description: @knowledge.body.to_plain_text,
