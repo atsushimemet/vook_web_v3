@@ -87,6 +87,13 @@ RSpec.describe 'Terms', type: :system do
         expect(page).to have_content '用語を更新しました'
         expect(page).not_to have_selector("img[src$='test.png']")
       end
+
+      it 'チェックボックスを押さないと画像の削除はされないこと' do
+        term_with_image = create(:image_term)
+        visit edit_term_path(term_with_image)
+        click_on '更新'
+        expect(page).to have_selector("img[src$='test.png']")
+      end
     end
 
     context '管理者以外の場合' do
