@@ -31,7 +31,7 @@ class TermsController < ApplicationController
 
   def update
     prepare_category
-    @term.image.purge if params[:term][:remove_image]
+    @term.image.purge if params[:term][:remove_image] == '1'
 
     if @term.update(term_params)
       redirect_to terms_path, notice: '用語を更新しました'
