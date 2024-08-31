@@ -1,3 +1,7 @@
+<% content_for :extra_javascript do %>
+  <%= javascript_include_tag 'common/admin', "data-turbo-track": 'reload', defer: true %>
+<% end %>
+
 <section class='form-section'>
   <%= render 'shared/errors', object: @item %>
   <%= form_with(model: item, local: true) do |form| %>
