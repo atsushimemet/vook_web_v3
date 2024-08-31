@@ -10,13 +10,6 @@ import './pagetop';
 import './size-select';
 import './clipboard';
 
-// 【TODO】adminでも分割する
-import './choices-input';
-import './color-picker';
-import './mention';
-import './line-select';
-import './file-preview';
-
 Turbo.session.drive = false;
 Trix.config.blockAttributes.default.tagName = 'p';
 Trix.config.blockAttributes.heading1.tagName = 'h3';
