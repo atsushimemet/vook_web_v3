@@ -14,9 +14,10 @@
           </span>
           <div class='magazine-card-image image is-square'>
             <% if magazine.thumbnail.attached? %>
-              <%= image_tag magazine.thumbnail.variant(resize_to_limit: [400, 400]), alt: magazine.title %>
+              <%= image_tag magazine.thumbnail.variant(resize_to_limit: [400, 400]), alt: magazine.title,
+                                                                                     loading: 'lazy' %>
             <% else %>
-              <%= image_tag('magazine-sample.jpg', alt: 'magazine-sample', size: '400x400') %>
+              <%= image_tag 'magazine-sample.webp', alt: 'magazine-sample', size: '400x400', loading: 'lazy' %>
             <% end %>
           </div>
           <div class='magazine-card-content'>

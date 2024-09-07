@@ -148,7 +148,7 @@ if Rails.env.development?
 
   knowledges_obj.each do |obj|
     knowledge = Knowledge.create!(obj.merge(user_id: user.id))
-    knowledge.image.attach(io: File.open(Rails.root.join('app/assets/images/product-sample.jpg')),
+    knowledge.image.attach(io: File.open(Rails.root.join('app/assets/images/product-sample.webp')),
                            filename: 'knowledge-501xx1.jpg')
     ActionText::RichText.create!(
       record_type: 'Knowledge',

@@ -10,9 +10,9 @@
               <div class='product-card-image'>
                 <div class='image is-square'>
                   <% if knowledge.image.attached? %>
-                    <%= image_tag knowledge.image.variant(resize_to_limit: [600, 600]), alt: knowledge.name %>
+                    <%= image_tag knowledge.image.variant(resize_to_limit: [600, 600]), alt: knowledge.name, loading: 'lazy' %>
                   <% else %>
-                    <%= image_tag('product-sample.jpg', alt: 'product-sample', size: '400x400') %>
+                    <%= image_tag 'product-sample.webp', alt: 'product-sample', size: '400x400', loading: 'lazy' %>
                   <% end %>
                 </div>
               </div>
