@@ -34,7 +34,7 @@ class TermsController < ApplicationController
     @term.image.purge if params[:term][:remove_image] == '1'
 
     if @term.update(term_params)
-      redirect_to terms_path, notice: '用語を更新しました'
+      redirect_to terms_path(anchor: @term.name), notice: '用語を更新しました'
     else
       flash.now[:alert] = '更新に失敗しました'
       render :edit, status: :unprocessable_entity
