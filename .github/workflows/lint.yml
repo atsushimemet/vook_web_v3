@@ -9,46 +9,46 @@ name: Lint
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   lint:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Set up Ruby
-      uses: ruby/setup-ruby@v1
-      with:
-        ruby-version: .ruby-version
-        bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+      - uses: actions/checkout@v2
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: .ruby-version
+          bundler-cache: true # runs 'bundle install' and caches installed gems automatically
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v2
-      with:
-        node-version: '16.x'
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
 
-    - name: Cache node modules
-      uses: actions/cache@v2.1.4
-      with:
-        path: node_modules
-        key: ${{ runner.os }}-node-${{ hashFiles('**/yarn.lock') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
+      - name: Cache node modules
+        uses: actions/cache@v2.1.4
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
 
-    - name: yarn install
-      run:  yarn install --check-files
+      - name: yarn install
+        run: yarn install --check-files
 
-    - name: Rubocop
-      run: bundle exec rubocop
+      - name: Rubocop
+        run: bundle exec rubocop
 
-    - name: ERB Lint
-      run: bundle exec erblint --lint-all
+      - name: ERB Lint
+        run: bundle exec erblint --lint-all
 
-    - name: ES Lint
-      run: yarn eslint app/javascript/*.js
+      - name: ES Lint
+        run: yarn eslint app/javascript/*.js
 
-    - name: Prettier
-      run: yarn prettier app/javascript/*.js
+      - name: Prettier
+        run: yarn prettier app/javascript/*.js
