@@ -3,41 +3,51 @@
     <div class='footer-columns'>
       <div class='left-content'>
         <div class='footer-logo'>
-          <%= image_tag 'logo_mark.webp', alt: 'logo-mark', class: 'logo-mark', size: '200x200', loading: 'lazy' %>
+          <%= image_tag 'logo_mark.webp', alt: 'logo-mark', class: 'logo-mark', size: '180x180', loading: 'lazy' %>
         </div>
       </div>
       <div class='right-content'>
-        <div class='footer-sns-icons'>
-          <div class='footer-sns-icon instagram-icon'>
-            <%= link_to 'https://www.instagram.com/vook.vintagebook/', target: :_blank, rel: 'noopener',
-                                                                       'aria-label': 'transition to vook instagram' do %>
-              <i class='fa-brands fa-instagram'></i>
-            <% end %>
-          </div>
-          <div class='footer-sns-icon tiktok-icon'>
-            <%= link_to 'https://www.tiktok.com/@vook.tokyo/', target: :_blank, rel: 'noopener',
-                                                               'aria-label': 'transition to vook tiktok' do %>
-              <i class='fa-brands fa-tiktok fa-2x'></i>
-            <% end %>
+        <div class='footer-sns'>
+          <p class='footer-sns-title'>follow us on</p>
+          <div class='footer-sns-icons'>
+            <div class='footer-sns-icon instagram-icon'>
+              <%= link_to 'https://www.instagram.com/vook.vintagebook/', target: :_blank, rel: 'noopener',
+                                                                         'aria-label': 'transition to vook instagram' do %>
+                <i class='fa-brands fa-instagram'></i>
+              <% end %>
+            </div>
+            <div class='footer-sns-icon tiktok-icon'>
+              <%= link_to 'https://www.tiktok.com/@vook.tokyo/', target: :_blank, rel: 'noopener',
+                                                                 'aria-label': 'transition to vook tiktok' do %>
+                <i class='fa-brands fa-tiktok fa-2x'></i>
+              <% end %>
+            </div>
           </div>
         </div>
-        <div class='footer-item'>
-          <div class='footer-link'>
-            <ul>
-              <li>
-                <%= link_to '利用規約', tos_path %>
-              </li>
-              <li>
-                <%= link_to 'プライバシーポリシー', privacy_policy_path %>
-              </li>
-              <li>
-                <%= link_to 'お問い合わせ', 'https://forms.gle/7UsfHYKSHqDC7yoy6' %>
-              </li>
-            </ul>
-          </div>
-          <p class='copy-right'>&copy; Vook tokyo 2023 - <%= Time.zone.today.year %></p>
+        <div class='footer-illustrations'>
+          <p class='footer-illustrations-title'>illustrations by</p>
+          <%= link_to 'https://www.instagram.com/enolu_mame/', target: :_blank, rel: 'noopener',
+                                                               class: 'footer-illustrations-image' do %>
+            <%= image_tag 'logo_gp.webp', alt: 'logo-green-piece', size: '200x100', loading: 'lazy' %>
+          <% end %>
         </div>
       </div>
+    </div>
+    <div class='footer-item'>
+      <div class='footer-link'>
+        <div>
+          <%= link_to '利用規約', tos_path %>
+        </div>
+        <span class='border'></span>
+        <div>
+          <%= link_to 'プライバシーポリシー', privacy_policy_path %>
+        </div>
+        <span class='border'></span>
+        <div>
+          <%= link_to 'お問い合わせ', 'https://forms.gle/7UsfHYKSHqDC7yoy6' %>
+        </div>
+      </div>
+      <p class='copy-right'>&copy; Vook tokyo 2023 - <%= Time.zone.today.year %></p>
     </div>
   </div>
 </footer>

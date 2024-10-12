@@ -1,5 +1,5 @@
 .footer {
-  padding: 3rem 1.5rem !important;
+  padding: 3rem 1.5rem 2rem !important;
   background-color: $primary !important;
   color: $dark-gray;
   a {
@@ -24,31 +24,63 @@
     }
   }
 
-  .footer-sns-icons {
+  .footer-sns {
     display: flex;
-    margin-bottom: 16px;
-    justify-content: center;
     align-items: center;
-    gap: 24px;
+    gap: 16px;
+    margin-bottom: 16px;
 
-    .fa-instagram {
-      font-size: 2.4rem;
+    @include mobile {
+      justify-content: center;
+    }
+
+    .footer-sns-title {
+      font-size: 14px;
+      margin-right: 8px;
+    }
+
+    .footer-sns-icons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 16px;
+
+      .fa-instagram {
+        font-size: 2.4rem;
+      }
+    }
+  }
+
+  .footer-illustrations {
+    width: fit-content;
+    margin: 0 auto 24px;
+
+    .footer-illustrations-title {
+      align-self: flex-start;
+      font-size: 14px;
+      margin-bottom: 8px;
     }
   }
 
   .footer-item {
     text-align: center;
-  }
 
-  .footer-link {
-    margin-bottom: 16px;
-    li {
-      margin-bottom: 4px;
+    .footer-link {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      margin-bottom: 8px;
+      .border {
+        height: 12px;
+        border-right: 1px solid $white;
+      }
     }
   }
 
   .copy-right {
-    font-size: 14px;
+    font-size: 11px;
     font-weight: bold;
   }
 }

@@ -31,7 +31,6 @@
 /config/master.key
 
 /app/assets/builds/*
-/app/assets/images
 /app/assets/csv
 /app/assets/stylesheets/**/*.css.map
 /app/assets/stylesheets/**/*.css
