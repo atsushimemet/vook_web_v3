@@ -15,7 +15,7 @@
     "mermaid": "^10.9.1",
     "sass": "^1.79.5",
     "tributejs": "^5.1.3",
-    "trix": "^2.0.10"
+    "trix": "^2.1.6"
   },
   "scripts": {
     "lint": "eslint app/javascript/**/*.js",
