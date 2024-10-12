@@ -93,7 +93,7 @@ GEM
       activerecord (>= 6.1, < 7.2)
     addressable (2.8.6)
       public_suffix (>= 2.0.2, < 6.0)
-    alba (3.1.0)
+    alba (3.3.0)
     ast (2.4.2)
     base64 (0.2.0)
     better_html (2.1.1)
