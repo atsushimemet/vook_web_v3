@@ -1,7 +1,3 @@
-<% content_for :extra_javascript do %>
-  <%= javascript_include_tag 'common/admin', defer: true %>
-<% end %>
-
 <section class='form-section'>
   <%= render 'shared/errors', object: @line %>
   <%= form_with(model: line, local: true) do |form| %>

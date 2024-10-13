@@ -11,9 +11,9 @@
     <%= stylesheet_link_tag 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css' %>
     <%= stylesheet_link_tag 'application', "data-turbo-track": 'reload' %>
     <%= stylesheet_link_tag 'https://fonts.googleapis.com/css2?family=Poppins&family=Noto+Sans+JP&display=swap' %>
+    <%= yield :stylesheet %>
     <%= javascript_include_tag 'application', "data-turbo-track": 'reload', defer: true %>
-    <%= yield :extra_javascript %>
-    <%= hotwire_livereload_tags if Rails.env.development? %>
+    <%= yield :javascript %>
 
     <!-- Google tag (gtag.js) -->
     <%= javascript_include_tag 'https://www.googletagmanager.com/gtag/js?id=G-GEB5PLKSXC' %>

@@ -1,6 +1,4 @@
-<% content_for :extra_javascript do %>
-  <%= javascript_include_tag 'home/index', "data-turbo-track": 'reload', defer: true %>
-<% end %>
+<%= javascript_include_tag 'home/index', "data-turbo-track": 'reload', defer: true %>
 
 <%= render 'home/pageloader' unless Rails.env.test? %>
 <section class='top-knowledge-section'>
