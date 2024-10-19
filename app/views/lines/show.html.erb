@@ -1,4 +1,7 @@
 <%= javascript_include_tag 'lines/show', defer: true %>
+<% content_for :stylesheet do %>
+  <%= stylesheet_link_tag 'page/knowledge' %>
+<% end %>
 
 <section class='knowledge-section'>
   <%= render partial: 'shared/section_headline', locals: { number: '00', title: 'Knowledge' } %>

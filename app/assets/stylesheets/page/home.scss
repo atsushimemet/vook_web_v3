@@ -1,3 +1,6 @@
+@import '../base';
+@import '../common/pageloader';
+
 .top-knowledge-section {
   margin-bottom: 64px;
   .top-knowledge-container {
@@ -68,9 +71,6 @@
       margin: 0 16px;
     }
   }
-  .magazine-card {
-    background: $dark-gray;
-  }
   .read-more-button {
     padding-bottom: 64px;
     .button {
@@ -79,6 +79,43 @@
       i {
         margin-left: 6px;
       }
+    }
+  }
+  .magazine-cards {
+    .magazine-card {
+      padding: 0 14px;
+      margin-bottom: 16px;
+      background: $dark-gray;
+      @include mobile {
+        padding: 4px;
+      }
+    }
+    .magazine-card-image {
+      margin-bottom: 16px;
+      img {
+        object-fit: cover;
+      }
+    }
+    .magazine-card-header {
+      font-size: 14px;
+    }
+    .magazine-date {
+      position: absolute;
+      z-index: 5;
+    }
+  }
+  .magazine-date {
+    background-color: $secondary;
+    color: $primary;
+    font-weight: 700;
+    font-size: 14px;
+    padding: 4px 8px;
+    &.draft {
+      color: $white;
+      background-color: $danger;
+    }
+    &.scheduled {
+      background-color: $success;
     }
   }
 }

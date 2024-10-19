@@ -1,3 +1,7 @@
+<% content_for :stylesheet do %>
+  <%= stylesheet_link_tag 'page/knowledge' %>
+<% end %>
+
 <section class='knowledge-section'>
   <%= render partial: 'shared/section_headline', locals: { number: '00', title: 'Knowledge' } %>
   <div class='knowledge-container container'>

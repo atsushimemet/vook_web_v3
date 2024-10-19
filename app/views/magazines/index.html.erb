@@ -1,4 +1,7 @@
 <%= javascript_include_tag 'magazines/index', defer: true %>
+<% content_for :stylesheet do %>
+  <%= stylesheet_link_tag 'page/magazine' %>
+<% end %>
 
 <section class='magazine-section'>
   <%= render partial: 'shared/section_headline', locals: { number: '01', title: 'Magazine' } %>

@@ -1,4 +1,7 @@
 <%= javascript_include_tag 'admin/show', defer: true %>
+<% content_for :stylesheet do %>
+  <%= stylesheet_link_tag 'page/admin' %>
+<% end %>
 
 <section class='admin-section'>
   <div class='menu-lists menu mobile-contents'>

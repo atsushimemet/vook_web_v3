@@ -1,6 +1,9 @@
 <%= javascript_include_tag 'knowledges/show' %>
 <%= javascript_include_tag 'https://www.instagram.com/embed.js', defer: true %>
 <%= javascript_include_tag 'https://www.gstatic.com/charts/loader.js', defer: true %>
+<% content_for :stylesheet do %>
+  <%= stylesheet_link_tag 'page/knowledge' %>
+<% end %>
 
 <% set_meta_tags(
      title: "#{@knowledge.name} | Vook tokyo", description: @knowledge.body.to_plain_text,

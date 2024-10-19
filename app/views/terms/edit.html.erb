@@ -1,4 +1,7 @@
 <%= javascript_include_tag 'terms/edit', defer: true %>
+<% content_for :stylesheet do %>
+  <%= stylesheet_link_tag 'page/term' %>
+<% end %>
 
 <section class='term-section'>
   <%= render partial: 'shared/section_headline', locals: { title: 'Terms' } %>

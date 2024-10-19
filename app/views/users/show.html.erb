@@ -1,4 +1,7 @@
 <%= javascript_include_tag 'users/show', defer: true %>
+<% content_for :stylesheet do %>
+  <%= stylesheet_link_tag 'page/user' %>
+<% end %>
 
 <div class='user-section'>
   <%= render partial: 'shared/section_headline', locals: { title: 'User' } %>

@@ -1,3 +1,6 @@
+@import '../base';
+@import '../common/share';
+
 .magazine-section {
   margin-bottom: 24px;
   .magazine-container {
@@ -59,42 +62,42 @@
   .form-section {
     margin-bottom: 20px;
   }
-}
+  .magazine-cards {
+    .magazine-card {
+      padding: 0 14px;
+      margin-bottom: 16px;
+      @include mobile {
+        padding: 4px;
+      }
+    }
+    .magazine-card-image {
+      margin-bottom: 16px;
+      img {
+        object-fit: cover;
+      }
+    }
+    .magazine-card-header {
+      font-size: 14px;
+    }
+    .magazine-date {
+      position: absolute;
+      z-index: 5;
+    }
+  }
 
-.magazine-cards {
-  .magazine-card {
-    padding: 0 14px;
-    margin-bottom: 16px;
-    @include mobile {
-      padding: 4px;
-    }
-  }
-  .magazine-card-image {
-    margin-bottom: 16px;
-    img {
-      object-fit: cover;
-    }
-  }
-  .magazine-card-header {
-    font-size: 14px;
-  }
   .magazine-date {
-    position: absolute;
-    z-index: 5;
+    background-color: $secondary;
+    color: $primary;
+    font-weight: 700;
+    font-size: 14px;
+    padding: 4px 8px;
+    &.draft {
+      color: $white;
+      background-color: $danger;
+    }
+    &.scheduled {
+      background-color: $success;
+    }
   }
 }
 
-.magazine-date {
-  background-color: $secondary;
-  color: $primary;
-  font-weight: 700;
-  font-size: 14px;
-  padding: 4px 8px;
-  &.draft {
-    color: $white;
-    background-color: $danger;
-  }
-  &.scheduled {
-    background-color: $success;
-  }
-}
