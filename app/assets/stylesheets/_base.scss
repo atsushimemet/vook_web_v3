@@ -1,0 +1,113 @@
+@charset 'utf-8';
+@use 'variables' as *;
+@use 'mixins' as *;
+
+$family-sans-serif: 'Poppins', 'Noto Sans JP', 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', sans-serif;
+$container-max-width: 1100px;
+$navbar-breakpoint: 769px;
+$body-background-color: $white;
+$control-border-width: 2px;
+$input-shadow: none;
+$section-padding: 20px;
+$button-border-width: 1px;
+$button-focus-box-shadow-size: unset;
+$card-header-padding: 0px;
+$card-content-padding: 1.0rem;
+$card-radius: 0;
+$card-shadow: none;
+$column-gap: 0.25rem;
+$tabs-link-color: #808080;
+$tabs-link-active-color: $primary;
+$table-striped-row-even-background-color: $light-gray;
+
+@media screen and (min-width: 1024px) and (max-width: 1215px) {
+  .container {
+    max-width: 1036px !important;
+  }
+}
+
+@import 'bulma/sass/utilities/_all.sass';
+@import 'bulma/sass/base/_all.sass';
+@import 'bulma/sass/elements/button.sass';
+@import 'bulma/sass/elements/container.sass';
+@import 'bulma/sass/elements/title.sass';
+@import 'bulma/sass/form/_all.sass';
+@import 'bulma/sass/components/navbar.sass';
+@import 'bulma/sass/layout/section.sass';
+@import 'bulma/bulma';
+@import '@splidejs/splide/src/css/template/default/index.scss';
+
+@import 'common/header';
+@import 'common/footer';
+@import 'common/section-headline';
+@import 'common/tabs';
+@import 'common/breadcrumb';
+@import 'common/share';
+@import 'common/choices';
+@import 'common/actiontext';
+
+body {
+  display: flex;
+  flex-flow: column;
+  min-height: 100vh;
+  overflow-x: hidden;
+  a:hover {
+    text-decoration: underline;
+    img {
+      opacity: .8;
+    }
+  }
+  .card {
+    height: 100%;
+    img {
+      object-fit: cover;
+    }
+  }
+  .table {
+    display: block;
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+main {
+  flex: 1;
+}
+.input:focus {
+  border: solid 1px gray;
+}
+
+.layout-wrapper {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1036px;
+  margin: 0 auto;
+  gap: 24px;
+
+  .main-content {
+    width: 66.7%;
+
+    @include touch {
+      width: 100%;
+    }
+  }
+
+  .sidebar {
+    width: 29.6%;
+
+    @include touch {
+      display: none;
+    }
+  }
+}
+
+.pc-contents {
+  @include touch {
+    display: none;
+  }
+}
+
+.mobile-contents {
+  @include desktop {
+    display: none;
+  }
+}

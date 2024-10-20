@@ -1,3 +1,6 @@
+@use '../variables' as *;
+@import 'trix/dist/trix';
+
 .trix-content {
   * {
     overflow-wrap: anywhere;

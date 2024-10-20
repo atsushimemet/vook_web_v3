@@ -1,4 +1,7 @@
 <%= javascript_include_tag 'magazines/show', defer: true %>
+<% content_for :stylesheet do %>
+  <%= stylesheet_link_tag 'page/magazine' %>
+<% end %>
 
 <% set_meta_tags(
      title: "#{@magazine.title} | Vook tokyo", description: @magazine.summary,

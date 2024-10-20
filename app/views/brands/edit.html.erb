@@ -1,4 +1,7 @@
 <%= javascript_include_tag 'brands/edit', defer: true %>
+<% content_for :stylesheet do %>
+  <%= stylesheet_link_tag 'page/admin' %>
+<% end %>
 
 <section class='admin-section'>
   <%= render partial: 'shared/section_headline', locals: { title: 'Brand' } %>
