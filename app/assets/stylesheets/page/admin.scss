@@ -1,4 +1,5 @@
-@import '../base';
+@use '../base' as *;
+@use '../variables' as *;
 
 .admin-section {
   margin: 24px 0;

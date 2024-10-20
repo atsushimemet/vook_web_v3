@@ -1,5 +1,6 @@
-@import '../base';
-@import '../common/share';
+@use '../base' as *;
+@use '../variables' as *;
+@use '../common/share' as *;
 
 .knowledge-section {
   margin-bottom: 24px;

@@ -1,9 +1,8 @@
 @charset 'utf-8';
-@import 'variables';
+@use 'variables' as *;
+@use 'mixins' as *;
 
 $family-sans-serif: 'Poppins', 'Noto Sans JP', 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', sans-serif;
-
-// Update some of Bulma's component variables
 $container-max-width: 1100px;
 $navbar-breakpoint: 769px;
 $body-background-color: $white;
@@ -20,13 +19,13 @@ $column-gap: 0.25rem;
 $tabs-link-color: #808080;
 $tabs-link-active-color: $primary;
 $table-striped-row-even-background-color: $light-gray;
+
 @media screen and (min-width: 1024px) and (max-width: 1215px) {
   .container {
     max-width: 1036px !important;
   }
 }
 
-// Import only what you need from Bulma
 @import 'bulma/sass/utilities/_all.sass';
 @import 'bulma/sass/base/_all.sass';
 @import 'bulma/sass/elements/button.sass';
@@ -35,15 +34,15 @@ $table-striped-row-even-background-color: $light-gray;
 @import 'bulma/sass/form/_all.sass';
 @import 'bulma/sass/components/navbar.sass';
 @import 'bulma/sass/layout/section.sass';
-
 @import 'bulma/bulma';
 @import '@splidejs/splide/src/css/template/default/index.scss';
 
 @import 'common/header';
 @import 'common/footer';
 @import 'common/section-headline';
-@import 'common/breadcrumb';
 @import 'common/tabs';
+@import 'common/breadcrumb';
+@import 'common/share';
 @import 'common/choices';
 @import 'common/actiontext';
 

@@ -1,5 +1,6 @@
-@import '../base';
-@import '../common/share';
+@use '../base' as *;
+@use '../variables' as *;
+@use '../common/share' as *;
 
 .magazine-section {
   margin-bottom: 24px;

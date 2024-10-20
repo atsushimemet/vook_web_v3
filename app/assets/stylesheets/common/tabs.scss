@@ -1,3 +1,5 @@
+@use '../variables' as *;
+
 .tab-list {
   &.is-active a {
     border-top: $primary solid 4px !important;

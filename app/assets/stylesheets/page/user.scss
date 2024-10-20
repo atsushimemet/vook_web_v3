@@ -1,4 +1,5 @@
-@import '../base';
+@use '../base' as *;
+@use '../variables' as *;
 
 .user-section {
   justify-content: center;
