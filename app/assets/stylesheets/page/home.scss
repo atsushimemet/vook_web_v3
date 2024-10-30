@@ -1,6 +1,6 @@
 @use '../base' as *;
 @use '../variables' as *;
-// @use '../common/pageloader' as *;
+@use '../common/pageloader' as *;
 
 .top-knowledge-section {
   margin-bottom: 64px;
@@ -34,7 +34,9 @@
     opacity: 0;
     max-height: 0;
     overflow: hidden;
-    transition: opacity 0.4s ease, max-height 0.4s ease;
+    transition:
+      opacity 0.4s ease,
+      max-height 0.4s ease;
     &.is-open {
       opacity: 1;
     }
@@ -207,7 +209,7 @@
   }
   .instagram-list-header {
     margin-bottom: 32px;
-    .instagram-list-title{
+    .instagram-list-title {
       font-size: 24px;
       font-weight: 700;
     }
