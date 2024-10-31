@@ -5,22 +5,18 @@ class HomeController < ApplicationController
     @first_items = Item.includes(image_attachment: :blob).knowledge_count_order.limit(8)
     @more_items = Item.includes(image_attachment: :blob).knowledge_count_order.offset(8)
     @magazines = Magazine.published.includes(thumbnail_attachment: :blob).order(publish_at: :desc).limit(8)
-    @pickup_knowledges = current_pickup_knowledge
+    # levis 501 BIG E, id 10
+    # champion reverse weave 90s 刺繍タグ, id 50
+    # levis 501 66前期, id 5
+    # lee 101j 101j, id 107
+    # levis 505 BIG E, id 33
+    @pickup_knowledges = Knowledge.with_attached_image.find(10, 50, 5, 107, 33)
     @instagram_feeds = instagram_feed_cache
   end
 
   def about; end
 
   private
-
-  # 本番環境で知識記事作られるまでの一時的なpickup
-  def current_pickup_knowledge
-    if Rails.env.production?
-      Knowledge.with_attached_image.where(id: 10..14)
-    else
-      Knowledge.with_attached_image.where(id: 1..5)
-    end
-  end
 
   def instagram_feed_cache
     Rails.cache.fetch('instagram_feed', expires_in: 1.hour) do

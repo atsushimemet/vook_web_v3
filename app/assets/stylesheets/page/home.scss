@@ -156,7 +156,8 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
-        border: solid 2px $primary;
+        border: solid 1px $primary;
+        background: $light-gray;
       }
     }
     .slide-title {

@@ -8,9 +8,11 @@
           <li class='splide__slide card'>
             <%= link_to product_path(knowledge.id) do %>
               <div class='product-card-image'>
-                <div class='image is-square'>
-                  <% if knowledge.image.attached? %>
-                    <%= image_tag knowledge.image.variant(resize_to_limit: [600, 600]), alt: knowledge.name, loading: 'lazy' %>
+                <div class='image is-square '>
+                  <% if knowledge.line.image.attached? %>
+                    <%= image_tag knowledge.line.image.variant(resize_to_limit: [300, 300]),
+                                  alt: knowledge.name,
+                                  loading: 'lazy' %>
                   <% else %>
                     <%= image_tag 'product-sample.webp', alt: 'product-sample', size: '400x400', loading: 'lazy' %>
                   <% end %>
