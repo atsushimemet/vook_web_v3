@@ -49,8 +49,8 @@
         <p>現在、商品情報はありません</p>
       <% else %>
         <table class='table is-bordered is-hoverable is-fullwidth' id='product-list'>
-          <%= render 'products/list', products: @products %>
         </table>
+        <div id='product-table'></div>
       <% end %>
     </div>
     <%= render 'shared/share_banner', share_text: @knowledge.name %>
