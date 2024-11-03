@@ -1,5 +1,4 @@
 import '../clipboard';
-import '../size-select';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom/client';
 import { StyledEngineProvider } from '@mui/material/styles';
@@ -10,5 +9,5 @@ ReactDOM.createRoot(document.getElementById('product-table')).render(
     <StyledEngineProvider injectFirst>
       <ProductTable />
     </StyledEngineProvider>
-  </React.StrictMode>
+  </React.StrictMode>,
 );
