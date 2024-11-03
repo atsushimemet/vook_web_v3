@@ -5,7 +5,9 @@
     },
     "extends": [
         "standard",
-        "prettier"
+        "prettier",
+        "eslint:recommended",
+        "plugin:react/recommended"
     ],
     "parserOptions": {
         "ecmaVersion": "latest",
@@ -15,5 +17,10 @@
     },
     "globals": {
         "google": "readonly"
+    },
+    "settings": {
+        "react": {
+            "version": "detect"
+        }
     }
 }

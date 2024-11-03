@@ -10,55 +10,35 @@
     display: flex;
     align-items: center;
     column-gap: 10px;
-  }
-  .product-title {
-    font-size: 2rem;
-    font-weight: 600;
-    line-height: 1.125;
-  }
-  .product-image {
-    img {
-      object-fit: contain;
-      width: 80%;
-      margin: 20px auto;
-      max-width: 800px;
-      max-height: 500px;
+    margin-bottom: 8px;
+    .product-title {
+      font-size: 2rem;
+      font-weight: 600;
+      line-height: 1.125;
+      @include touch {
+        font-size: 1.5rem;
+      }
     }
   }
-  .size-buttons {
-    .is-selected {
-      background-color: $primary;
-      border-color: transparent;
-      color: $white;
-    }
+  .tableHead {
+    text-align: center;
   }
-  .product-link {
+  .tableRow {
     cursor: pointer;
-  }
-  .product-information {
-    display: flex;
-    .ad {
-      display: flex;
-      align-items: flex-end;
-      margin-left: auto;
-      font-size: 16px;
-      color: $primary50;
+    .tableRowPrice {
+      text-align: center;
     }
   }
-  .platform-col {
-    // TODO:表示を確認
-    // vertical-align: middle;
-  }
-  .platform-image {
+  .platformImage {
     max-width: 128px;
-    max-height: 48px;
-    vertical-align: middle;
     @include touch {
       max-width: 64px;
-      max-height: 24px;
     }
   }
-  .price-col {
-    white-space: nowrap;
+  .ad {
+    margin: 8px;
+    text-align: right;
+    font-size: 16px;
+    color: $primary70;
   }
 }
