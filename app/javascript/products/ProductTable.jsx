@@ -26,9 +26,13 @@ export default function StickyHeadTable() {
   const url = new URL(window.location.href);
   const productId = url.pathname.split('/').pop();
 
-  const { data: rows = [], error } = useSWR(`/api/products/${productId}`, fetcher, {
-    revalidateOnFocus: false,
-  });
+  const { data: rows = [], error } = useSWR(
+    `/api/products/${productId}`,
+    fetcher,
+    {
+      revalidateOnFocus: false,
+    },
+  );
 
   const handleRequestSort = (property) => {
     const isAsc = orderBy === property && order === 'asc';
@@ -61,15 +65,23 @@ export default function StickyHeadTable() {
   if (!rows) return <div>Loading...</div>;
 
   const MemoizedTableRow = React.memo(({ row, onClick }) => (
-    <TableRow hover tabIndex={-1} key={row.id} onClick={onClick} className="tableRow">
-      <TableCell align="left" className='tableRowName'>{row.name}</TableCell>
+    <TableRow
+      hover
+      tabIndex={-1}
+      key={row.id}
+      onClick={onClick}
+      className="tableRow"
+    >
+      <TableCell align="left" className="tableRowName">
+        {row.name}
+      </TableCell>
       <TableCell align="center">
         {row.platform.image_url && (
           <img
             src={row.platform.image_url}
             alt="プラットフォームの画像"
             loading="lazy"
-            className='platformImage'
+            className="platformImage"
           />
         )}
       </TableCell>
