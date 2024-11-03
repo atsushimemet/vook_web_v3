@@ -8,7 +8,7 @@
   <div class='product-section container'>
     <nav class='breadcrumb-list'>
       <ul>
-        <li><i class='fa-solid fa-tag icon-tag' aria-label='Tag'></i></li>
+        <li><i class='fa-solid fa-tag icon-tag'></i></li>
         <li><%= link_to "##{@knowledge.brand.name}", brand_path(@knowledge.brand.name), class: 'button is-rounded' %></li>
         <li><%= link_to "##{@knowledge.item.name}", item_path(@knowledge.item.name), class: 'button is-rounded' %></li>
         <li><%= link_to "##{@knowledge.line.name}", line_path(@knowledge.line.name), class: 'button is-rounded' %></li>
@@ -16,40 +16,17 @@
     </nav>
     <div class='product-header'>
       <h2 class='product-title'>
-        <%= @knowledge.name %>
+        <%= "#{@knowledge.name}の商品情報" %>
       </h2>
       <span class='knowledge-link'>
         <%= link_to '解説ページ', knowledge_path(@knowledge), class: 'button is-rounded' %>
       </span>
     </div>
     <div class='product-body'>
-      <div class='product-image_and_sizes columns'>
-        <div class='product-image column'>
-          <% if @knowledge.image.attached? %>
-            <figure class='image'>
-              <%= image_tag @knowledge.image.variant(resize_to_limit: [1000, 1000]) %>
-            </figure>
-          <% end %>
-        </div>
-        <div class='product-sizes column'>
-          <div class='title is-4'>サイズ</div>
-          <div class='size-buttons columns is-multiline is-mobile'>
-            <div class='column is-full'>
-              <%= button_tag 'ALL', class: 'size-button button is-large is-fullwidth is-selected',
-                                    data: { knowledge_id: @knowledge.id } %>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class='title is-4 product-information'>
-        商品情報
-        <span class='ad'>広告</span>
-      </div>
+      <div class='ad'>広告</div>
       <% if @products.empty? %>
         <p>現在、商品情報はありません</p>
       <% else %>
-        <table class='table is-bordered is-hoverable is-fullwidth' id='product-list'>
-        </table>
         <div id='product-table'></div>
       <% end %>
     </div>
