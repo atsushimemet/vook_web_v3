@@ -102,7 +102,7 @@ export default function StickyHeadTable() {
                       <TableCell key={column.id} align="center">
                         <Skeleton
                           variant="rectangular"
-                          width={column.minWidth}
+                          style={{ minWidth: column.minWidth }}
                           height={24}
                         />
                       </TableCell>

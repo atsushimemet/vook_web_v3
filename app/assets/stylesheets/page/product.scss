@@ -28,15 +28,11 @@
   }
   .MuiTableContainer-root {
     overflow-x: auto;
-    overflow-y: hidden;
     .tableHead {
       text-align: center;
     }
     .tableRow {
       cursor: pointer;
-      .tableRowPrice {
-        text-align: center;
-      }
     }
     .platformImage {
       max-width: 128px;
