@@ -13,8 +13,8 @@ import useSWR from 'swr';
 
 const columns = [
   { id: 'name', label: '商品名', minWidth: 224 },
-  { id: 'platform', label: '', minWidth: 96 },
   { id: 'price', label: '金額', minWidth: 88, sortable: true },
+  { id: 'platform', label: '', minWidth: 96 },
 ];
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
@@ -120,6 +120,9 @@ export default function StickyHeadTable() {
                       onClick={() => window.open(row.url, '_blank')}
                     >
                       <TableCell align="left">{row.name}</TableCell>
+                      <TableCell align="center" className="tableRowPrice">
+                        {row.price}
+                      </TableCell>
                       <TableCell align="center">
                         {row.platform.image_url && (
                           <img
@@ -129,9 +132,6 @@ export default function StickyHeadTable() {
                             className="platformImage"
                           />
                         )}
-                      </TableCell>
-                      <TableCell align="center" className="tableRowPrice">
-                        {row.price}
                       </TableCell>
                     </TableRow>
                   ))}
