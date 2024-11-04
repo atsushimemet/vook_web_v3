@@ -8,6 +8,7 @@ import TableHead from '@mui/material/TableHead';
 import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
 import TableSortLabel from '@mui/material/TableSortLabel';
+import Skeleton from '@mui/material/Skeleton';
 import useSWR from 'swr';
 
 const columns = [
@@ -26,13 +27,13 @@ export default function StickyHeadTable() {
   const url = new URL(window.location.href);
   const productId = url.pathname.split('/').pop();
 
-  const { data: rows = [], error } = useSWR(
-    `/api/products/${productId}`,
-    fetcher,
-    {
-      revalidateOnFocus: false,
-    },
-  );
+  const {
+    data: rows,
+    error,
+    isLoading,
+  } = useSWR(`/api/products/${productId}`, fetcher, {
+    revalidateOnFocus: false,
+  });
 
   const handleRequestSort = (property) => {
     const isAsc = orderBy === property && order === 'asc';
@@ -50,6 +51,7 @@ export default function StickyHeadTable() {
   };
 
   const sortedRows = React.useMemo(() => {
+    if (!rows) return [];
     return [...rows].sort((a, b) => {
       if (a[orderBy] < b[orderBy]) {
         return order === 'asc' ? -1 : 1;
@@ -62,34 +64,6 @@ export default function StickyHeadTable() {
   }, [rows, order, orderBy]);
 
   if (error) return <div>Error loading data</div>;
-  if (!rows) return <div>Loading...</div>;
-
-  const MemoizedTableRow = React.memo(({ row, onClick }) => (
-    <TableRow
-      hover
-      tabIndex={-1}
-      key={row.id}
-      onClick={onClick}
-      className="tableRow"
-    >
-      <TableCell align="left" className="tableRowName">
-        {row.name}
-      </TableCell>
-      <TableCell align="center">
-        {row.platform.image_url && (
-          <img
-            src={row.platform.image_url}
-            alt="プラットフォームの画像"
-            loading="lazy"
-            className="platformImage"
-          />
-        )}
-      </TableCell>
-      <TableCell align="center" className="tableRowPrice">
-        {row.price}
-      </TableCell>
-    </TableRow>
-  ));
 
   return (
     <Paper sx={{ width: '100%', overflow: 'hidden' }}>
@@ -121,22 +95,53 @@ export default function StickyHeadTable() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {sortedRows
-              .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-              .map((row) => (
-                <MemoizedTableRow
-                  key={row.id}
-                  row={row}
-                  onClick={() => window.open(row.url, '_blank')}
-                />
-              ))}
+            {isLoading
+              ? Array.from({ length: rowsPerPage }).map((_, index) => (
+                  <TableRow key={index}>
+                    {columns.map((column) => (
+                      <TableCell key={column.id} align="center">
+                        <Skeleton
+                          variant="rectangular"
+                          width={column.minWidth}
+                          height={24}
+                        />
+                      </TableCell>
+                    ))}
+                  </TableRow>
+                ))
+              : sortedRows
+                  .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                  .map((row) => (
+                    <TableRow
+                      hover
+                      tabIndex={-1}
+                      key={row.id}
+                      className="tableRow"
+                      onClick={() => window.open(row.url, '_blank')}
+                    >
+                      <TableCell align="left">{row.name}</TableCell>
+                      <TableCell align="center">
+                        {row.platform.image_url && (
+                          <img
+                            src={row.platform.image_url}
+                            alt="プラットフォームの画像"
+                            loading="lazy"
+                            className="platformImage"
+                          />
+                        )}
+                      </TableCell>
+                      <TableCell align="center" className="tableRowPrice">
+                        {row.price}
+                      </TableCell>
+                    </TableRow>
+                  ))}
           </TableBody>
         </Table>
       </TableContainer>
       <TablePagination
         rowsPerPageOptions={[30, 100]}
         component="div"
-        count={rows.length}
+        count={rows ? rows.length : 0}
         rowsPerPage={rowsPerPage}
         page={page}
         onPageChange={handleChangePage}
