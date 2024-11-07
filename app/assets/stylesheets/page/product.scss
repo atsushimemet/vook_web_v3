@@ -19,12 +19,18 @@
         font-size: 1.5rem;
       }
     }
+    .knowledge-button {
+      border: solid 1px $primary;
+    }
   }
   .ad {
     margin: 8px;
     text-align: right;
     font-size: 16px;
     color: $primary70;
+  }
+  #product-table {
+    min-height: 400px;
   }
   .MuiTableContainer-root {
     overflow-x: auto;

@@ -27,13 +27,11 @@ export default function StickyHeadTable() {
   const url = new URL(window.location.href);
   const productId = url.pathname.split('/').pop();
 
-  const {
-    data: rows,
-    error,
-    isLoading,
-  } = useSWR(`/api/products/${productId}`, fetcher, {
+  const { data: rows, error } = useSWR(`/api/products/${productId}`, fetcher, {
     revalidateOnFocus: false,
   });
+
+  const isLoading = !rows && !error;
 
   const handleRequestSort = (property) => {
     const isAsc = orderBy === property && order === 'asc';
@@ -99,7 +97,11 @@ export default function StickyHeadTable() {
               ? Array.from({ length: rowsPerPage }).map((_, index) => (
                   <TableRow key={index}>
                     {columns.map((column) => (
-                      <TableCell key={column.id} align="center">
+                      <TableCell
+                        key={column.id}
+                        align="center"
+                        className="skeletonCell"
+                      >
                         <Skeleton
                           variant="rectangular"
                           style={{ minWidth: column.minWidth }}
@@ -128,7 +130,6 @@ export default function StickyHeadTable() {
                           <img
                             src={row.platform.image_url}
                             alt="プラットフォームの画像"
-                            loading="lazy"
                             className="platformImage"
                           />
                         )}
