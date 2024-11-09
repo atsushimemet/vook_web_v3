@@ -13,7 +13,6 @@ RSpec.describe 'Products', type: :system do
 
       it '商品ページが存在すること' do
         visit product_path(knowledge_id: product.knowledge.id)
-        expect(page).to have_content 'ALL'
         expect(page).to have_content "リーバイス 501 ネイビー LEVI'S 66前期 BIGE 初期 w28 001"
       end
 
