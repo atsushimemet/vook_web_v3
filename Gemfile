@@ -62,6 +62,7 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'rspec-rails'
   gem 'simplecov'
+  gem 'spring-commands-rspec'
 end
 
 group :development do
@@ -80,7 +81,7 @@ group :development do
   gem 'rack-mini-profiler'
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
-  # gem "spring"
+  gem 'spring'
 end
 
 group :test do
