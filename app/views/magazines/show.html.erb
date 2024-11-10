@@ -47,7 +47,7 @@
       <% if @magazine.tag_list.any? %>
         <nav class='magazine-tags'>
           <ul>
-            <li><i class='fa-solid fa-tag icon-tag' aria-label='Tag'></i></li>
+            <li><i class='fa-solid fa-tag icon-tag'></i></li>
             <% @magazine.tag_list.each do |tag| %>
               <li>
                 <span class='button is-rounded'><%= "##{tag}" %></span>
