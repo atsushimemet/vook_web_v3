@@ -1,14 +1,22 @@
 @use '../variables' as *;
-// @import '@creativebulma/bulma-tooltip/src/sass/index.sass';
-// @import '@creativebulma/bulma-divider/src/sass/index.sass';
 
 .share-banner {
-  padding: 20px;
+  padding: 24px 0;
+    .share-divider {
+      display: flex;
+      align-items: center;
+      margin-bottom: 16px;
+      color: $primary80;
+      font-size: 14px;
+    }
 
-  .share-title {
-    margin: 0 0 16px;
-    font-size: 14px;
-  }
+    .share-divider::before {
+      flex-grow: 1;
+      margin-right: 4px;
+      content: '';
+      height: 1px;
+      background-color: $primary80;
+    }
 
   .share-buttons {
     text-align: right;
@@ -37,7 +45,7 @@
       transform: translate(-50%, -50%);
     }
 
-    .copy-link {
+    #copy-link {
       display: inline-block;
       position: relative;
       width: 36px;
@@ -45,10 +53,23 @@
       border-radius: 50%;
       background-color: $primary;
       cursor: pointer;
+      i {
+        color: $white;
+      }
     }
 
-    .copy-link i {
-      color: $white;
+    #copy-link[data-tooltip]::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      background: $light-gray;
+      color: $primary;
+      padding: 4px;
+      font-size: 10px;
+      border-radius: 4px;
+      top: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      white-space: nowrap;
     }
 
     .link-button {

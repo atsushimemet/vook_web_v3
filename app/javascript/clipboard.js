@@ -1,9 +1,9 @@
 import ClipboardJS from 'clipboard';
 
 document.addEventListener('turbo:load', () => {
-  const element = document.querySelector('.copy-link');
+  const element = document.getElementById('copy-link');
   if (element) {
-    const copyLink = new ClipboardJS('.copy-link');
+    const copyLink = new ClipboardJS('#copy-link');
     copyLink.on('success', () => {
       element.setAttribute('data-tooltip', 'コピーしました');
 
