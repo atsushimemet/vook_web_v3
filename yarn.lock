@@ -134,11 +134,6 @@
   resolved "https://registry.yarnpkg.com/@chevrotain/utils/-/utils-11.0.3.tgz#e39999307b102cff3645ec4f5b3665f5297a2224"
   integrity sha512-YslZMgtJUyuMbZ+aKvfF3x1f5liK4mWNxghFRv7jqRR9C3R3fAOGTTKvxXDa2Y1s9zSbcpuO0cAxDYsc9SrXoQ==
 
-"@creativebulma/bulma-divider@^1.1.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@creativebulma/bulma-divider/-/bulma-divider-1.1.0.tgz#fb0c3527efc5b8d7b1ac52cd065e9f8c57b5a8bc"
-  integrity sha512-Lx5MlUhgAnTF+wNZ5LXcaE1K0F2m0Pkwte1p08FBsIyRV6Oq7BuKPk/O9XJPcF+vR6BjCxNy/hjYFXtNmoXbNg==
-
 "@creativebulma/bulma-tooltip@^1.2.0":
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/@creativebulma/bulma-tooltip/-/bulma-tooltip-1.2.0.tgz#84dcdd59d94c09c2975fadbec1d3d765ae29c471"
