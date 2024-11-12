@@ -20,18 +20,23 @@
 
     <!-- Google tag (gtag.js) -->
     <script>
-      window.addEventListener('scroll', function loadGTM() {
-        const script = document.createElement('script');
-        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-GEB5PLKSXC';
-        script.async = true;
-        document.head.appendChild(script);
+      let scriptAdded = false;
 
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-GEB5PLKSXC');
+      window.addEventListener('scroll', function() {
+        if (!scriptAdded) {
+          const newScript = document.createElement('script');
+          newScript.async = true;
+          newScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-GEB5PLKSXC';
 
-        window.removeEventListener('scroll', loadGTM);
+          newScript.onload = function() {
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-GEB5PLKSXC');
+          };
+          document.body.appendChild(newScript);
+          scriptAdded = true;
+        }
       });
     </script>
 
