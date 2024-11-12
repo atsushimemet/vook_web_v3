@@ -19,14 +19,25 @@
     <%= yield :javascript %>
 
     <!-- Google tag (gtag.js) -->
-    <%= javascript_include_tag 'https://www.googletagmanager.com/gtag/js?id=G-GEB5PLKSXC' %>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7292276589292080" crossorigin="anonymous"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-GEB5PLKSXC');
+      window.addEventListener('scroll', function loadGTM() {
+        const script = document.createElement('script');
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-GEB5PLKSXC';
+        script.async = true;
+        document.head.appendChild(script);
+
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-GEB5PLKSXC');
+
+        window.removeEventListener('scroll', loadGTM);
+      });
     </script>
+
+    <!-- Google AdSense -->
+    <%= javascript_include_tag 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7292276589292080',
+                               async: true, crossorigin: 'anonymous' %>
     <meta name="google-adsense-account" content="ca-pub-7292276589292080">
   </head>
 
