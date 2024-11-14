@@ -78,15 +78,17 @@
         <%= "#{@knowledge.name}の価格情報" %>
       </h3>
       <div class='knowledge-price-body'>
-        <% if @knowledge.products&.average(:price) %>
-          <div id='price-histogram' class='knowledge-price-histogram'></div>
+        <% if @products.present? %>
+          <% if @products.size > 1 %>
+            <div id='price-histogram' class='knowledge-price-histogram'></div>
+          <% end %>
           <div class='knowledge-price-info'>
             <div class='level-items level'>
               <div class='level-item has-text-centered'>
                 <div>
                   <p class='heading'>平均価格</p>
                   <p class='title average-price'>
-                    <%= number_to_currency(@knowledge.products.average(:price)) %>
+                    <%= number_to_currency(@products.average(:price)) %>
                   </p>
                 </div>
               </div>
@@ -94,7 +96,7 @@
                 <div>
                   <p class='heading'>最低価格</p>
                   <p class='title'>
-                    <%= number_to_currency(@knowledge.products.minimum(:price)) %>
+                    <%= number_to_currency(@products.minimum(:price)) %>
                   </p>
                 </div>
               </div>
@@ -102,7 +104,7 @@
                 <div>
                   <p class='heading'>最高価格</p>
                   <p class='title'>
-                    <%= number_to_currency(@knowledge.products.maximum(:price)) %>
+                    <%= number_to_currency(@products.maximum(:price)) %>
                   </p>
                 </div>
               </div>

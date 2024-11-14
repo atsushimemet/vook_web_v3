@@ -8,6 +8,7 @@ class KnowledgesController < ApplicationController
 
   def show
     require_admin_login if @knowledge.draft?
+    @products = @knowledge.products
   end
 
   def new
