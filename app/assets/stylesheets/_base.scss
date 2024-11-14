@@ -46,9 +46,6 @@ $table-striped-row-even-background-color: $light-gray;
 @import 'common/choices';
 @import 'common/actiontext';
 
-html {
-  scroll-behavior: smooth;
-}
 body {
   display: flex;
   flex-flow: column;
