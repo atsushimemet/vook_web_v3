@@ -210,9 +210,11 @@
     margin-bottom: 24px;
     .chartContainer {
       overflow-x: auto;
+      overflow-y: hidden;
     }
     .chartBox {
       min-width: 560px;
+      min-height: 432px;
       padding: 16px;
       background-color: $light-gray;
       border: solid 1px $primary;

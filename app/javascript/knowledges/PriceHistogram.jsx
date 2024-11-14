@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Chart } from 'react-google-charts';
 import useSWR from 'swr';
+import Skeleton from '@mui/material/Skeleton';
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
@@ -37,18 +38,21 @@ export default function PriceHistogram() {
   };
 
   if (error) return <div>Error loading data</div>;
-  if (isLoading) return <div>Loading...</div>;
 
   return (
     <div className="chartContainer">
       <div className="chartBox">
-        <Chart
-          chartType="Histogram"
-          width="100%"
-          height="400px"
-          data={histogramData}
-          options={chartOptions}
-        />
+        {isLoading ? (
+          <Skeleton variant="rectangular" width="100%" height="100%" />
+        ) : (
+          <Chart
+            chartType="Histogram"
+            width="100%"
+            height="400px"
+            data={histogramData}
+            options={chartOptions}
+          />
+        )}
       </div>
     </div>
   );
