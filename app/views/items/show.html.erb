@@ -13,7 +13,7 @@
     </nav>
     <div class='knowledge-item-header' style="background-color: <%= @item.color %>">
       <% if @item.banner.attached? %>
-        <%= image_tag @item.banner, alt: @item.name, class: 'knowledge-banner' %>
+        <%= image_tag @item.banner, alt: @item.name, class: 'knowledge-banner', loading: 'eager' %>
       <% end %>
     </div>
     <% if @item.description.present? %>
