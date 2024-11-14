@@ -208,19 +208,23 @@
 
   .knowledge-price-histogram {
     margin-bottom: 24px;
-    @include mobile {
-      width: 100%;
-      height: auto;
-      overflow-x: scroll;
-      overflow-y: hidden;
+    .chartContainer {
+      overflow-x: auto;
+    }
+    .chartBox {
+      min-width: 560px;
+      padding: 16px;
+      background-color: $light-gray;
+      border: solid 1px $primary;
     }
   }
 
   .knowledge-price {
     margin-bottom: 48px;
-    .knowledge-price-body{
+    .knowledge-price-info {
       background: $light-gray;
       padding: 32px;
+      border: solid 1px $primary;
       .level-item {
         .average-price {
           color: $denim;

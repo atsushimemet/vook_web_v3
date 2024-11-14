@@ -27,7 +27,7 @@ export default function PriceHistogram() {
 
   const chartOptions = {
     titleTextStyle: { fontSize: 14 },
-    chartArea: { left: 80, top: 32, width: '85%', height: '68%' },
+    chartArea: { left: 80, top: 32, width: '85%', height: '70%' },
     legend: { position: 'none' },
     histogram: { bucketSize: 10000 },
     colors: ['#203543'],
@@ -40,12 +40,16 @@ export default function PriceHistogram() {
   if (isLoading) return <div>Loading...</div>;
 
   return (
-    <Chart
-      chartType="Histogram"
-      width="90%"
-      height="400px"
-      data={histogramData}
-      options={chartOptions}
-    />
+    <div className="chartContainer">
+      <div className="chartBox">
+        <Chart
+          chartType="Histogram"
+          width="100%"
+          height="400px"
+          data={histogramData}
+          options={chartOptions}
+        />
+      </div>
+    </div>
   );
 }

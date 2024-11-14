@@ -77,37 +77,39 @@
       <h3 class='knowledge-sub-title' id='price'>
         <%= "#{@knowledge.name}の価格情報" %>
       </h3>
-      <div id='price-histogram' class='knowledge-price-histogram'></div>
       <div class='knowledge-price-body'>
         <% if @knowledge.products&.average(:price) %>
-          <div class='knowledge-price-info level'>
-            <div class='level-item has-text-centered'>
-              <div>
-                <p class='heading'>平均価格</p>
-                <p class='title average-price'>
-                  <%= number_to_currency(@knowledge.products.average(:price)) %>
-                </p>
+          <div id='price-histogram' class='knowledge-price-histogram'></div>
+          <div class='knowledge-price-info'>
+            <div class='level-items level'>
+              <div class='level-item has-text-centered'>
+                <div>
+                  <p class='heading'>平均価格</p>
+                  <p class='title average-price'>
+                    <%= number_to_currency(@knowledge.products.average(:price)) %>
+                  </p>
+                </div>
+              </div>
+              <div class='level-item has-text-centered'>
+                <div>
+                  <p class='heading'>最低価格</p>
+                  <p class='title'>
+                    <%= number_to_currency(@knowledge.products.minimum(:price)) %>
+                  </p>
+                </div>
+              </div>
+              <div class='level-item has-text-centered'>
+                <div>
+                  <p class='heading'>最高価格</p>
+                  <p class='title'>
+                    <%= number_to_currency(@knowledge.products.maximum(:price)) %>
+                  </p>
+                </div>
               </div>
             </div>
-            <div class='level-item has-text-centered'>
-              <div>
-                <p class='heading'>最低価格</p>
-                <p class='title'>
-                  <%= number_to_currency(@knowledge.products.minimum(:price)) %>
-                </p>
-              </div>
+            <div class='product-link has-text-right'>
+              <%= link_to '商品一覧ページへ', product_path(@knowledge), class: 'button is-secondary' %>
             </div>
-            <div class='level-item has-text-centered'>
-              <div>
-                <p class='heading'>最高価格</p>
-                <p class='title'>
-                  <%= number_to_currency(@knowledge.products.maximum(:price)) %>
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class='product-link has-text-right'>
-            <%= link_to '商品一覧ページへ', product_path(@knowledge), class: 'button is-secondary' %>
           </div>
         <% else %>
           <p>現在、価格情報はありません</p>
