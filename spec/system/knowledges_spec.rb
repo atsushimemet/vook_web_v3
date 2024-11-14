@@ -43,8 +43,6 @@ RSpec.describe '/knowledges', type: :system do
         fill_in 'knowledge_age', with: '1980'
         fill_in_rich_text_area 'knowledge_body', with: 'テスト文章'
         click_on '登録'
-        # 原因不明だが2度目のクリックが必要、ローカルでは問題なし
-        click_on '登録'
         expect(page).to have_content 'ページを作成しました'
         expect(page).to have_content 'Denim Pants'
       end.to change(Knowledge, :count).by(1)
