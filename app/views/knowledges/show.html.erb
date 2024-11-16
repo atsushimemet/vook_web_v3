@@ -68,17 +68,15 @@
         <h3 class='knowledge-sub-title' id='identification'>
           <%= "#{@knowledge.name}の判別" %>
         </h3>
-        <pre class='mermaid'>
-          <%= @knowledge.mermaid_chart %>
-        </pre>
+        <div id="knowledge-mermaid"></div>
       </div>
     <% end %>
-    <div class='knowledge-price'>
-      <h3 class='knowledge-sub-title' id='price'>
-        <%= "#{@knowledge.name}の価格情報" %>
-      </h3>
-      <div class='knowledge-price-body'>
-        <% if @products.present? %>
+    <% if @products.present? %>
+      <div class='knowledge-price'>
+        <h3 class='knowledge-sub-title' id='price'>
+          <%= "#{@knowledge.name}の価格情報" %>
+        </h3>
+        <div class='knowledge-price-body'>
           <% if @products.size > 1 %>
             <div id='price-histogram' class='knowledge-price-histogram'></div>
           <% end %>
@@ -113,11 +111,9 @@
               <%= link_to '商品一覧ページへ', product_path(@knowledge), class: 'button is-secondary' %>
             </div>
           </div>
-        <% else %>
-          <p>現在、価格情報はありません</p>
-        <% end %>
+        </div>
       </div>
-    </div>
+    <% end %>
     <div class='knowledge-body content'>
       <%= @knowledge.body %>
     </div>

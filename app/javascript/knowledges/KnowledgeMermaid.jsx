@@ -1,69 +1,44 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
+import useSWR from 'swr';
 import mermaid from 'mermaid';
-import PropTypes from 'prop-types';
 
 mermaid.initialize({
-  startOnLoad: true,
-  theme: 'default',
+  startOnLoad: false,
+  theme: 'base',
+  themeVariables: {
+    background: '#f9fafb',
+    primaryColor: '#FCD900',
+    primaryTextColor: '#00081a',
+    primaryBorderColor: '#00081a',
+    lineColor: '#00081a',
+    secondaryColor: '#e6eaee',
+  },
   securityLevel: 'loose',
-  themeCSS: `
-    g.classGroup rect {
-      fill: #282a36;
-      stroke: #6272a4;
-    }
-    g.classGroup text {
-      fill: #f8f8f2;
-    }
-    g.classGroup line {
-      stroke: #f8f8f2;
-      stroke-width: 0.5;
-    }
-    .classLabel .box {
-      stroke: #21222c;
-      stroke-width: 3;
-      fill: #21222c;
-      opacity: 1;
-    }
-    .classLabel .label {
-      fill: #f1fa8c;
-    }
-    .relation {
-      stroke: #ff79c6;
-      stroke-width: 1;
-    }
-    #compositionStart, #compositionEnd {
-      fill: #bd93f9;
-      stroke: #bd93f9;
-      stroke-width: 1;
-    }
-    #aggregationEnd, #aggregationStart {
-      fill: #21222c;
-      stroke: #50fa7b;
-      stroke-width: 1;
-    }
-    #dependencyStart, #dependencyEnd {
-      fill: #00bcd4;
-      stroke: #00bcd4;
-      stroke-width: 1;
-    }
-    #extensionStart, #extensionEnd {
-      fill: #f8f8f2;
-      stroke: #f8f8f2;
-      stroke-width: 1;
-    }`,
-  fontFamily: 'Fira Code',
 });
 
-export default class Mermaid extends React.Component {
-  componentDidMount() {
-    mermaid.contentLoaded();
-  }
+const fetcher = (url) => fetch(url).then((res) => res.json());
 
-  static propTypes = {
-    chart: PropTypes.string.isRequired,
-  };
+export default function KnowledgeMermaid() {
+  const url = new URL(window.location.href);
+  const knowledgeId = url.pathname.split('/').pop();
+  const { data, error, isLoading } = useSWR(
+    `/api/knowledges/${knowledgeId}`,
+    fetcher,
+  );
+  const mermaidPreviewRef = useRef(null);
 
-  render() {
-    return <div className="mermaid">{this.props.chart}</div>;
-  }
+  useEffect(() => {
+    if (data?.knowledge?.mermaid_chart && mermaidPreviewRef.current) {
+      const { mermaid_chart: mermaidChart } = data.knowledge;
+      mermaidPreviewRef.current.removeAttribute('data-processed');
+      mermaidPreviewRef.current.innerHTML = mermaidChart;
+
+      mermaid.run();
+    }
+  }, [data]);
+
+  if (error) return <div>Error loading Mermaid chart.</div>;
+  if (isLoading) return <div>Loading...</div>;
+
+  return <div ref={mermaidPreviewRef} className="mermaid" />;
 }
