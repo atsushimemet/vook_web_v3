@@ -19,6 +19,7 @@ $column-gap: 0.25rem;
 $tabs-link-color: #808080;
 $tabs-link-active-color: $primary;
 $table-striped-row-even-background-color: $light-gray;
+$content-heading-color: $primary;
 
 @media screen and (min-width: 1024px) and (max-width: 1215px) {
   .container {
@@ -53,6 +54,7 @@ body {
   flex-flow: column;
   min-height: 100vh;
   overflow-x: hidden;
+  color: $primary;
   a:hover {
     text-decoration: underline;
     img {

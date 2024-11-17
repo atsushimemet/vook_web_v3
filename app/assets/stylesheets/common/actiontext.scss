@@ -3,6 +3,7 @@
 
 .trix-content {
   * {
+    color: $primary;
     overflow-wrap: anywhere;
     line-height: 2;
     a {
@@ -14,7 +15,12 @@
     list-style: disc;
   }
   h3 {
-    font-size: 1.2em;
+    font-size: 1.2rem;
+  }
+  p {
+    @include mobile {
+      font-size: 0.9rem;
+    }
   }
 }
 
