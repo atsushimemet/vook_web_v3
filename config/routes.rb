@@ -28,7 +28,7 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: { format: :json } do
     resources :terms, only: [:index]
-    resources :knowledges, only: [:index]
+    resources :knowledges, only: %i[index show]
     resources :products, only: [:show]
     resources :tags, only: [:index]
   end
