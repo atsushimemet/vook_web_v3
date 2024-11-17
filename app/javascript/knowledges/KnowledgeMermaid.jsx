@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import useSWR from 'swr';
 import mermaid from 'mermaid';
+import Skeleton from '@mui/material/Skeleton';
 
 mermaid.initialize({
   startOnLoad: false,
@@ -38,7 +39,16 @@ export default function KnowledgeMermaid() {
   }, [data]);
 
   if (error) return <div>Error loading Mermaid chart.</div>;
-  if (isLoading) return <div>Loading...</div>;
 
-  return <div ref={mermaidPreviewRef} className="mermaid" />;
+  return (
+    <div className="mermaidContainer">
+      <div className="mermaidBox">
+        {isLoading ? (
+          <Skeleton variant="rectangular" className="skelton" />
+        ) : (
+          <div ref={mermaidPreviewRef} className="mermaid" />
+        )}
+      </div>
+    </div>
+  );
 }

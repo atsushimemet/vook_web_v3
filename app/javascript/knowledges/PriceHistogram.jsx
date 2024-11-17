@@ -41,9 +41,9 @@ export default function PriceHistogram() {
 
   return (
     <div className="chartContainer">
-      <div className="chartBox">
+      <div className="chartBox" style={{ minHeight: '400px' }}>
         {isLoading ? (
-          <Skeleton variant="rectangular" width="100%" height="100%" />
+          <Skeleton variant="rectangular" width="100%" height="400px" />
         ) : (
           <Chart
             chartType="Histogram"

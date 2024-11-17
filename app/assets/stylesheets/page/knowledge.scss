@@ -137,7 +137,7 @@
     }
   }
   .knowledge-body {
-    margin-bottom: 48px;
+    margin-bottom: 32px;
   }
   .knowledge-sub-title {
     margin-bottom: 16px;
@@ -145,17 +145,17 @@
     font-weight: 600;
   }
   .knowledge-instagram-embed {
-    margin-bottom: 48px;
+    margin-bottom: 32px;
     @include tablet {
       padding-left: 3em;
     }
   }
   .knowledge-topic-sentence {
-    margin-bottom: 48px;
+    margin-bottom: 32px;
   }
   .knowledge-summary {
     position: relative;
-    margin-bottom: 48px;
+    margin-bottom: 32px;
     padding: 2rem 3rem;
     font-size: 1.2rem;
     overflow-wrap: break-word;
@@ -195,13 +195,32 @@
   }
 
   .knowledge-identification {
-    margin-bottom: 48px;
-    .mermaid {
+    margin-bottom: 32px;
+    .mermaidContainer {
       padding: 1em;
-      background: #fff;
-      @include tablet {
-        padding-left: 3em;
-        width: 80%;
+      background-color: $light-gray;
+      border: 1px solid $primary;
+      border-radius: 8px;
+      .mermaidBox, .skelton {
+        display: flex;
+        align-items: center;
+        height: 600px;
+        @include mobile {
+          height: 350px;
+        }
+      }
+      .mermaid {
+        text-align: center;
+        width: 100%;
+        @include mobile {
+          width: 100%;
+        }
+        svg {
+          max-height: 600px;
+          @include mobile {
+            max-height: 350px;
+          }
+        }
       }
     }
   }
@@ -218,15 +237,17 @@
       padding: 16px;
       background-color: $light-gray;
       border: solid 1px $primary;
+      border-radius: 8px;
     }
   }
 
   .knowledge-price {
-    margin-bottom: 48px;
+    margin-bottom: 32px;
     .knowledge-price-info {
       background: $light-gray;
       padding: 32px;
       border: solid 1px $primary;
+      border-radius: 8px;
       .level-item {
         .average-price {
           color: $denim;
