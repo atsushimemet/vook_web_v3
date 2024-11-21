@@ -29,28 +29,35 @@
     font-size: 16px;
     color: $primary70;
   }
-  #product-table {
-    min-height: 400px;
-  }
-  .MuiTableContainer-root {
-    overflow-x: auto;
-    .tableHead {
-      text-align: center;
-    }
-    .tableRow {
-      cursor: pointer;
-    }
-    .platformImage {
-      max-width: 128px;
-      @include touch {
-        max-width: 64px;
+  .product-table {
+    height: 860px;
+    .tableContainer {
+      .MuiPaper-root {
+        border: solid 1px $primary;
+        border-radius: 8px;
+        box-shadow: none;
       }
-    }
-  }
-  .MuiTablePagination-root {
-    @include mobile {
-      .MuiTablePagination-selectLabel, .MuiInputBase-root {
-        display: none;
+      .MuiTableContainer-root {
+        overflow-x: auto;
+      }
+      .tableHead {
+        text-align: center;
+      }
+      .tableRow {
+        cursor: pointer;
+      }
+      .platformImage {
+        max-width: 128px;
+        height: auto;
+        object-fit: contain;
+        @include touch {
+          max-width: 64px;
+        }
+      }
+      @include mobile {
+        .MuiTablePagination-selectLabel, .MuiInputBase-root {
+          display: none;
+        }
       }
     }
   }
