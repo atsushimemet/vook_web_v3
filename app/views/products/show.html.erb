@@ -27,7 +27,9 @@
       <% if @products.empty? %>
         <p>現在、商品情報はありません</p>
       <% else %>
-        <div id='product-table'></div>
+        <div id='product-table' class='product-table'>
+          <div class="tableContainer"></div>
+        </div>
       <% end %>
     </div>
     <%= render 'shared/share_banner', share_text: @knowledge.name %>

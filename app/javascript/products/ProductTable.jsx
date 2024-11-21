@@ -64,90 +64,94 @@ export default function StickyHeadTable() {
   if (error) return <div>Error loading data</div>;
 
   return (
-    <Paper sx={{ width: '100%', overflow: 'hidden' }}>
-      <TableContainer sx={{ maxHeight: 800 }}>
-        <Table stickyHeader aria-label="sticky table">
-          <TableHead>
-            <TableRow>
-              {columns.map((column) => (
-                <TableCell
-                  key={column.id}
-                  align="center"
-                  className="tableHead"
-                  style={{ minWidth: column.minWidth }}
-                  sortDirection={orderBy === column.id ? order : false}
-                >
-                  {column.sortable ? (
-                    <TableSortLabel
-                      active={orderBy === column.id}
-                      direction={orderBy === column.id ? order : 'asc'}
-                      onClick={() => handleRequestSort(column.id)}
-                    >
-                      {column.label}
-                    </TableSortLabel>
-                  ) : (
-                    column.label
-                  )}
-                </TableCell>
-              ))}
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {isLoading
-              ? Array.from({ length: rowsPerPage }).map((_, index) => (
-                  <TableRow key={index}>
-                    {columns.map((column) => (
-                      <TableCell
-                        key={column.id}
-                        align="center"
-                        className="skeletonCell"
+    <div className="tableContainer">
+      <Paper sx={{ width: '100%', overflow: 'hidden' }}>
+        <TableContainer sx={{ maxHeight: 800 }}>
+          <Table stickyHeader aria-label="sticky table">
+            <TableHead>
+              <TableRow>
+                {columns.map((column) => (
+                  <TableCell
+                    key={column.id}
+                    align="center"
+                    className="tableHead"
+                    style={{ minWidth: column.minWidth }}
+                    sortDirection={orderBy === column.id ? order : false}
+                  >
+                    {column.sortable ? (
+                      <TableSortLabel
+                        active={orderBy === column.id}
+                        direction={orderBy === column.id ? order : 'asc'}
+                        onClick={() => handleRequestSort(column.id)}
                       >
-                        <Skeleton
-                          variant="rectangular"
-                          style={{ minWidth: column.minWidth }}
-                          height={24}
-                        />
-                      </TableCell>
-                    ))}
-                  </TableRow>
-                ))
-              : sortedRows
-                  .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                  .map((row) => (
-                    <TableRow
-                      hover
-                      tabIndex={-1}
-                      key={row.id}
-                      className="tableRow"
-                      onClick={() => window.open(row.url, '_blank')}
-                    >
-                      <TableCell align="left">{row.name}</TableCell>
-                      <TableCell align="center" className="tableRowPrice">
-                        {row.price}
-                      </TableCell>
-                      <TableCell align="center">
-                        {row.platform.image_url && (
-                          <img
-                            src={row.platform.image_url}
-                            alt="プラットフォームの画像"
-                            className="platformImage"
+                        {column.label}
+                      </TableSortLabel>
+                    ) : (
+                      column.label
+                    )}
+                  </TableCell>
+                ))}
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {isLoading
+                ? Array.from({ length: rowsPerPage }).map((_, index) => (
+                    <TableRow key={index}>
+                      {columns.map((column) => (
+                        <TableCell
+                          key={column.id}
+                          align="center"
+                          className="skeletonCell"
+                        >
+                          <Skeleton
+                            variant="rectangular"
+                            style={{ minWidth: column.minWidth }}
+                            height={24}
                           />
-                        )}
-                      </TableCell>
+                        </TableCell>
+                      ))}
                     </TableRow>
-                  ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
-      <TablePagination
-        rowsPerPageOptions={[30, 100]}
-        component="div"
-        count={rows ? rows.length : 0}
-        rowsPerPage={rowsPerPage}
-        page={page}
-        onPageChange={handleChangePage}
-        onRowsPerPageChange={handleChangeRowsPerPage}
-      />
-    </Paper>
+                  ))
+                : sortedRows
+                    .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                    .map((row) => (
+                      <TableRow
+                        hover
+                        tabIndex={-1}
+                        key={row.id}
+                        className="tableRow"
+                        onClick={() => window.open(row.url, '_blank')}
+                      >
+                        <TableCell align="left">{row.name}</TableCell>
+                        <TableCell align="center" className="tableRowPrice">
+                          {row.price}
+                        </TableCell>
+                        <TableCell align="center">
+                          {row.platform.image_url && (
+                            <img
+                              src={row.platform.image_url}
+                              alt="プラットフォームの画像"
+                              width="128"
+                              height="128"
+                              className="platformImage"
+                            />
+                          )}
+                        </TableCell>
+                      </TableRow>
+                    ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
+        <TablePagination
+          rowsPerPageOptions={[30, 100]}
+          component="div"
+          count={rows ? rows.length : 0}
+          rowsPerPage={rowsPerPage}
+          page={page}
+          onPageChange={handleChangePage}
+          onRowsPerPageChange={handleChangeRowsPerPage}
+        />
+      </Paper>
+    </div>
   );
 }
