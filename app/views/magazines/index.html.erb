@@ -6,16 +6,6 @@
 <section class='magazine-section'>
   <%= render partial: 'shared/section_headline', locals: { number: '01', title: 'Magazine' } %>
   <div class='magazine-container container'>
-    <div class='tabs is-centered is-boxed is-fullwidth is-large'>
-      <ul>
-        <li class='tab-list is-active'>
-          <a>DATE</a>
-        </li>
-        <li class='tab-list'>
-          <a>RANKING</a>
-        </li>
-      </ul>
-    </div>
     <div class='magazine-tab-container'>
       <div class='tab-content is-active'>
         <%= render 'magazines/card_list', magazines: @new_magazines %>
