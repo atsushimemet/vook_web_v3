@@ -2,10 +2,12 @@ require:
   - rubocop-performance
   - rubocop-rails
   - rubocop-rspec
+  - rubocop-rspec_rails
 
 AllCops:
   TargetRubyVersion: 3.2
   NewCops: disable
+  SuggestExtensions: false
 
   Exclude:
     - '**/templates/**/*'

@@ -2,6 +2,6 @@
 
 bundle exec htmlbeautifier app/views/**/*.erb --keep-blank-lines 1
 bundle exec rubocop -A
-bundle exec erblint --lint-all -a
+bundle exec erb_lint --lint-all -a
 yarn eslint app/javascript/*.js --fix
 yarn prettier app/javascript/*.js --write
