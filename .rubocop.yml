@@ -31,11 +31,6 @@ Performance:
 Metrics/MethodLength:
   Exclude:
     - 'db/migrate/*.rb'
-    - 'lib/tasks/*.rake'
-
-Metrics/BlockLength:
-  Exclude:
-    - 'lib/tasks/*.rake'
 
 Style/AsciiComments:
   Enabled: false
