@@ -7,114 +7,138 @@
     @include touch {
       margin: 0 16px;
     }
-    .category-terms-title {
-      font-size: 1.6rem;
-      font-weight: 600;
-      margin-bottom: 16px;
-      color: $primary;
-    }
-    .group-title {
-      position: relative;
-      font-size: 1.6rem;
-      font-weight: 600;
-      margin-bottom: 24px;
-      color: $primary;
-      padding-top: 1.5em;
-      &:before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 32px;
-        height: 4px;
-        background-color: $primary;
-      }
-    }
-    .term-name {
-      font-size: 1.6rem;
-      font-weight: 600;
-      margin-bottom: 16px;
-      color: $primary;
-    }
-    .term-lists {
-      margin-bottom: 48px;
-    }
-    .term-list {
-      display: flex;
-      align-items: flex-start;
-      padding: 1em 0;
-      &:not(:last-child) {
-        border-bottom: 1px solid $dark-gray
-      }
-      .term-list-image {
-        margin-right: 16px;
-        flex: 0 0 auto;
-        img {
-          object-fit: cover;
-        }
-      }
-      .term-content {
-        flex: 1 1 auto;
-      }
-      .term-list-name{
-        list-style: none;
-        font-size: 1rem;
-        font-weight: 600;
-        margin-bottom: 8px;
-      }
-    }
-    .kana-groups-links {
-      display: flex;
-      margin-bottom: 32px;
-      @media (max-width: 425px) {
-        display: grid;
-        grid-template-columns: repeat(7, 1fr);
-        margin-bottom: 24px;
-      }
-      .kana-groups-link {
-        text-decoration: underline;
-        text-align: center;
-        padding: 0 8px;
-        border-right: 1px solid $dark-gray;
-        &:first-child {
-          padding-left: 0;
-        }
-        &:last-child {
-          border-right: none;
-        }
-        @media (max-width: 425px) {
-          padding: 0;
-          border-right: 1px solid $dark-gray;
-          &:nth-child(7) {
-            border-right: none;
-          }
-        }
-      }
-    }
-    .term-edit-button {
-      text-align: right;
-    }
   }
-  .form-section {
-    margin-bottom: 20px;
-  }
-  .categories-lists {
+  .category-section {
     padding: 1em;
     margin-bottom: 24px;
-    background: $light-gray;
-    list-style: none;
-    @include desktop {
-      position: sticky;
-      top: 16px;
-    }
+    border: 1px solid $primary;
     .title {
       font-size: 1.0rem;
       margin-bottom: 16px;
       color: $primary;
     }
-    .button {
-      margin-bottom: 4px;
+    .category-list {
+      display: flex;
+      flex-wrap: wrap;
+      @include desktop {
+        position: sticky;
+        top: 16px;
+      }
+      .button {
+        margin-bottom: 4px;
+      }
+      .category-item {
+        margin: 4px;
+        font-size: 0.75rem;
+        padding: 0.5em;
+        background-color: $white;
+        border: 1px solid $primary;
+      }
     }
+  }
+  .category-terms-title {
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: $primary;
+  }
+  .group-title {
+    position: relative;
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin-bottom: 24px;
+    color: $primary;
+    padding-top: 1.5em;
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 32px;
+      height: 4px;
+      background-color: $primary;
+    }
+  }
+  .term-name {
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: $primary;
+  }
+  .term-list {
+    margin-bottom: 48px;
+  }
+  .term-item {
+    display: flex;
+    align-items: flex-start;
+    padding: 1em 0;
+    &:not(:last-child) {
+      border-bottom: 1px solid $dark-gray;
+    }
+    .term-list-image {
+      margin-right: 16px;
+      flex: 0 0 auto;
+      img {
+        object-fit: cover;
+      }
+    }
+    .term-content {
+      flex: 1 1 auto;
+    }
+    .term-list-name{
+      list-style: none;
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    .term-category-list {
+      display: flex;
+      margin: 0 0 4px 0px;
+      gap: 6px;
+      .term-category-item {
+        font-size: 0.7rem;
+        background-color: $dark-gray;
+        padding: 2px 4px;
+        border-radius: 4px;
+      }
+    }
+  }
+  .kana-groups-links {
+    display: flex;
+    margin-bottom: 32px;
+    @media (max-width: 425px) {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      margin-bottom: 24px;
+    }
+    .kana-groups-link {
+      text-decoration: underline;
+      text-align: center;
+      padding: 0 8px;
+      border-right: 1px solid $dark-gray;
+      &:first-child {
+        padding-left: 0;
+      }
+      &:last-child {
+        border-right: none;
+      }
+      @media (max-width: 425px) {
+        padding: 0;
+        border-right: 1px solid $dark-gray;
+        &:nth-child(7) {
+          border-right: none;
+        }
+      }
+    }
+  }
+  .mobile-contents {
+    margin-bottom: 40px;
+  }
+  .term-edit-button {
+    text-align: right;
+  }
+  .form-section {
+    margin-bottom: 20px;
   }
   .pagetop {
     position: fixed;

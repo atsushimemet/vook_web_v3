@@ -1,8 +1,10 @@
-<div class='categories-lists'>
+<div class='category-section'>
   <p class='title'>カテゴリー</p>
-  <% categories.each do |category| %>
-    <span class='categories-list'>
-      <%= link_to category.name, terms_category_path(category.name), class: 'button is-small' %>
-    </span>
-  <% end %>
+  <ul class='category-list'>
+    <% categories.each do |category| %>
+      <li class='category-item'>
+        <%= link_to category.name, terms_category_path(category.name), class: 'category' %>
+      </li>
+    <% end %>
+  </ul>
 </div>
