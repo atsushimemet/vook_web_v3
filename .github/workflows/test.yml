@@ -34,12 +34,16 @@ jobs:
           --health-retries 5
 
     steps:
+      - uses: actions/checkout@v2
+
       - name: Set Timezone
         uses: szenius/set-timezone@v1.0
         with:
           timezoneLinux: 'Asia/Tokyo'
 
-      - uses: actions/checkout@v2
+      - name: install imagemagick
+        uses: mfinelli/setup-imagemagick@v6
+
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
