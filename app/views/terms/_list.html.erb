@@ -1,6 +1,6 @@
-<ul class='term-lists'>
+<ul class='term-list'>
   <% terms.each do |term| %>
-    <li class='term-list' id="<%= term.name %>">
+    <li class='term-item' id="<%= term.name %>">
       <% if term.image.attached? %>
         <div class='term-list-image'>
           <%= image_tag term.image.variant(resize_to_limit: [200, 200]), class: 'image is-96x96', alt: term.name %>
@@ -10,6 +10,13 @@
         <div class='term-list-name'>
           <%= "【#{term.name}】" %>
         </div>
+        <ul class='term-category-list'>
+          <% term.categories.each do |category| %>
+            <li class='term-category-item'>
+              <%= category.name %>
+            </li>
+          <% end %>
+        </ul>
         <div class='term-list-description'>
           <%= term.description %>
         </div>
