@@ -1,14 +1,14 @@
 <%= render partial: 'shared/section_headline', locals: { number: '02', title: 'Discovery' } %>
 <div class='top-discovery-container container'>
   <p class='carousel-title'>人気の商品</p>
-  <div class='splide' aria-label='discovery-carousel'>
+  <div id='product-splide' class='splide' aria-label='discovery-carousel'>
     <div class='splide__track'>
       <ul class='splide__list'>
         <% @pickup_knowledges.each do |knowledge| %>
           <li class='splide__slide card'>
             <%= link_to product_path(knowledge.id) do %>
               <div class='product-card-image'>
-                <div class='image is-square '>
+                <div class='image is-square'>
                   <% if knowledge.line.image.attached? %>
                     <%= image_tag knowledge.line.image.variant(resize_to_limit: [300, 300]),
                                   alt: knowledge.name,

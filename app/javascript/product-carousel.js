@@ -27,7 +27,7 @@ const splideOptions = {
 };
 
 document.addEventListener('turbo:load', () => {
-  const splide = document.querySelector('.splide');
+  const splide = document.getElementById('product-splide');
 
   if (splideInstance) {
     splideInstance.destroy();
