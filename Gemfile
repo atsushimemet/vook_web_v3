@@ -93,6 +93,7 @@ end
 gem 'acts-as-taggable-on'
 gem 'dotenv-rails'
 gem 'enum_help'
+gem 'google-analytics-data-v1beta'
 gem 'meta-tags'
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
