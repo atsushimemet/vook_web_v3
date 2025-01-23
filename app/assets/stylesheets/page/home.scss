@@ -2,6 +2,124 @@
 @use '../variables' as *;
 @use '../common/pageloader' as *;
 
+.top-headline-section {
+  padding-bottom: 2.5em;
+  border-bottom: solid 2px $primary;
+
+  .top-headline-container {
+    #headline-main-splide {
+      margin-bottom: 24px;
+      .main-item {
+        height: 400px;
+        text-align: center;
+        @include mobile {
+          height: 200px;
+        }
+        img {
+          width: 100%;
+          max-height: 400px;
+          object-fit: contain;
+          @include mobile {
+            max-height: 200px;
+          }
+        }
+      }
+    }
+    #headline-splide {
+      @include mobile {
+        padding: 0 0.5em;
+      }
+      .splide__list {
+        justify-content: space-evenly;
+        align-items: center;
+        height: 104px;
+      }
+      .splide__slide {
+        text-align: center;
+        max-width: 160px;
+        opacity: 0.6;
+        img {
+          width: 100%;
+          max-height: 104px;
+          object-fit: contain;
+        }
+        &.is-active {
+          opacity: 1;
+          border: none;
+        }
+      }
+      .splide__arrow {
+        background: $white;
+      }
+    }
+  }
+
+  .magazine-ranking-container {
+    padding-left: 16px;
+    border-left: solid 1px $primary;
+    @include touch {
+      margin: 0 16px;
+      padding-left: 0;
+      border-left: none;
+    }
+
+    .ranking-title {
+      padding: 1em 0;
+      margin-bottom: 8px;
+      border-bottom: 1px solid $dark-gray;
+      font-size: 16px;
+      font-weight: 700;
+    }
+    .magazine-ranking-list {
+      display: flex;
+      flex-flow: revert;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .magazine-ranking-item {
+      display: flex;
+      gap: 8px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid $dark-gray;
+    }
+    .magazine-ranking-left {
+      min-width: 80px;
+      img {
+        width: 100%;
+        height: 80px;
+        border-radius: 8px;
+        object-fit: cover;
+      }
+    }
+    .magazine-ranking-right {
+      .magazine-title {
+        font-size: 14px;
+        font-weight: 700;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+        line-clamp: 3;
+        overflow: hidden;
+      }
+      .magazine-tags {
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: 2px;
+        gap: 4px;
+      }
+      .magazine-tag {
+        font-size: 12px;
+        background: $secondary;
+        padding: 2px 4px;
+        border-radius: 4px;
+      }
+      .magazine-date {
+        font-size: 12px;
+      }
+    }
+  }
+}
+
 .top-knowledge-section {
   padding-bottom: 64px;
   border-bottom: solid 2px $primary;
