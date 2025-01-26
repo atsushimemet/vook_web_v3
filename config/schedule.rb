@@ -1,3 +1,4 @@
+env :PATH, ENV['PATH']
 set :environment, 'production'
 set :output, 'log/cron.log'
 
