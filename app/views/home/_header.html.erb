@@ -1,12 +1,10 @@
-<header class='navigation'>
-  <nav id='navbar' class='navbar main-nav container'>
+<header class='header'>
+  <nav id='navbar' class='navbar container'>
     <div class='navbar-brand'>
-      <div class='navbar-item'>
-        <h1 class='header-logo'>
-          <%= link_to image_tag('logo_type.webp', alt: 'logo', width: '200px', height: '56px'), '/' %>
-        </h1>
+      <div class='navbar-logo'>
+        <%= link_to image_tag('logo_type.webp', alt: 'logo', width: '184px', height: '40px'), '/', class: 'navbar-item' %>
       </div>
-      <button role='button' class='navbar-burger burger' data-hidden='true' data-target='navigation' aria-label='humburger button'>
+      <button role='button' class='navbar-burger' data-hidden='true' data-target='navigation' aria-label='humburger button'>
         <span></span>
         <span></span>
         <span></span>
@@ -19,7 +17,6 @@
         <% end %>
         <%= link_to 'About', about_path, class: 'navbar-item' %>
         <%= link_to 'Terms', terms_path, class: 'navbar-item' %>
-        <%= link_to 'Magazine', magazines_path, class: 'navbar-item' %>
         <div class="header-sns-icons">
           <div class='navbar-item'>
             <%= link_to 'https://www.instagram.com/vook.vintagebook/', target: :_blank, rel: 'noopener' do %>
@@ -28,7 +25,7 @@
           </div>
           <div class='navbar-item'>
             <%= link_to 'https://www.tiktok.com/@vook.tokyo/', target: :_blank, rel: 'noopener' do %>
-              <i class='fa-brands fa-tiktok fa-2x' aria-label='TikTok'></i>
+              <i class='fa-brands fa-tiktok' aria-label='TikTok'></i>
             <% end %>
           </div>
         </div>
