@@ -10,17 +10,14 @@
     #headline-main-splide {
       margin-bottom: 24px;
       .main-item {
-        height: 400px;
+        max-height: 400px;
         text-align: center;
-        @include mobile {
-          height: 200px;
-        }
         img {
           width: 100%;
           max-height: 400px;
           object-fit: contain;
           @include mobile {
-            max-height: 200px;
+            aspect-ratio: 700 / 400;
           }
         }
       }
