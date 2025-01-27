@@ -26,7 +26,7 @@
   "scripts": {
     "lint": "eslint app/javascript/**/*.js",
     "lint:prettier": "prettier app/javascript/**/*.js --check",
-    "build": "esbuild app/javascript/*.* app/javascript/**/*.* --bundle --minify --sourcemap --outdir=app/assets/builds --public-path=assets --loader:.js=jsx",
+    "build": "esbuild app/javascript/*.* app/javascript/**/*.* --bundle --minify --outdir=app/assets/builds --public-path=assets --loader:.js=jsx",
     "build:css": "sass ./app/assets/stylesheets:./app/assets/builds --no-source-map --load-path=node_modules"
   },
   "devDependencies": {
