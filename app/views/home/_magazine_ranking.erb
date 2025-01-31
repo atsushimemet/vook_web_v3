@@ -1,11 +1,12 @@
 <div class='magazine-ranking-container'>
   <h2 class='ranking-title'>Magazine Ranking</h2>
   <ul class='magazine-ranking-list'>
-    <% magazines.each do |magazine| %>
+    <% magazines.each.with_index(1) do |magazine, index| %>
       <li>
         <%= link_to magazine do %>
           <div class='magazine-ranking-item'>
             <div class='magazine-ranking-left'>
+              <span class='ranking-number'><%= index %></span>
               <% if magazine.thumbnail.attached? %>
                 <%= image_tag magazine.thumbnail.variant(resize_to_limit: [80, 80]), size: '80x80', alt: magazine.title, loading: 'eager' %>
               <% else %>
@@ -21,13 +22,13 @@
                   <span class='magazine-tag'><%= tag.name %></span>
                 <% end %>
               </div>
-              <div class='magazine-date'>
-                <%= l magazine.publish_at, format: :date %>
-              </div>
             </div>
           </div>
         <% end %>
       </li>
     <% end %>
   </ul>
+  <div class='read-more'>
+    <%= link_to 'Magazineをもっと見る', magazines_path %>
+  </div>
 </div>
