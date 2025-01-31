@@ -18,7 +18,7 @@ const splideOptions = {
       perMove: 5,
       autoplay: false,
       rewind: false,
-      padding: { right: '1em' },
+      padding: '1em',
       arrows: false,
     },
   },
