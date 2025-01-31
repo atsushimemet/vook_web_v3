@@ -4,6 +4,9 @@
 .header {
   .navbar {
     height: 64px;
+    @include mobile {
+      height: 0;
+    }
   }
   .navbar-brand {
     align-items: center;

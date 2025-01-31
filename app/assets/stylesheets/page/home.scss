@@ -5,7 +5,11 @@
 .top-headline-section {
   padding-bottom: 2.5em;
   border-bottom: solid 2px $primary;
-
+  .main-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
   .top-headline-container {
     #headline-main-splide {
       margin-bottom: 24px;
@@ -51,6 +55,10 @@
     }
   }
 
+  .mobile-contents {
+    margin-top: 16px;
+  }
+
   .magazine-ranking-container {
     padding-left: 16px;
     border-left: solid 1px $primary;
@@ -62,36 +70,49 @@
 
     .ranking-title {
       padding: 1em 0;
-      margin-bottom: 8px;
       border-bottom: 1px solid $dark-gray;
-      font-size: 16px;
+      font-size: 1.2rem;
       font-weight: 700;
     }
     .magazine-ranking-list {
       display: flex;
       flex-flow: revert;
       flex-direction: column;
-      gap: 8px;
+      margin-bottom: 10px;
     }
     .magazine-ranking-item {
       display: flex;
-      gap: 8px;
-      padding-bottom: 8px;
+      padding: 1em 0;
+      gap: 16px;
       border-bottom: 1px solid $dark-gray;
     }
     .magazine-ranking-left {
       min-width: 80px;
+      position: relative;
       img {
         width: 100%;
         height: 80px;
         border-radius: 8px;
         object-fit: cover;
       }
+      .ranking-number {
+        position: absolute;
+        top: -8px;
+        left: -8px;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        color: $primary;
+        background-color: $secondary;
+        text-align: center;
+        font-size: 1rem;
+        line-height: 24px;
+        z-index: 5;
+      }
     }
     .magazine-ranking-right {
       .magazine-title {
-        font-size: 14px;
-        font-weight: 700;
+        font-size: .9rem;
         display: -webkit-box;
         -webkit-box-orient: vertical;
         -webkit-line-clamp: 3;
@@ -105,14 +126,18 @@
         gap: 4px;
       }
       .magazine-tag {
-        font-size: 12px;
+        font-size: .8rem;
         background: $secondary;
         padding: 2px 4px;
         border-radius: 4px;
+        &:hover {
+          text-decoration: dotted underline;
+        }
       }
-      .magazine-date {
-        font-size: 12px;
-      }
+    }
+    .read-more {
+      font-size: 1.0rem;
+      text-align: right;
     }
   }
 }
@@ -194,8 +219,8 @@
   }
   .read-more-button {
     .button {
-      background-color: $primary95;
-      color: $white;
+      color: $primary;
+      border: solid 1px $primary;
       i {
         margin-left: 6px;
       }
