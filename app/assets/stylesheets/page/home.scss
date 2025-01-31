@@ -147,9 +147,7 @@
   border-bottom: solid 2px $primary;
 
   .top-knowledge-container {
-    @include touch {
-      margin: 0 16px;
-    }
+    padding: 0 1em;
   }
   .knowledge-list {
     margin-bottom: 48px;
@@ -268,45 +266,74 @@
   padding-bottom: 64px;
   border-bottom: solid 2px $primary;
   .top-discovery-container {
-    @include touch {
-      margin: 0 16px;
-    }
+    padding: 0 1em;
   }
   .carousel-title {
     font-size: 24px;
     font-weight: 700;
     margin-bottom: 16px;
   }
-  #product-splide {
-    margin-bottom: 6em;
+  .product-splide {
+    background-color: #384d5b;
+    padding: 2em;
+    margin-bottom: 32px;
     @include mobile {
-      margin-bottom: 2em;
+      width: 100vw;
+      margin: 0 calc(50% - 50vw) 32px;
+      padding: 1em 0 1em 1em;
+    }
+  }
+  #product-splide {
+    margin-bottom: 4em;
+    @include mobile {
+      margin-bottom: 0;
     }
     .splide__list {
+      gap: 1em;
       @include mobile {
-        padding-right: 4rem !important;
+        gap: 0;
+      }
+    }
+    .product-card {
+      padding: 0.75em;
+      background-color: $white;
+      @include mobile {
+        margin-right: 1em;
       }
     }
     .splide__slide {
-      width: 100%;
-      height: auto;
+      @include mobile {
+        width: 40% !important;
+      }
       .product-card-image {
-        display: block;
-        position: relative;
+        margin-bottom: 8px;
         img {
-          width: 100%;
-          height: 100%;
           object-fit: cover;
-          border: solid 1px $primary;
-          background: $dark-gray;
+          background: #384d5b;
         }
       }
       .slide-title {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
         font-weight: 600;
-        @include touch {
-          font-size: 1.2rem;
+        @include mobile {
+          font-size: 1.0rem;
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 2;
+          line-clamp: 2;
+          overflow: hidden;
         }
+      }
+      .slide-sub-title {
+        font-size: 1rem;
+        @include mobile {
+          font-size: 0.7rem;
+        }
+      }
+      .product-card-content {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
       }
     }
     .splide__arrow {
@@ -326,18 +353,16 @@
       border: solid 1px $primary90;
       color: $primary90;
       font-size: 20px;
+      opacity: 1;
       &:focus-visible {
         outline: unset;
       }
     }
     .splide__pagination {
       bottom: -3em;
-      .is-active {
-        background-color: $primary;
+      &__page {
+        opacity: 1;
       }
-    }
-    .product-card-content {
-      padding: 0.5rem;
     }
   }
 }
