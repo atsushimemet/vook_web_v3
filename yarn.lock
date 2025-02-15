@@ -536,10 +536,10 @@
     "@mui/utils" "^6.4.3"
     prop-types "^15.8.1"
 
-"@mui/styled-engine-sc@^6.4.2":
-  version "6.4.2"
-  resolved "https://registry.yarnpkg.com/@mui/styled-engine-sc/-/styled-engine-sc-6.4.2.tgz#6410bb80d2af7371be063d127710fb4e80a122ed"
-  integrity sha512-BlLnlT358sEztMAZYd0lUU9okfzi9lr88hsjNCGjVE6qR3edQNGD6kOHk3n019HEXVTnmipivh+YGBGyK4D2ZQ==
+"@mui/styled-engine-sc@^6.4.3":
+  version "6.4.3"
+  resolved "https://registry.yarnpkg.com/@mui/styled-engine-sc/-/styled-engine-sc-6.4.3.tgz#25187d5feb4bf68ae2f905dc918666277b19078f"
+  integrity sha512-ndu3604ZvSe9PrOJmXvSZkVz+06ycFSuvMEuKomUO9qcDbMkDfe3qPMVQLtg7Ttz/N7p1+rpvPxVwv5+2InYcw==
   dependencies:
     "@babel/runtime" "^7.26.0"
     "@types/hoist-non-react-statics" "^3.3.6"
