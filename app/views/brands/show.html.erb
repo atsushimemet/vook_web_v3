@@ -8,8 +8,12 @@
   <div class='knowledge-container container'>
     <nav class='breadcrumb-list'>
       <ul>
-        <li><i class='fa-solid fa-tag icon-tag'></i></li>
-        <li><%= link_to "##{@brand.name}", brand_path(@brand.name), class: 'button is-rounded' %></li>
+        <li>
+          <%= link_to root_path do %>
+            <i class='fa-solid fa-house'></i>
+          <% end %>
+        </li>
+        <li><%= link_to @brand.name, brand_path(@brand.name) %></li>
       </ul>
     </nav>
     <div class='knowledge-brand-header' style="background-color: <%= @brand.color %>">

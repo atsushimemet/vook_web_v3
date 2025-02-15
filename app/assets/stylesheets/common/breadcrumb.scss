@@ -2,28 +2,29 @@
 
 .breadcrumb-list {
   margin-bottom: 32px;
-  font-size: 14px;
+
   ul {
     display: flex;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    gap: 4px;
-  }
-  .button {
-    padding-left: calc(1em);
-    padding-right: calc(1em);
-    border-color: $primary;
-    color: $primary;
-  }
-  .icon-tag {
-    display: flex;
-    justify-content: center;
     align-items: center;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    color: $white;
-    background-color: $primary;
+  }
+
+  li {
+    display: inline-flex;
+    &:after {
+      content: '>';
+      padding: 0 0.5em;
+    }
+    &:last-child:after {
+      content: '';
+    }
+  }
+
+  .breadcrumb-group {
+    display: flex;
+    align-items: center;
+    .group-slash {
+      padding: 0 0.5em;
+      font-size: 0.8rem;
+    }
   }
 }
