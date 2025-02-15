@@ -8,9 +8,17 @@
   <div class='knowledge-container container'>
     <nav class='breadcrumb-list'>
       <ul>
-        <li><i class='fa-solid fa-tag icon-tag'></i></li>
-        <li><%= link_to "##{@line.brand.name}", brand_path(@line.brand.name), class: 'button is-rounded' %></li>
-        <li><%= link_to "##{@line.item.name}", item_path(@line.item.name), class: 'button is-rounded' %></li>
+        <li>
+          <%= link_to root_path do %>
+            <i class='fa-solid fa-house'></i>
+          <% end %>
+        </li>
+        <li class='breadcrumb-group'>
+          <%= link_to @line.brand.name, brand_path(@line.brand.name) %>
+          <span class='group-slash'>/</span>
+          <%= link_to @line.item.name, item_path(@line.item.name) %>
+        </li>
+        <li><%= link_to @line.name, line_path(@line.name) %></li>
       </ul>
     </nav>
     <div class='knowledge-line-header media'>

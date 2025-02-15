@@ -8,10 +8,18 @@
   <div class='product-section container'>
     <nav class='breadcrumb-list'>
       <ul>
-        <li><i class='fa-solid fa-tag icon-tag'></i></li>
-        <li><%= link_to "##{@knowledge.brand.name}", brand_path(@knowledge.brand.name), class: 'button is-rounded' %></li>
-        <li><%= link_to "##{@knowledge.item.name}", item_path(@knowledge.item.name), class: 'button is-rounded' %></li>
-        <li><%= link_to "##{@knowledge.line.name}", line_path(@knowledge.line.name), class: 'button is-rounded' %></li>
+        <li>
+          <%= link_to root_path do %>
+            <i class='fa-solid fa-house'></i>
+          <% end %>
+        </li>
+        <li class='breadcrumb-group'>
+          <%= link_to @knowledge.brand.name, brand_path(@knowledge.brand.name) %>
+          <span class='group-slash'>/</span>
+          <%= link_to @knowledge.item.name, item_path(@knowledge.item.name) %>
+        </li>
+        <li><%= link_to @knowledge.line.name, line_path(@knowledge.line.name) %></li>
+        <li><%= link_to @knowledge.name, product_path(@knowledge.id) %></li>
       </ul>
     </nav>
     <div class='product-header'>
