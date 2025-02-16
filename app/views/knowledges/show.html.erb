@@ -34,10 +34,11 @@
             <i class='fa-solid fa-house'></i>
           <% end %>
         </li>
-        <li class='breadcrumb-group'>
-          <%= link_to @knowledge.brand.name, brand_path(@knowledge.brand.name) %>
-          <span class='group-slash'>/</span>
-          <%= link_to @knowledge.item.name, item_path(@knowledge.item.name) %>
+        <li>
+          <div class='breadcrumb-group'>
+            <%= link_to @knowledge.brand.name, brand_path(@knowledge.brand.name) %>
+            <%= link_to @knowledge.item.name, item_path(@knowledge.item.name) %>
+          </div>
         </li>
         <li><%= link_to @knowledge.line.name, line_path(@knowledge.line.name) %></li>
         <li><%= link_to @knowledge.name, knowledge_path(@knowledge) %></li>

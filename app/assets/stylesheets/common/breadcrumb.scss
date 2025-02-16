@@ -6,10 +6,14 @@
   ul {
     display: flex;
     align-items: center;
+    overflow-x: scroll;
+    white-space: nowrap;
   }
 
   li {
     display: inline-flex;
+    align-items: center;
+
     &:after {
       content: '>';
       padding: 0 0.5em;
@@ -21,10 +25,7 @@
 
   .breadcrumb-group {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    .group-slash {
-      padding: 0 0.5em;
-      font-size: 0.8rem;
-    }
   }
 }
