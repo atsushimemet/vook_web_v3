@@ -16,8 +16,6 @@ $card-content-padding: 1.0rem;
 $card-radius: 0;
 $card-shadow: none;
 $column-gap: 0.25rem;
-$tabs-link-color: #808080;
-$tabs-link-active-color: $primary;
 $table-striped-row-even-background-color: $light-gray;
 $content-heading-color: $primary;
 
@@ -27,21 +25,12 @@ $content-heading-color: $primary;
   }
 }
 
-@import 'bulma/sass/utilities/_all.sass';
-@import 'bulma/sass/base/_all.sass';
-@import 'bulma/sass/elements/button.sass';
-@import 'bulma/sass/elements/container.sass';
-@import 'bulma/sass/elements/title.sass';
-@import 'bulma/sass/form/_all.sass';
-@import 'bulma/sass/components/navbar.sass';
-@import 'bulma/sass/layout/section.sass';
 @import 'bulma/bulma';
 @import '@splidejs/splide/src/css/template/default/index.scss';
 
 @import 'common/header';
 @import 'common/footer';
 @import 'common/section-headline';
-@import 'common/tabs';
 @import 'common/breadcrumb';
 @import 'common/choices';
 @import 'common/actiontext';
@@ -85,7 +74,7 @@ main {
   justify-content: space-between;
   max-width: 1036px;
   margin: 0 auto;
-  gap: 24px;
+  gap: 16px;
 
   .main-content {
     width: 66.7%;

@@ -7,8 +7,8 @@ const splideOptions = {
   perPage: 3,
   perMove: 1,
   rewind: true,
-  gap: '2rem',
-  padding: '6rem',
+  autoplay: true,
+  padding: '6em',
   focus: 'center',
   lazyLoad: 'nearby',
   breakpoints: {
@@ -16,18 +16,16 @@ const splideOptions = {
       type: 'slide',
       perPage: 2,
       perMove: 5,
+      autoplay: false,
       rewind: false,
-      padding: 0,
-      focus: 1,
-      gap: '0.5rem',
-      omitEnd: true,
+      padding: '1em',
       arrows: false,
     },
   },
 };
 
 document.addEventListener('turbo:load', () => {
-  const splide = document.querySelector('.splide');
+  const splide = document.getElementById('product-splide');
 
   if (splideInstance) {
     splideInstance.destroy();
