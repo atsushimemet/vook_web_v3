@@ -2,158 +2,12 @@
 @use '../variables' as *;
 @use '../common/pageloader' as *;
 
-.top-headline-section {
-  padding-bottom: 2.5em;
-  border-bottom: solid 2px $primary;
-  .main-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-  .top-headline-container {
-    #headline-main-splide {
-      margin-bottom: 24px;
-      .main-item {
-        max-height: 400px;
-        text-align: center;
-        img {
-          width: 100%;
-          max-height: 400px;
-          object-fit: contain;
-          @include mobile {
-            aspect-ratio: 700 / 400;
-          }
-        }
-      }
-    }
-    #headline-splide {
-      @include mobile {
-        padding: 0 0.5em;
-      }
-      .splide__list {
-        justify-content: space-evenly;
-        align-items: center;
-        height: 104px;
-      }
-      .splide__slide {
-        text-align: center;
-        max-width: 160px;
-        opacity: 0.6;
-        img {
-          width: 100%;
-          max-height: 104px;
-          object-fit: contain;
-        }
-        &.is-active {
-          opacity: 1;
-          border: none;
-        }
-      }
-      .splide__arrow {
-        background: $white;
-      }
-    }
-  }
-
-  .mobile-contents {
-    margin-top: 16px;
-  }
-
-  .magazine-ranking-container {
-    padding-left: 16px;
-    border-left: solid 1px $primary;
+.top-knowledge-section {
+  margin-bottom: 64px;
+  .top-knowledge-container {
     @include touch {
       margin: 0 16px;
-      padding-left: 0;
-      border-left: none;
     }
-
-    .ranking-title {
-      padding: 1em 0;
-      border-bottom: 1px solid $dark-gray;
-      font-size: 1.2rem;
-      font-weight: 700;
-      .ranking-title-text {
-        border :solid 1px $primary;
-        box-shadow: -8px 0px 0px 0px #fcd900;
-      }
-    }
-    .magazine-ranking-list {
-      display: flex;
-      flex-flow: revert;
-      flex-direction: column;
-      margin-bottom: 10px;
-    }
-    .magazine-ranking-item {
-      display: flex;
-      padding: 1em 0;
-      gap: 16px;
-      border-bottom: 1px solid $dark-gray;
-    }
-    .magazine-ranking-left {
-      min-width: 80px;
-      position: relative;
-      img {
-        width: 100%;
-        height: 80px;
-        border-radius: 4px;
-        object-fit: cover;
-      }
-      .ranking-number {
-        position: absolute;
-        top: -8px;
-        left: -8px;
-        width: 24px;
-        height: 24px;
-        border-radius: 4px;
-        color: $white;
-        background-color: $primary;
-        text-align: center;
-        font-size: 1rem;
-        font-weight: 700;
-        line-height: 24px;
-        z-index: 5;
-      }
-    }
-    .magazine-ranking-right {
-      .magazine-title {
-        margin-bottom: 4px;
-        font-size: .9rem;
-        display: -webkit-box;
-        -webkit-box-orient: vertical;
-        -webkit-line-clamp: 3;
-        line-clamp: 3;
-        overflow: hidden;
-      }
-      .magazine-tags {
-        display: flex;
-        flex-wrap: wrap;
-        margin-bottom: 2px;
-        gap: 4px;
-      }
-      .magazine-tag {
-        font-size: .7rem;
-        background: $secondary;
-        padding: 2px 4px;
-        border-radius: 4px;
-        &:hover {
-          text-decoration: dotted underline;
-        }
-      }
-    }
-    .read-more {
-      font-size: .9rem;
-      text-align: right;
-    }
-  }
-}
-
-.top-knowledge-section {
-  padding-bottom: 64px;
-  border-bottom: solid 2px $primary;
-
-  .top-knowledge-container {
-    padding: 0 1em;
   }
   .knowledge-list {
     margin-bottom: 48px;
@@ -214,17 +68,17 @@
 }
 
 .top-magazine-section {
-  padding-bottom: 64px;
-  border-bottom: solid 2px $primary;
+  background: $dark-gray;
   .top-magazine-container {
     @include touch {
       margin: 0 16px;
     }
   }
   .read-more-button {
+    padding-bottom: 64px;
     .button {
-      color: $primary;
-      border: solid 1px $primary;
+      background-color: $primary;
+      color: $white;
       i {
         margin-left: 6px;
       }
@@ -234,6 +88,7 @@
     .magazine-card {
       padding: 0 14px;
       margin-bottom: 16px;
+      background: $dark-gray;
       @include mobile {
         padding: 4px;
       }
@@ -269,112 +124,85 @@
 }
 
 .top-discovery-section {
-  padding-bottom: 64px;
-  border-bottom: solid 2px $primary;
+  margin-bottom: 64px;
   .top-discovery-container {
-    padding: 0 1em;
+    @include touch {
+      margin: 0 16px;
+    }
   }
   .carousel-title {
     font-size: 24px;
     font-weight: 700;
     margin-bottom: 16px;
   }
-  .product-splide {
-    background-color: #384d5b;
-    padding: 2em;
-    margin-bottom: 32px;
+  .splide {
+    margin-bottom: 6em;
     @include mobile {
-      width: 100vw;
-      margin: 0 calc(50% - 50vw) 32px;
-      padding: 1em 0;
+      margin-bottom: 2em;
     }
   }
-  #product-splide {
-    margin-bottom: 4em;
+  .splide__list {
     @include mobile {
-      margin-bottom: 0;
+      padding-right: 4rem !important;
     }
-    .splide__list {
-      gap: 1em;
-      @include mobile {
-        gap: 0;
+  }
+  .splide__slide {
+    width: 100%;
+    height: auto;
+    .product-card-image {
+      display: block;
+      position: relative;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border: solid 1px $primary;
+        background: $light-gray;
       }
     }
-    .product-card {
-      padding: 0.75em;
-      background-color: $white;
-      @include mobile {
-        margin-right: 1em;
-      }
-    }
-    .splide__slide {
-      @include mobile {
-        width: 40% !important;
-      }
-      .product-card-image {
-        margin-bottom: 8px;
-        img {
-          object-fit: cover;
-          background: #384d5b;
-        }
-      }
-      .slide-title {
+    .slide-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      @include touch {
         font-size: 1.2rem;
-        font-weight: 600;
-        @include mobile {
-          font-size: 1.0rem;
-          display: -webkit-box;
-          -webkit-box-orient: vertical;
-          -webkit-line-clamp: 2;
-          line-clamp: 2;
-          overflow: hidden;
-        }
-      }
-      .slide-sub-title {
-        font-size: 1rem;
-        @include mobile {
-          font-size: 0.7rem;
-        }
-      }
-      .product-card-content {
-        display: flex;
-        flex-direction: column;
-        gap: 4px;
       }
     }
-    .splide__arrow {
-      background: $white;
-      cursor: pointer;
-      position: absolute;
-      top: unset;
-      bottom: -3em;
-      transform: unset;
-      z-index: 1;
-      align-items: center;
-      display: flex;
-      justify-content: center;
-      height: 2em;
-      width: 4em;
-      border-radius: 4px;
-      border: solid 1px $primary90;
-      color: $primary90;
-      font-size: 20px;
-      opacity: 1;
-      &:focus-visible {
-        outline: unset;
-      }
+  }
+  .splide__arrow {
+    background: $white;
+    cursor: pointer;
+    position: absolute;
+    top: unset;
+    bottom: -3em;
+    transform: unset;
+    z-index: 1;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    height: 2em;
+    width: 4em;
+    border-radius: 4px;
+    border: solid 1px $primary90;
+    color: $primary90;
+    font-size: 20px;
+    &:focus-visible {
+      outline: unset;
     }
-    .splide__pagination {
-      bottom: -3em;
-      &__page {
-        opacity: 1;
-      }
+  }
+  .splide__pagination {
+    bottom: -3em;
+    .is-active {
+      background-color: $primary;
     }
+  }
+  .product-card-content {
+    padding: 0.5rem;
   }
 }
 
 .top-community-section {
   padding-bottom: 64px;
+  background: $dark-gray;
   .top-community-container {
     @include touch {
       margin: 0 16px;
@@ -383,7 +211,8 @@
   .instagram-list-header {
     margin-bottom: 32px;
     .instagram-list-title {
-      font-size: 28px;
+      font-size: 24px;
+      font-weight: 700;
     }
   }
   .instagram-list-section {

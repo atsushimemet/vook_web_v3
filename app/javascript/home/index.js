@@ -1,5 +1,4 @@
 import '../pageloader';
-import '../headline-carousel';
-import '../product-carousel';
+import '../knowledge-carousel';
 import '../home-search';
 import '../show-more-icons';

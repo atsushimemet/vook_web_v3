@@ -1,41 +1,23 @@
 @use '../variables' as *;
 @use '../mixins' as *;
 
-.header {
-  .navbar {
-    height: 64px;
-    @include mobile {
-      height: 0;
-    }
-  }
-  .navbar-brand {
-    align-items: center;
+.navigation{
+  background: $white !important;
+  border-bottom: solid 1px $primary;
+  .header-logo {
     img {
       max-width: 100%;
       height: auto;
+      margin: 2px 0 -4px;
     }
   }
   .header-sns-icons {
     display: flex;
     .fa-square-instagram {
-      font-size: 2.0rem;
-    }
-    .fa-tiktok {
-      font-size: 1.8rem;
+      font-size: 2.4rem;
     }
   }
   @include mobile {
-    .navbar-brand {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-    }
-    .navbar-burger {
-      position: absolute;
-      right: 0;
-      background-color: $white;
-    }
     .navbar-end {
       text-align: center;
     }
