@@ -1,0 +1,60 @@
+<div class='magazine-ranking-container'>
+  <h2 class='ranking-title'><span class='ranking-title-text'>Magazine Ranking</span></h2>
+  <ul class='magazine-ranking-list'>
+    <% magazines.each.with_index(1) do |magazine, index| %>
+      <li>
+        <%= link_to magazine do %>
+          <div class='magazine-ranking-item'>
+            <div class='magazine-ranking-left'>
+              <span class='ranking-number'><%= index %></span>
+              <% if magazine.thumbnail.attached? %>
+                <%= image_tag magazine.thumbnail.variant(resize_to_limit: [80, 80]), size: '80x80', alt: magazine.title, loading: 'eager' %>
+              <% else %>
+                <%= image_tag 'magazine-sample.webp', alt: 'magazine-sample', size: '80x80' %>
+              <% end %>
+            </div>
+            <div class='magazine-ranking-right'>
+              <div class='magazine-title'>
+                <%= magazine.title %>
+              </div>
+              <div class='magazine-tags'>
+                <% magazine.tags.each do |tag| %>
+                  <span class='magazine-tag'><%= tag.name %></span>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </li>
+    <% end %>
+    <% if ad_magazine.present? %>
+      <li>
+        <%= link_to ad_magazine do %>
+          <div class='magazine-ranking-item'>
+            <div class='magazine-ranking-left'>
+              <span class='ranking-number'>PR</span>
+              <% if ad_magazine.thumbnail.attached? %>
+                <%= image_tag ad_magazine.thumbnail.variant(resize_to_limit: [80, 80]), size: '80x80', alt: ad_magazine.title, loading: 'eager' %>
+              <% else %>
+                <%= image_tag 'magazine-sample.webp', alt: 'magazine-sample', size: '80x80' %>
+              <% end %>
+            </div>
+            <div class='magazine-ranking-right'>
+              <div class='magazine-title'>
+                <%= ad_magazine.title %>
+              </div>
+              <div class='magazine-tags'>
+                <% ad_magazine.tags.each do |tag| %>
+                  <span class='magazine-tag'><%= tag.name %></span>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+  <div class='read-more'>
+    <%= link_to 'Magazineをもっと見る', magazines_path %>
+  </div>
+</div>
