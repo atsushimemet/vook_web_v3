@@ -4,6 +4,8 @@ class HomeController < ApplicationController
     @ranking_magazines = Magazine.ranking.limit(4).presence || Magazine.published
                                                                        .includes(:tags, thumbnail_attachment: :blob)
                                                                        .order(publish_at: :desc).limit(4)
+    # TODO: 広告マガジンが決まったらidを指定
+    # @ad_magazine = Magazine.includes(:tags, thumbnail_attachment: :blob).order(publish_at: :desc).find(X)
     @first_brands = Brand.includes(image_attachment: :blob).order(:display_order).limit(8)
     @more_brands = Brand.includes(image_attachment: :blob).order(:display_order).offset(8)
     @first_items = Item.includes(image_attachment: :blob).knowledge_count_order.limit(8)
