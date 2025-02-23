@@ -26,10 +26,10 @@ class HomeController < ApplicationController
 
   def fetch_headline_contents
     [
-      { title: '用語一覧ページ', image_url: 'headline_terms', link: '/terms' },
-      { title: 'インスタグラム', image_url: 'headline_instagram', link: 'https://www.instagram.com/vook.vintagebook/' },
-      { title: 'BIG Eの知識ページ', image_url: 'headline_knowledge', link: '/knowledges/10' },
-      { title: 'Vook tokyoとは', image_url: 'headline_about_vook', link: '/about' }
+      { title: '用語一覧ページ', image_url: 'headline_terms.webp', link: '/terms' },
+      { title: 'インスタグラム', image_url: 'headline_instagram.webp', link: 'https://www.instagram.com/vook.vintagebook/' },
+      { title: 'BIG Eの知識ページ', image_url: 'headline_knowledge.webp', link: '/knowledges/10' },
+      { title: 'Vook tokyoとは', image_url: 'headline_about_vook.webp', link: '/about' }
     ]
   end
 
