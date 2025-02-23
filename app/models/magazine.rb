@@ -9,13 +9,6 @@ class Magazine < ApplicationRecord
   scope :draft, -> { where(publish_at: nil) }
   scope :published, -> { where('publish_at <= ?', Time.current) }
   scope :scheduled, -> { where('publish_at > ?', Time.current) }
-  scope :ranking, lambda {
-    joins('INNER JOIN page_views ON page_views.content_id = magazines.id')
-      .includes(:tags, thumbnail_attachment: :blob)
-      .published
-      .where(page_views: { content_type: 'Magazine' })
-      .order('page_views.monthly DESC')
-  }
 
   def draft?
     publish_at.nil?

@@ -1,10 +1,11 @@
 <%= render partial: 'shared/section_headline', locals: { number: '03', title: 'Community' } %>
 <div class='top-community-container container'>
-  <div class='instagram-list-section'>
-    <div class='instagram-list-header'>
-      <p class='instagram-list-title'>Instagram</p>
-      <p class='instagram-list-sub-title'>@vook.vintagebook</p>
+  <div class='instagram-list-header'>
+    <div class='instagram-list-title'>
+      Instagram @vook.vintagebook
     </div>
+  </div>
+  <div class='instagram-list-section'>
     <div class='instagram-list-body'>
       <div class='instagram-feeds'>
         <% @instagram_feeds.each do |feed| %>

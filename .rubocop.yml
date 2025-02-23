@@ -32,7 +32,6 @@ Metrics/MethodLength:
   Exclude:
     - 'db/migrate/*.rb'
     - 'lib/tasks/*.rake'
-  Max: 16
 
 Metrics/BlockLength:
   Exclude:

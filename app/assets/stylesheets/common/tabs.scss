@@ -1,0 +1,33 @@
+@use '../variables' as *;
+
+.tab-list {
+  &.is-active a {
+    border-top: $primary solid 4px !important;
+    animation: fadeIn 0.7s ease 0s 1 normal;
+    font-weight: 700;
+  }
+
+  a {
+    font-size: 18px;
+    &:hover {
+      color: $primary;
+    }
+  }
+}
+
+.tab-content {
+  display: none;
+  &.is-active {
+    display: block;
+    animation: fadeIn 0.7s ease 0s 1 normal;
+  }
+}
+
+@keyframes fadeIn  {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
