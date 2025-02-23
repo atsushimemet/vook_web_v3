@@ -73,6 +73,10 @@
       border-bottom: 1px solid $dark-gray;
       font-size: 1.2rem;
       font-weight: 700;
+      .ranking-title-text {
+        border :solid 1px $primary;
+        box-shadow: -8px 0px 0px 0px #fcd900;
+      }
     }
     .magazine-ranking-list {
       display: flex;
@@ -92,7 +96,7 @@
       img {
         width: 100%;
         height: 80px;
-        border-radius: 8px;
+        border-radius: 4px;
         object-fit: cover;
       }
       .ranking-number {
@@ -101,17 +105,19 @@
         left: -8px;
         width: 24px;
         height: 24px;
-        border-radius: 50%;
-        color: $primary;
-        background-color: $secondary;
+        border-radius: 4px;
+        color: $white;
+        background-color: $primary;
         text-align: center;
         font-size: 1rem;
+        font-weight: 700;
         line-height: 24px;
         z-index: 5;
       }
     }
     .magazine-ranking-right {
       .magazine-title {
+        margin-bottom: 4px;
         font-size: .9rem;
         display: -webkit-box;
         -webkit-box-orient: vertical;
@@ -126,7 +132,7 @@
         gap: 4px;
       }
       .magazine-tag {
-        font-size: .8rem;
+        font-size: .7rem;
         background: $secondary;
         padding: 2px 4px;
         border-radius: 4px;
@@ -136,7 +142,7 @@
       }
     }
     .read-more {
-      font-size: 1.0rem;
+      font-size: .9rem;
       text-align: right;
     }
   }
