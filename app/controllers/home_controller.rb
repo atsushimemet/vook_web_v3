@@ -1,5 +1,11 @@
 class HomeController < ApplicationController
   def index
+    @headline_contents = fetch_headline_contents
+    @ranking_magazines = Magazine.ranking.limit(4).presence || Magazine.published
+                                                                       .includes(:tags, thumbnail_attachment: :blob)
+                                                                       .order(publish_at: :desc).limit(4)
+    # TODO: 広告マガジンが決まったらidを指定
+    # @ad_magazine = Magazine.includes(:tags, thumbnail_attachment: :blob).order(publish_at: :desc).find(X)
     @first_brands = Brand.includes(image_attachment: :blob).order(:display_order).limit(8)
     @more_brands = Brand.includes(image_attachment: :blob).order(:display_order).offset(8)
     @first_items = Item.includes(image_attachment: :blob).knowledge_count_order.limit(8)
@@ -17,6 +23,15 @@ class HomeController < ApplicationController
   def about; end
 
   private
+
+  def fetch_headline_contents
+    [
+      { title: '用語一覧ページ', image_url: 'headline_terms.webp', link: '/terms' },
+      { title: 'インスタグラム', image_url: 'headline_instagram.webp', link: 'https://www.instagram.com/vook.vintagebook/' },
+      { title: 'BIG Eの知識ページ', image_url: 'headline_knowledge.webp', link: '/knowledges/10' },
+      { title: 'Vook tokyoとは', image_url: 'headline_about_vook.webp', link: '/about' }
+    ]
+  end
 
   def instagram_feed_cache
     Rails.cache.fetch('instagram_feed', expires_in: 1.hour) do

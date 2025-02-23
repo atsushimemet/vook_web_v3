@@ -1,47 +1,48 @@
 <%= render partial: 'shared/section_headline', locals: { number: '02', title: 'Discovery' } %>
 <div class='top-discovery-container container'>
   <p class='carousel-title'>人気の商品</p>
-  <div class='splide' aria-label='discovery-carousel'>
-    <div class='splide__track'>
-      <ul class='splide__list'>
-        <% @pickup_knowledges.each do |knowledge| %>
-          <li class='splide__slide card'>
-            <%= link_to product_path(knowledge.id) do %>
-              <div class='product-card-image'>
-                <div class='image is-square '>
-                  <% if knowledge.line.image.attached? %>
-                    <%= image_tag knowledge.line.image.variant(resize_to_limit: [300, 300]),
-                                  alt: knowledge.name,
-                                  loading: 'lazy' %>
+  <div class='product-splide'>
+    <div id='product-splide' class='splide' aria-label='discovery-carousel'>
+      <div class='splide__track'>
+        <ul class='splide__list'>
+          <% @pickup_knowledges.each do |knowledge| %>
+            <%= link_to product_path(knowledge.id), class: 'splide__slide product-card' do %>
+              <li>
+                <div class='product-card-image'>
+                  <div class='image is-square'>
+                    <% if knowledge.line.image.attached? %>
+                      <%= image_tag knowledge.line.image.variant(resize_to_limit: [300, 300]),
+                                    alt: knowledge.name,
+                                    loading: 'lazy' %>
+                    <% else %>
+                      <%= image_tag 'product-sample.webp', alt: 'product-sample', size: '400x400', loading: 'lazy' %>
+                    <% end %>
+                  </div>
+                </div>
+                <div class='product-card-content'>
+                  <p class='slide-sub-title'><%= knowledge.brand.name %></p>
+                  <p class='slide-title'><%= "#{knowledge.line.name} #{knowledge.name}" %></p>
+                  <% if knowledge.products&.minimum(:price) %>
+                    <p class='slide-sub-title'><%= "平均価格 #{number_to_currency(knowledge.products.average(:price))}" %></p>
                   <% else %>
-                    <%= image_tag 'product-sample.webp', alt: 'product-sample', size: '400x400', loading: 'lazy' %>
+                    <p>現在、価格情報はありません</p>
                   <% end %>
                 </div>
-              </div>
-              <div class='product-card-content'>
-                <p><%= knowledge.brand.name %></p>
-                <p class='slide-title'><%= "#{knowledge.line.name} #{knowledge.name}" %></p>
-                <p>最低価格</p>
-                <% if knowledge.products&.minimum(:price) %>
-                  <p class='slide-title'><%= number_to_currency(knowledge.products.minimum(:price)) %></p>
-                <% else %>
-                  <p>現在、価格情報はありません</p>
-                <% end %>
-              </div>
+              </li>
             <% end %>
-          </li>
-        <% end %>
-      </ul>
+          <% end %>
+        </ul>
+      </div>
+      <div class="splide__arrows">
+        <button class="splide__arrow splide__arrow--prev">
+          <i class="fa-solid fa-left-long"></i>
+        </button>
+        <button class="splide__arrow splide__arrow--next">
+          <i class="fa-solid fa-right-long"></i>
+        </button>
+      </div>
+      <ul class='splide__pagination is-hidden-mobile'></ul>
     </div>
-    <div class="splide__arrows">
-      <button class="splide__arrow splide__arrow--prev">
-        <i class="fa-solid fa-left-long"></i>
-      </button>
-      <button class="splide__arrow splide__arrow--next">
-        <i class="fa-solid fa-right-long"></i>
-      </button>
-    </div>
-    <ul class='splide__pagination is-hidden-mobile'></ul>
   </div>
   <div class='field is-grouped'>
     <div class='control is-expanded'>
