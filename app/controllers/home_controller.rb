@@ -1,9 +1,9 @@
 class HomeController < ApplicationController
   def index
     @headline_contents = fetch_headline_contents
-    @ranking_magazines = Magazine.ranking.limit(4).presence || Magazine.published
-                                                                       .includes(:tags, thumbnail_attachment: :blob)
-                                                                       .order(publish_at: :desc).limit(4)
+    @ranking_magazines = Magazine.ranking.includes(:tags, thumbnail_attachment: :blob).limit(4).presence ||
+                         Magazine.published.includes(:tags, thumbnail_attachment: :blob)
+                                 .order(publish_at: :desc).limit(4)
     # TODO: 広告マガジンが決まったらidを指定
     # @ad_magazine = Magazine.includes(:tags, thumbnail_attachment: :blob).order(publish_at: :desc).find(X)
     @first_brands = Brand.includes(image_attachment: :blob).order(:display_order).limit(8)
