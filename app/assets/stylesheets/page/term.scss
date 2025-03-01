@@ -140,22 +140,5 @@
   .form-section {
     margin-bottom: 20px;
   }
-  .pagetop {
-    position: fixed;
-    bottom: 16px;
-    right: 16px;
-    z-index: 100;
-    color: $primary;
-    background-color: $white;
-    display: flex;
-    cursor: pointer;
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-    border: 1px solid $primary;
-    border-radius: 10%;
-    i {
-      margin: 0 9px;
-    }
-  }
 }
 

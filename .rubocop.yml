@@ -1,8 +1,10 @@
 require:
-  - rubocop-performance
   - rubocop-rails
-  - rubocop-rspec
   - rubocop-rspec_rails
+
+plugins:
+  - rubocop-performance
+  - rubocop-rspec
 
 AllCops:
   TargetRubyVersion: 3.2
