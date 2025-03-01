@@ -16,7 +16,8 @@ class HomeController < ApplicationController
     # levis 501 66前期, id 5
     # lee 101j 101j, id 107
     # levis 505 BIG E, id 33
-    @pickup_knowledges = Knowledge.with_attached_image.where(id: [10, 50, 5, 107, 33])
+    @pickup_product_knowledges = Knowledge.includes(:brand, :products,
+                                                    line: { image_attachment: :blob }).where(id: [10, 50, 5, 107, 33])
     @instagram_feeds = instagram_feed_cache
   end
 

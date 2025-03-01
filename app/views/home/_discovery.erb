@@ -5,24 +5,22 @@
     <div id='product-splide' class='splide' aria-label='discovery-carousel'>
       <div class='splide__track'>
         <ul class='splide__list'>
-          <% @pickup_knowledges.each do |knowledge| %>
+          <% @pickup_product_knowledges.each do |knowledge| %>
             <%= link_to product_path(knowledge.id), class: 'splide__slide product-card' do %>
               <li>
                 <div class='product-card-image'>
                   <div class='image is-square'>
                     <% if knowledge.line.image.attached? %>
-                      <%= image_tag knowledge.line.image.variant(resize_to_limit: [300, 300]),
-                                    alt: knowledge.name,
-                                    loading: 'lazy' %>
+                      <%= image_tag knowledge.line.image, alt: knowledge.name, width: 300, height: 300, loading: 'lazy' %>
                     <% else %>
-                      <%= image_tag 'product-sample.webp', alt: 'product-sample', size: '400x400', loading: 'lazy' %>
+                      <%= image_tag 'product-sample.webp', alt: 'product-sample', width: 300, height: 300, loading: 'lazy' %>
                     <% end %>
                   </div>
                 </div>
                 <div class='product-card-content'>
                   <p class='slide-sub-title'><%= knowledge.brand.name %></p>
                   <p class='slide-title'><%= "#{knowledge.line.name} #{knowledge.name}" %></p>
-                  <% if knowledge.products&.minimum(:price) %>
+                  <% if knowledge.products.any? %>
                     <p class='slide-sub-title'><%= "平均価格 #{number_to_currency(knowledge.products.average(:price))}" %></p>
                   <% else %>
                     <p>現在、価格情報はありません</p>
