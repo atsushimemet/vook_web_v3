@@ -73,7 +73,7 @@
       font-size: 1.2rem;
       font-weight: 700;
       .ranking-title-text {
-        border :solid 1px $primary;
+        border: solid 1px $primary;
         box-shadow: -8px 0px 0px 0px #fcd900;
       }
     }
@@ -93,7 +93,7 @@
       min-width: 80px;
       position: relative;
       img {
-        width: 100%;
+        aspect-ratio: 1 / 1;
         height: 80px;
         border-radius: 4px;
         object-fit: cover;
