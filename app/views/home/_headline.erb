@@ -7,7 +7,7 @@
             <% @headline_contents.each do |content| %>
               <li class='splide__slide main-item'>
                 <a href="<%= content[:link] %>">
-                  <%= image_tag content[:image_url], alt: content[:title], loading: 'eager' %>
+                  <%= image_tag content[:image_url], alt: content[:title], loading: 'eager', width: 713, height: 400 %>
                 </a>
               </li>
             <% end %>
@@ -19,7 +19,7 @@
           <ul class='splide__list'>
             <% @headline_contents.each do |content| %>
               <li class='splide__slide'>
-                <img src="<%= asset_path(content[:image_url]) %>" alt="<%= content[:title] %>">
+                <%= image_tag content[:image_url], alt: content[:title], loading: 'eager', width: 160, height: 90 %>
               </li>
             <% end %>
           </ul>

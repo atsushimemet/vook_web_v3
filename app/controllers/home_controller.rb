@@ -1,9 +1,9 @@
 class HomeController < ApplicationController
   def index
     @headline_contents = fetch_headline_contents
-    @ranking_magazines = Magazine.ranking.limit(4).presence || Magazine.published
-                                                                       .includes(:tags, thumbnail_attachment: :blob)
-                                                                       .order(publish_at: :desc).limit(4)
+    @ranking_magazines = Magazine.ranking.includes(:tags, thumbnail_attachment: :blob).limit(4).presence ||
+                         Magazine.published.includes(:tags, thumbnail_attachment: :blob)
+                                 .order(publish_at: :desc).limit(4)
     # TODO: 広告マガジンが決まったらidを指定
     # @ad_magazine = Magazine.includes(:tags, thumbnail_attachment: :blob).order(publish_at: :desc).find(X)
     @first_brands = Brand.includes(image_attachment: :blob).order(:display_order).limit(8)
@@ -16,7 +16,8 @@ class HomeController < ApplicationController
     # levis 501 66前期, id 5
     # lee 101j 101j, id 107
     # levis 505 BIG E, id 33
-    @pickup_knowledges = Knowledge.with_attached_image.where(id: [10, 50, 5, 107, 33])
+    @pickup_product_knowledges = Knowledge.includes(:brand, :products,
+                                                    line: { image_attachment: :blob }).where(id: [10, 50, 5, 107, 33])
     @instagram_feeds = instagram_feed_cache
   end
 

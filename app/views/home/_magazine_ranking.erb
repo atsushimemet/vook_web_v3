@@ -8,9 +8,9 @@
             <div class='magazine-ranking-left'>
               <span class='ranking-number'><%= index %></span>
               <% if magazine.thumbnail.attached? %>
-                <%= image_tag magazine.thumbnail.variant(resize_to_limit: [80, 80]), size: '80x80', alt: magazine.title, loading: 'eager' %>
+                <%= image_tag magazine.thumbnail, width: 80, height: 80, alt: magazine.title, loading: 'eager' %>
               <% else %>
-                <%= image_tag 'magazine-sample.webp', alt: 'magazine-sample', size: '80x80' %>
+                <%= image_tag 'magazine-sample.webp', alt: 'magazine-sample', width: 80, height: 80 %>
               <% end %>
             </div>
             <div class='magazine-ranking-right'>
@@ -34,9 +34,9 @@
             <div class='magazine-ranking-left'>
               <span class='ranking-number'>PR</span>
               <% if ad_magazine.thumbnail.attached? %>
-                <%= image_tag ad_magazine.thumbnail.variant(resize_to_limit: [80, 80]), size: '80x80', alt: ad_magazine.title, loading: 'eager' %>
+                <%= image_tag ad_magazine.thumbnail, width: 80, height: 80, alt: ad_magazine.title, loading: 'eager' %>
               <% else %>
-                <%= image_tag 'magazine-sample.webp', alt: 'magazine-sample', size: '80x80' %>
+                <%= image_tag 'magazine-sample.webp', alt: 'magazine-sample', width: 80, height: 80 %>
               <% end %>
             </div>
             <div class='magazine-ranking-right'>
