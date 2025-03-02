@@ -148,8 +148,8 @@
   }
   .knowledge-instagram-embed {
     margin-bottom: 32px;
-    @include tablet {
-      padding-left: 3em;
+    iframe {
+      margin: 0 auto !important;
     }
   }
   .knowledge-topic-sentence {
