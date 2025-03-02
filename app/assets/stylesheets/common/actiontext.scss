@@ -8,7 +8,7 @@
     overflow-wrap: anywhere;
     line-height: 2;
     a {
-      color: $blue;
+      color: $blue !important;
       text-decoration: underline;
     }
   }
@@ -22,6 +22,14 @@
     @include mobile {
       font-size: 0.9rem;
     }
+  }
+  img {
+    display: block !important;
+    object-fit: contain;
+    width: 80%;
+    margin: 8px auto;
+    max-height: 500px;
+    max-width: 800px;
   }
 }
 
