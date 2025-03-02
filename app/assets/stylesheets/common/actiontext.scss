@@ -7,10 +7,10 @@
     color: $primary;
     overflow-wrap: anywhere;
     line-height: 2;
-    a {
-      color: $blue !important;
-      text-decoration: underline;
-    }
+  }
+  a {
+    color: $blue;
+    text-decoration: underline;
   }
   ul {
     list-style: disc;
