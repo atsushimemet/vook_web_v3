@@ -12,6 +12,9 @@
           <%= link_to '用語登録', new_term_path, class: 'button is-primary mb-4' %>
         </div>
       <% end %>
+      <div class='terms-image'>
+        <%= image_tag 'headline_terms.webp', alt: '用語一覧ページ', loading: 'eager', width: 713, height: 400 %>
+      </div>
       <div class='kana-groups-links'>
         <% @kana_groups.each do |group| %>
           <%= link_to group, "/terms##{group}", class: 'kana-groups-link' %>
