@@ -7,7 +7,7 @@
     "@hotwired/turbo-rails": "^8.0.12",
     "@mui/material": "^6.4.6",
     "@mui/styled-engine-sc": "^6.4.3",
-    "@rails/actiontext": "^7.2.101",
+    "@rails/actiontext": "^8.0.100",
     "@splidejs/splide": "^4.1.4",
     "bulma": "^0.9.4",
     "choices.js": "^11.0.3",
