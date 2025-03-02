@@ -18,15 +18,17 @@
       margin-bottom: 16px;
     }
     .magazine-content {
-      img {
-        object-fit: contain;
-        width: 80%;
-        margin: 16px auto;
-        max-height: 500px;
-        max-width: 800px;
+      .magazine-thumbnail {
+        text-align: center;
+        img {
+          margin: 16px auto;
+          width: 100%;
+          max-width: 800px;
+          max-height: 500px;
+          object-fit: contain;
+        }
       }
       .magazine-body {
-        padding: 8px;
         margin-bottom: 24px;
       }
     }
