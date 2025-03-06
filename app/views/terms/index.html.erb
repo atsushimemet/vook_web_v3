@@ -3,6 +3,20 @@
   <%= stylesheet_link_tag 'page/term' %>
 <% end %>
 
+<% set_meta_tags(
+     title: 'ヴィンテージ用語事典 | Vook tokyo',
+     description:
+      'ヴィンテージ用語・古着用語をわかりやすく解説。Vook tokyoの用語集では、古着・ヴィンテージの専門用語やブランド情報を五十音順で紹介。初心者も上級者も楽しめるコンテンツです。',
+     og: {
+       title: 'ヴィンテージ用語事典 | Vook tokyo',
+       description: 'ヴィンテージ用語・古着用語をわかりやすく解説。Vook tokyoの用語集では、古着・ヴィンテージの専門用語やブランド情報を五十音順で紹介。初心者も上級者も楽しめるコンテンツです。',
+       image: image_url('headline_terms.webp')
+     },
+     twitter: {
+       image: image_url('headline_terms.webp')
+     }
+   ) %>
+
 <section class='term-section'>
   <%= render partial: 'shared/section_headline', locals: { title: 'Terms' } %>
   <div class='layout-wrapper'>
@@ -15,6 +29,7 @@
       <div class='terms-image'>
         <%= image_tag 'headline_terms.webp', alt: '用語一覧ページ', loading: 'eager', width: 713, height: 400 %>
       </div>
+      <p class='terms-description'>ヴィンテージ用語・古着用語を五十音順で紹介、解説しています。</p>
       <div class='kana-groups-links'>
         <% @kana_groups.each do |group| %>
           <%= link_to group, "/terms##{group}", class: 'kana-groups-link' %>

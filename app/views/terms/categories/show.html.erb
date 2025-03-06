@@ -3,6 +3,20 @@
   <%= stylesheet_link_tag 'page/term' %>
 <% end %>
 
+<% set_meta_tags(
+     title: "#{@category.name}の用語一覧 | Vook tokyo",
+     description:
+      "#{@category.name}の用語一覧をわかりやすく解説。Vook tokyoの用語集では、古着・ヴィンテージの専門用語やブランド情報を五十音順で紹介。",
+     og: {
+       title: "#{@category.name}の用語一覧 | Vook tokyo",
+       description: "#{@category.name}の用語一覧をわかりやすく解説。Vook tokyoの用語集では、古着・ヴィンテージの専門用語やブランド情報を五十音順で紹介。",
+       image: image_url('headline_terms.webp')
+     },
+     twitter: {
+       image: image_url('headline_terms.webp')
+     }
+   ) %>
+
 <section class='term-section'>
   <%= render partial: 'shared/section_headline', locals: { title: 'Terms' } %>
   <div class='layout-wrapper'>
