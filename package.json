@@ -5,7 +5,7 @@
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
     "@hotwired/turbo-rails": "^8.0.12",
-    "@mui/material": "^6.4.6",
+    "@mui/material": "^6.4.7",
     "@mui/styled-engine-sc": "^6.4.3",
     "@rails/actiontext": "^8.0.100",
     "@splidejs/splide": "^4.1.4",
