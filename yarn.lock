@@ -1283,10 +1283,10 @@ chevrotain@~11.0.3:
     "@chevrotain/utils" "11.0.3"
     lodash-es "4.17.21"
 
-choices.js@^11.0.3:
-  version "11.0.3"
-  resolved "https://registry.yarnpkg.com/choices.js/-/choices.js-11.0.3.tgz#a2264a78e34c36016ef7239c3e29ceb14d6aad7d"
-  integrity sha512-sn1oLUEcvjj7vSSIT0QyexmLIeD6PFGSWrUUXKShL2LUtVFXU3OAIY/smNIQg0OKav3yk1rFa+F56hZ/uYC4cg==
+choices.js@^11.0.6:
+  version "11.0.6"
+  resolved "https://registry.yarnpkg.com/choices.js/-/choices.js-11.0.6.tgz#2b18a817cbcffc736933093c2c29b44f0233ee73"
+  integrity sha512-BQrdTQtO2CL5sUnJL2b5qelgYd6GjwkZDdl93IDPy+idNAe0knJHX+WBWnFXH8cTVOJ6JWI4bxpBM29vz44pUQ==
   dependencies:
     fuse.js "^7.0.0"
 
