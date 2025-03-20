@@ -4,7 +4,7 @@ class Line < ApplicationRecord
   belongs_to :item
   has_one_attached :image
 
-  validates :name, presence: true, length: { maximum: 100 }
+  validates :name, presence: true, uniqueness: true, length: { maximum: 100 }
 
   def to_param
     name
