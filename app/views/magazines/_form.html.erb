@@ -32,7 +32,8 @@
     <div class='field'>
       <%= form.label :publish_at, '公開日(未設定にしておくと下書き保存)', class: 'label' %>
       <div class='control'>
-        <%= form.datetime_field :publish_at %>
+        <%= form.datetime_field :publish_at, id: 'publish_at-field' %>
+        <%= button_tag '下書き', type: 'button', id: 'clear-publish_at' %>
       </div>
     </div>
 
