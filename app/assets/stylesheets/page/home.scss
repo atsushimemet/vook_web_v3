@@ -375,19 +375,29 @@
 .top-community-section {
   padding-bottom: 64px;
   .top-community-container {
-    @include touch {
-      margin: 0 16px;
-    }
+    padding: 0 1em;
   }
   .instagram-list-header {
+    display: flex;
+    align-items: flex-end;
     margin-bottom: 32px;
-    .instagram-list-title {
-      font-size: 28px;
+    .instagram-title {
+      font-size: 2rem;
+      @include mobile {
+        font-size: 1.5rem;
+      }
+      .instagram-title-text {
+        border: solid 1px $primary;
+        box-shadow: -8px 0px 0px 0px #fcd900;
+      }
     }
-  }
-  .instagram-list-section {
-    @include desktop {
-      padding: 0 64px;
+    .instagram-sub-title {
+      font-size: 1.2rem;
+      border: solid 1px $primary;
+      border-left: none;
+      @include mobile {
+        font-size: 1rem;
+      }
     }
   }
   .instagram-feeds {
@@ -395,6 +405,7 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 8px;
     img {
+      width: 100%;
       aspect-ratio: 4 / 5;
       object-fit: cover;
     }
