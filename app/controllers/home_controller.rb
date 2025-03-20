@@ -44,7 +44,7 @@ class HomeController < ApplicationController
   end
 
   def fetch_instagram_feed
-    uri = URI.parse("https://graph.facebook.com/v17.0/#{ENV['INSTAGRAM_ACCOUNT_ID']}/media?fields=caption,media_url,permalink,media_type&access_token=#{ENV['INSTA_TOKEN']}")
+    uri = URI.parse("https://graph.facebook.com/v22.0/#{ENV['INSTAGRAM_ACCOUNT_ID']}/media?fields=caption,media_url,permalink,media_type&access_token=#{ENV['INSTA_TOKEN']}")
     response = Net::HTTP.get_response(uri)
     json = JSON.parse(response.body)
 
