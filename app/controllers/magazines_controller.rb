@@ -32,6 +32,8 @@ class MagazinesController < ApplicationController
   end
 
   def update
+    @magazine.thumbnail.purge if params[:magazine][:remove_thumbnail] == '1'
+
     if @magazine.update(magazine_params)
       redirect_to @magazine, notice: '記事を更新しました'
     else

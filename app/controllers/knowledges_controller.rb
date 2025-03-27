@@ -30,6 +30,8 @@ class KnowledgesController < ApplicationController
   end
 
   def update
+    @knowledge.image.purge if params[:knowledge][:remove_image] == '1'
+
     if @knowledge.update(knowledge_params)
       @knowledge.update(item_id: set_item_id)
       redirect_to @knowledge, notice: 'ページを更新しました'
