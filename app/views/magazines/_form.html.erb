@@ -22,6 +22,14 @@
       </div>
     </div>
 
+    <% if @magazine.thumbnail.attached? %>
+      <div class="field">
+        <label class="checkbox">
+          <%= form.check_box :remove_thumbnail %> サムネイル削除
+        </label>
+      </div>
+    <% end %>
+
     <div class='field'>
       <%= form.label :title, class: 'label' %>
       <div class='control'>
@@ -30,7 +38,7 @@
     </div>
 
     <div class='field'>
-      <%= form.label :publish_at, '公開日(未設定にしておくと下書き保存)', class: 'label' %>
+      <%= form.label :publish_at, '公開日', class: 'label' %>
       <div class='control'>
         <%= form.datetime_field :publish_at, id: 'publish_at-field' %>
         <%= button_tag '下書き', type: 'button', id: 'clear-publish_at' %>

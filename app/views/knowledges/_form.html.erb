@@ -29,6 +29,14 @@
       </div>
     </div>
 
+    <% if @knowledge.image.attached? %>
+      <div class="field">
+        <label class="checkbox">
+          <%= form.check_box :remove_image %> 画像削除
+        </label>
+      </div>
+    <% end %>
+
     <div class='field'>
       <%= form.label :name, class: 'label' %>
       <div class='control'>
