@@ -1,5 +1,5 @@
 document.addEventListener('turbo:load', () => {
-  const publishAtField = document.getElementById('publish_at-field');
+  const publishAtField = document.getElementById('magazine_publish_at');
   const clearButton = document.getElementById('clear-publish_at');
 
   if (clearButton) {
