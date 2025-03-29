@@ -4,6 +4,7 @@ module SignInHelper
     visit root_path
     click_on 'ログイン'
     @current_user = user
+    expect(page).to have_content('ログアウト')
   end
 
   def mock_auth(provider, uid)
