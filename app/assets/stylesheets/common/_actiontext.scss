@@ -1,6 +1,5 @@
-@use '../variables' as *;
-@use '../mixins' as *;
-@import 'trix/dist/trix';
+@use '../base' as *;
+@use 'trix/dist/trix';
 
 .trix-content {
   * {
