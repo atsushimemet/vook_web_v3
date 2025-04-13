@@ -10,10 +10,26 @@
         <% @instagram_feeds.each do |feed| %>
           <div class='instagram-feed'>
             <%= link_to feed['permalink'], target: '_blank', rel: 'noopener noreferrer' do %>
-              <%= image_tag feed['media_url'], size: '297x297', alt: truncate(feed['caption'], length: 50), loading: 'lazy' %>
+              <%= image_tag feed['media_url'], size: '400x500', alt: truncate(feed['caption'], length: 50), loading: 'lazy' %>
             <% end %>
           </div>
         <% end %>
+      </div>
+    </div>
+    <div class='instagram-list-header'>
+      <h2 class='instagram-title'><span class='instagram-title-text'>#lookvooktokyo</span></h2>
+    </div>
+    <div id='lookvook-splide' class='splide'>
+      <div class='splide__track'>
+        <ul class='splide__list'>
+          <% @lookvook_hashtag_feeds.each do |feed| %>
+            <li class='splide__slide'>
+              <%= link_to feed['permalink'], target: '_blank', rel: 'noopener noreferrer' do %>
+                <%= image_tag feed['media_url'], size: '200x250', alt: truncate(feed['caption'], length: 50), loading: 'lazy' %>
+              <% end %>
+            </li>
+          <% end %>
+        </ul>
       </div>
     </div>
   </div>
