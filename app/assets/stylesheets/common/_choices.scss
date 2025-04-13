@@ -1,5 +1,5 @@
-@use '../variables' as *;
-@import 'choices.js/src/styles/choices.scss';
+@use '../base' as *;
+@use 'choices.js/src/styles/choices.scss';
 
 .choices {
   &__inner {

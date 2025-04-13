@@ -1,5 +1,5 @@
 @use '../base' as *;
-@use '../variables' as *;
+@use '../common/choices';
 
 .admin-section {
   margin: 24px 0;

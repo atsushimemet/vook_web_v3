@@ -1,6 +1,7 @@
 @use '../base' as *;
-@use '../variables' as *;
+@use '@splidejs/splide/src/css/template/default/index.scss';
 @use '../common/pageloader' as *;
+@use '../common/choices';
 
 .top-headline-section {
   padding-bottom: 2.5em;

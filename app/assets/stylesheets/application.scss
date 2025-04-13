@@ -1,2 +1,10 @@
+@charset 'utf-8';
 @use 'base' as *;
-@use 'variables' as *;
+@use 'bulma/bulma' as *;
+@use 'common/header';
+@use 'common/footer';
+@use 'common/section-headline';
+@use 'common/breadcrumb';
+@use 'common/actiontext';
+@use 'common/pagetop';
+
