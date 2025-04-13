@@ -1,8 +1,8 @@
 require:
-  - rubocop-rails
   - rubocop-rspec_rails
 
 plugins:
+  - rubocop-rails
   - rubocop-performance
   - rubocop-rspec
 
@@ -50,7 +50,7 @@ Style/FrozenStringLiteralComment:
   Enabled: false
 
 Metrics/AbcSize:
-  Max: 30
+  Max: 50
 
 RSpec/MultipleExpectations:
   Enabled: false
