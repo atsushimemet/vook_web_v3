@@ -5,9 +5,7 @@
 .magazine-section {
   margin-bottom: 24px;
   .magazine-container {
-    @include touch {
-      margin: 0 16px;
-    }
+    padding: 0 1em;
     .magazine-title {
       font-size: 1.6rem;
       font-weight: 600;
@@ -33,7 +31,7 @@
       }
     }
     .magazine-tags {
-      margin-bottom: 32px;
+      margin-bottom: 40px;
       font-size: 14px;
       ul {
         display: flex;
@@ -47,8 +45,6 @@
         padding-right: calc(1em);
         border-color: $primary;
         color: $primary;
-        // [TODO]リンク先が決まったら外す
-        cursor: default;
       }
       .icon-tag {
         display: flex;
@@ -61,22 +57,28 @@
         background-color: $primary;
       }
     }
+    .magazine-related-title {
+      margin-bottom: 24px;
+      font-size: 1.2rem;
+      .magazine-related-title-text {
+        border: solid 1px $primary;
+        box-shadow: -8px 0px 0px 0px #fcd900;
+      }
+    }
   }
   .form-section {
     margin-bottom: 20px;
   }
   .magazine-cards {
     .magazine-card {
-      padding: 0 14px;
-      margin-bottom: 16px;
-      @include mobile {
-        padding: 4px;
-      }
+      margin-bottom: 24px;
     }
     .magazine-card-image {
-      margin-bottom: 16px;
+      margin-bottom: 8px;
       img {
         object-fit: cover;
+        border: solid 1px $primary;
+        border-radius: 4px;
       }
     }
     .magazine-card-header {
@@ -91,9 +93,10 @@
   .magazine-date {
     background-color: $secondary;
     color: $primary;
-    font-weight: 700;
     font-size: 14px;
     padding: 4px 8px;
+    border: 1px solid $primary;
+    border-radius: 4px 0;
     &.draft {
       color: $white;
       background-color: $danger;
