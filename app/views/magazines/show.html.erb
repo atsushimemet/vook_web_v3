@@ -65,6 +65,12 @@
                       { method: :delete, form: { data: { turbo: true, turbo_confirm: '本当に削除しますか？' } }, class: 'button' } %>
       </div>
     <% end %>
+    <% if @related_magazines.any? %>
+      <div class='magazine-related'>
+        <h3 class='magazine-related-title'><span class='magazine-related-title-text'>関連するMagazine</span></h3>
+        <%= render 'magazines/card_list', magazines: @related_magazines %>
+      </div>
+    <% end %>
     <%= render 'shared/share_banner', share_text: @magazine.title %>
     <%= link_to 'Magazine一覧に戻る', magazines_path %>
   </div>
