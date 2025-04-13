@@ -19,6 +19,7 @@ class HomeController < ApplicationController
     @pickup_product_knowledges = Knowledge.includes(:brand, :products,
                                                     line: { image_attachment: :blob }).where(id: [10, 50, 5, 107, 33])
     @instagram_feeds = instagram_feed_cache
+    @lookvook_hashtag_feeds = hashtag_feed_cache
   end
 
   def about; end
@@ -37,22 +38,39 @@ class HomeController < ApplicationController
   def instagram_feed_cache
     Rails.cache.fetch('instagram_feed', expires_in: 1.hour) do
       fetch_instagram_feed
-    rescue StandardError => e
-      Rails.logger.error("Error fetching Instagram feed: #{e.message}")
-      []
+    end
+  end
+
+  def hashtag_feed_cache
+    Rails.cache.fetch('hashtag_instagram_feed', expires_in: 1.hour) do
+      fetch_hashtag_feed
     end
   end
 
   def fetch_instagram_feed
-    uri = URI.parse("https://graph.facebook.com/v22.0/#{ENV['INSTAGRAM_ACCOUNT_ID']}/media?fields=caption,media_url,permalink,media_type&access_token=#{ENV['INSTA_TOKEN']}")
+    endpoint = "https://graph.facebook.com/v22.0/#{ENV['INSTAGRAM_ACCOUNT_ID']}/media?fields=caption,media_url,permalink,media_type&access_token=#{ENV['INSTA_TOKEN']}&limit=12"
+    fetch_instagram_media(endpoint)
+  end
+
+  def fetch_hashtag_feed
+    endpoint = "https://graph.facebook.com/v22.0/#{ENV['LOOKVOOK_HASHTAG_ID']}/top_media?user_id=#{ENV['INSTAGRAM_ACCOUNT_ID']}&fields=id,caption,media_type,media_url,permalink&access_token=#{ENV['INSTA_TOKEN']}&limit=12"
+    fetch_instagram_media(endpoint)
+  end
+
+  def fetch_instagram_media(endpoint, limit: 9)
+    uri = URI.parse(endpoint)
     response = Net::HTTP.get_response(uri)
     json = JSON.parse(response.body)
 
     if json['data']
-      json['data'].select { |media| media['media_type'] == 'CAROUSEL_ALBUM' }.first(9)
+      data = json['data'].select { |m| m['media_type'] == 'CAROUSEL_ALBUM' }
+      data.first(limit)
     else
       Rails.logger.error("Instagram API did not return 'data': #{json}")
       []
     end
+  rescue StandardError => e
+    Rails.logger.error("Error fetching Instagram feed: #{e.class} - #{e.message}")
+    []
   end
 end
