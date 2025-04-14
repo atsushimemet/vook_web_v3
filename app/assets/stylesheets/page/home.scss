@@ -230,17 +230,16 @@
     }
   }
   .magazine-cards {
+    padding: 0 1em;
     .magazine-card {
-      padding: 0 14px;
-      margin-bottom: 16px;
-      @include mobile {
-        padding: 4px;
-      }
+      margin-bottom: 24px;
     }
     .magazine-card-image {
-      margin-bottom: 16px;
+      margin-bottom: 8px;
       img {
         object-fit: cover;
+        border: solid 1px $primary;
+        border-radius: 4px;
       }
     }
     .magazine-card-header {
@@ -254,16 +253,10 @@
   .magazine-date {
     background-color: $secondary;
     color: $primary;
-    font-weight: 700;
     font-size: 14px;
     padding: 4px 8px;
-    &.draft {
-      color: $white;
-      background-color: $danger;
-    }
-    &.scheduled {
-      background-color: $success;
-    }
+    border: 1px solid $primary;
+    border-radius: 4px 0;
   }
 }
 

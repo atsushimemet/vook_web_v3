@@ -12,6 +12,9 @@ class MagazinesController < ApplicationController
 
   def show
     raise ActiveRecord::RecordNotFound unless @magazine.published? || admin_login?
+
+    @related_magazines = Magazine.published.with_attached_thumbnail.tagged_with(@magazine.tag_list, any: true)
+                                 .where.not(id: @magazine.id).order(publish_at: :desc).distinct.limit(4)
   end
 
   def new
