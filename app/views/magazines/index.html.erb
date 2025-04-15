@@ -6,7 +6,7 @@
 <section class='magazine-section'>
   <%= render partial: 'shared/section_headline', locals: { number: '01', title: 'Magazine' } %>
   <div class='magazine-container container'>
-    <%= render 'magazines/card_list', magazines: @new_magazines %>
+    <%= render 'magazines/card_list', magazines: @magazines %>
     <% if admin_login? %>
       <div class='has-text-right mt-4'>
         <%= link_to 'New Magazine', new_magazine_path, class: 'button is-primary' %>
