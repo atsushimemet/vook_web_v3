@@ -49,9 +49,7 @@
             <li><i class='fa-solid fa-tag icon-tag'></i></li>
             <% @magazine.tag_list.each do |tag| %>
               <li>
-                <span class='button is-rounded'><%= "##{tag}" %></span>
-                <%# [TODO]タグの運用が決まるまでコメントアウト %>
-                <%#= link_to "##{tag}", '#', class: 'button is-rounded' %>
+                <%= link_to "##{tag}", tag_path(tag), class: 'button is-rounded' %>
               </li>
             <% end %>
           </ul>

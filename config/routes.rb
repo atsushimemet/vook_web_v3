@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :lines, only: %i[show new edit create update destroy], param: :name, constraints: { name: /[^\/]+/ }
   resources :knowledges
   resources :magazines, path: '/magazine'
+  resources :tags, only: [:show], constraints: { id: /[^\/]+/ }
   resources :brands do
     resources :lines, only: [:index]
   end

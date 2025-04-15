@@ -1,0 +1,47 @@
+@use '../base' as *;
+@use '../variables' as *;
+@use '../common/share' as *;
+
+.tag-section {
+  margin-bottom: 24px;
+  .tag-container {
+    padding: 0 1em;
+  }
+
+  .magazine-cards {
+    .magazine-card {
+      margin-bottom: 24px;
+    }
+    .magazine-card-image {
+      margin-bottom: 8px;
+      img {
+        object-fit: cover;
+        border: solid 1px $primary;
+        border-radius: 4px;
+      }
+    }
+    .magazine-card-header {
+      font-size: 14px;
+    }
+    .magazine-date {
+      position: absolute;
+      z-index: 5;
+    }
+  }
+
+  .magazine-date {
+    background-color: $secondary;
+    color: $primary;
+    font-size: 14px;
+    padding: 4px 8px;
+    border: 1px solid $primary;
+    border-radius: 4px 0;
+    &.draft {
+      color: $white;
+      background-color: $danger;
+    }
+    &.scheduled {
+      background-color: $success;
+    }
+  }
+}
