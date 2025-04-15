@@ -1,0 +1,20 @@
+<%= javascript_include_tag 'tags/show', defer: true %>
+<% content_for :stylesheet do %>
+  <%= stylesheet_link_tag 'page/tag' %>
+<% end %>
+
+<% set_meta_tags(title: "#{@tag.name} | Vook tokyo", description: "#{@tag.name}の記事をまとめて表示しています。", noindex: true) %>
+
+<section class='tag-section'>
+  <%= render partial: 'shared/section_headline', locals: { title: "##{@tag.name}" } %>
+  <div class='tag-container container'>
+    <%= render 'magazines/card_list', magazines: @magazines %>
+    <% if admin_login? %>
+      <div class='has-text-right mt-4'>
+        <%= link_to 'New Magazine', new_magazine_path, class: 'button is-primary' %>
+      </div>
+    <% end %>
+    <%= render 'shared/share_banner', share_text: @tag.name %>
+    <%= link_to 'Magazine一覧に戻る', magazines_path %>
+  </div>
+</section>
