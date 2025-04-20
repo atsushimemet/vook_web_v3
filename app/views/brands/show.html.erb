@@ -18,7 +18,8 @@
     </nav>
     <div class='knowledge-brand-header' style="background-color: <%= @brand.color %>">
       <% if @brand.banner.attached? %>
-        <%= image_tag @brand.banner, alt: @brand.name, class: 'knowledge-banner', loading: 'eager' %>
+        <%= image_tag @brand.banner, alt: @brand.name, class: 'knowledge-banner', width: 180, height: 120,
+                                     loading: 'eager' %>
       <% end %>
     </div>
     <% if @brand.description.present? %>

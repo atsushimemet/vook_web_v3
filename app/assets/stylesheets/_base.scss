@@ -40,8 +40,9 @@ html {
   scroll-behavior: smooth;
 }
 body {
-  display: flex;
-  flex-flow: column;
+  width: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
   min-height: 100vh;
   overflow-x: hidden;
   color: $primary;
@@ -64,7 +65,7 @@ body {
   }
 }
 main {
-  flex: 1;
+  min-width: 0;
 }
 .input:focus {
   border: solid 1px gray;
