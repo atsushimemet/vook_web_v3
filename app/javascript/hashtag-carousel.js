@@ -17,7 +17,7 @@ const splideOptions = {
     },
   },
   autoScroll: {
-    speed: 0.5,
+    speed: 0.75,
   },
 };
 
