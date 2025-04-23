@@ -2,13 +2,7 @@ class MagazinesController < ApplicationController
   before_action :set_magazine, only: %i[show edit update destroy]
   before_action :require_admin_login, only: %i[new edit create update destroy]
 
-  def index
-    @magazines = if admin_login?
-                   Magazine.with_attached_thumbnail.order(publish_at: :desc)
-                 else
-                   Magazine.published.with_attached_thumbnail.order(publish_at: :desc)
-                 end
-  end
+  def index; end
 
   def show
     raise ActiveRecord::RecordNotFound unless @magazine.published? || admin_login?
