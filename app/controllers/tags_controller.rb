@@ -1,6 +1,6 @@
 class TagsController < ApplicationController
   def show
     @tag = ActsAsTaggableOn::Tag.find_by!(name: params[:id])
-    @magazines = Magazine.published.with_attached_thumbnail.tagged_with(@tag.name)
+    @magazines = Magazine.published.with_attached_thumbnail.tagged_with(@tag.name).order(publish_at: :desc)
   end
 end
