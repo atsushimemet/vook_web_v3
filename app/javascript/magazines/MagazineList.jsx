@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import useSWR from 'swr'
+import Skeleton from '@mui/material/Skeleton'
 
 const fetcher = (url) => fetch(url).then(res => res.json())
 
@@ -15,12 +16,31 @@ const MagazineCard = ({ magazine }) => (
             src={magazine.thumbnail_url || '/assets/magazine-sample.webp'}
             alt={magazine.title}
             loading="eager"
+            fetchPriority="high"
           />
         </div>
         <div className="magazine-card-content">
           <div className="magazine-card-header">{magazine.title}</div>
         </div>
       </a>
+    </div>
+  </div>
+)
+
+const MagazineSkeleton = () => (
+  <div className="column is-one-quarter-tablet is-half-mobile">
+    <div className="magazine-card card">
+      <div className="magazine-date">
+        <Skeleton variant="text" width={80} height={16} />
+      </div>
+      <div className="magazine-card-image image">
+        <Skeleton variant="rectangular" width="100%" height={0} style={{ paddingTop: '100%' }} />
+      </div>
+      <div className="magazine-card-content">
+        <div className="magazine-card-header">
+          <Skeleton variant="text" width="90%" height={24} />
+        </div>
+      </div>
     </div>
   </div>
 )
@@ -44,7 +64,15 @@ const MagazineList = () => {
   }
 
   if (error) return <p>現在、最新のMagazineを読み込めません</p>
-  if (!data && magazines.length === 0) return <p>読み込み中...</p>
+  if (!data && magazines.length === 0) {
+    return (
+      <div className="magazine-cards columns is-mobile is-multiline">
+        {Array.from({ length: 8 }).map((_, i) => (
+          <MagazineSkeleton key={i} />
+        ))}
+      </div>
+    )
+  }
 
   return (
     <>
