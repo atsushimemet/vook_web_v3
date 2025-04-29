@@ -76,6 +76,7 @@ jobs:
       - name: Precompile assets
         env:
           RAILS_ENV: test
+          APP_HOST: http://127.0.0.1:3000
         run: bundle exec rails assets:precompile
 
       - name: RSpec
