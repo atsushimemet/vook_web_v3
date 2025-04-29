@@ -65,7 +65,7 @@ const MagazineList = () => {
   if (!data && magazines.length === 0) {
     return (
       <div className="magazine-cards columns is-mobile is-multiline">
-        {Array.from({ length: 8 }).map((_, i) => (
+        {Array.from({ length: 12 }).map((_, i) => (
           <MagazineSkeleton key={i} />
         ))}
       </div>
