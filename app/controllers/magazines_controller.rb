@@ -6,6 +6,7 @@ class MagazinesController < ApplicationController
     @ranking_magazines = Magazine.ranking.includes(:tags, thumbnail_attachment: :blob).limit(10).presence ||
                          Magazine.published.includes(:tags,
                                                      thumbnail_attachment: :blob).order(publish_at: :desc).limit(10)
+    @tags = ActsAsTaggableOn::Tag.where('taggings_count >= ?', 2).order(taggings_count: :desc)
   end
 
   def show
