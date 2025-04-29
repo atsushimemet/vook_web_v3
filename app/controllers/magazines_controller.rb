@@ -2,7 +2,11 @@ class MagazinesController < ApplicationController
   before_action :set_magazine, only: %i[show edit update destroy]
   before_action :require_admin_login, only: %i[new edit create update destroy]
 
-  def index; end
+  def index
+    @ranking_magazines = Magazine.ranking.includes(:tags, thumbnail_attachment: :blob).limit(10).presence ||
+                         Magazine.published.includes(:tags,
+                                                     thumbnail_attachment: :blob).order(publish_at: :desc).limit(10)
+  end
 
   def show
     raise ActiveRecord::RecordNotFound unless @magazine.published? || admin_login?

@@ -6,7 +6,17 @@
 <section class='magazine-section'>
   <%= render partial: 'shared/section_headline', locals: { number: '01', title: 'Magazine' } %>
   <div class='magazine-container container'>
-    <div id='magazine-list'></div>
+    <div class='layout-wrapper'>
+      <div class='main-content'>
+        <div id='magazine-list'></div>
+        <div class='mobile-contents'>
+          <%= render 'magazine_ranking', magazines: @ranking_magazines, ad_magazine: @ad_magazine %>
+        </div>
+      </div>
+      <div class='sidebar'>
+        <%= render 'magazine_ranking', magazines: @ranking_magazines, ad_magazine: @ad_magazine %>
+      </div>
+    </div>
     <% if admin_login? %>
       <div class='has-text-right mt-4'>
         <%= link_to 'New Magazine', new_magazine_path, class: 'button is-primary' %>
