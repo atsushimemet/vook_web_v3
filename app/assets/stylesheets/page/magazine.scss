@@ -71,6 +71,7 @@
   }
   #magazine-list {
     min-height: 800px;
+    margin-bottom: 36px;
   }
   .magazine-cards {
     .magazine-card {
@@ -115,15 +116,39 @@
     }
   }
 
-  .magazine-ranking-container {
+  .sidebar {
     padding-left: 24px;
     border-left: solid 1px $primary;
-    @include touch {
-      margin: 0 16px;
-      padding-left: 0;
-      border-left: none;
-    }
+  }
 
+  .tag-list-container {
+    margin-bottom: 24px;
+    .tag-list-title {
+      padding: 0 0 1em;
+      font-size: 1.2rem;
+      font-weight: 700;
+      .tag-list-title-text {
+        border: solid 1px $primary;
+        box-shadow: -8px 0px 0px 0px #fcd900;
+      }
+    }
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      .button {
+        margin-bottom: 4px;
+      }
+      .tag-item {
+        margin: 4px;
+        font-size: .7rem;
+        border: solid 1px $primary;
+        padding: 0.25em 0.5em;
+        border-radius: 9999px;
+      }
+    }
+  }
+
+  .magazine-ranking-container {
     .ranking-title {
       padding: 1em 0;
       border-bottom: 1px solid $dark-gray;
