@@ -37,9 +37,7 @@ const MagazineSkeleton = () => (
         <Skeleton variant="rectangular" width="100%" height={0} style={{ paddingTop: '100%' }} />
       </div>
       <div className="magazine-card-content">
-        <div className="magazine-card-header">
-          <Skeleton variant="text" width="90%" height={24} />
-        </div>
+        <Skeleton variant="text" width="90%" height={24} />
       </div>
     </div>
   </div>
