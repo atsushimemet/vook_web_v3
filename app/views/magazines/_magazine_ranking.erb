@@ -45,7 +45,7 @@
               </div>
               <div class='magazine-tags'>
                 <% ad_magazine.tags.each do |tag| %>
-                  <span class='magazine-tag'><%= tag.name %></span>
+                  <span class='magazine-tag is-rounded'><%= tag.name %></span>
                 <% end %>
               </div>
             </div>
@@ -54,7 +54,9 @@
       </li>
     <% end %>
   </ul>
-  <div class='read-more'>
-    <%= link_to 'Magazineをもっと見る', magazines_path %>
-  </div>
+  <% unless current_page?(magazines_path) %>
+    <div class='read-more'>
+      <%= link_to 'Magazineをもっと見る', magazines_path %>
+    </div>
+  <% end %>
 </div>
