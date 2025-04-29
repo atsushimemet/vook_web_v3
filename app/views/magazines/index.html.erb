@@ -10,10 +10,12 @@
       <div class='main-content'>
         <div id='magazine-list'></div>
         <div class='mobile-contents'>
+          <%= render 'tag_list', tags: @tags %>
           <%= render 'magazine_ranking', magazines: @ranking_magazines, ad_magazine: @ad_magazine %>
         </div>
       </div>
       <div class='sidebar'>
+        <%= render 'tag_list', tags: @tags %>
         <%= render 'magazine_ranking', magazines: @ranking_magazines, ad_magazine: @ad_magazine %>
       </div>
     </div>

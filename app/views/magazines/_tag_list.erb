@@ -1,0 +1,10 @@
+<div class='tag-list-container'>
+  <h2 class='tag-list-title'><span class='tag-list-title-text'>Tags</span></h2>
+  <ul class='tag-list'>
+    <% tags.each do |tag| %>
+      <li class='tag-item'>
+        <%= link_to tag.name, tag_path(tag.name) %>
+      </li>
+    <% end %>
+  </ul>
+</div>
