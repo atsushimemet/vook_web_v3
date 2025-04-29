@@ -76,19 +76,18 @@ main {
   justify-content: space-between;
   max-width: 1036px;
   margin: 0 auto;
-  gap: 16px;
+  $gap: 24px;
+  gap: $gap;
 
   .main-content {
-    width: 66.7%;
-
+    width: calc((100% - #{$gap}) * 0.7);
     @include touch {
       width: 100%;
     }
   }
 
   .sidebar {
-    width: 29.6%;
-
+    width: calc((100% - #{$gap}) * 0.3);
     @include touch {
       display: none;
     }
