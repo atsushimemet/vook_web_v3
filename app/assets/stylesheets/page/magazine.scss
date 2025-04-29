@@ -114,5 +114,93 @@
       background-color: $success;
     }
   }
+
+  .magazine-ranking-container {
+    padding-left: 24px;
+    border-left: solid 1px $primary;
+    @include touch {
+      margin: 0 16px;
+      padding-left: 0;
+      border-left: none;
+    }
+
+    .ranking-title {
+      padding: 1em 0;
+      border-bottom: 1px solid $dark-gray;
+      font-size: 1.2rem;
+      font-weight: 700;
+      .ranking-title-text {
+        border: solid 1px $primary;
+        box-shadow: -8px 0px 0px 0px #fcd900;
+      }
+    }
+    .magazine-ranking-list {
+      display: flex;
+      flex-flow: revert;
+      flex-direction: column;
+      margin-bottom: 10px;
+      a {
+        text-decoration: none;
+      }
+    }
+    .magazine-ranking-item {
+      display: flex;
+      padding: 1em 0;
+      gap: 16px;
+      border-bottom: 1px solid $dark-gray;
+    }
+    .magazine-ranking-left {
+      min-width: 80px;
+      position: relative;
+      img {
+        aspect-ratio: 1 / 1;
+        height: 80px;
+        border-radius: 4px;
+        object-fit: cover;
+      }
+      .ranking-number {
+        position: absolute;
+        top: -8px;
+        left: -8px;
+        width: 24px;
+        height: 24px;
+        border-radius: 4px;
+        color: $white;
+        background-color: $primary;
+        text-align: center;
+        font-size: 1rem;
+        font-weight: 700;
+        line-height: 24px;
+        z-index: 5;
+      }
+    }
+    .magazine-ranking-right {
+      .magazine-title {
+        margin-bottom: 8px;
+        font-size: .9rem;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+        line-clamp: 3;
+        overflow: hidden;
+        font-weight: 400;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+      .magazine-tags {
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: 0px;
+        gap: 4px;
+      }
+      .magazine-tag {
+        font-size: .7rem;
+        border: solid 1px $primary;
+        padding: 0.25em 0.5em;
+        border-radius: 9999px;
+      }
+    }
+  }
 }
 

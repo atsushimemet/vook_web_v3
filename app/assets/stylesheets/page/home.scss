@@ -59,7 +59,7 @@
   }
 
   .magazine-ranking-container {
-    padding-left: 16px;
+    padding-left: 24px;
     border-left: solid 1px $primary;
     @include touch {
       margin: 0 16px;
@@ -82,6 +82,9 @@
       flex-flow: revert;
       flex-direction: column;
       margin-bottom: 10px;
+      a {
+        text-decoration: none;
+      }
     }
     .magazine-ranking-item {
       display: flex;
@@ -116,28 +119,29 @@
     }
     .magazine-ranking-right {
       .magazine-title {
-        margin-bottom: 4px;
+        margin-bottom: 8px;
         font-size: .9rem;
         display: -webkit-box;
         -webkit-box-orient: vertical;
         -webkit-line-clamp: 3;
         line-clamp: 3;
         overflow: hidden;
+        font-weight: 400;
+        &:hover {
+          text-decoration: underline;
+        }
       }
       .magazine-tags {
         display: flex;
         flex-wrap: wrap;
-        margin-bottom: 2px;
+        margin-bottom: 0px;
         gap: 4px;
       }
       .magazine-tag {
         font-size: .7rem;
-        background: $secondary;
-        padding: 2px 4px;
-        border-radius: 4px;
-        &:hover {
-          text-decoration: dotted underline;
-        }
+        border: solid 1px $primary;
+        padding: 0.25em 0.5em;
+        border-radius: 9999px;
       }
     }
     .read-more {
