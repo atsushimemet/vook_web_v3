@@ -69,6 +69,9 @@
   .form-section {
     margin-bottom: 20px;
   }
+  #magazine-list {
+    min-height: 800px;
+  }
   .magazine-cards {
     .magazine-card {
       margin-bottom: 24px;
@@ -87,6 +90,12 @@
     .magazine-date {
       position: absolute;
       z-index: 5;
+    }
+  }
+
+  .read-more-button {
+    i {
+      margin-right: 6px;
     }
   }
 

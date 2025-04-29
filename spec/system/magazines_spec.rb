@@ -19,6 +19,7 @@ RSpec.describe '/magazines', type: :system do
 
     it '記事が公開日順に並べられていること' do
       visit magazines_path
+      expect(page).to have_selector('.magazine-card-header')
       within '.magazine-cards' do
         post_title = all('.magazine-card-header').map(&:text)
         expect(post_title).to eq ['【購入品紹介】"French Navy" Deck Jacket', '公開日が昨日の記事', '公開日が一昨日の記事']
@@ -28,6 +29,7 @@ RSpec.describe '/magazines', type: :system do
     it '管理者以外は記事作成ボタンが表示されないこと' do
       sign_in_as(user)
       visit magazines_path
+      expect(page).to have_selector('.magazine-card-header')
       expect(page).to have_no_content 'New Magazine'
     end
 
@@ -37,11 +39,13 @@ RSpec.describe '/magazines', type: :system do
       it '管理者は表示される' do
         sign_in_as(admin)
         visit magazines_path
+        expect(page).to have_selector('.magazine-card-header')
         expect(page).to have_content '下書き'
       end
 
       it '管理者以外は表示されないこと' do
         visit magazines_path
+        expect(page).to have_selector('.magazine-card-header')
         expect(page).to have_no_content '下書き'
       end
     end
@@ -52,11 +56,13 @@ RSpec.describe '/magazines', type: :system do
       it '管理者は表示される' do
         sign_in_as(admin)
         visit magazines_path
+        expect(page).to have_selector('.magazine-card-header')
         expect(page).to have_content '予約投稿'
       end
 
       it '管理者以外は表示されないこと' do
         visit magazines_path
+        expect(page).to have_selector('.magazine-card-header')
         expect(page).to have_no_content '予約投稿'
       end
     end

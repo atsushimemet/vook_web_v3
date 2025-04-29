@@ -12,6 +12,8 @@ Rails.application.configure do
 
   # Settings specified here will take precedence over those in config/application.rb.
 
+  Rails.application.routes.default_url_options[:host] = ENV.fetch('APP_HOST')
+
   # Make code changes take effect immediately without server restart.
   config.enable_reloading = true
 
