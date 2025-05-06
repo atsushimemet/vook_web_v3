@@ -25,7 +25,11 @@ Rails.application.routes.draw do
   get '/about', to: 'home#about'
   get '/tos', to: 'home#tos', as: 'tos'
   get '/privacy_policy', to: 'home#privacy_policy', as: 'privacy_policy'
+
   get '/admin', to: 'admin#show'
+  namespace :admin do
+    resources :magazines, only: [:index], path: '/magazine'
+  end
 
   namespace :api, defaults: { format: :json } do
     resources :terms, only: [:index]
