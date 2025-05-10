@@ -46,7 +46,7 @@ class MagazinesController < ApplicationController
 
   def destroy
     @magazine.destroy
-    redirect_to magazines_path, notice: '記事を削除しました'
+    redirect_to admin_magazines_path, notice: '記事を削除しました'
   end
 
   private

@@ -1,0 +1,46 @@
+<% content_for :stylesheet do %>
+  <%= stylesheet_link_tag 'page/admin' %>
+<% end %>
+
+<section class='admin-section'>
+  <%= render partial: 'shared/section_headline', locals: { number: '01', title: 'Magazine' } %>
+  <div class='admin-container container'>
+    <div class='has-text-right'>
+      <%= link_to 'New magazine', new_magazine_path, class: 'button is-primary' %>
+    </div>
+    <table class='admin-table table is-striped'>
+      <thead>
+        <tr>
+          <th></th>
+          <th>ID</th>
+          <th>マガジン</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <% @magazines.each do |magazine| %>
+        <tr>
+          <td>
+            <% if magazine.draft? %>
+              <i class='fa-regular fa-pen-to-square'></i>
+            <% elsif magazine.scheduled? %>
+              <i class='fa-solid fa-calendar-days'></i>
+            <% end %>
+          </td>
+          <td><%= magazine.id %></td>
+          <td>
+            <%= link_to magazine.title, magazine_path(magazine) %>
+          </td>
+          <td>
+            <%= link_to '編集', edit_magazine_path(magazine), class: 'button is-primary' %>
+          </td>
+          <td>
+            <%= button_to '削除', magazine,
+                          { method: :delete, form: { data: { turbo: true, turbo_confirm: '本当に削除しますか？' } },
+                            class: 'button' } %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</section>
