@@ -1,5 +1,5 @@
 class Shop < ApplicationRecord
-  has_one :image_credit, dependent: :destroy
+  has_many :image_credits, dependent: :destroy
 
   validates :name, presence: true, uniqueness: true
 end
